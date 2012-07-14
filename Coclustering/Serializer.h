@@ -2,16 +2,17 @@
 
 #include <boost/unordered_map.hpp>
 #include <opencv2/opencv.hpp>
+#include <sstream>
 #include <fstream>
 #include <string>
 
-// This class is used to searilze a bunch of data structures.
+// This class is used to serialize a bunch of data structures.
 class Serializer {
 public:
 	Serializer();
 	~Serializer();
-	static void load(cv::Mat* pMat, const std::string& path) {
-		*pMat = cv::Mat();
+	static void load(cv::Mat& mat, const std::string& path) {
+		mat = cv::Mat();
 		std::ifstream inStream;
 		inStream.open(path.c_str(), std::ios::binary);
 		if (inStream.good()) {
@@ -21,9 +22,9 @@ public:
 			inStream.read((char*) &rows, sizeof(rows));
 			inStream.read((char*) &cols, sizeof(cols));
 			inStream.read((char*) &type, sizeof(type));
-			*pMat = cv::Mat(rows, cols, type);
-			size_t length = (size_t) rows * pMat->step;
-			inStream.read((char*) pMat->data, length);
+			mat = cv::Mat(rows, cols, type);
+			size_t length = (size_t) rows * mat.step;
+			inStream.read((char*) mat.data, length);
 			inStream.close();
 		}
 	}
@@ -47,16 +48,16 @@ public:
 		}
 	}
 
-	template<class T> static void load(std::vector<T>* pArray,
+	template<class T> static void load(std::vector<T>& array,
 			const std::string& path) {
-		pArray->clear();
+		array.clear();
 		std::ifstream inStream;
 		inStream.open(path.c_str(), std::ios::binary);
 		if (inStream.good()) {
 			size_t size;
 			inStream.read((char*) &size, sizeof(size));
-			pArray->assign(size, 0);
-			inStream.read((char*) &(*pArray)[0], sizeof(T) * size);
+			array.assign(size, 0);
+			inStream.read((char*) &array[0], sizeof(T) * size);
 			inStream.close();
 		}
 	}
@@ -75,9 +76,9 @@ public:
 		}
 	}
 
-	template<class T, class U> static void load(boost::unordered_map<T, U>* pMap
-			, const std::string& path) {
-		pMap->clear();
+	template<class T, class U> static void load(boost::unordered_map<T, U>& map,
+			const std::string& path) {
+		map.clear();
 		std::ifstream inStream;
 		inStream.open(path.c_str(), std::ios::binary);
 		if (inStream.good()) {
@@ -88,15 +89,14 @@ public:
 				U value;
 				inStream.read((char*) &key, sizeof(key));
 				inStream.read((char*) &value, sizeof(value));
-				(*pMap)[key] = value;
+				map[key] = value;
 			}
 			inStream.close();
 		}
 	}
 
 	template<class T, class U> static void save(
-			const boost::unordered_map<T, U>& map,
-			const std::string& path) {
+			const boost::unordered_map<T, U>& map, const std::string& path) {
 		if (map.empty()) {
 			return;
 		}
@@ -111,6 +111,40 @@ public:
 				U value = iter->second;
 				outStream.write((char*) &key, sizeof(key));
 				outStream.write((char*) &value, sizeof(value));
+			}
+			outStream.close();
+		}
+	}
+
+	static void loadLandmark(std::vector<cv::Point2f>& landmarkArray,
+			const std::string& path) {
+		landmarkArray.clear();
+		std::ifstream inStream;
+		inStream.open(path.c_str());
+		if (inStream.good()) {
+			std::string line;
+			while (getline(inStream, line)) {
+				std::stringstream ss;
+				ss << line;
+				float x, y;
+				ss >> x >> y;
+				landmarkArray.push_back(cv::Point2f(x, y));
+			}
+			inStream.close();
+		}
+	}
+
+	static void saveLandmark(const std::vector<cv::Point2f>& landmarkArray,
+			const std::string& path) {
+		if (landmarkArray.empty()) {
+			return;
+		}
+		std::ofstream outStream;
+		outStream.open(path.c_str());
+		if (outStream.good()) {
+			for (size_t i = 0; i < landmarkArray.size(); ++i) {
+				outStream << landmarkArray[i].x << "\t" << landmarkArray[i].y
+						<< std::endl;
 			}
 			outStream.close();
 		}
