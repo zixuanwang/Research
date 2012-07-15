@@ -7,7 +7,7 @@
 #include <boost/bimap.hpp>
 #include <algorithm>
 #include "KernelKmeansClusterer.h"
-#include "FaceDetector.h"
+#include "CascadeDetector.h"
 #include "FaceDescriptor.h"
 #include "FaceLandmarkDetector.h"
 #include "KnnClassifier.h"
@@ -18,27 +18,29 @@
 #include "ImageResizer.h"
 #include "RandIndexComputer.h"
 #include "RobustMatcher.h"
+#include "File.h"
 // this class is used for testing functions
 class Tester
 {
 public:
 	Tester(void);
 	~Tester(void);
-	static void testKKClusterer();
-	static void testFaceFeature();
-	static void testSIFTFeature();
-	static void testTrain();
-	static void testFaceAccuracy();
-	static void testFlandmark();
-	static void testPCA();
-	static void testDownloadPubFig();
-	static void testVocabulary();
-	static void testLocationFeature();
-	static void testGroundTruth();
-	static void testFaceClustering();
-	static void testLocationClustering();
-	static void testFlickr();
-	static void testFlickrFace();
-	static void testCosegmentation();
+	//static void testKKClusterer();
+	//static void testFaceFeature();
+	//static void testSIFTFeature();
+	//static void testTrain();
+	//static void testFaceAccuracy();
+	//static void testFlandmark();
+	//static void testPCA();
+	//static void testDownloadPubFig();
+	//static void testVocabulary();
+	//static void testLocationFeature();
+	//static void testGroundTruth();
+	//static void testFaceClustering();
+	//static void testLocationClustering();
+	//static void testFlickr();
+	//static void testFlickrFace();
+	//static void testCosegmentation();
+	static void testBaseline();
 };
 

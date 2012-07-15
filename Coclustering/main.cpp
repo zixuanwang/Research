@@ -16,6 +16,7 @@ int main(int argc, char* argv[]){
 	//Tester::testLocationClustering();
 	//Tester::testFlickr();
 	//Tester::testCosegmentation();
-	Tester::testFlickrFace();
+	//Tester::testFlickrFace();
+	Tester::testBaseline();
 	return 0;
 }

@@ -11,6 +11,9 @@ public:
 	static FaceLandmarkDetector* instance();
 	// initialize the class from the model file.
 	void init(const std::string& filename);
+	// this is a wrapper function. detect landmarks and warp the face patch.
+	cv::Mat getLandmark(cv::vector<cv::Point2f>* pLandmarkArray, const cv::Mat& image, const cv::Rect& bbox);
+
 	// detect facial components using flandmark.
 	// bbox is the bounding box obtained from the face detector.
 	void detect(std::vector<cv::Point2f>* pLandmarkArray, const cv::Mat& image,

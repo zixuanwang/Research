@@ -64,7 +64,7 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2, std::
 cv::Mat RobustMatcher::patch(const cv::Mat& image, const std::vector<cv::KeyPoint>& keypointArray){
 	cv::Mat points((int)keypointArray.size(), 1, CV_32SC2);
 	for (size_t i = 0; i < keypointArray.size(); ++i) {
-		int* ptr = points.ptr<int> (i);
+		int* ptr = points.ptr<int> ((int)i);
 		ptr[0]=(int)keypointArray[i].pt.x;
 		ptr[1]=(int)keypointArray[i].pt.y;
 	}

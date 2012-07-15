@@ -2,7 +2,8 @@
 
 #include <opencv2/opencv.hpp>
 #include "Sample.h"
-
+// this class computes the color histogram of the input image.
+// singleton design pattern.
 class ColorDescriptor
 {
 public:

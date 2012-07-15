@@ -27,6 +27,6 @@ void Classifier::save(const std::string& filepath){
 }
 
 void Classifier::load(const std::string& filepath){
-	Serializer::load(&mMat,filepath+".matrix");
-	Serializer::load(&mIdLabelMap,filepath+".label");
+	Serializer::load(mMat,filepath+".matrix");
+	Serializer::load(mIdLabelMap,filepath+".label");
 }

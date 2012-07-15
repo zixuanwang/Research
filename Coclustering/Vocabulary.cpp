@@ -22,7 +22,7 @@ void Vocabulary::build(const cv::Mat& sampleMat, int clusterCount){
 }
 	
 void Vocabulary::load(const std::string& vocabularyPath){
-	Serializer::load(&mMat,vocabularyPath);
+	Serializer::load(mMat,vocabularyPath);
 	mpIndex.reset(new cv::flann::Index(mMat, cv::flann::KDTreeIndexParams(8)));
 }
 

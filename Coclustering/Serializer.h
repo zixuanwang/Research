@@ -1,6 +1,8 @@
 #pragma once
 
 #include <boost/unordered_map.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
 #include <opencv2/opencv.hpp>
 #include <sstream>
 #include <fstream>
@@ -147,6 +149,37 @@ public:
 						<< std::endl;
 			}
 			outStream.close();
+		}
+	}
+
+	static void saveStringMap(const boost::unordered_map<std::string, int>& map, const std::string& path){
+		if(map.empty()){
+			return;
+		}
+		std::ofstream outStream;
+		outStream.open(path.c_str());
+		if (outStream.good()) {
+			for(boost::unordered_map<std::string, int>::const_iterator iter=map.begin();iter!=map.end();++iter){
+				outStream<<iter->first<<"\t"<<iter->second<<std::endl;
+			}
+			outStream.close();
+		}
+	}
+
+	static void loadStringMap(boost::unordered_map<std::string, int>& map, const std::string& path){
+		map.clear();
+		std::ifstream inStream;
+		inStream.open(path.c_str());
+		if(inStream.good()){
+			std::string line;
+			while (getline(inStream, line)) {
+				std::vector<std::string> tokenArray;
+				boost::split(tokenArray, line, boost::is_any_of("\t"));
+				if(tokenArray.size()==2){
+					map[tokenArray[0]]=boost::lexical_cast<int>(tokenArray[1]);
+				}
+			}
+			inStream.close();
 		}
 	}
 };

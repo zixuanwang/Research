@@ -3,6 +3,7 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+// this class is obsolete. use CascadeDetector instead.
 class FaceDetector {
 public:
 	static FaceDetector* instance();

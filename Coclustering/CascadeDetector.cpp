@@ -30,9 +30,13 @@ void CascadeDetector::detect(std::vector<cv::Rect>* pRectArray,
 		std::cout << "Error in the image format" << std::endl;
 		return;
 	}
-	cv::equalizeHist(image, image);
-	mCascade.detectMultiScale(image, *pRectArray, 1.1, 2,
+	try{
+		cv::equalizeHist(image, image);
+		mCascade.detectMultiScale(image, *pRectArray, 1.1, 2,
 			0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+	}catch(cv::Exception& e){
+		std::cerr<<e.what()<<std::endl;
+	}
 }
 
 void CascadeDetector::draw(cv::Mat *pImage, const std::vector<cv::Rect>& rectArray,

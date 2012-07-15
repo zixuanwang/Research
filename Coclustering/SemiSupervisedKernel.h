@@ -2,7 +2,6 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/connected_components.hpp>
 #include <boost/unordered_set.hpp>
-#include "Kernel.h"
 #include "LinearKernel.h"
 #include "RankItem.h"
 class SemiSupervisedKernel

@@ -30,6 +30,15 @@ void FaceLandmarkDetector::init(const std::string& filename) {
 	mpModel = flandmark_init(filename.c_str());
 }
 
+cv::Mat FaceLandmarkDetector::getLandmark(cv::vector<cv::Point2f>* pLandmarkArray, const cv::Mat& image, const cv::Rect& bbox){
+	detect(pLandmarkArray,image,bbox);
+	std::vector<cv::Point2f> landmarkArray;
+	cv::Mat faceMat=normalize(&landmarkArray,image,bbox,*pLandmarkArray);
+	cv::Mat warpedFaceMat=warp(pLandmarkArray,faceMat,landmarkArray);
+	pLandmarkArray->erase(pLandmarkArray->begin());// return the first landmark, which the center of the face.
+	return warpedFaceMat;
+}
+
 void FaceLandmarkDetector::detect(std::vector<cv::Point2f>* pLandmarkArray,
 		const cv::Mat& image, const cv::Rect& bbox) {
 	pLandmarkArray->clear();
