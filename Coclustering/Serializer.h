@@ -118,6 +118,33 @@ public:
 		}
 	}
 
+	static void loadStringArray(std::vector<std::string>& stringArray, const std::string& path){
+		stringArray.clear();
+		std::ifstream inStream;
+		inStream.open(path.c_str());
+		if(inStream.good()){
+			std::string line;
+			while(getline(inStream,line)){
+				stringArray.push_back(line);
+			}
+			inStream.close();
+		}
+	}
+
+	static void saveStringArray(const std::vector<std::string>& stringArray, const std::string& path){
+		if(stringArray.empty()){
+			return;
+		}
+		std::ofstream outStream;
+		outStream.open(path.c_str());
+		if(outStream.good()){
+			for(size_t i=0;i<stringArray.size();++i){
+				outStream<<stringArray[i]<<std::endl;
+			}
+			outStream.close();
+		}
+	}
+
 	static void loadLandmark(std::vector<cv::Point2f>& landmarkArray,
 			const std::string& path) {
 		landmarkArray.clear();

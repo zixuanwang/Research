@@ -21,6 +21,9 @@ Sample FaceDescriptor::compute(const cv::Mat& faceImage, const std::vector<cv::P
 		const std::vector<float>& sampleData=sample.getData();
 		std::copy(sampleData.begin(),sampleData.end(),std::back_inserter(faceArray));
 	}
+	if(faceArray.empty()){
+		return Sample();
+	}
 	Sample faceSample(faceArray);
 	faceSample.normalize();
 	return faceSample;

@@ -626,6 +626,55 @@ Tester::~Tester(void)
 //	}
 //}
 
+void Tester::buildLocationBasedClassifier(const std::string& filepath){
+	std::string imageDirectory="C:/dataset/pubfig";
+	std::string outputDirectory="C:/Users/t-ziwan/Desktop/location";
+	std::string cascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
+	std::string nestedCascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
+	std::string modelPath =
+			"C:/flandmark_model.dat";
+	SVMClassifier svmClassifier;
+	// initialize detectors
+	CascadeDetector faceDetector;
+	CascadeDetector noseDetector;
+	faceDetector.init(cascadeName);
+	noseDetector.init(nestedCascadeName);
+	FaceLandmarkDetector::instance()->init(modelPath);
+	std::vector<std::string> nameArray;
+	std::vector<std::string> trainArray;
+	Serializer::loadStringArray(nameArray,filepath);
+	boost::unordered_map<std::string, int> nameLabelMap;
+	for(size_t i=0;i<nameArray.size();++i){
+		nameLabelMap[nameArray[i]]=(int)i;
+		std::vector<std::string> filenameArray;
+		File::getFiles(&filenameArray, imageDirectory+"/"+nameArray[i], true);
+		for(size_t j=0;j<filenameArray.size();++j){
+			cv::Mat image=cv::imread(filenameArray[j],0);
+			std::vector<cv::Rect> faceArray;
+			faceDetector.detect(&faceArray,image);
+			if(faceArray.size()==1){
+				std::vector<cv::Rect> noseArray;
+				noseDetector.detect(&noseArray,image(faceArray[0]));
+				if(noseArray.size()==1){
+					std::vector<cv::Point2f> landmarkArray;
+					cv::Mat faceMat=FaceLandmarkDetector::instance()->getLandmark(&landmarkArray,image,faceArray[0]);
+					Sample faceSample=FaceDescriptor::instance()->compute(faceMat,landmarkArray);
+					svmClassifier.addSample(faceSample,(int)i);
+					trainArray.push_back(filenameArray[j]);
+				}
+			}
+		}
+		std::cout<<"Processing "<<nameArray[i]<<std::endl;
+	}
+	std::string filestem=File::getFileStem(filepath);
+	svmClassifier.build();
+	svmClassifier.save(outputDirectory+"/"+filestem);
+	Serializer::saveStringMap(nameLabelMap,outputDirectory+"/"+filestem+".name");
+	Serializer::saveStringArray(trainArray,outputDirectory+"/"+filestem+".train");
+}
+
 void Tester::testBaseline(){
 	std::string imageDirectory = "C:/dataset/pubfig";
 	std::string cascadeName =
@@ -644,6 +693,7 @@ void Tester::testBaseline(){
 	std::vector<std::string> filenameArray;
 	File::getFiles(&filenameArray, imageDirectory, true);
 	boost::unordered_map<std::string, int> nameLabelMap;
+	std::vector<std::string> trainArray;
 	for(size_t i=0;i<filenameArray.size();++i){
 		cv::Mat image=cv::imread(filenameArray[i],0);
 		std::vector<cv::Rect> faceArray;
@@ -660,11 +710,66 @@ void Tester::testBaseline(){
 				cv::Mat faceMat=FaceLandmarkDetector::instance()->getLandmark(&landmarkArray,image,faceArray[0]);
 				Sample faceSample=FaceDescriptor::instance()->compute(faceMat,landmarkArray);
 				knnClassifier.addSample(faceSample,nameLabelMap[name]);
+				trainArray.push_back(filenameArray[i]);
 			}
 		}
 		std::cout<<"Processing "<<filenameArray[i]<<"\t"<<i<<" out of "<<filenameArray.size()<<std::endl;
 	}
 	knnClassifier.build();
-	knnClassifier.save("C:/pubfig");
-	Serializer::saveStringMap(nameLabelMap,"C:/pubfig.name");
+	knnClassifier.save("C:/Users/t-ziwan/Desktop/pubfig");
+	Serializer::saveStringMap(nameLabelMap,"C:/Users/t-ziwan/Desktop/pubfig.name");
+	Serializer::saveStringArray(trainArray,"C:/Users/t-ziwan/Desktop/pubfig.train");
 }
+
+void Tester::testAccuracy(const std::string& locationName){
+	std::string cascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
+	std::string nestedCascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
+	std::string modelPath =
+			"C:/flandmark_model.dat";
+	std::vector<std::string> trainArray;
+	Serializer::loadStringArray(trainArray,"C:/Users/t-ziwan/Desktop/location/"+locationName+".train");
+	// load classifier
+	KnnClassifier classifier;
+	classifier.load("C:/Users/t-ziwan/Desktop/location/"+locationName);
+	classifier.build();
+	boost::unordered_map<std::string, int> nameLabelMap;
+	Serializer::loadStringMap(nameLabelMap,"C:/Users/t-ziwan/Desktop/location/"+locationName+".name");
+	// initialize detectors
+	CascadeDetector faceDetector;
+	CascadeDetector noseDetector;
+	faceDetector.init(cascadeName);
+	noseDetector.init(nestedCascadeName);
+	FaceLandmarkDetector::instance()->init(modelPath);
+	// construct the test set
+	size_t testSize=100;
+	srand((unsigned int)time(NULL));
+	boost::unordered_set<std::string> testSet;
+	while(testSet.size()<testSize){
+		testSet.insert(trainArray[rand()%trainArray.size()]);
+	}
+	float correct=0;
+	for(boost::unordered_set<std::string>::iterator iter=testSet.begin();iter!=testSet.end();++iter){
+		std::string testPath=*iter;
+		cv::Mat image=cv::imread(testPath,0);
+		std::vector<cv::Rect> faceArray;
+		faceDetector.detect(&faceArray,image);
+		if(faceArray.size()==1){
+			std::vector<cv::Rect> noseArray;
+			noseDetector.detect(&noseArray,image(faceArray[0]));
+			if(noseArray.size()==1){
+				std::string name=File::getParentDirectory(testPath);
+				std::vector<cv::Point2f> landmarkArray;
+				cv::Mat faceMat=FaceLandmarkDetector::instance()->getLandmark(&landmarkArray,image,faceArray[0]);
+				Sample faceSample=FaceDescriptor::instance()->compute(faceMat,landmarkArray);
+				int queryResult=classifier.query(faceSample);
+				if(nameLabelMap[name]==queryResult){
+					++correct;
+				}
+			}
+		}
+	}
+	std::cout<<locationName<<" Accuracy: "<<correct/testSize<<std::endl;
+}
+

@@ -11,6 +11,7 @@
 #include "FaceDescriptor.h"
 #include "FaceLandmarkDetector.h"
 #include "KnnClassifier.h"
+#include "SVMClassifier.h"
 #include "PCACompressor.h"
 #include "Vocabulary.h"
 #include "BoWDescriptor.h"
@@ -41,6 +42,9 @@ public:
 	//static void testFlickr();
 	//static void testFlickrFace();
 	//static void testCosegmentation();
+	// each line in the file specifies one people name appears at this location.
+	static void buildLocationBasedClassifier(const std::string& filepath);
 	static void testBaseline();
+	static void testAccuracy(const std::string& locationName);
 };
 

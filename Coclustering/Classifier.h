@@ -1,7 +1,6 @@
 #pragma once
 
 #include <opencv2/opencv.hpp>
-#include <boost/unordered_map.hpp>
 #include "Sample.h"
 #include "Serializer.h"
 
@@ -21,9 +20,8 @@ public:
 	virtual void save(const std::string& filepath);
 	virtual void load(const std::string& filepath);
 protected:
-	int mSampleId;
 	std::vector<float> mData;
 	cv::Mat mMat;
-	boost::unordered_map<int, int> mIdLabelMap;
+	std::vector<int> mLabelArray;
 };
 

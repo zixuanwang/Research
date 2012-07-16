@@ -1,6 +1,6 @@
 #include "KnnClassifier.h"
 
-const int KnnClassifier::k = 5;
+const int KnnClassifier::k = 9;
 
 KnnClassifier::KnnClassifier(void)
 {
@@ -12,8 +12,10 @@ KnnClassifier::~KnnClassifier(void)
 }
 
 void KnnClassifier::build(){
-	mMat=cv::Mat(mData,false);
-	mMat = mMat.reshape(0, mSampleId);
+	if(mMat.empty()){
+		mMat=cv::Mat(mData,false);
+		mMat=mMat.reshape(0,mLabelArray.size());
+	}
 	mpIndex.reset(new cv::flann::Index(mMat, cv::flann::KDTreeIndexParams(8)));
 }
 
@@ -28,7 +30,7 @@ std::vector<int> KnnClassifier::query(const Sample& sample, int n){
 	std::vector<int> labelArray;
 	labelArray.reserve(n);
 	for(int i=0;i<n;++i){
-		labelArray.push_back(mIdLabelMap[indices[i]]);
+		labelArray.push_back(mLabelArray[indices[i]]);
 	}
 	return labelArray;
 }

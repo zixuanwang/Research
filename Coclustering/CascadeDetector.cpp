@@ -23,7 +23,7 @@ void CascadeDetector::init(const std::string& cascadeName) {
 void CascadeDetector::detect(std::vector<cv::Rect>* pRectArray,
 		const cv::Mat& image) {
 	pRectArray->clear();
-	if (mCascade.empty()) {
+	if (mCascade.empty() || image.empty()) {
 		return;
 	}
 	if (image.type() != CV_8UC1) {
