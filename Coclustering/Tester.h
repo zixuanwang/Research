@@ -20,6 +20,7 @@
 #include "RandIndexComputer.h"
 #include "RobustMatcher.h"
 #include "File.h"
+#include "Evaluation.h"
 // this class is used for testing functions
 class Tester
 {
