@@ -1,0 +1,132 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+{% block extrastyle %}
+	<link type="text/css" href="{%static "css/ui.multiselect.css"%}" rel="stylesheet" />
+	<link href="{%static "css/jquery-autocomplete.css"%}" rel="stylesheet" type="text/css"  />
+	<link href="{%static "css/protoplasm.css"%}" rel="stylesheet" type="text/css"  />
+	<style>
+	.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+	.ui-timepicker-div dl { text-align: left; }
+	.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+	.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+	.ui-timepicker-div td { font-size: 90%; }
+	.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+	</style>
+	
+{% endblock %}
+{% block morescript %}
+	<script src="{%static "js/jquery-autocomplete.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/tag-it.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/ui.multiselect.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/jquery.scrollTo-min.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/jquery-ui-timepick-addon.js"%}" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+		jQuery.noConflict(); // start substituting $ for jQuery
+		jQuery(document).ready(function(){
+			jQuery('#datepickere').datetimepicker({
+			dateFormat: 'yy-mm-dd',
+			timeFormat: 'hh:mm:ss',
+			});
+			
+			//$( "#datepicker" ).datepicker();
+		});
+		jQuery(document).ready(function(){
+			 
+			jQuery('#datepickerv').datetimepicker({
+			dateFormat: 'yy-mm-dd',
+			timeFormat: 'hh:mm:ss',
+			});
+			//$( "#datepicker" ).datepicker();
+		});
+		
+		jQuery(function() {
+			jQuery("#emails").tagit({
+				availableTags: ["yanjinyun@gmail.com","stratis.ioannidis@technicolor.com",""]
+			});
+	    });
+	    
+		jQuery(function(){
+			jQuery(".multiselect").multiselect();
+		});
+		
+		function validateForm(){
+			var xdate = document.forms["adminForm"]["eventDate"].value;
+			alert(xdate);
+			xdate = document.forms["adminForm"]["voteDate"].value;
+			alert(xdate);
+		var xemails = document.forms["adminForm"]["emails"].value;
+		//alert(xemails)
+		var xplaces = document.forms["adminForm"]["places"].value;
+		//alert(xplaces)
+		return false;
+		}
+		
+	</script>
+	
+
+{% endblock%}
+
+{% block headerimage%}
+ {%static "css/images/attender.gif"%}
+{% endblock%}
+
+{% block headertexttitle%} <h2>Manage Event</h2> {% endblock%}
+
+{% block headertextcontent%}
+	Tell us WHEN the event is takeing place,  WHO you want to invite, and WHAT to do, plus the Due Date to make decisions
+{% endblock%}
+
+{% block content%}
+	
+	<!--<form action = "/myEvents/"+{{ehash}} +"/"+{{uhash}}+"/editEvent/" method = "post" class="myform" name="adminForm" onsubmit="return validateEmail();">
+	-->
+	
+	<section id="work-panel">
+
+	{%if started  %} 
+		<h2 style="font-size:18px;">The Event is already started </h2>
+		<br>
+		<h3 style = "font-size:16px"> Wanna <a href = "../result/">Check the result</a> ?  </h3>
+	{%else%}
+
+	<h2> Please Manage Your Event!</h2>
+	<form action = "/myEvents/{{ehash}}/{{uhash}}/editEvent/" method = "post"  name="adminForm" style="border:none;">  
+		{% csrf_token %}
+		<div class="item">
+			<h3> WHEN </h3>
+			 <input id="datepickere" type="text" name="eventDate"/> 
+		</div>
+	
+		<!--<div>
+			<label for="id_user_email"> Who </label>
+			<input id= "id_user_email" type="text" name="user_email"/>
+		</div>-->
+		<div class="item" style="border:none;">
+			<h3> WHO</h3>
+			<ul id="emails" name="emails"></ul>
+		</div>
+		
+		<div >
+			<h3 for="places"> WHERE </h3>
+			 <select  id="multiselect" class="multiselect" multiple="multiple" name="places">
+				{% for rest in restaurants %}			
+					<option value="{{rest.id}}">{{rest.name}}</option>
+				{% endfor %}
+			</select>		
+		</div>
+		<br/>
+		
+		<div class="item">
+			<h3> Pick the time by which attendees must make decisions </h3>
+			 <input id="datepickerv" type="text" name="voteDate"/> 
+		</div>
+		<div class="btn">
+  		<input type="image" src="{%static "css/images/submitbtn.gif"%}" name="submit" tabindex="2" alt="submit" onclick="validateForm()" >
+  		</div>
+ 	</form>
+	</section>
+	{%endif%} 
+{% endblock%}
+

@@ -1,0 +1,19 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+
+{% block headertexttitle%}<h2> Thanks for using myEvents! </h2>  {% endblock%}
+{% block headertextcontent%} An Email has been sent to {{email}}, please check your inbox.  {% endblock%}
+{% block headerimage%}
+{%static "css/images/thanks.jpeg"%}
+{% endblock%}
+
+
+{% block content%}
+	<!-- 
+		<h2>
+		Thanks to use MyEvents! An Email has been sent to {{email}}, please check your inbox. 
+		</h2>
+    -->
+{% endblock%}
+

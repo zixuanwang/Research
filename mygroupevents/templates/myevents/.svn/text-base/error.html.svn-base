@@ -1,0 +1,15 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+
+{% block content%}
+	<h2>
+		Sorry, an Error is occurred:
+	</h2>
+	
+	<h3>
+	{{message}}
+	</h3>
+
+{% endblock%}
+

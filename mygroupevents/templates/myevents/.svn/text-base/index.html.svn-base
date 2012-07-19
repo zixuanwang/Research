@@ -1,0 +1,85 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+{% block morescript %}
+	<script>
+		function validateEmail()
+		{
+			var x=document.forms["indexForm"]["user_email"].value;
+			//alert(x)
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+ 				alert("Not a valid e-mail address");
+  				return false;
+ 			 }
+		}
+	</script>
+{% endblock%}
+{% block headerimage%}
+{%static "css/images/welcome.gif"%}
+{% endblock%}
+ {% block headertexttitle%}<h2> Howdy!</h2> {% endblock%}
+
+{% block headertextcontent%}
+	Wanna create an event? just provide your email address and the event name. We will send an email to your mailbox and allow you to manage your event.
+{% endblock%}
+
+{% block content%}
+ <!--
+	<form name = "indexForm" action = '/myEvents/createEvent/' method = "post" onsubmit="return validateEmail();"> 
+		{% csrf_token %}
+		<p>
+			<label for="id_user_email"> Email </label>
+			<input id= "id_user_email" type="text" name="user_email" max_length="100"/>
+			
+		</p>
+		<p>
+			<label for="id_event_name"> Event </label>
+			<input id= "id_event_name" type="text" name="event_name" max_length="100"/>
+		</p>
+		<input type="submit" value="Submit" />
+	</form>
+	-->
+	<section id="grayblock">
+<div class="getquote">
+	<h3>Create An Event!</h3>
+	<form name = "indexForm" action = '/myEvents/createEvent/' method = "post" onsubmit="return validateEmail();"> 
+		{% csrf_token %}
+		<div class="eml">
+			<label for="id_user_email"> Email </label>
+			<input id= "id_user_email" type="text" name="user_email" max_length="100"/>
+			
+		</div>
+		<div class="eml">
+			<label for="id_event_name"> Event </label>
+			<input id= "id_event_name" type="text" name="event_name" max_length="100"/>
+		</div>
+		<div class="btn">
+  			<input type="image" src="{%static "css/images/submitbtn.gif"%}" name="submit" tabindex="2" alt="submit">
+  		</div>
+	</form>
+	<div class="clear"></div>
+</div>
+<!--<div class="getquote">
+	<h3> Register: Become a member! </h3>
+	<form name = "registerForm" action = '/myEvents/register/' method = "post" onsubmit="return validateEmail();"> 
+		{% csrf_token %}
+		<div class="eml">
+			<label for="id_user_email"> Email </label>
+			<input id= "id_user_email" type="text" name="user_email" max_length="100"/>
+		</div>
+		<br>
+		<br>
+		<div class="btn">
+  			<input type="image" src="{%static "css/images/submitbtn.gif"%}" name="Register" tabindex="2" alt="register">
+  		</div>
+	</form>
+	<div class="clear"></div>
+</div>-->
+</section>
+	
+	
+{% endblock%}
+

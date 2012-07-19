@@ -1,0 +1,24 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+
+{% block headerimage%}
+{%static "css/images/cong.jpeg"%}
+{% endblock%}
+{% block headertexttitle%}<h2> Congratulations! </h2>{% endblock%}
+{% block headertextcontent%} We already received your votes. {% endblock%}
+
+{% block content%}
+<div id="myvote">
+	<h2>
+		Thanks for your voting! 
+	</h2>
+	<br/>
+	
+	<h2>
+		Want to <a href="../result/"> Check Current Result</a> of the poll?  
+	</h2>
+</div>
+
+{% endblock%}
+

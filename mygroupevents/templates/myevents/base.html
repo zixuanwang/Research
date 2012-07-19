@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<meta name="Keywords" content="Recommender System, Group, Lunch" />
+	<meta name="Description" content=" Group Recommender System, Lunch,Dinner,Movie" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	{% load staticfiles %}	
+	<title>{%block title %} {% endblock %} </title>		
+	 <!--[if lt IE 9]>
+    	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   	<![endif]-->
+			
+	<!-- CSS ================================================== -->
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/bootstrap-responsive.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/jquery-ui-1.8.18.custom.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/font-awesome.css" %}" rel="stylesheet" type="text/css">
+		 
+	<style type="text/css">
+		.ftwraper{
+			background:  #eee; /*#000;*/
+			position:fixed;
+			bottom:0;
+			left:0; 
+			width:100%;
+			padding:10px,0;
+			text-align:center;
+		}
+	</style>
+	{% block extrastyle %}{% endblock %}
+	<script type="text/javascript" src="{%static "js/jquery-1.7.1.min.js"%}"></script>
+	<script type="text/javascript" src="{%static "js/jquery-ui-1.8.18.custom.min.js"%}"></script>
+	<script type="text/javascript" src="{%static "js/bootstrap.js"%}"></script>
+	
+	</head> 
+	   
+<body data-spy="scroll" data-target=".subnav" data-offset="50"> 
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+       
+       	 <a class="brand" target="_blank" href="/myevents/">MyGroupEvents</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+                <a target="_blank" href="/myevents/">TRY</a>
+              </li>
+              <li>
+                <a href="/myevents/faq/" target="_blank">FAQ</a>
+              </li>
+              <li  >
+                <a href="/myevents/leaveComments/" target="_blank">COMMENT</a>
+              </li>
+            </ul>
+            <ul  class="nav pull-right">
+           		<li  >
+                  <a href="mailto:mygroupevents@gmail.com"><i class="icon-envelope"></i> CONTACT US</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+	</div>
+	<!-- Page Header
+	================================================== --> 
+    <div class="page-header">
+    <h1> <br> </h1>
+   <!-- <h1>Welcome!</h1>-->
+    </div>
+    <!-- Thanks Unit
+	================================================== -->
+	
+	{% block content %}
+	{% endblock %}
+	<!--put javascript at the end of the page-->
+	{%block morescript %} {%endblock %} 
+</body>
+
+</html>
+
+

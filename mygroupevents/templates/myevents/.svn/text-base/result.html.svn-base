@@ -1,0 +1,109 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+
+{% block morescript %}
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion();
+	});
+	</script>
+{% endblock%}
+
+{% block headerimage%}
+{%static "css/images/groupcartoon.jpeg"%}
+{% endblock%}
+{% block headertexttitle%}<h2> Result</h2>  {% endblock%}
+{% block headertextcontent%} The Current Decision of the Group{% endblock%}
+
+
+{% block content%}
+<h2>
+		Thanks for querying the polling result
+</h2>
+
+{%  if myvote %}
+<section class="maincolumns">
+<div class="column first">
+<h2>My Votes</h2>
+<ul>
+	{%for my in myvote%}
+	<li style="font-size: 150%;font-weight: bold; ">{{my}}</li>
+	{%endfor%}
+</ul>
+</div>
+<div class="column second">
+<h2>Group Votes</h2>
+  <table class="StateTable" rules="all" cellpadding="0" cellspacing="0">
+    <thead class="statetablerow">
+	<tr>
+	<th>Place</th>
+	<th>Votes</th>
+	</tr>
+	</thead>
+	<tbody>
+  	{% for key,value in votes.items%}
+   		<tr><td> {{key}} </td> <td> {{value}} </td> </tr>					
+    {% endfor %}	
+	</tbody>
+ 	</table>
+</div>
+</div>
+</section>
+{%else %}
+<section class="">
+<div class="column second">
+<h2>Group Votes</h2>
+  <table class="StateTable" rules="all" cellpadding="0" cellspacing="0">
+    <thead class="statetablerow">
+	<tr>
+	<th>Place</th>
+	<th>Votes</th>
+	</tr>
+	</thead>
+	<tbody>
+  	{% for key,value in votes.items%}
+   		<tr><td> {{key}} </td> <td> {{value}} </td> </tr>					
+    {% endfor %}		
+	</tbody>
+ 	</table>
+
+</div>
+</div>
+</section>
+{%endif %}
+
+<!-- 
+<div id="accordion">
+{%  if myvote %}
+<h3><a href="#">My Votes</a></h3>
+<div id="myvote">
+<ul>
+	{%for my in myvote%}
+	<li>{{my}}</li>
+	{%endfor%}
+</ul>
+</div>
+{%endif %}
+<h3><a href="#">Group Votes</a></h3>
+<div id="result">
+   
+    <table class="StateTable" rules="all" cellpadding="0" cellspacing="0">
+    <thead class="statetablerow">
+	<tr>
+	<th>Place</th>
+	<th>Votes</th>
+	</tr>
+	</thead>
+	<tbody>
+  	{% for key,value in votes.items%}
+   		<tr><td> {{key}} </td> <td> {{value}} </td> </tr>					
+    {% endfor %}	
+	
+	</tbody>
+ 	</table>
+</div>
+</div>
+ -->
+{% endblock%}
+

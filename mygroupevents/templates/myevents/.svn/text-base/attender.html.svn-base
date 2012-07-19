@@ -1,0 +1,523 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% load place_extra %}
+{% block title %} Welcome to MyEvents {% endblock %}
+{% block extrastyle %}
+	<link href="{%static "css/jquery-autocomplete.css"%}" rel="stylesheet" type="text/css"  />
+	<link type="text/css" href="{%static "css/ui.multiselect.css"%}" rel="stylesheet" />
+	<link type="text/css" href="{%static "css/countdown.css"%}" rel="stylesheet" />
+	<link type="text/css" href="{%static "css/tablesort.css"%}" rel="stylesheet" />
+     <link type="text/css" href="{%static "css/tiptip.css"%}" rel="stylesheet" />
+     <link type="text/css" href="{%static "css/css3-buttons.css"%}" rel="stylesheet" />
+<style type="text/css">
+a {  
+outline:none;  
+}  
+  
+.entry {  
+ width: 710px;  
+ background: #ffffff;  
+ padding:8px;  
+ border:1px solid #bbbbbb;  
+ margin:5px auto;  
+ -moz-border-radius:8px;  
+}  
+
+span.link a {  
+ font-size:150%;  
+ color: #000000;  
+ text-decoration:none;  
+}  
+a.like, a.dislike {  
+ display:inline-block;  
+ background-repeat:none;  
+ background-position:center;  
+ height:20px;  
+ width:30px;  
+ margin-left:4px;  
+ text-indent:-900%;  
+}  
+
+a.like {  
+ background:url("{%static "css/images/likebig.png"%}");  
+}  
+
+a.dislike {  
+ background:url("{%static "css/images/dislike.png"%}");  
+}  
+
+#button-container-like{
+    background: -moz-linear-gradient(bottom, #dadada, #fff);
+    background: -webkit-gradient(linear, center bottom, center top, from(#dadada), to(#fff));
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 0px 0px 3px;
+    color: #000000;
+    cursor: pointer;
+    height:2.4em;
+    width : 70px;
+    font-family: verdana;
+    font-size: 12px;
+    line-height: 2em;
+    float:left;
+}
+#button-container-unlike{
+    background: -moz-linear-gradient(bottom, #dadada, #fff);
+    background: -webkit-gradient(linear, center bottom, center top, from(#dadada), to(#fff));
+    border: 1px solid #CCCCCC;
+    border-left: none;
+    border-radius: 0px 3px 3px 0px;
+    color: #000000;
+    cursor: pointer;
+    height: 2.4em;
+    width : 35px;
+    font-family: verdana;
+    font-size: 12px;
+    line-height: 2em;
+    float:left;
+}
+.thumbs-up{
+    background : url("{%static "css/images/google+-ui-sprite-gray.png"%}") no-repeat scroll -0px -90px transparent;
+    position: relative;
+    height: 20px;
+    display:block;
+    width: 20px;
+    clear: right;
+    float: left;
+}
+.thumbs-down{
+    background : url("{%static "css/images/google+-ui-sprite-gray.png"%}") no-repeat scroll -342px -72px transparent;
+    position: relative;
+    height: 20px;
+    display:block;
+    width: 20px;
+    clear: right;
+    float: left;
+    margin-right: 4px;
+}
+.tup-hover{
+    background : url("{%static "css/images/google+-ui-sprite-colour.png"%}") no-repeat scroll -342px -72px transparent;
+}
+.tdown-hover{
+    background : url("{%static "css/images/google+-ui-sprite-colour.png"%}") no-repeat scroll -342px -72px transparent;
+}
+
+#ilike,#idislike
+{ 
+ display: -webkit-box;
+ text-shadow: rgba(0, 0, 0, 0.5) 0 0px 0px;
+ font-weight:bold;
+ font-family:'Droid Sans';
+ src: url(Droid_Sans.ttf);
+ text-overfolow: ellipsis;
+ border-width: 10px; 
+}
+
+.stats{
+    border-radius: 5px;
+    border : 1px solid #838383;
+    display: block;
+    clear:left;
+    margin-top: 30px;
+    display: none;
+    height: auto;
+    padding: 5px;
+    width: 500px;
+}
+.stat-details .close{
+    background : url("{%static "css/images/google+-ui-sprite-colour.png"%}") no-repeat scroll -270px -36px transparent;
+    float: right;
+    height: 17px;
+    width: 17px;
+    margin:0px;
+    padding:0px;
+}
+.stat-details table{
+    font-size: 12px;
+}
+
+.stat-option{
+		display:block;
+		line-height:20px;
+		margin-top:5px;
+		padding-top:3px;
+}
+.close{
+		cursor: pointer;
+	}
+span.pos_vote_count{
+text-color:green;
+}
+span.neg_vote_count{
+text-color:red;
+}
+
+</style>
+
+{% endblock %}
+{% block morescript %}
+	<script src="{%static "js/jquery.lwtCountdown-1.0.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/misc.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/jquery-autocomplete.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/jquery.tiptip.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/tag-it.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/ui.multiselect.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script src="{%static "js/jquery.scrollTo-min.js"%}" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src=" {%static "js/jquery.tablesorter.js"%}"></script> 
+	<script>
+		$(function() {
+			//var url = "myEvents/"+ ehash+"/"+uhash+"/xhr_test/"
+			var url = "../xhr_test/"
+			console.debug(url);
+			$.get(url, function(data) {
+        		console.debug(data);
+        		$('#ajax_test').html(data);
+   			});
+		});
+		
+		jQuery.fn.get_pos_votes = function() {
+			var id=$(this).attr("value");
+			console.debug(id)
+			var dataString = 'rest_id='+ id;
+			$.ajax
+				({
+				type: "GET",
+				url:  "../getPosVote/",
+				data: dataString,
+				cache: false,
+				success: function(data)
+				{
+				console.debug("pos vote="+data.cnt)
+				$('#pos_vote_count_'+id).html(data.cnt);
+				//$(this).html(data.cnt);
+				} });
+		};
+		
+		jQuery.fn.get_neg_votes = function() {
+			var id=$(this).attr("value");
+			console.debug(id)
+			var dataString = {'rest_id': id};
+			$.ajax
+			({
+				type: "GET",
+				url:  "../getNegVote/",
+				data: dataString,
+				cache: false,
+				success: function(data)
+				{
+				console.debug("neg_vote="+data.cnt)
+				$('#neg_vote_count_'+id).html(data.cnt);
+				//$(this).html(data.cnt);
+				} 
+			});
+		};
+		
+		jQuery.fn.set_vote = function(vote) {
+			var id=$(this).attr("value");
+			console.debug("id="+id);
+			var dataString = {'place_id': id,'vote':vote,csrfmiddlewaretoken:'{{csrf_token}}'}
+			console.debug(vote);
+			$.ajax
+			({
+				type: "POST",
+				url:  "../setVote/",
+				data: dataString,
+				cache: false,
+				success: function(data)
+				{    
+					console.debug(data);
+					$('#pos_vote_count_'+id).get_pos_votes();
+					$('#neg_vote_count_'+id).get_neg_votes();
+				}
+			});
+		};
+				
+		$(document).ready(function(){
+			$(".like").click(function()
+			{
+				$(this).set_vote(1);
+			});
+		});
+		$(document).ready(function(){
+			$(".dislike").click(function()
+			{
+				$(this).set_vote(-1);
+			});
+		});		
+		
+		
+		
+		jQuery.fn.show_my_votes = function(data) {
+				var result = jQuery.parseJSON(data);
+      			console.debug("I like: "+result.likes);
+        		console.debug("I dislike: "+result.dislikes);
+        		var ilike = result.likes
+        		var idislike = result.dislikes
+        		if(ilike !="")
+        			$("#ilike").html("<p>I LIKE : "+ilike +"</p>");
+        		if (idislike !="")
+        			$("#idislike").html("<p> I DISLIKE : "+idislike+"</p>");
+		};
+		
+		$(document).ready(function() 
+   		{ 
+        $("#myTable").tablesorter(  ); 
+    	}); 
+    
+		$(document).ready(function(){
+		$(".close").live("click",function(){
+    		 var id=$(this).attr("value");
+    		 console.debug("id is: "+id)
+    		$("#stats_"+id).slideUp("fast");
+		});
+	});
+
+	$(document).ready(function(){
+	  $(".viewstats").click(function(){
+		var id=$(this).attr("value");
+		console.debug("rest_id =  "+id)
+		var dataString = {"rest_id": id};
+		$("#stats_"+id).slideDown("fast").html("Loading....");
+		$.ajax
+		({
+			type: "GET",
+			url:  "../getVoteStats/",
+			data: dataString,
+			cache: false,
+			success: function(response)
+			{
+            	var like = response.likes
+            	var dislike = response.dislikes;
+            	console.debug("who like "+like)
+            	console.debug("who dislike "+dislike)
+			    var output =  '<div class="stat-details"><span class="close" value="'+id+'"></span><b>Rating for this item</b><table border="0" width="100%"><tr><td> People Who Likes this </td><td>'+ like+'</td> </tr><tr><td> People Who dislikes this</td> <td>'+dislike+'</td></tr></table>'
+				//console.debug(output)
+				$("#stats_"+id).html(output);
+			} 
+		}); 	
+		});
+  	});
+  	
+  	//why can't find this function??
+  	jQuery.fn.start_countdown = function(day,month,year,hour,min,sec ) {
+			 	 $('#countdown_dashboard').countDown({
+					targetOffset: {
+						'day': 		day,
+						'month': 	month,
+						'year': 	year,
+						'hour': 	hour,
+						'min': 		min,
+						'sec': 		sec
+					}
+				});
+		};
+   
+	 jQuery(document).ready(function() {
+		 var lefttime=0;
+		 $.ajax
+			({
+				type: "GET",
+				url:  "../getVoteDate/",
+				data: "",
+				cache: false,
+				success: function(data)
+				{    
+					var now = new Date();
+					console.debug(now);
+					console.debug(data.date); //2012-02-27T03:22:07+00:00
+					var dateString = data.date;
+					var ymd = dateString.split('-')
+					var year = ymd[0];
+					var month = ymd[1];
+					var tmp = ymd[2].split('T');
+					var day = tmp[0];
+					tmp = tmp[1];
+					var hms = tmp.split('+')[0].split(':');
+					var hour = hms[0];
+					var minute = hms[1];
+					var sec = hms[2];
+					console.debug(year,month,day,hour,minute,sec)
+				   
+				    console.debug(Date.parse(now));
+				    // Attention!! Date.parse() only take "2012-02-24T01:35:46" but no "2012-02-24T01:35:46+00:00" 
+					var parseble =  data.date.split('+')[0]  
+					console.debug(parseble);
+					lefttime = Date.parse(parseble)-now;
+					console.debug(lefttime);
+					if (lefttime>0){ 
+						$('#countdown_dashboard').countDown({
+							targetDate: {
+							'day': 		day,//27, //
+							'month': 	month,//month,
+							'year': 	year,//year,
+							'hour': 	hour,//hour,
+							'min': 		minute,//min,
+							'sec': 		sec,//sec
+							},
+							onComplete: function() { $('#complete_info_message').slideDown() }
+						});
+						 //$('#countdown_dashboard').startCountDown();
+					}//end of if left time >0
+					else{
+						$('#complete_info_message').slideDown()
+					}
+				} //end for success function
+			});
+			});	
+			
+			
+			$(document).ready(function() {
+				$.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+				setInterval(function() {
+					$('#resultmessage').load('../currentResult/',function(data) {
+						var res  =jQuery.parseJSON(data)
+  						var place = res.place;
+  						var likes = parseInt(res.numlikes);
+  						var dislikes = parseInt(res.numdislikes);
+  						console.debug(place,likes,dislikes);
+  						if (likes>0)
+  						{
+  							var msg = "<p> Currently, We are going to " +place+ " because " + likes+ " people liked it </p>"
+  							if (dislikes>0)
+  								msg += "<p>However, "+dislikes+" people disliked it </p>"
+  							$('#resultmessage').html(msg)
+  						}
+  						else{
+  							var msg = "<p> Currently, We don't know where to go"  
+  							if (dislikes>0)
+  								msg += "<p>However,"+dislikes+" people don't like "+place+"</p>"
+  							$('#resultmessage').html(msg)
+  						}
+  						})}, 30000); // the "3000" here refers to the time to refresh the div.  it is in milliseconds.
+			});
+			
+			
+			$(document).ready(function() {
+				$.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+				setInterval(function() {
+			// why .get doesn't work, but load works?
+			// the problem for load is that it will display the result directly to html
+				$("#getmyvotes").load("../getMyVotes/", function(data) {
+       				$(this).show_my_votes(data);
+   				})},100000);
+		});
+</script>
+{% endblock%}
+
+{% block headerimage%}
+{%static "css/images/vote.jpeg"%}
+{% endblock%}
+
+{% block headertexttitle%}
+ <div class="headtitle">
+ Greetings! <font color='#000080'>{{myname}}
+ </font>  
+  </div>
+ 
+ {% endblock%}
+{% block headertextcontent%} 
+<div class="subtitle">
+<font color='#C00000'> {{adminname}} </font> invites you to attend the event <font color='magenta'> {{event.name}} </font> at <font color='yellow'> {{event.eventDate}} </font>
+{%if event.detail%}
+<br><font color='#C00000'> {{adminname}} </font> said: {{event.detail}}<br>
+{%endif%}
+<br>
+Time left to change the group decision is
+</div>
+
+<div id="countdown_dashboard">
+			<div class="dash days_dash">
+				<span class="dash_title">days</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash hours_dash">
+				<span class="dash_title">hours</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+
+			<div class="dash minutes_dash">
+				<span class="dash_title">minutes</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+			<div class="dash seconds_dash">
+				<span class="dash_title">Seconds</span>
+				<div class="digit">0</div>
+				<div class="digit">0</div>
+			</div>
+		</div>
+
+		<div class="info_message" id="complete_info_message" style="display: none;">
+				Oops, the Voting is finished! 
+		</div>
+{% endblock%}
+
+{% block content%}
+<!--hidden variables-->
+<p id='ehash' style="display:none;">{{ehash}}</p>
+<p id='uhash' style="display:none;">{{uhash}}</p>
+ 
+
+
+<div id="resultmessage">
+	
+</div>
+
+<div id="votingarea">
+{%if places%}
+ 	<h2> Please Vote For Candidates!</h2>
+		<div id="candidates" >
+		<table id="myTable" class="tablesorter"> 
+		<thead> 
+		<tr> 
+    	<th>Restaurant</th> 
+    	<th>#Likes</th> 
+    	<th>#Dislikes</th> 
+    	<th>Details</th> 
+		</tr> 
+		</thead> 
+		<tbody>
+		{% for rest in places %}
+		<tr> 
+    		<td id="rest_id_{{rest.id}}"> {{rest.name}}</td> 
+    		<td> 
+   			 	<span class="pos_vote_count" id="pos_vote_count_{{rest.id}}" value="{{rest.id}}"> {{posvotes|dictKey:rest.id}} </span>	
+				<span class="vote_buttons" id="vote_buttons_{{rest.id}}">
+				{% csrf_token %}
+				<button value="{{rest.id}}"  class="like"><span class="icon icon101" ></span><span class="label">Like</span></button>
+				<!-- <a href="#" class="button on"><span class="icon icon101"></span><span class="label">Like</span></a> -->
+				<!-- <input type="image" src="{%static "css/images/likebig.png"%}" name="like" class="like" tabindex="2" alt="submit"  value="{{rest.id}}" >
+				--></span>  
+    		</td> 
+   			<td> 
+   				<span class="neg_vote_count" id="neg_vote_count_{{rest.id}}" value="{{rest.id}}">{{negvotes|dictKey:rest.id}}</span>	
+				<span class="vote_buttons" id="vote_buttons_{{rest.id}}">
+				{% csrf_token %}
+				    <button value="{{rest.id}}"  class="dislike"><span class="icon icon100" ></span></button>
+				<!-- 
+				<input type="image" src="{%static "css/images/dislike.png"%}" name="dislike" class="dislike" tabindex="2" alt="submit"  value="{{rest.id}}" >
+				--> 
+				</span> 
+			</td> 
+    		<td> 
+    		<button class="viewstats" value="{{rest.id}}"><span class="icon icon180" ></span> </button> 
+    		<div class="stats" id="stats_{{rest.id}}" value="{{rest.id}}">  </div>
+    		</td> 
+		</tr> 
+		{% endfor %}
+		</tbody> 
+	</table> 
+{% endif %}
+</div>		
+<div class="maincolumns">
+			<h2> My Current Votes </h2>
+			<br>
+			<div id="getmyvotes" style="display:none;" > </div>
+			<div id="ilike">  </div>
+			<div id="idislike">  </div>
+		
+</div>
+{% endblock%}
+

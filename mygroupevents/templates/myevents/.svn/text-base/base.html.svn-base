@@ -1,0 +1,81 @@
+<html> 
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="Keywords" content="Recommender System, Group, Lunch" />
+		<meta name="Description" content=" Group Recommender System, Lunch,Dinner,Movie" />
+		
+		{% load staticfiles %}		
+		<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css">
+		<link href="{% static "css/print/main.css" %}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui-1.8.17.custom.css" %}" />
+		<title >{%block title %} {% endblock %} </title>		
+		{% block extrastyle %}{% endblock %}
+		
+		<script type="text/javascript" src="{%static "js/jquery-1.7.1.min.js"%}"></script>
+		<script type="text/javascript" src="{%static "js/jquery-ui-1.8.17.custom.min.js"%}"></script>
+<!--		<script>
+			$(function() {
+				$( "input:submit").button();
+			});
+		</script>
+-->
+	
+	{%block morescript %} {%endblock %} 
+	
+	</head> 
+	
+	<body> 
+	<div id="wrap">
+	<header id="mainheader">
+		<div id="top">
+		<h1 id="sitename">MyEvents: Group Recommender System</h1>
+		</div>
+	
+		<nav id="mainnav">
+			<ul>
+				<li class="current"><a href="#">Home</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Contact US</a></li>
+			</ul>
+			<div class="righticons"><img src="{%static "css/images/feedicon.png"%}" width="19" height="22" alt="feed"></div>
+		</nav>
+
+		<div id="homeheader">
+		<section id="slider">
+		<div class="container">
+			<ul class="slides">
+    			<li>
+      			<div class="mainimg">
+      			 <img src="{%block headerimage %}{%static "css/images/welcome.gif"%}{% endblock %}" width="250" height="250">
+	 			</div>
+	 			 
+	 			{% block headertexttitle %} Welcome to myEvents! {% endblock %}	 
+	 			<p>{% block headertextcontent %} Hope You enjoying it {% endblock %}</p>
+    			</li>
+    		</ul>
+    	</div>  
+    </section>
+	</div>
+	</header>
+  
+	{% block content %}
+	{% endblock %}
+	 </div>  <!-- end div wrap-->
+
+<div id="footerwrap">
+<footer id="pagefooter">
+<div class="clear"></div>
+<section id="credits">
+<p class="sitecredit">2012 &copy; <a href="http://www.cs.rutgers.edu/~jinyuny">Jinyun Yan</a> | <a href="http://www.thlab.net/~paloalto/"> Technicolor Research Lab, Palo Alto</a>|  All Rights Reserved</p>
+<p class="designcredit">
+<!--Do not remove the credits - required by Creative Commons License-->  
+<a href="http://www.cssheaven.org" title="Free CSS Templates and HTML5 designs">Website Template by CSSHeaven.org</a>
+<!--Do Not remove the credits--></p>
+</section>
+</footer>
+</div>
+
+</body> 
+</html>
+
+

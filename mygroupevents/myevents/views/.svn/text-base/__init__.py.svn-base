@@ -1,0 +1,5 @@
+
+from adminView import *
+from indexView import *
+from attenderView import *
+from resultView import *

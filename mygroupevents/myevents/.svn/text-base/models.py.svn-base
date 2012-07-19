@@ -1,0 +1,53 @@
+from django.db import models
+
+# Create your models here.
+class User(models.Model):
+	name = models.CharField(max_length=255)
+	email = models.EmailField(max_length=75)
+	passwd = models.CharField(max_length=100)
+	uhash = models.CharField(max_length=36)
+	
+class Event(models.Model):
+	name = models.CharField(max_length=255)
+	detail = models.TextField()
+	status = models.CharField(max_length=255)
+	ehash = models.CharField(max_length=36)
+	eventDate = models.DateTimeField(editable=True)
+	voteDate = models.DateTimeField(editable=True)
+	pub_date = models.DateTimeField(auto_now=True, auto_now_add=True)
+
+class Place(models.Model):
+	name = models.TextField()
+	address = models.TextField()
+	locality = models.CharField(max_length=1024)
+	category = models.CharField(max_length=1024)
+	phone = models.CharField(max_length=100)
+	comments = models.TextField()	
+	rating = models.IntegerField();
+	def __unicode__(self):
+		return u'%s %s' % (self.name, self.category)
+	
+	def calculateVotes(self,vote):
+		return Poll.objects.filter(place_id=self.id, vote=vote).count()
+	
+	pastPosVotes = property(calculateVotes,1)
+	pastNegVotes = property(calculateVotes,-1)
+
+
+class Event_User(models.Model):
+	event = models.ForeignKey(Event)
+	user = models.ForeignKey(User)
+	role = models.CharField(max_length=100)
+	url = models.URLField()
+	
+class Event_Place(models.Model):
+	event = models.ForeignKey(Event)
+	place = models.ForeignKey(Place)
+	date = models.DateTimeField(auto_now=True, auto_now_add=True)
+
+class Poll(models.Model):
+	event = models.ForeignKey(Event)
+	place = models.ForeignKey(Place)
+	user = models.ForeignKey(User)
+	vote = models.IntegerField()
+

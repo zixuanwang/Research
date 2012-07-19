@@ -1,0 +1,125 @@
+import MySQLdb
+import datetime
+import pytz
+import smtplib
+import time
+import sys
+from email.mime.text import MIMEText
+
+def enum(**enums):
+    return type('Enum', (), enums)
+
+EVENT_STATUS = enum(INIT=0,VOTING=1,TERMINATED=2)
+
+def dictfetchall(cursor):
+    "Returns all rows from a cursor as a dict"
+    desc = cursor.description
+    return [
+        dict(zip([col[0] for col in desc], row))
+        for row in cursor.fetchall()
+    ]
+
+def terminateEvent(cursor,eid):
+    query= "UPDATE myEvents_event SET status = %s WHERE id = %s" %(EVENT_STATUS.TERMINATED, eid)
+    res = cursor.execute(query)
+    return res
+
+
+def sendReport(cursor,eid):
+    query = "SELECT name, count(*) as cnt FROM myEvents_poll,myEvents_place WHERE myEvents_place.id=myEvents_poll.place_id AND event_id = %s AND vote = 1 GROUP BY place_id order by cnt desc" %eid
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    placesLiked = {}
+    for row in rs:
+        placesLiked[row['name']] = row['cnt'] 
+    
+    query = "SELECT name, count(*) as cnt FROM myEvents_poll,myEvents_place WHERE myEvents_place.id=myEvents_poll.place_id AND event_id = %s AND vote = -1 GROUP BY place_id" %eid
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    placesDisliked = {}
+    for row in rs:
+        placesDisliked[row['name']] = row['cnt']
+    
+    query = "SELECT name FROM myEvents_event_place, myEvents_place WHERE myEvents_place.id=myEvents_event_place.place_id AND event_id = %s "%eid
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    places  = []
+    for row in rs:
+        places.append(row['name'])
+        
+    query = "SELECT * FROM myEvents_event WHERE id = %s"%eid 
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    eventName = rs[0]['name']
+    eventDate = rs[0]['eventDate']
+        
+    report = "We are pleased to inform you the voting result for the event: %s at %s \n"%(eventName,  eventDate)
+    for res in places:
+        likedp = placesLiked.get(res,'0')
+        dislikedp = placesDisliked.get(res,'0')
+        tmprep = res+'\t :'+ str(likedp) +' Likes\t'+ str(dislikedp) +' Dislikes\n'
+        report += tmprep
+        
+    query = "SELECT email FROM myEvents_user, myEvents_event_user WHERE myEvents_event_user.user_id = myEvents_user.id AND myEvents_event_user.role = \"attender\" AND myEvents_event_user.event_id=%s"%eid
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    users = []
+    for row in rs:
+        users.append(row['email'])
+    
+    subject= "The voting result of your event "
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    # Credentials (if needed)  
+    username = 'mygroupevents'  
+    password = 'itscoolest' 
+    fromaddr = 'mygroupevents@gmail.com'
+    server.ehlo()
+    server.starttls()  
+    server.login(username,password)  
+    msg = MIMEText("%s\n" % report)
+    msg['Subject'] =   subject
+    msg['From'], msg['To'] = fromaddr, ','.join(users)
+ 
+    #print report
+    server.sendmail(msg['From'], users, msg.as_string())  
+    server.quit()  
+    return report
+ 
+def checkAllEvents():
+    conn = MySQLdb.connect(host="localhost",
+                           user="root",
+                           passwd="fighting123",
+                           db="myGroups_dj")
+    cursor = conn.cursor()
+    query = "SELECT * FROM  myEvents_event WHERE status = %s" %EVENT_STATUS.VOTING
+    cursor.execute(query)
+    rs = dictfetchall(cursor)
+    #now = datetime.datetime.utcnow().replace(tzinfo=pytz.utc)
+    #now =  datetime.datetime.now(pytz.utc)
+    now = datetime.datetime.now()
+    for row in rs:
+        #vd = datetime.datetime.strptime(row['voteDate'],'%Y-%m-%d %H:%M:%S+%Z%z')
+        vd = row['voteDate']
+        if (vd-now).total_seconds() <= 0:
+            #event should be terminated
+            sendReport(cursor,row['id'])
+            terminateEvent(cursor, row['id'])
+    
+    cursor.close()
+     
+def main():
+    five_min = 10*60
+    log = open('terminateEvent.log','w')
+    while(1):
+        time.sleep(five_min)
+        try:
+            checkAllEvents()    
+        except :
+            log.write('Failed AT %s \t Because of %s\n '%(datatime.datetime.now(),sys.exc_info()[0]))
+        #log.write('Succeed AT %s\n'%datetime.datetime.now())
+    log.close()
+            
+#checkAllEvents()
+main()        
+    
+    

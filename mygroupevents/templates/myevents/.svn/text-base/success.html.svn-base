@@ -1,0 +1,32 @@
+{% extends "myEvents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+
+{% block headertexttitle%}<h2> Success! </h2>   {% endblock%}
+{% block headertextcontent%} MyEvents is to help friends to reach agreement on group events.  {% endblock%}
+{% block headerimage%}
+{%static "css/images/cong.jpeg"%}
+{% endblock%}
+
+{% block content%}
+	<h2>
+		Your Event is created succesfully. 
+	</h2>
+      
+	<h3>	
+		Event Date is {{eventDate}}
+	</h3>
+	<br/>
+		<h3>	
+		Voting Ending Date is {{voteDate}}
+	</h3>
+	<h3>
+		Friends are {{emails}}
+	</h3>
+	<br/>
+	<h3>
+		Places are {{places}}
+	</h3>
+	<br/>
+{% endblock%}
+
