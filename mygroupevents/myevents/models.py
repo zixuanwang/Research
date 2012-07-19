@@ -137,7 +137,7 @@ class comment(models.Model):
 	user = models.ForeignKey(user)
 	say = models.TextField()
 	pub_date = models.DateTimeField(auto_now_add=True)
-
+	
 class review(models.Model):
 	name = models.CharField(max_length=1024)
 	comment = models.TextField()

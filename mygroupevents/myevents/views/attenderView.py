@@ -13,7 +13,10 @@ from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 import MySQLdb as mdb
 import sys
-   
+import datetime
+from django.utils.timezone import utc
+import pytz
+ 
 def attender(request,ehash,uhash):   
     try:
         e = event.objects.get(ehash=ehash)
@@ -270,7 +273,9 @@ def getAllComments(request,ehash,uhash):
             for row in uc:
                 uid = row.user_id
                 uname = user.objects.get(id=uid).name
-                comments.append({'name':uname,'say':row.say,'date':row.pub_date.strftime('%Y-%m-%d %H:%M:%S')})
+		local_tz = pytz.timezone('America/Dawson')
+		loc_dt = row.pub_date.astimezone(local_tz)
+                comments.append({'name':uname,'say':row.say,'date':loc_dt.strftime('%Y-%m-%d %H:%M:%S')})
             json = simplejson.dumps(comments)
         except event.DoesNotExist, user.DoesNotExist:
             json=simplejson.dumps({'success':'False'})
@@ -284,8 +289,14 @@ def writeComment(request,ehash,uhash):
             e=event.objects.get(ehash=ehash)
             u=user.objects.get(uhash=uhash)
             acomment = request.POST.get('acomment')
-            c = comment.objects.create(event_id=e.id,user_id=u.id,say=acomment)
-            response = simplejson.dumps({'name':u.name,'say':acomment,'date':c.pub_date.strftime('%Y-%m-%d %H:%M:%S')})
+	    pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)
+	    print pub_date
+	    local_tz = pytz.timezone('America/Dawson')
+	    loc_dt = pub_date.astimezone(local_tz)
+            print loc_dt
+	    c = comment.objects.create(event_id=e.id,user_id=u.id,say=acomment,pub_date=pub_date )
+            response = simplejson.dumps({'name':u.name,'say':acomment,'date':loc_dt.strftime('%Y-%m-%d %H:%M:%S')})
+            #response = simplejson.dumps({'name':u.name,'say':acomment,'date':c.pub_date.strftime('%Y-%m-%d %H:%M:%S')})
             return HttpResponse(response,mimetype="application/json")
         except event.DoesNotExist, user.DoesNotExist:
             return HttpResponse({'sucess':False},mimetype="application/json")
