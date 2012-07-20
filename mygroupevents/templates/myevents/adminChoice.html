@@ -212,7 +212,8 @@ $(function() {
 			$.ajax(
 			{
 				type: "POST",
-				url: "../getMyYelpSearchChoices/",
+				//url: "../getMyYelpSearchChoices/",
+				url: "../getBaseRecommendation/",
 				data: {'query':query,"location":location,csrfmiddlewaretoken:'{{csrf_token}}'},
 				cache: false,
 				success: function(data) 
@@ -242,7 +243,8 @@ $(function() {
 								rating_image = choice.image;
 								 
 								url = choice.url;
-								model = "yelp"
+								//model = "yelp"
+								model = "rec"
 								var html = '<tr id="search_choice_id_'+id+'" name="'+model+'"><td id="name"><a id="url" target="_blank" href="'+url+'">'+ name+'</a></td><td id="location">'+ choice.location+'</td><td id="notes"><img src='+rating_image+'>&nbsp; '+ notes+'</td><td><span class="label label-info add_search_choice">add</span></td></tr>';						 
 							}
 							$("#show_search_choice_list >tbody").append(html);
