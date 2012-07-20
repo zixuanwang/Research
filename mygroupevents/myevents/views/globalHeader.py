@@ -33,7 +33,7 @@ def make_uuid():
 
 EVENT_STATUS = enum(INIT=0,HASDETAIL=1,VOTING=2,TERMINATED=3)
 VOTE_STATUS = enum(NO=0,YES=1,DONTKNOW=2)
-CHOICE_SOURCE = enum(MANUAL=0,YELP = 1, PAST = 2)
+CHOICE_SOURCE = enum(MANUAL=0,YELP = 1, REC = 2)
 EMAIL_HOST_USER = "mygroupevents@gmail.com"
 def adminMail(ehash,uhash,user_name,event_name,send_to):
     subject = "Invitation to manage your event: " + event_name

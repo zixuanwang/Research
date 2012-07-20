@@ -318,9 +318,16 @@ def getBaseRecommendation(request,ehash,uhash):
                 sorted_items =[]
                 sorted_items = build_baseline_reclist(user_rate) 
                 ys = []
+                item_count = 0 
                 for i in sorted_items:
-                    item_instance = item.objects.get(id = i)
-                    ys.append(item_instance)
+                    if item_count > 10:   # only recommend top 10 items
+                        break
+                    try:
+                        item_instance = item.objects.get(id = i)
+                        ys.append(item_instance)
+                        item_count += 1
+                    except item.DoesNotExist:
+                        print 'can not find the past item ??'
                 data = serializers.serialize('json', ys, indent=2, use_natural_keys=True)
             else:  #if nobody has rated before
                 q = search_query.objects.create(term=e.detail,location=e.location, search_by_id = u.id, search_for_id=e.id)
@@ -359,6 +366,7 @@ def editEventChoice(request, ehash, uhash):
         #print manual_choices
         yelp_choices = request.POST.getlist('yelp_choice_ids')
         #print yelp_choices
+        rec_choices = request.POST.getlist('rec_choice_ids')
         #past_choices = request.POST.getlist('history_choice_ids')
         try: 
             choice_objs = []
@@ -392,6 +400,21 @@ def editEventChoice(request, ehash, uhash):
                 # yelp data table is separated from item.
                 yelp_c = item.objects.get(id=cid)
                 choice_objs.append(yelp_c)
+                
+            for cid in rec_choices:
+                try:
+                    c = choice.objects.get(pickid=cid, pickfrom=CHOICE_SOURCE.REC, pickby_id=inviter.id)
+                    c.cnt +=1
+                    c.save()
+                except choice.DoesNotExist:
+                    c = choice.objects.create(pickid=cid, pickfrom=CHOICE_SOURCE.REC, pickby_id=inviter.id,cnt=1)
+                try: # here is for wrong operation. shouldn't happen if not because of testing
+                    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
+                except:
+                    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+                # yelp data table is separated from item.
+                rec_c = item.objects.get(id=cid)
+                choice_objs.append(rec_c)
                 
             ### send a mail to inviter too, since he is the attender as well
             attenderMail(ehash, inviter.uhash, inviter.email, e.name, inviter.email)

@@ -26,7 +26,7 @@ $(function() {
 		}
 		var location = $("#choice_location").val();
 		var notes = $("#choice_note").val();
-			//insert into db
+		//insert into db
 		$.ajax
 		({
 			type: "POST",
@@ -78,7 +78,8 @@ $(function() {
  		$.ajax(
  		{
 			type: "GET",
-			url:  "../getMyYelpChoices/",
+			//url:  "../getMyYelpChoices/",
+			url:  "../getBaseRecommendation/",
 			data: {},
 			cache: false,
 			success: function(response)
@@ -96,7 +97,7 @@ $(function() {
 						notes= choice.notes ;
 						rating_image = choice.image;
 						url = choice.url;
-						model = "yelp"
+						model = "rec"
 						var html = '<tr id="rec_choice_id_'+id+'" name="'+  model +'"><td id="name"><a id="url" target="_blank" href="'+url+'"> '+ name+'</a></td><td id="location">'+choice.location+'</td><td id="notes"><img src='+rating_image+'> &nbsp;'+notes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
 					}
 		 		 	$("#show_rec_choice_list >tbody").append(html);
@@ -132,7 +133,10 @@ $(function() {
      		$("#show_choice_list >tbody").append(html);
      
      		if (model=="yelp")
-			$("#hidden_yelp_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_yelp_choice_id_'+lastid+'" name="yelp_choice_ids" />');
+				$("#hidden_yelp_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_yelp_choice_id_'+lastid+'" name="yelp_choice_ids" />');
+			if(model=="rec")
+				$("#hidden_rec_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_rec_choice_id_'+lastid+'" name="rec_choice_ids" />');
+				
 		});
 	});
 		
@@ -165,8 +169,8 @@ $(function() {
 		$("#finish").attr('disabled', 'disabled');
 		var opts = {
   		lines: 13, // The number of lines to draw
-  		length: 25, // The length of each line
-  		width: 16, // The line thickness
+  		length: 20, // The length of each line
+  		width: 10, // The line thickness
   		radius: 20, // The radius of the inner circle
   		rotate: 30, // The rotation offset
   		color: '#000', // #rgb or #rrggbb
@@ -279,6 +283,9 @@ $(function() {
      		
      		if (model=="yelp")
 			$("#hidden_yelp_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_yelp_choice_id_'+lastid+'" name="yelp_choice_ids" />');
+			if (model=='rec')
+			$("#hidden_rec_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_rec_choice_id_'+lastid+'" name="rec_choice_ids" />');
+			
 		});
 	});
 		
@@ -433,6 +440,8 @@ $(function() {
 			<div id="hidden_manual_choice_list"  class="row-fluid  show-grid">
 			</div>
 			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">
+			</div>
+			<div id="hidden_rec_choice_list"  class="row-fluid  show-grid">
 			</div>
 			{% csrf_token %}
 			<p> <span class="add-on"><i class="icon-leaf"></i></span>Alright, let's email your friends about this event, and let them decide which option is best! 
