@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>mygroupevents</name>
+	<name>shared-mygroupevent</name>
 	<comment></comment>
 	<projects>
-		<project>djangoDev</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -14,6 +13,5 @@
 	</buildSpec>
 	<natures>
 		<nature>org.python.pydev.pythonNature</nature>
-		<nature>org.python.pydev.django.djangoNature</nature>
 	</natures>
 </projectDescription>

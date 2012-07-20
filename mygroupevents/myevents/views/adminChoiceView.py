@@ -21,7 +21,6 @@ def isValidForRecommendation(detail,location):
     if location:
         yelp_query['location'] = location
  
-     
     if yelp_query.has_key('query') and yelp_query.has_key('location'):
         return yelp_query
     else:  # must have both
@@ -213,6 +212,7 @@ def search_yelp(category,query,location,query_id):
     print 'parse yelp result spent:', time.time()-t0  
     return  serializers.serialize('json', ys, indent=2, use_natural_keys=True)
     
+# output: returns for suggestions
 def getMyYelpChoices(request, ehash, uhash):
     if request.method == 'GET':
         u = user.objects.get(uhash=uhash) 
@@ -225,6 +225,24 @@ def getMyYelpChoices(request, ehash, uhash):
                 data = search_yelp('restaurants','restaurants',e.location,q.id)
             if e.detail == "drink":
                 data = search_yelp('nightlife','bar',e.location,q.id)     
+        return HttpResponse(data, mimetype='application/json')
+    else:
+        return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+
+# work in july 19. not finished.
+# baseline recommendation algorithm
+def getBaseRecommendation(request,ehash,uhash):
+    if request.method == 'GET':
+        u = user.objects.get(uhash=uhash)
+        e = event.objects.get(ehash=ehash)
+        data = {}
+        # select all users of this event 
+        eu = event_user.objects.filter(event_id=e.id)
+        for row in eu:
+            uid = row.user_id
+            auser = user.objects.get(id=uid)
+            # for a user, select past positive ratings 
+            
         return HttpResponse(data, mimetype='application/json')
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))

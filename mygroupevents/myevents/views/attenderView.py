@@ -289,11 +289,9 @@ def writeComment(request,ehash,uhash):
             e=event.objects.get(ehash=ehash)
             u=user.objects.get(uhash=uhash)
             acomment = request.POST.get('acomment')
-	    pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)
-	    print pub_date
+	    pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)   
 	    local_tz = pytz.timezone('America/Dawson')
 	    loc_dt = pub_date.astimezone(local_tz)
-            print loc_dt
 	    c = comment.objects.create(event_id=e.id,user_id=u.id,say=acomment,pub_date=pub_date )
             response = simplejson.dumps({'name':u.name,'say':acomment,'date':loc_dt.strftime('%Y-%m-%d %H:%M:%S')})
             #response = simplejson.dumps({'name':u.name,'say':acomment,'date':c.pub_date.strftime('%Y-%m-%d %H:%M:%S')})
