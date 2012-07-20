@@ -228,6 +228,69 @@ def getMyYelpChoices(request, ehash, uhash):
         return HttpResponse(data, mimetype='application/json')
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+ 
+# get the rating of the user for the place cid
+def get_baseline_rating(uid, cid):
+    p = poll.objects.filter(user_id = uid, choice_id = cid);
+    flatsum = 0
+    num = len(p)
+    if num>0:
+        for row in p:
+            flatsum += row.vote
+        return float(flatsum)/num
+    else:
+        return NaN   #if the user haven't voted the place(choice) before
+    
+def find_list_intersection(a,b):
+    return set(a).intersection( set(b) )
+
+#input list: compute mean and dev
+def aggregate_rating(ratings):
+    list_size = len(ratings)
+    flatsum = 0.0
+    squaresum = float(0)
+    for r in ratings:
+        flatsum += r
+    mean = flatsum/list_size
+    if list_size>1:
+        for r in ratings:
+            squaresum += (r-mean)**2
+        variance = squaresum/(list_size - 1)
+    else:
+        variance = 0.0
+    return  (mean,variance)
+      
+def sort_dict_by_value(mydict):
+    newdict = sorted(mydict.iteritems(), key=lambda (k,v): (v,k), reverse=True)
+    for k,v in newdict:
+        print "%s: %s" % (k,v)
+    return newdict
+    
+# input dict: key uid, value <item,rating> dict 
+def build_baseline_reclist(user_rate):
+    ulist = user_rate.values()
+    item_union = {}
+    for u in ulist:
+        #u.keys= items. 
+        for iid,rating in u:
+            if item_union.has_key(iid):
+                item_union[iid].append(rating)
+            else:
+                item_union[iid]=[]
+                item_union[iid].append(rating)
+    #item_iid = []
+    #item_score = []
+    item_score_dict = {}
+    for item in item_union.keys():
+        values = item_union[item]
+        #item_iid.append(item)
+        (mean,var) = aggregate_rating(values)
+        #item_score.append(0.9*mean-0.1*var)
+        item_score_dict[item] = 0.9*mean-0.1*var
+    
+    #sort item based on its score
+    sort_dict = sort_dict_by_value(item_score_dict)
+    return sort_dict.keys()
 
 # work in july 19. not finished.
 # baseline recommendation algorithm
@@ -238,12 +301,33 @@ def getBaseRecommendation(request,ehash,uhash):
         data = {}
         # select all users of this event 
         eu = event_user.objects.filter(event_id=e.id)
-        for row in eu:
-            uid = row.user_id
-            auser = user.objects.get(id=uid)
-            # for a user, select past positive ratings 
-            
-        return HttpResponse(data, mimetype='application/json')
+        if eu:
+            user_rate = {}
+            for row in eu:
+                uid = row.user_id
+                # for this user, select past positive ratings, build the dictionary of item:rating
+                iu = poll.objects.filter(user_id=uid)
+                if iu:  #user has voted before.
+                    user_rate[uid] = {}     #build the rating list for the user
+                    for i in iu:
+                        cid = i.choice_id 
+                        rating = get_baseline_rating(uid,cid)
+                        if rating != NaN:
+                            user_rate[uid][cid] = rating
+            if user_rate:
+                sorted_items =[]
+                sorted_items = build_baseline_reclist(user_rate) 
+                ys = []
+                for i in sorted_items:
+                    item_instance = item.objects.get(id = i)
+                    ys.append(item_instance)
+                data = serializers.serialize('json', ys, indent=2, use_natural_keys=True)
+            else:  #if nobody has rated before
+                q = search_query.objects.create(term=e.detail,location=e.location, search_by_id = u.id, search_for_id=e.id)
+                data = search_yelp('restaurants','restaurants',e.location,q.id)
+            return HttpResponse(data, mimetype='application/json')
+        else:  # no users in the event
+            return render_to_response('myevents/error.html', {"message":" failed to identify your friends"}, context_instance=RequestContext(request))
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
