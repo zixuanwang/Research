@@ -3,7 +3,8 @@
 #include <boost/unordered_map.hpp>
 #include <boost/shared_ptr.hpp>
 #include <ctime>
-#include "clusterer.h"
+#include <cfloat>
+#include "Clusterer.h"
 #include "LinearKernel.h"
 #include "GaussianKernel.h"
 #include "RankItem.h"
