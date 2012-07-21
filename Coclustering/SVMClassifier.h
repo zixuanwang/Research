@@ -2,8 +2,7 @@
 
 #include "Classifier.h"
 
-class SVMClassifier: public Classifier
-{
+class SVMClassifier: public Classifier {
 public:
 	SVMClassifier(void);
 	virtual ~SVMClassifier(void);

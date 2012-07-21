@@ -11,10 +11,12 @@ RobustMatcher::~RobustMatcher() {
 	// TODO Auto-generated destructor stub
 }
 
-cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2, std::vector<cv::KeyPoint>* pKeypoint1, std::vector<cv::KeyPoint>* pKeypoint2){
+cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2,
+		std::vector<cv::KeyPoint>* pKeypoint1,
+		std::vector<cv::KeyPoint>* pKeypoint2) {
 	pKeypoint1->clear();
 	pKeypoint2->clear();
-	if(image1.empty()||image2.empty()){
+	if (image1.empty() || image2.empty()) {
 		return cv::Mat();
 	}
 	std::vector<cv::DMatch> matchArray;
@@ -22,21 +24,21 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2, std::
 	std::vector<cv::KeyPoint> keypoint2;
 	cv::Mat imageDescriptor1;
 	cv::Mat imageDescriptor2;
-	BoWDescriptor::instance()->extractDescriptor(&keypoint1,&imageDescriptor1,image1);
-	BoWDescriptor::instance()->extractDescriptor(&keypoint2,&imageDescriptor2,image2);
+	BoWDescriptor::instance()->extractDescriptor(&keypoint1, &imageDescriptor1,
+			image1);
+	BoWDescriptor::instance()->extractDescriptor(&keypoint2, &imageDescriptor2,
+			image2);
 	cv::BFMatcher matcher(cv::NORM_L2);
 	// from image 1 to image 2
 	// based on k nearest neighbours (with k=2)
 	std::vector<std::vector<cv::DMatch> > matches1;
-	matcher.knnMatch(imageDescriptor1, imageDescriptor2,
-			matches1, // vector of matches (up to 2 per entry)
+	matcher.knnMatch(imageDescriptor1, imageDescriptor2, matches1, // vector of matches (up to 2 per entry)
 			2);
 	// return 2 nearest neighbours
 	// from image 2 to image 1
 	// based on k nearest neighbours (with k=2)
 	std::vector<std::vector<cv::DMatch> > matches2;
-	matcher.knnMatch(imageDescriptor2, imageDescriptor1,
-			matches2, // vector of matches (up to 2 per entry)
+	matcher.knnMatch(imageDescriptor2, imageDescriptor1, matches2, // vector of matches (up to 2 per entry)
 			2);
 	// return 2 nearest neighbours
 	// 3. Remove matches for which NN ratio is
@@ -52,8 +54,9 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2, std::
 		return cv::Mat();
 	}
 	// 5. Validate matches using RANSAC
-	cv::Mat homography = ransacTest(symMatches, keypoint1, keypoint2, matchArray);
-	for(size_t i=0;i<matchArray.size();++i){
+	cv::Mat homography = ransacTest(symMatches, keypoint1, keypoint2,
+			matchArray);
+	for (size_t i = 0; i < matchArray.size(); ++i) {
 		pKeypoint1->push_back(keypoint1[matchArray[i].queryIdx]);
 		pKeypoint2->push_back(keypoint2[matchArray[i].trainIdx]);
 	}
@@ -61,14 +64,15 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2, std::
 	return homography;
 }
 
-cv::Mat RobustMatcher::patch(const cv::Mat& image, const std::vector<cv::KeyPoint>& keypointArray){
-	cv::Mat points((int)keypointArray.size(), 1, CV_32SC2);
+cv::Mat RobustMatcher::patch(const cv::Mat& image,
+		const std::vector<cv::KeyPoint>& keypointArray) {
+	cv::Mat points((int) keypointArray.size(), 1, CV_32SC2);
 	for (size_t i = 0; i < keypointArray.size(); ++i) {
-		int* ptr = points.ptr<int> ((int)i);
-		ptr[0]=(int)keypointArray[i].pt.x;
-		ptr[1]=(int)keypointArray[i].pt.y;
+		int* ptr = points.ptr<int>((int) i);
+		ptr[0] = (int) keypointArray[i].pt.x;
+		ptr[1] = (int) keypointArray[i].pt.y;
 	}
-	cv::Rect bbox=cv::boundingRect(points);
+	cv::Rect bbox = cv::boundingRect(points);
 	return image(bbox).clone();
 }
 
@@ -169,6 +173,7 @@ void RobustMatcher::setFeatureDetector(cv::Ptr<cv::FeatureDetector>& detect) {
 	detector = detect;
 }
 // Set the descriptor extractor
-void RobustMatcher::setDescriptorExtractor(cv::Ptr<cv::DescriptorExtractor>& desc) {
+void RobustMatcher::setDescriptorExtractor(
+		cv::Ptr<cv::DescriptorExtractor>& desc) {
 	extractor = desc;
 }

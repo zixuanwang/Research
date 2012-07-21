@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Sample.h"
-class Kernel
-{
+class Kernel {
 public:
 	Kernel(std::vector<Sample>* pSampleArray);
 	virtual ~Kernel(void);

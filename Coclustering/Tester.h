@@ -22,8 +22,7 @@
 #include "File.h"
 #include "Evaluation.h"
 // this class is used for testing functions
-class Tester
-{
+class Tester {
 public:
 	Tester(void);
 	~Tester(void);

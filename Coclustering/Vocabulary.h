@@ -4,8 +4,7 @@
 #include <boost/shared_ptr.hpp>
 #include "Serializer.h"
 
-class Vocabulary
-{
+class Vocabulary {
 public:
 	static Vocabulary* instance();
 	// compute cluster centers of samples. now k-means is used.

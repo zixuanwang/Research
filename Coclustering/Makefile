@@ -1,4 +1,4 @@
-CFLAGS = 	-O3 -Wall
+CFLAGS = -O3 -Wall
 
 OBJS = BoWDescriptor.o flandmark_detector.o PCACompressor.o CascadeDetector.o GaussianKernel.o RandIndexComputer.o Classifier.o ImageResizer.o RobustMatcher.o Clusterer.o Kernel.o Sample.o ColorDescriptor.o KernelKmeansClusterer.o SemiSupervisedKernel.o Evaluation.o KnnClassifier.o Serializer.o FaceDescriptor.o liblbp.o SVMClassifier.o FaceDetector.o LinearKernel.o Tester.o FaceLandmarkDetector.o main.o Vocabulary.o File.o PatchExtractor.o
 

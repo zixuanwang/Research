@@ -2,9 +2,7 @@
 
 #include <boost/shared_ptr.hpp>
 #include "Classifier.h"
-class KnnClassifier :
-	public Classifier
-{
+class KnnClassifier: public Classifier {
 public:
 	KnnClassifier(void);
 	virtual ~KnnClassifier(void);

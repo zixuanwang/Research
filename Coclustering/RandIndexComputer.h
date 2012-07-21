@@ -6,13 +6,13 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-class RandIndexComputer
-{
+class RandIndexComputer {
 public:
 	RandIndexComputer(void);
 	~RandIndexComputer(void);
 	void loadGroundTruth(const std::string& groundTruthFile);
-	float compute(const boost::unordered_map<std::string, std::string>& patchLabelMap);
+	float compute(
+			const boost::unordered_map<std::string, std::string>& patchLabelMap);
 	float compute(const std::string& clusterDir);
 private:
 	boost::unordered_map<std::string, std::string> mPatchLabelMap;

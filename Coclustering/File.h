@@ -19,4 +19,3 @@ public:
 	static std::string getFileStem(const std::string& filepath);
 };
 
-
