@@ -81,7 +81,7 @@ Sample Evaluation::extract(CascadeDetector& faceDetector,
 
 void Evaluation::train(const std::vector<std::string>& trainArray,
 		const std::string& outputPath) {
-	KnnClassifier classifier;
+	SVMClassifier classifier;
 	// initialize detectors
 	CascadeDetector faceDetector;
 	CascadeDetector noseDetector;
@@ -108,7 +108,7 @@ void Evaluation::train(const std::vector<std::string>& trainArray,
 void Evaluation::test(const std::vector<std::string>& testArray,
 		const std::string& inputPath) {
 	// load classifier
-	KnnClassifier classifier;
+	SVMClassifier classifier;
 	classifier.load(inputPath);
 	classifier.build();
 	boost::unordered_map<std::string, int> nameLabelMap;
@@ -124,6 +124,11 @@ void Evaluation::test(const std::vector<std::string>& testArray,
 		Sample faceSample = extract(faceDetector, noseDetector, testArray[i]);
 		if (!faceSample.empty()) {
 			std::string name = File::getParentDirectory(testArray[i]);
+			// for knn classifier only
+//			std::vector<int> resultArray = classifier.query(faceSample, 2);
+//			std::vector<int> neighborArray(resultArray.begin() + 1,
+//					resultArray.end());
+//			int queryResult = classifier.majority(neighborArray);
 			int queryResult = classifier.query(faceSample);
 			if (nameLabelMap[name] == queryResult) {
 				++correct;

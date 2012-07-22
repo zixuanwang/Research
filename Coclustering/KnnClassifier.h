@@ -14,8 +14,8 @@ public:
 	std::vector<int> query(const Sample& sample, int n);
 	virtual void save(const std::string& filepath);
 	virtual void load(const std::string& filepath);
-private:
 	int majority(const std::vector<int>& array);
+private:
 	boost::shared_ptr<cv::flann::Index> mpIndex;
 	const static int k;
 };

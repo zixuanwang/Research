@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "Sample.h"
+#include "IlluminationNormalizer.h"
 
 // this class computes the face feature.
 

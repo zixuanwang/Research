@@ -783,3 +783,36 @@ void Tester::testAccuracy(const std::string& locationName) {
 			<< std::endl;
 }
 
+void Tester::testIllumination() {
+	std::string imageDirectory = "/home/zixuanwang/dataset/pubfig";
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray, imageDirectory, true);
+	cv::namedWindow("test");
+	for (size_t i = 0; i < filenameArray.size(); ++i) {
+		cv::Mat image = cv::imread(filenameArray[i], 0);
+		cv::Mat normalizedImage;
+		IlluminationNormalizer::normalize(&normalizedImage, image);
+		cv::imshow("test", normalizedImage);
+		cv::waitKey(0);
+	}
+}
+
+void Tester::testLFWA() {
+	std::string imageDirectory = "/home/zixuanwang/dataset/lfw2";
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray, imageDirectory, true);
+	boost::unordered_map<std::string, int> counter;
+	for (size_t i = 0; i < filenameArray.size(); ++i) {
+		counter[File::getParentDirectory(filenameArray[i])]++;
+	}
+	std::vector<RankItem<std::string, int> > rankList;
+	for (boost::unordered_map<std::string, int>::iterator iter =
+			counter.begin(); iter != counter.end(); ++iter) {
+		RankItem<std::string, int> rankItem(iter->first, -1 * iter->second);
+		rankList.push_back(rankItem);
+	}
+	std::sort(rankList.begin(), rankList.end());
+	for (size_t i = 0; i < 60; ++i) {
+		std::cout << rankList[i].index << std::endl;
+	}
+}

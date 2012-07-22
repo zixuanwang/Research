@@ -1,7 +1,7 @@
 #include "FaceDescriptor.h"
 
 FaceDescriptor* FaceDescriptor::pInstance = NULL;
-const int FaceDescriptor::landmarkPatchLength = 8;
+const int FaceDescriptor::landmarkPatchLength = 4;
 
 FaceDescriptor* FaceDescriptor::instance() {
 	if (pInstance == NULL) {
@@ -33,18 +33,21 @@ Sample FaceDescriptor::compute(const cv::Mat& faceImage,
 
 Sample FaceDescriptor::compute(const cv::Mat& faceImage,
 		const cv::Point2f& landmark) {
-	// describe the keypoint by 3 different scales
+	// make the face image illumination invariant.
+	cv::Mat image = faceImage;
+	IlluminationNormalizer::normalize(&image,faceImage);
+	// describe the keypoint by 2 different scales
 	std::vector<cv::KeyPoint> keypointArray;
 	float scale = 1.0f;
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 2; ++i) {
 		cv::KeyPoint keypoint(landmark, (float) landmarkPatchLength * scale,
 				0.0f);
 		keypointArray.push_back(keypoint);
-		scale *= 1.5f;
+		scale *= 2.0f;
 	}
 	cv::Mat descriptor;
 	cv::SIFT sift;
-	sift(faceImage, cv::Mat(), keypointArray, descriptor, true);
+	sift(image, cv::Mat(), keypointArray, descriptor, true);
 	std::vector<float> descriptorArray(descriptor.ptr<float>(0),
 			descriptor.ptr<float>(0) + descriptor.rows * descriptor.cols);
 	Sample faceSample(descriptorArray);
