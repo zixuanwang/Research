@@ -157,10 +157,9 @@ $(function() {
 	function validateForm()
 	{
 		var x = document.getElementsByName('yelp_choice_ids');
-	
 		var y = document.getElementsByName('manual_choice_ids');
-
-		if (x.length==0 && y.length==0)
+		var z = document.getElementsByName('rec_choice_ids');
+		if (x.length==0 && y.length==0 && z.length==0)
 		{
 			alert(" Please provide at least one choice")
 			return false;
@@ -212,8 +211,8 @@ $(function() {
 			$.ajax(
 			{
 				type: "POST",
-				//url: "../getMyYelpSearchChoices/",
-				url: "../getBaseRecommendation/",
+				url: "../getMyYelpSearchChoices/",
+				//url: "../getBaseRecommendation/",
 				data: {'query':query,"location":location,csrfmiddlewaretoken:'{{csrf_token}}'},
 				cache: false,
 				success: function(data) 

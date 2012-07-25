@@ -68,6 +68,14 @@ def getEventChoices(ehash):
                 cobj['notes'] = yelp_obj.notes
                 cobj['url'] = yelp_obj.url
                 choice_objs.append(cobj)
+            if int(c.pickfrom) == CHOICE_SOURCE.REC:
+                yelp_obj = item.objects.get(id=c.pickid)#.values('name','location','notes')
+                cobj["name"] = yelp_obj.name 
+                cobj['location'] = yelp_obj.location
+                cobj['image'] = yelp_obj.image 
+                cobj['notes'] = yelp_obj.notes
+                cobj['url'] = yelp_obj.url
+                choice_objs.append(cobj)
     
     except event.DoesNotExist:
         return choice_objs

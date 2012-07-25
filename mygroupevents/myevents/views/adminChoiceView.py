@@ -239,7 +239,7 @@ def get_baseline_rating(uid, cid):
             flatsum += row.vote
         return float(flatsum)/num
     else:
-        return NaN   #if the user haven't voted the place(choice) before
+        return None  #if the user haven't voted the place(choice) before
     
 def find_list_intersection(a,b):
     return set(a).intersection( set(b) )
@@ -258,21 +258,25 @@ def aggregate_rating(ratings):
         variance = squaresum/(list_size - 1)
     else:
         variance = 0.0
-    return  (mean,variance)
+    return  (flatsum,variance)
       
-def sort_dict_by_value(mydict):
+def sort_items_by_score(mydict):
+    itemlist = []
     newdict = sorted(mydict.iteritems(), key=lambda (k,v): (v,k), reverse=True)
     for k,v in newdict:
         print "%s: %s" % (k,v)
-    return newdict
+        if v>0:
+            itemlist.append(k)
+    return itemlist
     
 # input dict: key uid, value <item,rating> dict 
 def build_baseline_reclist(user_rate):
     ulist = user_rate.values()
     item_union = {}
     for u in ulist:
+        print u 
         #u.keys= items. 
-        for iid,rating in u:
+        for iid,rating in u.iteritems():
             if item_union.has_key(iid):
                 item_union[iid].append(rating)
             else:
@@ -284,15 +288,16 @@ def build_baseline_reclist(user_rate):
     for item in item_union.keys():
         values = item_union[item]
         #item_iid.append(item)
-        (mean,var) = aggregate_rating(values)
+        (flatsum,var) = aggregate_rating(values)
         #item_score.append(0.9*mean-0.1*var)
-        item_score_dict[item] = 0.9*mean-0.1*var
+        item_score_dict[item] = 0.9*flatsum - 0.1*var
     
     #sort item based on its score
-    sort_dict = sort_dict_by_value(item_score_dict)
-    return sort_dict.keys()
+    sorted_items=[]
+    sorted_items = sort_items_by_score(item_score_dict)
+    return sorted_items
 
-# work in july 19. not finished.
+# work in july 19. 
 # baseline recommendation algorithm
 def getBaseRecommendation(request,ehash,uhash):
     if request.method == 'GET':
@@ -312,7 +317,7 @@ def getBaseRecommendation(request,ehash,uhash):
                     for i in iu:
                         cid = i.choice_id 
                         rating = get_baseline_rating(uid,cid)
-                        if rating != NaN:
+                        if rating != None:
                             user_rate[uid][cid] = rating
             if user_rate:
                 sorted_items =[]
