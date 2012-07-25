@@ -15,9 +15,12 @@ private:
 public:
 	RobustMatcher();
 	~RobustMatcher();
-	cv::Mat match(const cv::Mat& image1, const cv::Mat& image2, std::vector<cv::KeyPoint>* pKeypoint1, std::vector<cv::KeyPoint>* pKeypoint2);
+	cv::Mat match(const cv::Mat& image1, const cv::Mat& image2,
+			std::vector<cv::KeyPoint>* pKeypoint1,
+			std::vector<cv::KeyPoint>* pKeypoint2);
 	// get the patch containing keypoints
-	cv::Mat patch(const cv::Mat& image, const std::vector<cv::KeyPoint>& keypointArray);
+	cv::Mat patch(const cv::Mat& image,
+			const std::vector<cv::KeyPoint>& keypointArray);
 	void setFeatureDetector(cv::Ptr<cv::FeatureDetector>& detect);
 	void setDescriptorExtractor(cv::Ptr<cv::DescriptorExtractor>& desc);
 	int ratioTest(std::vector<std::vector<cv::DMatch> > &matches);

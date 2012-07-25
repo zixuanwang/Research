@@ -1,13 +1,9 @@
 #include "ImageResizer.h"
 
-
-ImageResizer::ImageResizer(void)
-{
+ImageResizer::ImageResizer(void) {
 }
 
-
-ImageResizer::~ImageResizer(void)
-{
+ImageResizer::~ImageResizer(void) {
 }
 
 void ImageResizer::crop(const std::string& imagePath,

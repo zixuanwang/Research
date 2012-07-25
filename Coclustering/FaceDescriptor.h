@@ -5,16 +5,17 @@
 #include <fstream>
 #include <sstream>
 #include "Sample.h"
+#include "IlluminationNormalizer.h"
 
 // this class computes the face feature.
 
-class FaceDescriptor
-{
+class FaceDescriptor {
 public:
 	static FaceDescriptor* instance();
 	// compute a face sample from the input image.
 	// assume only one face appears in the input image.
-	Sample compute(const cv::Mat& faceImage, const std::vector<cv::Point2f>& landmarkArray);
+	Sample compute(const cv::Mat& faceImage,
+			const std::vector<cv::Point2f>& landmarkArray);
 	Sample compute(const cv::Mat& faceImage, const cv::Point2f& landmark);
 private:
 	FaceDescriptor();

@@ -4,14 +4,13 @@
 #include <boost/unordered_set.hpp>
 #include "LinearKernel.h"
 #include "RankItem.h"
-class SemiSupervisedKernel
-{
-typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS> GraphBase;
-typedef boost::graph_traits<GraphBase>::vertex_descriptor VertexDesc;
-typedef boost::graph_traits<GraphBase>::edge_descriptor EdgeDesc;
-typedef boost::graph_traits<GraphBase>::vertex_iterator VertexIter;
-typedef boost::graph_traits<GraphBase>::edge_iterator EdgeIter;
-typedef boost::graph_traits<GraphBase>::out_edge_iterator OutEdgeIter;
+class SemiSupervisedKernel {
+	typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS> GraphBase;
+	typedef boost::graph_traits<GraphBase>::vertex_descriptor VertexDesc;
+	typedef boost::graph_traits<GraphBase>::edge_descriptor EdgeDesc;
+	typedef boost::graph_traits<GraphBase>::vertex_iterator VertexIter;
+	typedef boost::graph_traits<GraphBase>::edge_iterator EdgeIter;
+	typedef boost::graph_traits<GraphBase>::out_edge_iterator OutEdgeIter;
 public:
 	SemiSupervisedKernel(std::vector<Sample>* pSampleArray);
 	virtual ~SemiSupervisedKernel(void);

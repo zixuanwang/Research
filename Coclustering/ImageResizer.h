@@ -2,8 +2,7 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 
-class ImageResizer
-{
+class ImageResizer {
 public:
 	ImageResizer();
 	~ImageResizer();

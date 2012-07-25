@@ -20,10 +20,11 @@
 #include "RandIndexComputer.h"
 #include "RobustMatcher.h"
 #include "File.h"
+#include "IlluminationNormalizer.h"
 #include "Evaluation.h"
+#include "RankItem.h"
 // this class is used for testing functions
-class Tester
-{
+class Tester {
 public:
 	Tester(void);
 	~Tester(void);
@@ -47,5 +48,7 @@ public:
 	static void buildLocationBasedClassifier(const std::string& filepath);
 	static void testBaseline();
 	static void testAccuracy(const std::string& locationName);
+	static void testIllumination();
+	static void testLFWA();
 };
 

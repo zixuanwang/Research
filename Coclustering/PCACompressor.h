@@ -2,8 +2,7 @@
 
 #include <opencv2/opencv.hpp>
 #include "Sample.h"
-class PCACompressor
-{
+class PCACompressor {
 public:
 	PCACompressor(void);
 	~PCACompressor(void);

@@ -2,13 +2,12 @@
 
 #include "Sample.h"
 
-class Clusterer
-{
+class Clusterer {
 public:
 	Clusterer(int k);
 	virtual ~Clusterer(void);
 	// the sample should be normalized. L2 norm = 1.
-	void addSample(const Sample& sample, float weight=1.0);
+	void addSample(const Sample& sample, float weight = 1.0);
 	// the number of samples to be clustered.
 	int sampleCount();
 	Sample sample(size_t index) const;

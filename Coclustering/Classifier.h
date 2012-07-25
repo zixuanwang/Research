@@ -5,8 +5,7 @@
 #include "Serializer.h"
 
 // the abstract class for the classification.
-class Classifier
-{
+class Classifier {
 public:
 	Classifier(void);
 	virtual ~Classifier(void);

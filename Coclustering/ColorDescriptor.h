@@ -4,8 +4,7 @@
 #include "Sample.h"
 // this class computes the color histogram of the input image.
 // singleton design pattern.
-class ColorDescriptor
-{
+class ColorDescriptor {
 public:
 	static ColorDescriptor* instance();
 	// the input image should have three channels.

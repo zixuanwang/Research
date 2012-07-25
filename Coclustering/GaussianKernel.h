@@ -1,8 +1,6 @@
 #pragma once
 #include "Kernel.h"
-class GaussianKernel :
-	public Kernel
-{
+class GaussianKernel: public Kernel {
 public:
 	GaussianKernel(std::vector<Sample>* pSampleArray);
 	virtual ~GaussianKernel(void);

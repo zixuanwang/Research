@@ -11,8 +11,7 @@
 
 // we store both location and face features in this class.
 // each sample is a feature vector in high dimensional space.
-class Sample
-{
+class Sample {
 public:
 	Sample(void);
 	Sample(size_t dimension);
