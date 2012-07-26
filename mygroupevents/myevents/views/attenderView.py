@@ -83,17 +83,7 @@ def getEventChoices(ehash):
         
     return choice_objs
 
-#######################NOT USED #DB operation
-def updatePoll(ehash,uhash,places):
-    place_names=[]
-    for plid  in places:
-        p = Place.objects.get(id=plid)
-        place_names.append(p.name)
-        e = Event.objects.get(ehash=ehash)
-        u = User.objects.get(uhash=uhash)
-        ep = Poll.objects.create(event=e,user=u,place=p,vote=VOTE_STATUS.YES)
-    return place_names
-
+ 
 #DB operation
 def getChoiceVote(event_id,choice_id,vote):
     cnt = poll.objects.filter(event_id=event_id, choice_id=choice_id, vote=vote).count()
@@ -229,16 +219,16 @@ def getMyVotes(request,ehash,uhash):
     e = event.objects.get(ehash = ehash)
     u = user.objects.get(uhash = uhash)
     
-    posids = Poll.objects.filter(event_id=e.id,user_id=u.id,vote=1).values('place')
-    negids = Poll.objects.filter(event_id=e.id,user_id=u.id,vote=-1).values('place')
+    posids = poll.objects.filter(event_id=e.id,user_id=u.id,vote=1).values('choice')
+    negids = poll.objects.filter(event_id=e.id,user_id=u.id,vote=-1).values('choice')
     likes = []
     dislikes = [] 
     for pl in posids:
-        p = Place.objects.get(id = pl['place'])
+        p = choice.objects.get(id = pl['choice'])
         likes.append(p.name)
     
     for pl in negids:
-        p = Place.objects.get(id = pl['place'])
+        p = choice.objects.get(id = pl['choice'])
         dislikes.append(p.name)
         
     json = simplejson.dumps({"likes":likes,'dislikes':dislikes})   

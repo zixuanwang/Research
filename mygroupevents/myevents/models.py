@@ -50,8 +50,6 @@ class choice(models.Model):
 # the returned results of yelp search! 
 # create INDEX yelp_id ON myevents_yelp(yid(256))
 class yelp(models.Model):
-#	yid = models.TextField(null=True)
-# name = models.TextField()
 	yid = models.CharField(max_length=1024,null=True)
 	name = models.CharField(max_length=1024)
 	image_url = models.TextField(null=True)
