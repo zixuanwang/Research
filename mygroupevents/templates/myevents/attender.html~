@@ -6,8 +6,9 @@
 {% block extrastyle %}
 <link type="text/css" href="{%static "css/tagit/reset.css"%}" rel="stylesheet" />
 <link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
-	.wordwrap{
-	max-width:300px;
+<style type="text/css">
+.wordwrap{
+	  max-width:300px;
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
@@ -15,6 +16,8 @@
     word-break: break-all;  
     word-wrap: break-word; /* Internet Explorer 5.5+ */ 
     }
+</style>>	
+	
 {% endblock %}
 
 {% block content%}
@@ -37,7 +40,9 @@
 	This event is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} on <u>  {{event.eventDate}}  </u> 
 	{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
 </p>
-<p>	with  {{event.inviter|wordwrap:80}} and 
+
+<p>	with  {{event.inviter|wordwrap:80}} and </p>
+<p class="wordwrap"></p>
 <a id="showfriends" class="accordion-toggle" data-toggle="collapse" href="#friendslist"> friends</a>
 </p>
 <div id="friendslist" class="accordion-inner"></div>
@@ -557,9 +562,10 @@
 				$('#friendslist').html('<p class="wordwrap">'+efriends+'</p>');
 			} 
 		});
-		if ($("#friendlist").text))
 		//can only click once. then disable the button 
-		$('#showfriends').attr("disabled", "disabled");
+		//if friends are shown, then disable the button
+		if ($("#friendlist").text))		
+			$('#showfriends').attr("disabled", "disabled");
 		
 	});
 </script>
