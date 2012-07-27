@@ -187,7 +187,8 @@
 	<script type="text/javascript" src=" {%static "js/jquery.bootstrap.confirm.popover.js"%}"></script> 
 	<script type="text/javascript" src=" {%static "js/bootbox.js"%}"></script> 
 	<script type="text/javascript" src=" {%static "js/spin.js"%}"></script> 
-	<script type="text/javascript" src=" {%static "js/bootstrap-collapse.js"%}"></script>	
+<script type="text/javascript" src=" {%static "js/bootstrap-collapse.js"%}"></script>	
+	
 	<script src="{%static "js/tag-it.js"%}" type="text/javascript" charset="utf-8"></script>
 	<script src="{%static "js/jquery-ui.autocomplete.min.js"%}" type="text/javascript" charset="utf-8"></script> 
 	
