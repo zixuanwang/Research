@@ -94,7 +94,7 @@ def updateEventFixedAttr(ehash, uhash, what, what_other, friendEmails, eventDate
         e.friends = friendEmails
         e.status = EVENT_STATUS.HASDETAIL
         e.save()
-    except event.DoesNotExist or user, DoesNotExist:
+    except event.DoesNotExist or user.DoesNotExist:
         return False   ###ehash should be correct. 
     
     inviter = user.objects.get(uhash=uhash)

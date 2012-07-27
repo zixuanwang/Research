@@ -61,12 +61,15 @@ def addManualChoice(request, ehash, uhash):
                 c.location = location
                 c.notes = notes
                 c.save()
+                newitem = item.objects.get(foreign_id=c.id, ftype=CHOICE_SOURCE.MANUAL)
             except manual.DoesNotExist:
                 c = manual.objects.create(name=name, location=location, notes=notes, addby_id=u.id) 
-            json = simplejson.dumps({"choice_id":c.id, "choice_name":c.name, "choice_location":c.location, "choice_notes":c.notes})
+                newitem = item.objects.create(foreign_id=c.id, name=c.name, location=c.location, image=None,notes=c.notes,url=None,ftype=CHOICE_SOURCE.MANUAL)
+            
+            json = simplejson.dumps({"choice_id":newitem.id, "choice_name":c.name, "choice_location":c.location, "choice_notes":c.notes})
             return HttpResponse(json, mimetype='application/json')
         except event.DoesNotExist or user.DoesNotExist:
-            json = simplejson.dumps({"choice":null})
+            json = simplejson.dumps({"choice":None})
             return HttpResponse(json, mimetype='application/json')
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a post"}, context_instance=RequestContext(request))
@@ -99,7 +102,7 @@ def addSearchChoice(request, ehash, uhash):
             json = simplejson.dumps({"choice_id":c.id, "choice_name":c.name, "choice_location":c.location, "choice_notes":c.notes})
             return HttpResponse(json, mimetype='application/json')
         except event.DoesNotExist or user.DoesNotExist:
-            json = simplejson.dumps({"choice":null})
+            json = simplejson.dumps({"choice":None})
             return HttpResponse(json, mimetype='application/json')
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a post"}, context_instance=RequestContext(request))
@@ -202,17 +205,17 @@ def search_yelp(category,query,location,query_id):
         
         location=y.location_display_address
         try:
-            newitem = item.objects.get(foreign_id=y.id,type=CHOICE_SOURCE.YELP)
+            newitem = item.objects.get(foreign_id=y.id,ftype=CHOICE_SOURCE.YELP)
         except item.DoesNotExist:
             #add image field
-            newitem = item.objects.create(foreign_id=y.id, name=y.name, location=location, image=y.rating_img_url,notes=y.review_count,url=y.url,type=CHOICE_SOURCE.YELP)
+            newitem = item.objects.create(foreign_id=y.id, name=y.name, location=location, image=y.rating_img_url,notes=y.review_count,url=y.url,ftype=CHOICE_SOURCE.YELP)
         ys.append(newitem)
         # record this result results, store new item id or yelp id?????
         s = search_result.objects.create(query_id=query_id, yelp_result_id = newitem.id)
     print 'parse yelp result spent:', time.time()-t0  
     return  serializers.serialize('json', ys, indent=2, use_natural_keys=True)
     
-# output: returns for suggestions
+# output: temporal returns for suggestions
 def getMyYelpChoices(request, ehash, uhash):
     if request.method == 'GET':
         u = user.objects.get(uhash=uhash) 
@@ -317,12 +320,18 @@ def getBaseRecommendation(request,ehash,uhash):
                     for i in iu:
                         cid = i.choice_id 
                         rating = get_baseline_rating(uid,cid)
-                        if rating != None:
-                            user_rate[uid][cid] = rating
+                        # get the item id according to choice id.
+                        item_id = None
+                        try:
+                            item_id = choice.objects.get(id=cid).pickid
+                        except choice.DoesNotExist:
+                            print 'can not find the choice??'
+                        if (rating!=None) and item_id:
+                            user_rate[uid][item_id] = rating
             if user_rate:
                 sorted_items =[]
                 sorted_items = build_baseline_reclist(user_rate) 
-                ys = []
+                ys = []                                                                                       
                 item_count = 0 
                 for i in sorted_items:
                     if item_count > 10:   # only recommend top 10 items
@@ -333,7 +342,7 @@ def getBaseRecommendation(request,ehash,uhash):
                         item_count += 1
                     except item.DoesNotExist:
                         print 'can not find the past item ??'
-                data = serializers.serialize('json', ys, indent=2, use_natural_keys=True)
+                data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
             else:  #if nobody has rated before
                 q = search_query.objects.create(term=e.detail,location=e.location, search_by_id = u.id, search_for_id=e.id)
                 data = search_yelp('restaurants','restaurants',e.location,q.id)
@@ -365,7 +374,54 @@ def getMyYelpSearchChoices(request,ehash,uhash):
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
     
+# use item rather than different types
 def editEventChoice(request, ehash, uhash):
+    if request.method == "POST":
+        admin_choices = request.POST.getlist('admin_choice_ids')
+        try: 
+            choice_objs = []
+            e = event.objects.get(ehash=ehash)
+            inviter = user.objects.get(uhash=uhash)
+            for cid in admin_choices:
+                try:
+                    c = choice.objects.get(pickid=cid,pickby_id=inviter.id)
+                    c.cnt+=1
+                    c.save()
+                except choice.DoesNotExist:
+                    c = choice.objects.create(pickid=cid, pickby_id=inviter.id,cnt=1) 
+                try: # here is for wrong operation. shouldn't happen if not because of testing
+                    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
+                except:
+                    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+                item_obj = item.objects.get(id=cid)
+                choice_objs.append(item_obj)
+                    
+            ### send a mail to inviter too, since he is the attender as well
+            attenderMail(ehash, inviter.uhash, inviter.email, e.name, inviter.email)
+            
+            ### get all friends email
+            attenders = e.friends.strip()
+            all_attenders = attenders.split(',')
+
+            ### send email to each attender 
+            for each_attender in all_attenders:
+                #remove space
+                each_attender = each_attender.strip()    
+                try:
+                    attender = user.objects.get(email=each_attender)
+                    attenderMail(ehash, attender.uhash, inviter.email, e.name, attender.email)
+                except user.DoesNotExist:   #ignore the user which doesn't exist in the db
+                    continue
+              
+            e.status = EVENT_STATUS.VOTING
+            e.save()
+            data = {'event': e, 'choices':choice_objs}        
+            return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
+        except event.DoesNotExist or user.DoesNotExist:
+            return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      
+          
+# THIS CAN BE REWRITTEN .. BECAUSE ITEM HAS THE PICKFROM..   
+def editEventChoice2(request, ehash, uhash):
     if request.method == "POST":
         manual_choices = request.POST.getlist('manual_choice_ids')
         #print manual_choices
@@ -388,7 +444,7 @@ def editEventChoice(request, ehash, uhash):
                     ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
                 except:
                     ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
-                manual_c = manual.objects.get(id=cid)
+                manual_c = item.objects.get(id=cid)
                 choice_objs.append(manual_c)
                 
             for cid in yelp_choices:

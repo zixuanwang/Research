@@ -39,14 +39,6 @@ class manual(models.Model):
 	image = models.TextField(null=True)
 	addby = models.ForeignKey(user)
 
-#create index choice_pickid on myevents_choice(pickid);
-class choice(models.Model):
-	pickfrom = models.TextField()
-	pickid = models.IntegerField()
-	pickby = models.ForeignKey(user)
-	cnt = models.IntegerField()
-	pub_date = models.DateTimeField(auto_now_add=True)
-
 # the returned results of yelp search! 
 # create INDEX yelp_id ON myevents_yelp(yid(256))
 class yelp(models.Model):
@@ -91,15 +83,24 @@ class yelp(models.Model):
 	pub_date = models.DateTimeField(auto_now_add=True)
 	
 class item(models.Model):
-	#this foreign_id is for yelp id, or manual id, or id from any other data source. not used now
+	#this foreign_id is for yelp id, or manual id, or id from any other data source. 
 	foreign_id = models.IntegerField()
 	name = models.CharField(max_length=1024)
 	location = models.TextField()
 	notes = models.TextField(null=True)
 	image = models.TextField(null=True)
 	url = models.TextField(null=True)
-	type = models.IntegerField()
+	#where item is from. yelp or manual.
+	ftype = models.IntegerField()   
 
+#create index choice_pickid on myevents_choice(pickid);
+class choice(models.Model):
+	#here uses item id.
+	pickid = models.IntegerField()
+	pickby = models.ForeignKey(user)
+	cnt = models.IntegerField()
+	pub_date = models.DateTimeField(auto_now_add=True)
+	
 class search_query(models.Model):
 	term = models.TextField()
 	location = models.TextField()

@@ -16,7 +16,8 @@ import sys
 import datetime
 from django.utils.timezone import utc
 import pytz
- 
+
+  
 def attender(request,ehash,uhash):   
     try:
         e = event.objects.get(ehash=ehash)
@@ -27,18 +28,46 @@ def attender(request,ehash,uhash):
             isadmin = True
         else:
             isadmin = False
-        choices = getEventChoices(ehash)
+        choices = getEventChoices2(ehash)
         #print choices
         init_pos_votes = {}
         init_neg_votes = {}
         for c in choices:
             init_pos_votes[c["id"]] = getChoiceVote(e.id,c["id"],1)
             init_neg_votes[c["id"]] = getChoiceVote(e.id,c["id"],-1)
+        
+        local_tz = pytz.timezone('America/Dawson')
+        loc_dt = e.closeDate.astimezone(local_tz)
+        
         data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
-                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':ehash,'uhash':uhash}
+                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':ehash,'uhash':uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S')}
         return render_to_response('myevents/attender.html',data,context_instance=RequestContext(request))
     except event.DoesNotExist, user.DoesNotExist:
         return render_to_response('myevents/error.html',{'message':"event or user doesnt exist"},context_instance=RequestContext(request))
+
+
+# get a list of place objects associated to this event
+def getEventChoices2(ehash):
+    choice_objs =[]
+    try:
+        e = event.objects.get(ehash=ehash)
+        cs = event_choice.objects.filter(event_id=e.id).distinct().values('choice')
+        for cl in cs:
+            cobj={}
+            cid = cl['choice']
+            cobj['id'] = cid
+            c = choice.objects.get(id=cid)            
+            if c:
+                item_obj = item.objects.get(id=c.pickid)
+                cobj["name"] = item_obj.name 
+                cobj['location'] = item_obj.location
+                cobj['image'] = item_obj.image   # this is always empty.
+                cobj['notes'] = item_obj.notes
+                cobj['url'] = item_obj.url
+                choice_objs.append(cobj)
+    except event.DoesNotExist:
+        return choice_objs        
+    return choice_objs
 
     
 # get a list of place objects associated to this event
@@ -89,7 +118,8 @@ def getChoiceVote(event_id,choice_id,vote):
     cnt = poll.objects.filter(event_id=event_id, choice_id=choice_id, vote=vote).count()
     return cnt
 
-    
+
+#NOT USED ANYMORE
 def getPosVote(request,ehash,uhash):
     if request.method == "GET":    
         message = {"cnt": ""}
@@ -106,6 +136,7 @@ def getPosVote(request,ehash,uhash):
             return render_to_response('myEvents/error.html',{"There is no such event"},context_instance=RequestContext(request))
     return render_to_response('myEvents/error.html',{"should be a http GET"},context_instance=RequestContext(request))
 
+#NOT USED ANYMORE
 def getNegVote(request,ehash,uhash):
     if request.method == "GET":    
         message = {"cnt": ""}
@@ -159,31 +190,24 @@ def getResult(request,ehash,uhash):
         cid = first_rs['choice']
         numlikes = first_rs['num_votes']
         c = choice.objects.get(id=cid)
-        currPl=""
-        if int(c.pickfrom) == CHOICE_SOURCE.MANUAL: 
-            currPl = manual.objects.get(id=c.pickid).name
-        if int(c.pickfrom) == CHOICE_SOURCE.YELP:
-            currPl = yelp.objects.get(id=c.pickid).name
-        json = simplejson.dumps({"place":currPl,'numlikes':numlikes,'numdislikes':0})
+        place_detail=""
+        try:
+            bestItem = item.objects.get(id=c.pickid)
+            place_detail = bestItem.name+' , '+bestItem.location+' , '+bestItem.notes
+        except item.DoesNotExist:
+            print 'choice and item are corrupted.'
+        
+        json = simplejson.dumps({"place":place_detail,'numlikes':numlikes,'numdislikes':0})
     else:  #if no body vote on likes, this is not used yet
         rs = poll.objects.filter(event=e.id, vote=-1).values('choice').annotate(num_votes=Count('choice')).order_by('-num_votes') 
-         
         if rs:
             first_rs = rs[0]
             cid = first_rs['choice']
             numdislikes = first_rs['num_votes']
             c = choice.objects.get(id=cid)
             dislikePl=""
-            if int(c.pickfrom) == CHOICE_SOURCE.MANUAL:
-                dislikePl = manual.objects.get(id=c.pickid).name
-            if int(c.pickfrom) == CHOICE_SOURCE.YELP:
-                dislikePl = yelp.objects.get(id=c.pickid).name
-             #dislikePl =rs[0]['name']
-             #c = choice.objects.get(id=cid)
-             #if c.pickfrom == CHOICE_SOURCE.MANUAL:
-             #currPl = manual.objects.get(id=c.pickid).name
-             #if c.pickfrom == CHOICE_SOURCE.YELP:
-             #currPl = yelp.objects.get(id=c.pickid).name
+            least_bad_item = item.objects.get(id=c.pickid) 
+            dislikePl = least_bad_item.name + ' , '+least_bad_item.location + ' , '+least_bad_item.notes
             numdislikes = rs[0]['num_votes']
             json = simplejson.dumps({"place":dislikePl,'numlikes':0,'numdislikes':numdislikes})   
         else:
@@ -271,15 +295,15 @@ def getAllComments(request,ehash,uhash):
             for row in uc:
                 uid = row.user_id
                 uname = user.objects.get(id=uid).name
-		local_tz = pytz.timezone('America/Dawson')
-		loc_dt = row.pub_date.astimezone(local_tz)
+                local_tz = pytz.timezone('America/Dawson')
+                loc_dt = row.pub_date.astimezone(local_tz)
                 comments.append({'name':uname,'say':row.say,'date':loc_dt.strftime('%Y-%m-%d %H:%M:%S')})
             json = simplejson.dumps(comments)
         except event.DoesNotExist, user.DoesNotExist:
             json=simplejson.dumps({'success':'False'})
         return HttpResponse(json,mimetype="application/json")
     else:
-         return render_to_response('myevents/error.html',{"message":"the request is not a get"},context_instance=RequestContext(request)) 
+        return render_to_response('myevents/error.html',{"message":"the request is not a get"},context_instance=RequestContext(request)) 
       
 def writeComment(request,ehash,uhash):
     if request.method == "POST":    
@@ -287,16 +311,72 @@ def writeComment(request,ehash,uhash):
             e=event.objects.get(ehash=ehash)
             u=user.objects.get(uhash=uhash)
             acomment = request.POST.get('acomment')
-	    pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)   
-	    local_tz = pytz.timezone('America/Dawson')
-	    loc_dt = pub_date.astimezone(local_tz)
-	    c = comment.objects.create(event_id=e.id,user_id=u.id,say=acomment,pub_date=pub_date )
+            pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)   
+            local_tz = pytz.timezone('America/Dawson')
+            loc_dt = pub_date.astimezone(local_tz)
+            c = comment.objects.create(event_id=e.id,user_id=u.id,say=acomment,pub_date=pub_date )
             response = simplejson.dumps({'name':u.name,'say':acomment,'date':loc_dt.strftime('%Y-%m-%d %H:%M:%S')})
             #response = simplejson.dumps({'name':u.name,'say':acomment,'date':c.pub_date.strftime('%Y-%m-%d %H:%M:%S')})
             return HttpResponse(response,mimetype="application/json")
         except event.DoesNotExist, user.DoesNotExist:
-            return HttpResponse({'sucess':False},mimetype="application/json")
+            return HttpResponse({'success':False},mimetype="application/json")
     else:
         return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  
         
      
+def addMoreFriends(request,ehash,uhash):     
+    if request.method=="POST":
+        try:
+            e = event.objects.get(ehash=ehash)
+            u = user.objects.get(uhash=uhash)
+            if e.status == EVENT_STATUS.TERMINATED:
+                return render_to_response('myevents/error.html',{"message":"the event is closed, don't add friends"},context_instance=RequestContext(request))  
+             
+            friends = request.POST.get('friends')
+            #update the event detail
+            e.friends = e.friends+','+friends;
+            e.save()
+            
+            friendEmails = friends.split(',')
+            if friendEmails !=None: 
+                print friendEmails
+                for uemail in friendEmails:
+                    uemail = str(uemail.strip())
+                    #print uemail
+                    try:
+                        attender = user.objects.get(email=uemail)
+                        uhash = attender.uhash
+                    except user.DoesNotExist:
+                        uhash = make_uuid()
+                        name = getNamebyEmail(uemail)
+                        attender = user.objects.create(email=uemail, uhash=uhash, name=name)
+                    try:
+                        ### avoid the case that the user is already inserted. 
+                        eu = event_user.objects.get(event_id=e.id, user_id=attender.id, role="attender")
+                    except event_user.DoesNotExist:
+                        eu = event_user.objects.create(event_id=e.id, user_id=attender.id, role="attender")  #update event_user
+       
+                    try:
+                        ### update friendship table
+                        f = friend.objects.get(u_id=u.id, v_id=attender.id)
+                        f.cnt += 1
+                        f.save()
+                    except friend.DoesNotExist:
+                        try:
+                            f_opp = friend.objects.get(u_id=attender.id, v_id=u.id)
+                            f_opp.cnt += 1
+                            f_opp.save()
+                        except friend.DoesNotExist:
+                            f = friend.objects.create(u_id=u.id, v_id=attender.id, cnt=1)    
+                    finally:
+                        pass
+                    
+                    ###SEND OUT invitation.
+                    attenderMail(ehash, uhash, u.email, e.name, uemail)
+                    return HttpResponse({'success':True},mimetype="application/json")
+            else:
+                    return HttpResponse({'success':False},mimetype="application/json")
+        except event.DoesNotExist or user.DoesNotExist:
+            return render_to_response('myevents/error.html',{"message":"invalid event or user"},context_instance=RequestContext(request))  
+    else:
+        return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  

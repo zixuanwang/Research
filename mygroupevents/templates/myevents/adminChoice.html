@@ -4,6 +4,17 @@
 {% block extrastyle %}
  	<link type="text/css" href="{%static "css/tagit/reset.css"%}" rel="stylesheet" /> 
  	<link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
+ 	p.friends{ width: 200px;
+ 	 word-wrap: break-word;}
+	.wordwrap{
+	max-width:300px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+    }
 {% endblock %}
 {% block morescript %}
 <script src="{%static "js/jquery-ui.autocomplete.min.js"%}" type="text/javascript" charset="utf-8"></script>  
@@ -40,7 +51,9 @@ $(function() {
 				//console.debug(notes);
 				var html = '<tr id="show_choice_id_'+id+'"><td>'+name+'</td><td>'+location+'</td><td>'+notes+'</td><td><span class="label label-info remove_choice" id="manual">remove</span></td></tr>';
 				$("#show_choice_list > tbody").append(html);
-				$("#hidden_manual_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_yelp_choice_id_'+ id+'" name="manual_choice_ids" />');
+				//$("#hidden_manual_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_yelp_choice_id_'+ id+'" name="manual_choice_ids" />');
+			    $("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_admin_choice_id_'+id+'" name="admin_choice_ids" />');
+			
 			} 
 		}); 	
 	});
@@ -59,13 +72,8 @@ $(function() {
 			var intids = id.split('_');
 			var lastid = intids[intids.length-1]
 			//console.debug(lastid);
-			if (source_from=="manual")
-				$('#hidden_manual_choice_id_'+lastid).remove();
-			else 
-			{
-				if(source_from=="yelp")
-					$('#hidden_yelp_choice_id_'+lastid).remove();
-			}
+			$("#hidden_admin_choice_id_"+lastid).remove();
+ 
 			return false;
 		});
 	});
@@ -131,12 +139,8 @@ $(function() {
      		// remove it or not, this is a question
      		$thisrow.remove(); 
      		$("#show_choice_list >tbody").append(html);
-     
-     		if (model=="yelp")
-				$("#hidden_yelp_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_yelp_choice_id_'+lastid+'" name="yelp_choice_ids" />');
-			if(model=="rec")
-				$("#hidden_rec_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_rec_choice_id_'+lastid+'" name="rec_choice_ids" />');
-				
+     		$("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_admin_choice_id_'+lastid+'" name="admin_choice_ids" />');
+     		
 		});
 	});
 		
@@ -156,10 +160,9 @@ $(function() {
 		
 	function validateForm()
 	{
-		var x = document.getElementsByName('yelp_choice_ids');
-		var y = document.getElementsByName('manual_choice_ids');
-		var z = document.getElementsByName('rec_choice_ids');
-		if (x.length==0 && y.length==0 && z.length==0)
+		var x = document.getElementsByName('admin_choice_ids');
+		 
+		if (x.length==0 )
 		{
 			alert(" Please provide at least one choice")
 			return false;
@@ -212,8 +215,7 @@ $(function() {
 			{
 				type: "POST",
 				url: "../getMyYelpSearchChoices/",
-				//url: "../getBaseRecommendation/",
-				data: {'query':query,"location":location,csrfmiddlewaretoken:'{{csrf_token}}'},
+ 				data: {'query':query,"location":location,csrfmiddlewaretoken:'{{csrf_token}}'},
 				cache: false,
 				success: function(data) 
 				{
@@ -240,10 +242,8 @@ $(function() {
 							{
 								notes = choice.notes;
 								rating_image = choice.image;
-								 
 								url = choice.url;
-								//model = "yelp"
-								model = "rec"
+								model = "yelp"
 								var html = '<tr id="search_choice_id_'+id+'" name="'+model+'"><td id="name"><a id="url" target="_blank" href="'+url+'">'+ name+'</a></td><td id="location">'+ choice.location+'</td><td id="notes"><img src='+rating_image+'>&nbsp; '+ notes+'</td><td><span class="label label-info add_search_choice">add</span></td></tr>';						 
 							}
 							$("#show_search_choice_list >tbody").append(html);
@@ -267,7 +267,6 @@ $(function() {
 				
 			var model = $(this).closest('tr').attr('name');
 			//console.debug('model== '+model);
-
 			var $thisrow = $(this).parent().parent();
 				 
 			var name = $thisrow.children('#name').text();
@@ -281,23 +280,51 @@ $(function() {
      		// remove it or not, this is a question
      		$thisrow.remove(); 
      		$("#show_choice_list >tbody").append(html);
-     		
-     		if (model=="yelp")
-			$("#hidden_yelp_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_yelp_choice_id_'+lastid+'" name="yelp_choice_ids" />');
-			if (model=='rec')
-			$("#hidden_rec_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_rec_choice_id_'+lastid+'" name="rec_choice_ids" />');
-			
+     		$("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_admin_choice_id_'+lastid+'" name="admin_choice_ids" />');
+ 
 		});
 	});
+	
+	$(document).ready(function() 
+	{
+		//var efriends = $('#showfriends').val();
+		$('#showfriends').live('click',function(){
+			var efriends = $('#myfriends').text();
+			console.log(efriends);		
+			 
+			var friends = efriends.split(',');
+			var oneLine=8;
+			var findx=0;
+			var num =friends.length;
+		 
+			console.log(num)
+			if(num>oneLine)
+			{
+				console.log('more than 8');
+				while(findx<=num){
+					var friendInALine=""
+					if (findx+oneLine > num)
+					{friendInALine= friends.slice(findx, num).join(); }
+					else
+						{friendInALine= friends.slice(findx, findx+oneLine).join();}
+					findx+=oneLine;
+					console.log(friendInALine);
+					$('#friendslist').append('<p class="wordwrap">'+friendInALine+'</p>')
+				} 
+			}
+			else{
+				$('#friendslist').html('<p class="wordwrap">'+efriends+'</p>');
+			} 
+		});
 		
-		
+	});
 	
 </script>	
 {% endblock%}
 
 {% block content%}
 <!-- hidden values--> 
-<p id='myfriends' style="display:none;"> {{ myfriends }}</p> 
+<p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
 
 <div class="container">
 	<p><a class="btn btn-primary" href='../adminDetail/'> BACK TO EVENT DETAILS </a> </p>
@@ -326,8 +353,9 @@ $(function() {
 	 		<u> 	{{event.eventTime}}</u>
 	 		{%endif%}	
 	 	</p>
-	 		<p>	with <u> {{event.inviter}}, {{event.friends}} </u> 	</p>
-	 	  <p>	{% if event.location%} 
+	 		<p>	with  {{event.inviter|wordwrap:80}} and <a id="showfriends">below friends</a></p>
+	 		<div id='friendslist'></div>
+	 	    <p>	{% if event.location%} 
    			 near <u> {{event.location}} </u>
     		{%endif%}
 	 	</p>
@@ -443,6 +471,7 @@ $(function() {
 			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">
 			</div>
 			<div id="hidden_rec_choice_list"  class="row-fluid  show-grid">
+			<div id="hidden_admin_choice_list"  class="row-fluid  show-grid">
 			</div>
 			{% csrf_token %}
 			<p> <span class="add-on"><i class="icon-leaf"></i></span>Alright, let's email your friends about this event, and let them decide which option is best! 

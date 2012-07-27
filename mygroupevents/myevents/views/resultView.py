@@ -28,8 +28,8 @@ def dictfetchall(cursor):
 def getEventPlaces(ehash):
     restaurants=[]
     try:
-        e = Event.objects.get(ehash=ehash)
-    except Event.DoesnotExist:
+        e = event.objects.get(ehash=ehash)
+    except event.DoesnotExist:
         return restaurants
     #retrieve all distinct places for the event, return a list of dict{'place':plid, 'place':plid}
     places = Event_Place.objects.filter(event=e).distinct().values('place')
@@ -44,7 +44,7 @@ def getEventPlaces(ehash):
 def getPlaceVote(places,ehash):
     from django.db import connection, transaction
     cursor = connection.cursor()
-    e = Event.objects.get(ehash=ehash)
+    e = event.objects.get(ehash=ehash)
     query = "SELECT place_id, count(*) as cnt from myevents_poll where event_id = %s group by place_id" %str(e.id)
     cursor.execute(query)
     results = {}

@@ -30,6 +30,7 @@ urlpatterns = patterns('myevents.views',
     url(r'(?P<ehash>\w+)/(?P<uhash>\w+)/getMyYelpSearchChoices/$', 'getMyYelpSearchChoices'),
     url(r'(?P<ehash>\w+)/(?P<uhash>\w+)/getAllComments/$', 'getAllComments'),
     url(r'(?P<ehash>\w+)/(?P<uhash>\w+)/writeComment/$', 'writeComment'),
+    url(r'(?P<ehash>\w+)/(?P<uhash>\w+)/addMoreFriends/$', 'addMoreFriends'),
     url(r'^leaveComments/$', 'leaveComments'),
     url(r'^submitReview/$', 'submitReview'),
     url(r'(?P<ehash>\w+)/(?P<uhash>\w+)/xhr_test/$', 'xhr_test'),    #testing ajax #######below are not used calls
