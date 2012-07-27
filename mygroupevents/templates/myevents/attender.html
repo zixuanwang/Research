@@ -23,14 +23,13 @@
 <p id='uhash' style="display:none;">{{uhash}}</p> 
 <div class="container">
 <p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
-
  	
  <div class="row-fluid">  
- 	<h2> Greetings   {{myname}}!</h2>
+ 	<h2> Greetings  &#8204; {{myname}}!</h2>
  	{%if isadmin  %}
- 		<h3> Thanks for organizing the event <font color='#08c'> {{event.name}} </font> </h3>
+ 		<h3> Thanks for organizing the event &#8204;<font color='#08c'> {{event.name}} </font> </h3>
 	{%else%}
-		<h3> You are invited to the event <font color='#08c'> {{event.name}} </font></h3>	
+		<h3> You are invited to the event &#8204;<font color='#08c'> {{event.name}} </font></h3>	
 	{%endif%}
 </div> 
 <hr/>
@@ -38,8 +37,8 @@
 	This event is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} on <u>  {{event.eventDate}}  </u> 
 	{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
 </p>
-<p>	with  {{event.inviter|wordwrap:80}} and <a id="showfriends"> friends</a></p>
-<div id='friendslist'></div>
+<p>	with  {{event.inviter|wordwrap:80}} and <a id="showfriends"   data-toggle="collapse" data-target="friendslist"> friends</a></p>
+<div id="friendslist" class="collapse"></div>
 <p>	{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
  
 {%if event.status ==  "2" %}
@@ -347,7 +346,6 @@
 					var dislike = response.dislikes;
 	
 					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td>'+ like+'</td> </tr><tr><td> Disliked by</td> <td>'+dislike+'</td></tr></table>'
-					//console.debug(output)
 					
 					$("#stats_"+id).html(output);
 				} 
