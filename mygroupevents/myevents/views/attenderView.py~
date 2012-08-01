@@ -17,12 +17,6 @@ import datetime
 from django.utils.timezone import utc
 import pytz
 
-#DB operation, return the number of the vote for a choice in an event
-#input: eid, cid,vote
-def getChoiceVote(event_id,choice_id,vote):
-    cnt = poll.objects.filter(event_id=event_id, choice_id=choice_id, vote=vote).count()
-    return cnt
-
 def attender(request,ehash,uhash):   
     try:
         e = event.objects.get(ehash=ehash)
@@ -49,6 +43,7 @@ def attender(request,ehash,uhash):
         return render_to_response('myevents/attender.html',data,context_instance=RequestContext(request))
     except event.DoesNotExist, user.DoesNotExist:
         return render_to_response('myevents/error.html',{'message':"event or user doesnt exist"},context_instance=RequestContext(request))
+
 
 # get a list of place objects associated to this event
 def getEventChoices2(ehash):
@@ -112,8 +107,16 @@ def getEventChoices(ehash):
     
     except event.DoesNotExist:
         return choice_objs
+    #retrieve all distinct places for the event, return a list of dict{'place':plid, 'place':plid}
         
     return choice_objs
+
+ 
+#DB operation
+def getChoiceVote(event_id,choice_id,vote):
+    cnt = poll.objects.filter(event_id=event_id, choice_id=choice_id, vote=vote).count()
+    return cnt
+
 
 #NOT USED ANYMORE
 def getPosVote(request,ehash,uhash):
@@ -147,7 +150,7 @@ def getNegVote(request,ehash,uhash):
             return render_to_response('myEvents/error.html',{"There is no such event"},context_instance=RequestContext(request))
     return render_to_response('myEvents/error.html',{"should be a http GET"},context_instance=RequestContext(request))
 
-# DB operation for setVote function
+# DB operation
 def setChoiceVote(event_id,user_id, choice_id,vote):
     try:
         ep = poll.objects.get(event_id=event_id,choice_id=choice_id,user_id=user_id)
@@ -156,7 +159,6 @@ def setChoiceVote(event_id,user_id, choice_id,vote):
     except poll.DoesNotExist:
         ep = poll.objects.create(event_id=event_id, choice_id=choice_id,user_id=user_id, vote=vote)
 
-# set the vote of a choice
 def setVote(request,ehash,uhash):
     if request.method == "POST":    
         try:
@@ -177,10 +179,7 @@ def setVote(request,ehash,uhash):
             return HttpResponse(json, mimetype='application/json')
     else:
         return render_to_response('myEvents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  
-
-# NEED Improve -> a new algorithm to pick the best one.
-# return the most liked place, with the number of likes
-# or the least hated place, with number of dislikes
+    
 def getResult(request,ehash,uhash):
     e = event.objects.get(ehash=ehash)
     # need to have values to have the group by effect
@@ -213,9 +212,7 @@ def getResult(request,ehash,uhash):
         else:
             json = simplejson.dumps({"place":"",'numlikes':0,'numdislikes':0})
     return HttpResponse(json,mimetype="application/json")
-
-# close event, send out final notification 
-# input eid, final choice
+    
 def terminateEvent(request,ehash,uhash):
     if request.method == "POST":    
         try:
@@ -240,8 +237,6 @@ def xhr_test(request,ehash,uhash):
         message = "Hello"
     return HttpResponse(message)
 
-# return the place liked by me ,and disliked by me, for an event
-# include : uid, eid
 def getMyVotes(request,ehash,uhash):
 #    if request.is_ajax():
     e = event.objects.get(ehash = ehash)
@@ -262,8 +257,6 @@ def getMyVotes(request,ehash,uhash):
     json = simplejson.dumps({"likes":likes,'dislikes':dislikes})   
     return HttpResponse(json, mimetype='application/json')
 
-# get the liked and disliked information for a choice
-# input: choice_id and the event id 
 def getVoteStats(request,ehash,uhash):
 #    if request.is_ajax():
     e = event.objects.get(ehash = ehash)
@@ -291,7 +284,7 @@ def getVoteDate(request,ehash,uhash):
     json = simplejson.dumps({"date":e.voteDate.isoformat()})
     return HttpResponse(json,mimetype="application/json")
 
-# GET request: return all comments of the event
+
 def getAllComments(request,ehash,uhash):
     if request.method=='GET':
         try:
@@ -329,135 +322,69 @@ def writeComment(request,ehash,uhash):
     else:
         return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  
         
-#a function to get the status of current event 
-def fun_prepare_attender_data(eid,uid):
-    try:
-        e = event.objects.get(id=eid)
-        u = user.objects.get(id=uid)
-        e_u = event_user.objects.get(event_id=e.id, user_id=u.id)
-    except event_user.DoesNotExist or event.DoesNotExist or user.DoesNotExist:
-        data ={}
-        return data
-    
-    if e_u.role == 'admin':
-        isadmin = True
-    else:
-        isadmin = False
-    choices = getEventChoices2(e.ehash)
-                #print choices
-    init_pos_votes = {}
-    init_neg_votes = {}
-    for c in choices:
-        init_pos_votes[c["id"]] = getChoiceVote(e.id,c["id"],1)
-        init_neg_votes[c["id"]] = getChoiceVote(e.id,c["id"],-1)
-        
-    local_tz = pytz.timezone('America/Dawson')
-    loc_dt = e.closeDate.astimezone(local_tz)
-        
-    data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
-                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash,'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S')} 
-    return data
-
-def eventSummary(request,ehash,uhash):
-    try:     
-        e = event.objects.get(ehash=ehash)
-        u = user.objects.get(uhash=uhash)
-        data = fun_prepare_attender_data(e.id,u.id)
-        return render_to_response('myevents/eventSummary.html',data,context_instance=RequestContext(request))               
-    except event.DoesNotExist, user.DoesNotExist:
-        return render_to_response('myevents/error.html',{"message":"the event is closed, don't add friends"},context_instance=RequestContext(request))  
-
-#for a given eid, return the list of attenders' emails
-def db_get_all_attender_emails(eid):
-    attender_emails =[]
-    try:
-        e = event.objects.get(id=eid)
-        eu = event_user.objects.filter(event_id = eid, role='attender')
-        if eu:
-            for row in eu:
-                u_instance = user.objects.get(id=row.user_id)
-                attender_emails.append(u_instance.email)
-    except event.DoesNotExist:
-        print 'event is not existed!!  database corrupted?'
-    
-    return attender_emails 
-
+     
 def addMoreFriends(request,ehash,uhash):     
     if request.method=="POST":
         try:
             e = event.objects.get(ehash=ehash)
             u = user.objects.get(uhash=uhash)
-            existingfriends_list  = db_get_all_attender_emails(e.id)
-            #number_of_existing_friends = len(existingfriends_list)
             if e.status == EVENT_STATUS.TERMINATED:
                 return render_to_response('myevents/error.html',{"message":"the event is closed, don't add friends"},context_instance=RequestContext(request))  
+             
+            #friends = request.POST.get('friends')
+            #e.friends = e.friends+','+friends;
+            #e.save()
+            #friendEmails = friends.split(',')
+         	
+         	#get this from FORM	
+         	friendsEmails = request.POST.getlist("item[tags][]")
+				#use this to update event detail         	
+         	friends = ','.join(friendsEmails)
 
-            friendEmails = request.POST.getlist("item[tags][]")    
+			            
             if friendEmails !=None: 
-                #newfriends = ','.join(friendEmails)    
+                print friendEmails
                 for uemail in friendEmails:
                     uemail = str(uemail.strip())
-                    if not uemail:  # if its empty
-                        continue;
-                    if uemail in existingfriends_list:
-                        print "the user %s is already invited!!"%uemail
-                    else:
-                        print "adding a new user %s"%uemail
-                        try:
-                            attender = user.objects.get(email=uemail)
-                            uhash = attender.uhash
-                        except user.DoesNotExist:
-                            uhash = make_uuid()
-                            name = getNamebyEmail(uemail)
-                            attender = user.objects.create(email=uemail, uhash=uhash, name=name)
-                        try:
-                            ### avoid the case that the user is already inserted. 
-                            eu = event_user.objects.get(event_id=e.id, user_id=attender.id, role="attender")
-                        except event_user.DoesNotExist:
-                            eu = event_user.objects.create(event_id=e.id, user_id=attender.id, role="attender")  #update event_user
-                        #update the event friends list
-                        existingfriends_list.append(uemail)
-                        try:
+                    #print uemail
+                    try:
+                        attender = user.objects.get(email=uemail)
+                        uhash = attender.uhash
+                    except user.DoesNotExist:
+                        uhash = make_uuid()
+                        name = getNamebyEmail(uemail)
+                        attender = user.objects.create(email=uemail, uhash=uhash, name=name)
+                    try:
+                        ### avoid the case that the user is already inserted. 
+                        eu = event_user.objects.get(event_id=e.id, user_id=attender.id, role="attender")
+                    except event_user.DoesNotExist:
+                        eu = event_user.objects.create(event_id=e.id, user_id=attender.id, role="attender")  #update event_user
+       
+                    try:
                         ### update friendship table
-                            f = friend.objects.get(u_id=u.id, v_id=attender.id)
-                            f.cnt += 1
-                            f.save()
+                        f = friend.objects.get(u_id=u.id, v_id=attender.id)
+                        f.cnt += 1
+                        f.save()
+                    except friend.DoesNotExist:
+                        try:
+                            f_opp = friend.objects.get(u_id=attender.id, v_id=u.id)
+                            f_opp.cnt += 1
+                            f_opp.save()
                         except friend.DoesNotExist:
-                            try:
-                                f_opp = friend.objects.get(u_id=attender.id, v_id=u.id)
-                                f_opp.cnt += 1
-                                f_opp.save()
-                            except friend.DoesNotExist:
-                                f = friend.objects.create(u_id=u.id, v_id=attender.id, cnt=1)    
-                        finally:
-                            pass                    
-                        ###SEND OUT invitation.
-                        attenderMail(ehash, uhash, u.email, e.name, uemail)
-                ####UPDATE event detail                
-                #if number_of_existing_friends<len(existingfriends_list):    
-                e.friends = ','.join(existingfriends_list)
-                #e.friends = e.friends+','+newfriends
-                e.save()   
-            #END OF IF    
-            return render_to_response('myevents/addFriendsSuccess.html',{},context_instance=RequestContext(request))               
+                            f = friend.objects.create(u_id=u.id, v_id=attender.id, cnt=1)    
+                    finally:
+                        pass
+                    
+                    ###SEND OUT invitation.
+                    attenderMail(ehash, uhash, u.email, e.name, uemail)
+					
+					####UPDATE event detail                    
+               e.friends = e.friends+','+friends;
+               e.save()   
+               return HttpResponse({'success':True},mimetype="application/json")
+            else:
+            	return HttpResponse({'success':False},mimetype="application/json")
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html',{"message":"invalid event or user"},context_instance=RequestContext(request))  
     else:
-        return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request)) 
-    
-#allow attender to propose choices
-def attenderAddChoice(request, ehash, uhash):
-    try:
-        e = event.objects.get(ehash=ehash)
-        u = user.objects.get(uhash=uhash)
-        data = fun_prepare_attender_data(e.id,u.id)
-        if int(e.status) < EVENT_STATUS.HASDETAIL or int(e.status)>EVENT_STATUS.VOTING:
-            data = {'error_msg': 'It is not the right time to add more choices'}
-            return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
-        else:
-            return render_to_response('myevents/attenderAddChoice.html', data, context_instance=RequestContext(request))
-    except event.DoesNotExist or user.DoesNotExist:
-        data = {'error_msg': 'event or user does not exist'}
-        return render_to_response('myevents/error.html', data, context_instance=RequestContext(request)) 
-    
-    
+        return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  

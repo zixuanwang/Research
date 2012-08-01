@@ -387,7 +387,6 @@ $(function() {
 	</div> <!-- end of row-->
 			 
 	<div class="accordion" id="accordion2">
-		
 		{%if has_recommendation%}
 		<div class="accordion-group">
 		<div class="accordion-heading ">
@@ -466,7 +465,7 @@ $(function() {
 		</div>  
 		
 		<br/>
-		<form class="well" name="AdminChoiceForm" action = '/myevents/{{event.ehash}}/{{uhash}}/editEventChoice/' method = "post" onsubmit="return validateForm(); ">
+		<form class="well" name="AdminChoiceForm" action = '/myevents/{{event.ehash}}/{{uhash}}/addEventChoice/' method = "post" onsubmit="return validateForm(); ">
 			<div id="hidden_manual_choice_list"  class="row-fluid  show-grid">
 			</div>
 			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">
@@ -475,7 +474,7 @@ $(function() {
 			<div id="hidden_admin_choice_list"  class="row-fluid  show-grid">
 			</div>
 			{% csrf_token %}
-			<p> <span class="add-on"><i class="icon-leaf"></i></span>Alright, let's email your friends about this event, and let them decide which option is best! 
+			<p> <span class="add-on"><i class="icon-leaf"></i></span>Alright, let's email your friends about your choices! 
 			<button type="submit" class="btn-primary" id="finish" > GO</button>
 			</p>
 		</form> 

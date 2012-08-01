@@ -59,7 +59,6 @@
 			alert('Please don not invite yourself....');
 			return false;
 		}
-		
 		return true;
 	}
 	 

@@ -83,6 +83,24 @@ def attenderMail(ehash,uhash, inviter,event_name,send_to):
     #email = EmailMessage(subject,message,to=[send_to])
     #email.send()
     
+def newChoiceNotificationMail(ehash,uhash, proposer,event_name,send_to):
+    #url="http://www.mygroupevents.us/myevents/"+ehash+"/"+uhash+"/attender/"
+    url= "http://74.95.195.230:8889/myevents/"+ehash+"/"+uhash+"/attender/"
+    subject = "The event  "+ event_name +"  has new choices"
+    html_content = render_to_string('myevents/addChoiceNotificationEmail.html', {'proposer_name':proposer,'event_name':event_name,'link':url})
+    
+    t0=time.time()
+    EmailThread(subject, html_content,  [send_to]).start()
+    print 'Time for sending emails to attendees: ', time.time()-t0
+    #if type(send_to) != list: send_to = [send_to]
+    #msg = EmailMultiAlternatives(subject, text_content, MYGROUPEMAIL, send_to)
+    #msg.attach_alternative(html_content, "text/html")
+    #msg.send()
+    #send_mail(subject, message, MYGROUPEMAIL, [send_to])
+    #email = EmailMessage(subject,message,to=[send_to])
+    #email.send()
+    
+#TODO: maybe add the link for event summary
 def finalMessageMail(ehash):
     try:
         e = event.objects.get(ehash=ehash)
@@ -160,7 +178,6 @@ def yelp_request(host, path, url_params, consumer_key, consumer_secret, token, t
   print 'yelp api call spent: ', time.time()-t0
   return response
 
-
 class EmailThread(threading.Thread):
     def __init__(self, subject, html_content, recipient_list):
         self.subject = subject
@@ -175,3 +192,18 @@ class EmailThread(threading.Thread):
 
 def send_html_mail(subject, html_content, recipient_list):
     EmailThread(subject, html_content, recipient_list).start()
+    
+#for a given eid, return the list of attenders' emails
+def db_get_all_attender_emails(eid):
+    attender_emails =[]
+    try:
+        e = event.objects.get(id=eid)
+        eu = event_user.objects.filter(event_id = eid, role='attender')
+        if eu:
+            for row in eu:
+                u_instance = user.objects.get(id=row.user_id)
+                attender_emails.append(u_instance.email)
+    except event.DoesNotExist:
+        print 'event is not existed!!  database corrupted?'
+    
+    return attender_emails 

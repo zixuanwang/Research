@@ -419,8 +419,50 @@ def editEventChoice(request, ehash, uhash):
             return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      
-          
-# THIS CAN BE REWRITTEN .. BECAUSE ITEM HAS THE PICKFROM..   
+
+#attender add more choice. form update
+def addMoreChoice(request,ehash,uhash):
+    if request.method == "POST":
+        attender_choices = request.POST.getlist('attender_choice_ids')
+        try: 
+            choice_objs = []
+            e = event.objects.get(ehash=ehash)
+            proposer = user.objects.get(uhash=uhash)
+            for cid in attender_choices:
+                try:
+                    c = choice.objects.get(pickid=cid,pickby_id=proposer.id)
+                    c.cnt+=1
+                    c.save()
+                except choice.DoesNotExist:
+                    c = choice.objects.create(pickid=cid, pickby_id=proposer.id,cnt=1) 
+                try: #if this choice is already picked for this event.
+                    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
+                except:
+                    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+                item_obj = item.objects.get(id=cid)
+                choice_objs.append(item_obj)
+                    
+            ### send a mail to inviter too, since he is the attender as well
+            all_attenders = db_get_all_attender_emails(e.id)
+            all_attenders.append(e.inviter)  #include the inviter
+
+            ### send email to each attender 
+            for each_attender in all_attenders:
+                #remove space
+                each_attender = each_attender.strip()    
+                try:
+                    attender = user.objects.get(email=each_attender)
+                    newChoiceNotificationMail(ehash, attender.uhash, proposer.email, e.name, attender.email)
+                except user.DoesNotExist:   #ignore the user which doesn't exist in the db
+                    continue
+
+            data = {'event': e, 'choices':choice_objs}        
+            return render_to_response('myevents/addChoiceSuccess.html', data, context_instance=RequestContext(request))
+        except event.DoesNotExist or user.DoesNotExist:
+            return render_to_response('myevents/error.html', {"message":"event or user does not exist"}, context_instance=RequestContext(request))      
+        
+      
+# NOT USED 7-27 
 def editEventChoice2(request, ehash, uhash):
     if request.method == "POST":
         manual_choices = request.POST.getlist('manual_choice_ids')
