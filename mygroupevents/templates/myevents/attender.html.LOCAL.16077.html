@@ -8,18 +8,13 @@
 <link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
 <style type="text/css">
 .wordwrap{
-<<<<<<< HEAD
 	max-width:940px;
-=======
-	  max-width:300px;
->>>>>>> d2720063d4be5f78a57ba4ac88582a733862ab44
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
     white-space: -o-pre-wrap; /* Opera 7 */
     word-break: break-all;  
     word-wrap: break-word; /* Internet Explorer 5.5+ */ 
-<<<<<<< HEAD
 }
 </style>
 {% endblock %}
@@ -36,84 +31,8 @@
 			<div class="alert">
 				<br>
 				<h2> Greetings  &#8204; {{myname}}!</h2>
-			   <strong>The event is already closed! </strong>  
-			  	<h3> Wanna <a href = "../eventSummary/">Check its result</a> ?  </h3>
-=======
-    }
-</style>>	
-	
-{% endblock %}
-
-{% block content%}
-<!--hidden variables-->
-<p id='ehash' style="display:none;">{{event.ehash}}</p>
-<p id='uhash' style="display:none;">{{uhash}}</p> 
-<div class="container">
-<p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
- 	
- <div class="row-fluid">  
- 	<h2> Greetings  &#8204; {{myname}}!</h2>
- 	{%if isadmin  %}
- 		<h3> Thanks for organizing the event &#8204;<font color='#08c'> {{event.name}} </font> </h3>
-	{%else%}
-		<h3> You are invited to the event &#8204;<font color='#08c'> {{event.name}} </font></h3>	
-	{%endif%}
-</div> 
-<hr/>
-<p>
-	This event is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} on <u>  {{event.eventDate}}  </u> 
-	{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
-</p>
-
-<p>	with  {{event.inviter|wordwrap:80}} and </p>
-<p class="wordwrap"></p>
-<a id="showfriends" class="accordion-toggle" data-toggle="collapse" href="#friendslist"> friends</a>
-</p>
-<div id="friendslist" class="accordion-inner"></div>
-<p>	{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
- 
-{%if event.status ==  "2" %}
-<br/>
-<div class="row-fluid" id ="poll">
- 	<h3> Let your friends know what you think about the following options. </h3>
- <div class="row-fluid" id="candidates" >
-	<table id="myTable" class="table table-bordered"> 
-	<thead> 
-	<tr> <!--<th>Option (name, location, rating, review count) </th> -->
-		<th>Options</th>
-    	<th>Vote</th>  
-    	<th>Details</th> 
-	</tr> 
-	</thead> 
-	<tbody>
-	{% for choice in choices %}
-	<tr> 
-    	<td id="choice_id_{{choice.id}}"> 
-    		{%if choice.url%}
-    			<a target="_blank" href="{{choice.url}}" >
-    			{{choice.name}} 
-    			</a>
-    		{%else%}
-    			{{choice.name}}
-    		{%endif%}
-    		  
-    		{% if choice.location %} 
-    			<span class="badge">,   </span> {{choice.location}}
-    		{%endif%} 
-    		{%if choice.notes%}
-    			<span class="badge">,  </span> {%if choice.image%}<img src="{{choice.image}}"> {%endif%} {{choice.notes}}
-			{%endif%}
-		</td> 
-    	<td> 
-   		 	<div class="btn-group" data-toggle="buttons-radio">
-   		 		{% csrf_token %}
-				<button value="{{choice.id}}"  class="btn btn-success like"> <i class="icon-search icon-thumbs-up"></i>  
-					<span class="pos_vote_count" id="pos_vote_count_{{choice.id}}" value="{{choice.id}}"> {{posvotes|dictKey:choice.id}} </span> Like 
-				</button> 
-				<button value="{{choice.id}}"  class="btn btn-danger dislike">	<i class="icon-search icon-thumbs-down"></i>  
-					<span class="neg_vote_count" id="neg_vote_count_{{choice.id}}" value="{{choice.id}}">{{negvotes|dictKey:choice.id}}</span>  Dislike 
-				</button>				
->>>>>>> d2720063d4be5f78a57ba4ac88582a733862ab44
+			   <strong>The event is already closed. </strong>  
+			  	<h3> Wanna <a href = "../eventSummary/">Check its result?</a>  </h3>
 			</div>
 		{%else%}
 			{%if event.status ==  "2" %}
@@ -132,7 +51,7 @@
 				<p>{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
 			</div> 
 		<hr/>
-		<br/>
+	 
 			<div class="row-fluid" id ="poll">
 		 		<h3> Let your friends know what you think about the following options. </h3>
 		 		<div class="row-fluid" id="candidates" >
@@ -187,7 +106,7 @@
 		<div class="row-fluid ">
 			<div class="alert alert-info">
 				<p><strong>Not satisfied?</strong> You can add more choices, and everybody will receive an email notification of your proposal.</p>	 			
-				<a href="../attenderAddChoice"> Go and propose more choices</a>		
+				<p><a href="../attenderAddChoice"> Go and propose more choices</a>		UNDER Construction. Dont Click.-JY</p>
 			</div>
 	 	</div>	
 	 	<br/>
@@ -452,7 +371,7 @@
 					var like = response.likes
 					var dislike = response.dislikes;
 	
-					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td>'+ like+'</td> </tr><tr><td> Disliked by</td> <td>'+dislike+'</td></tr></table>'
+					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td class="wordwrap">'+ like+'</td> </tr><tr><td> Disliked by</td> <td class="wordwrap">'+dislike+'</td></tr></table>'
 					
 					$("#stats_"+id).html(output);
 				} 
@@ -663,11 +582,7 @@
 		});
 		//can only click once. then disable the button 
 		//if friends are shown, then disable the button
-<<<<<<< HEAD
 		//if ($("#friendlist").text))		
-=======
-		if ($("#friendlist").text))		
->>>>>>> d2720063d4be5f78a57ba4ac88582a733862ab44
 			$('#showfriends').attr("disabled", "disabled");
 		
 	});
