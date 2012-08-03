@@ -5,10 +5,10 @@
  	<link type="text/css" href="{%static "css/tagit/reset.css"%}" rel="stylesheet" /> 
  	<link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
 <style type="text/css">
-p.friends{ width: 200px;
+p.friends{ width: 940px;
  	 word-wrap: break-word;}
 	.wordwrap{
-	max-width:300px;
+	max-width: 940px;
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
@@ -355,7 +355,7 @@ $(function() {
 	 		<u>{{event.eventTime}}</u>
 	 		{%endif%}	
 	 	</p>
-	 		<p class="wordwrap">	with  {{event.inviter}}, {{event.friends}} </p>
+	 		<p class="wordwrap">	with  {{event.inviter}} , {{event.friends}} </p>
 	 	    <p>	{% if event.location%} 
    			 near <u> {{event.location}} </u>
     		{%endif%}

@@ -103,7 +103,7 @@ def updateEventFixedAttr(ehash, uhash, what, what_other, friendEmails, eventDate
         friendEs = friendEmails.split(',')
         for uemail in friendEs:
             uemail = str(uemail.strip())
-            #print uemail
+            print uemail
             try:
                 attender = user.objects.get(email=uemail)
                 uhash = attender.uhash
