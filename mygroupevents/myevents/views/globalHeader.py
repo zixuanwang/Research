@@ -39,9 +39,7 @@ def adminMail(ehash,uhash,user_name,event_name,send_to):
     subject = "Invitation to manage your event: " + event_name
     #url = "http://www.mygroupevents.us/myevents/" + ehash + "/" + uhash + "/adminDetail/" 
     url = "http://74.95.195.230:8889/myevents/" + ehash + "/" + uhash + "/adminDetail/" 
-    
     #message = "\n You have just registered a new event using myGroupEvents called " +event_name + " ! Please Click on the  URL below to manage it:  \n"+url 
-    
     html_content = render_to_string('myevents/welcomeEmailText.html', {'user_name':user_name,'event_name':event_name,'link':url})
     text_content = strip_tags(html_content) # this strips the html, so people will have the text as well.
     
@@ -51,10 +49,7 @@ def adminMail(ehash,uhash,user_name,event_name,send_to):
     #msg = EmailMultiAlternatives(subject, text_content, MYGROUPEMAIL, send_to)
     #msg.attach_alternative(html_content, "text/html")
     #msg.send()
-    
-    #send_mail(subject,message,MYGROUPEMAIL, send_to)
- 
-    
+    #send_mail(subject,message,MYGROUPEMAIL, send_to)   
 def getNamebyEmail(email):
     parts = email.strip().split('@')
     return parts[0]
@@ -63,11 +58,9 @@ def attenderMail(ehash,uhash, inviter,event_name,send_to):
     #generate url , url is not needed in the table, it's just good for 
     #url="http://www.mygroupevents.us/myevents/"+ehash+"/"+uhash+"/attender/"
     url= "http://74.95.195.230:8889/myevents/"+ehash+"/"+uhash+"/attender/"
-     
     subject = "The event  "+ event_name +"  is waiting for your decision "
     #url_in= "http://74.95.195.230:8889/myEvents/"+e_hash+"/"+u_hash+"/admin/"
     #message = inviter +" invites you to the event "+ event_name +" and needs your decision \n Please Click on the URL below to view all choices: " +" \n" +url +" \n"
-        
     html_content = render_to_string('myevents/attenderEmailText.html', {'inviter_name':inviter,'event_name':event_name,'link':url})
     
     t0=time.time()
@@ -139,7 +132,6 @@ def dictfetchall(cursor):
         for row in cursor.fetchall()
     ]    
     
-    
 # make yelp api call
 def yelp_request(host, path, url_params, consumer_key, consumer_secret, token, token_secret):
     
@@ -207,3 +199,4 @@ def db_get_all_attender_emails(eid):
         print 'event is not existed!!  database corrupted?'
     
     return attender_emails 
+
