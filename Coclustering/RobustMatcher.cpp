@@ -177,3 +177,23 @@ void RobustMatcher::setDescriptorExtractor(
 		cv::Ptr<cv::DescriptorExtractor>& desc) {
 	extractor = desc;
 }
+
+void RobustMatcher::show(const cv::Mat& image1, const cv::Mat& image2, const std::vector<cv::KeyPoint>& keypointArray1, const std::vector<cv::KeyPoint>& keypointArray2, const std::string& outputPath){
+	int height=std::max(image1.rows,image2.rows);
+	int width=image1.cols+image2.cols;
+	cv::Mat corres(height,width,CV_8UC3,cv::Scalar(0,0,0,0));
+	cv::Mat imageTarget1=corres(cv::Rect(0,0,image1.cols,image1.rows));
+	image1.copyTo(imageTarget1);
+	cv::Mat imageTarget2=corres(cv::Rect(image1.cols,0,image2.cols,image2.rows));
+	image2.copyTo(imageTarget2);
+	for(size_t i=0;i<keypointArray1.size()&&i<keypointArray2.size();++i){
+		cv::line(corres,keypointArray1[i].pt,cv::Point(keypointArray2[i].pt.x+image1.cols,keypointArray2[i].pt.y),CV_RGB(255,0,0),1,CV_AA);
+	}
+	if(outputPath.empty()){
+		cv::namedWindow("corres");
+		cv::imshow("corres",corres);
+		cv::waitKey(0);
+	}else{
+		cv::imwrite(outputPath,corres);
+	}
+}

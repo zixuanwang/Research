@@ -32,5 +32,6 @@ public:
 			const std::vector<cv::KeyPoint>& keypoints1,
 			const std::vector<cv::KeyPoint>& keypoints2,
 			std::vector<cv::DMatch>& outMatches);
+	void show(const cv::Mat& image1, const cv::Mat& image2, const std::vector<cv::KeyPoint>& keypointArray1, const std::vector<cv::KeyPoint>& keypointArray2, const std::string& outputPath = "");
 };
 

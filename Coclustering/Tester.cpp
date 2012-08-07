@@ -816,3 +816,41 @@ void Tester::testLFWA() {
 		std::cout << rankList[i].index << std::endl;
 	}
 }
+
+void Tester::testHalf(){
+	std::string imageDirectory="c:/users/zixuan/dropbox/microsoft/experiment/image";
+	std::string outputDirectory="c:/users/zixuan/desktop/half";
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray,imageDirectory, false);
+	for(size_t i=0;i<filenameArray.size();++i){
+		cv::Mat image=cv::imread(filenameArray[i],1);
+		int width=image.cols;
+		cv::Rect rect(0,0,width/2,image.rows);
+		cv::Mat half=image(rect);
+		cv::imwrite(outputDirectory+"/"+File::getFileName(filenameArray[i]),half);
+	}
+}
+
+void Tester::testVelocity(){
+	std::string imageDirectory="c:/users/zixuan/desktop/half";
+	std::ofstream outStream("c:/users/zixuan/desktop/image_velocity.txt");
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray,imageDirectory,false);
+	RobustMatcher matcher;
+	VelocityComputer computer;
+	for(size_t i=0;i<filenameArray.size()-1;++i){
+		std::cout<<filenameArray[i]<<std::endl;
+		cv::Mat image1=cv::imread(filenameArray[i]);
+		cv::Mat image2=cv::imread(filenameArray[i+1]);
+		uint64_t startTime=boost::lexical_cast<uint64_t>(File::getFileStem(filenameArray[i]));
+		uint64_t endTime=boost::lexical_cast<uint64_t>(File::getFileStem(filenameArray[i+1]));
+		std::vector<cv::KeyPoint> keypointArray1;
+		std::vector<cv::KeyPoint> keypointArray2;
+		cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
+		if(!h.empty()){
+			outStream<<(endTime+startTime)/2<<"\t"<<computer.compute(startTime,endTime,keypointArray1,keypointArray2)<<std::endl;
+		}
+		matcher.show(image1,image2,keypointArray1,keypointArray2);
+	}
+	outStream.close();
+}

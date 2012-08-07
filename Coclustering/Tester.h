@@ -23,6 +23,7 @@
 #include "IlluminationNormalizer.h"
 #include "Evaluation.h"
 #include "RankItem.h"
+#include "VelocityComputer.h"
 // this class is used for testing functions
 class Tester {
 public:
@@ -50,5 +51,7 @@ public:
 	static void testAccuracy(const std::string& locationName);
 	static void testIllumination();
 	static void testLFWA();
+	static void testHalf();
+	static void testVelocity();
 };
 

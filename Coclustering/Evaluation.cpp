@@ -92,7 +92,7 @@ void Evaluation::train(const std::vector<std::string>& trainArray,
 	for (size_t i = 0; i < trainArray.size(); ++i) {
 		std::string name = File::getParentDirectory(trainArray[i]);
 		if (nameLabelMap.find(name) == nameLabelMap.end()) {
-			nameLabelMap[name] = nameLabelMap.size();
+			nameLabelMap[name] = (int)nameLabelMap.size();
 		}
 		Sample faceSample = extract(faceDetector, noseDetector, trainArray[i]);
 		if (!faceSample.empty()) {
