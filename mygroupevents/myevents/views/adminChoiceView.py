@@ -10,21 +10,7 @@ from django.utils import simplejson
 from django.core import serializers
 import urllib2 
 import unicodedata
-def isValidForRecommendation(detail,location):
-    yelp_query = {}
-    if detail=="dining out":
-        yelp_query["query"]="restaurant"   
-        yelp_query["category"] = "restaurant"
-    if detail =="drink":
-        yelp_query['query'] = "bar"
-        yelp_query["category"] = "nightlife"
-    if location:
-        yelp_query['location'] = location
- 
-    if yelp_query.has_key('query') and yelp_query.has_key('location'):
-        return yelp_query
-    else:  # must have both
-        return {}    
+
              
 def adminChoice(request, ehash, uhash):
     try:
@@ -427,6 +413,7 @@ def addMoreChoice(request,ehash,uhash):
         try: 
             choice_objs = []
             e = event.objects.get(ehash=ehash)
+
             proposer = user.objects.get(uhash=uhash)
             for cid in attender_choices:
                 try:

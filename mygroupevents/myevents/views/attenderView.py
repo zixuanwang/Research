@@ -444,13 +444,46 @@ def addMoreFriends(request,ehash,uhash):
             return render_to_response('myevents/error.html',{"message":"invalid event or user"},context_instance=RequestContext(request))  
     else:
         return render_to_response('myevents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request)) 
+
+
+#a function to get the status of current event 
+def fun_prepare_attender_add_chioce_data(eid,uid):
+    try:
+        e = event.objects.get(id=eid)
+        has_recommendation = False
+        if isValidForRecommendation(e.detail,e.location):
+            has_recommendation = True
+        u = user.objects.get(id=uid)
+        e_u = event_user.objects.get(event_id=e.id, user_id=u.id)
+    except event_user.DoesNotExist or event.DoesNotExist or user.DoesNotExist:
+        data ={}
+        return data
     
+    if e_u.role == 'admin':
+        isadmin = True
+    else:
+        isadmin = False
+    choices = getEventChoices2(e.ehash)
+                #print choices
+    init_pos_votes = {}
+    init_neg_votes = {}
+    for c in choices:
+        init_pos_votes[c["id"]] = getChoiceVote(e.id,c["id"],1)
+        init_neg_votes[c["id"]] = getChoiceVote(e.id,c["id"],-1)
+        
+    local_tz = pytz.timezone('America/Dawson')
+    loc_dt = e.closeDate.astimezone(local_tz)
+        
+    data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
+                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash, 'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S'),'has_recommendation':has_recommendation} 
+    return data
+
 #allow attender to propose choices
 def attenderAddChoice(request, ehash, uhash):
     try:
         e = event.objects.get(ehash=ehash)
         u = user.objects.get(uhash=uhash)
-        data = fun_prepare_attender_data(e.id,u.id)
+        data = fun_prepare_attender_add_chioce_data(e.id,u.id)
         if int(e.status) < EVENT_STATUS.HASDETAIL or int(e.status)>EVENT_STATUS.VOTING:
             data = {'error_msg': 'It is not the right time to add more choices'}
             return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))

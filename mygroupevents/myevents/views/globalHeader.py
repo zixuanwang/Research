@@ -200,3 +200,19 @@ def db_get_all_attender_emails(eid):
     
     return attender_emails 
 
+def isValidForRecommendation(detail,location):
+    yelp_query = {}
+    if detail=="dining out":
+        yelp_query["query"]="restaurant"   
+        yelp_query["category"] = "restaurant"
+    if detail =="drink":
+        yelp_query['query'] = "bar"
+        yelp_query["category"] = "nightlife"
+    if location:
+        yelp_query['location'] = location
+ 
+    if yelp_query.has_key('query') and yelp_query.has_key('location'):
+        return yelp_query
+    else:  # must have both
+        return {}    
+
