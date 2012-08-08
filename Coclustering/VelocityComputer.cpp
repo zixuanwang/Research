@@ -29,3 +29,10 @@ float VelocityComputer::offset(const cv::KeyPoint& keypoint1, const cv::KeyPoint
 	distance+=(keypoint1.pt.y-keypoint2.pt.y)*(keypoint1.pt.y-keypoint2.pt.y);
 	return sqrt(distance);
 }
+
+float VelocityComputer::compute(uint64_t startTime, uint64_t endTime, const cv::Mat& homography){
+	double xOffset=homography.at<double>(0,2);
+	double yOffset=homography.at<double>(1,2);
+	double distance=sqrt(xOffset*xOffset+yOffset*yOffset);
+	return distance/(float)(endTime-startTime);
+}

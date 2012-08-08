@@ -848,9 +848,9 @@ void Tester::testVelocity(){
 		std::vector<cv::KeyPoint> keypointArray2;
 		cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
 		if(!h.empty()){
-			outStream<<(endTime+startTime)/2<<"\t"<<computer.compute(startTime,endTime,keypointArray1,keypointArray2)<<std::endl;
+			outStream<<(endTime+startTime)/2<<"\t"<<computer.compute(startTime,endTime,h)<<std::endl;
 		}
-		matcher.show(image1,image2,keypointArray1,keypointArray2);
+		//matcher.show(image1,image2,keypointArray1,keypointArray2);
 	}
 	outStream.close();
 }
