@@ -1,0 +1,26 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Stats</th>
+  </tr>
+  <tr>
+    <td>DBsize </td>
+    <td><%=@weblog["size"]%> MB</td>
+  </tr>  
+  <tr>
+    <td>Tables</td>
+    <td><%=@weblog["tables"]%></td>
+  </tr> 
+  <tr>
+    <td>Posts in total</td>
+    <td><%=@weblog["posts"]%></td>
+  </tr> 
+  <tr>
+    <td>Outlinks in total</td>
+    <td><%=@weblog["outlinks"]%></td>
+  </tr> 
+  <tr>
+    <td>Comments in total</td>
+    <td><%=@weblog["comments"]%></td>
+  </tr> 
+</table>

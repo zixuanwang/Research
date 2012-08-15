@@ -1,0 +1,26 @@
+<table border="1">
+  <tr>
+    <th>Restuarant</th>
+    <th>Site_id</th>
+    <th>Blog_id</th>
+    <th>Publish_date</th>
+    <th>Title</th>
+    <th>Length</th>
+    <th>Outlinks</th>
+    <th>Comments</th>
+  </tr>
+  <%@fposts.each do |p|%>
+  <tr>
+  <td><%=p["rest_name"] %></td>
+  <td><%=p["site_id"] %></td>
+  <td><%=p["blog_id"] %></td>
+  <td><%=p["publish_date"] %></td>
+  <td><%=p["title"] %></td>
+  <td><%=p["length"] %></td>
+  <td><%=p["linkcnt"] %></td>
+  <td><%=p["comcnt"] %></td>
+  </tr>
+  <%end%>
+ </table>
+ 
+        

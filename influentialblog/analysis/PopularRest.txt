@@ -1,0 +1,5531 @@
+Peter Luger Steak House	243
+Magnolia Bakery	179
+Corner Bistro	170
+Tao	170
+Lombardi's	169
+One if by Land, Two if by Sea	158
+RAKU - IT'S JAPANESE!	144
+Otto Enoteca and Pizzeria	138
+Suba	137
+Nobu	134
+Babbo	133
+AGAVE	131
+Tavern on the Green	129
+Le Souk	129
+Blue Smoke	127
+Sushi Samba 7	126
+Spice Market	124
+Grimaldi's Pizzeria	120
+Dylan Prime	120
+Serendipity 3	117
+Dos Caminos	116
+John's of Bleecker Street	114
+Artisanal Fromagerie and Bistro	112
+Butter	111
+Sea Thai Bistro	106
+Gramercy Tavern	105
+Trailer Park	102
+Eatery	101
+Apizz	99
+Blue Water Grill	98
+BondSt	98
+Virgil's Real BBQ	94
+Becco	92
+Candela Restaurant	91
+Cafeteria	90
+Son Cubano	90
+Blue Fin	90
+Sapa	90
+Blue Ribbon Sushi	89
+Andavi	89
+Balthazar	88
+Churrascaria Plataforma	88
+Del Frisco's Double Eagle Steak House	88
+Mesa Grill	87
+L&amp;B Spumoni Gardens	87
+Jewel Bako	87
+ONE Little West 12	87
+Megu	86
+Lupa	85
+Fiamma Osteria	85
+Sparks Steakhouse	84
+Pastis	83
+Paradou	82
+66	82
+Norma's	80
+Sushi Samba park	80
+Agozar	79
+Il Mulino	78
+Daniel	78
+Republic	77
+Mara's Homemade	77
+Three of Cups	76
+Carmine's Midtown	76
+Asia de Cuba	74
+Tomoe Sushi	73
+Fleur de Sel	73
+Gonzo	72
+WD-50	71
+Rare	71
+Waikiki Wally's	70
+Tabla	69
+Grey Dog Cafe	69
+Brasserie	69
+Vespa Restaurant	68
+Pipa	68
+Taj	68
+Aquagrill	66
+The Cub Room	66
+Yama	66
+Rosa Mexicano on First Avenue	66
+Craft	66
+Jane	66
+Chocolate Bar	66
+Mermaid Inn	66
+Lucy Latin Kitchen	66
+Public	66
+Steak Frites	65
+Kitchen 22	65
+Peep	65
+Bouley	64
+Peasant	64
+Strip House	64
+Fresh	64
+Thalassa	64
+Gray's Papaya	63
+The Park	63
+Compass	63
+Five Points	62
+Ess-a-Bagel	62
+Azafran	62
+Cuba	62
+Eleven Madison Park	61
+Blue Ribbon	61
+Bao 111	61
+Chat 'n' Chew	60
+Ruby Foo's	60
+DB Bistro Moderne	60
+Union Square Cafe	59
+Alfama	59
+Essex	58
+Pommes Frites	58
+Max	58
+Frankie &amp; Johnnie's Steakhouse	58
+Elmo	58
+Schiller's Liquor Bar	58
+Hearth	58
+Ninja New York	58
+Famous Joe's Pizza	57
+Les Halles	57
+Trattoria Dopo Teatro	57
+Calle Ocho	57
+La Palapa	57
+J.G. Melon	57
+Zipi Zape	57
+Frank	56
+Cafe Habana	56
+River Cafe	56
+Aunt Suzie's Restaurant	56
+Sushi Yasuda	56
+Ora	56
+212	56
+Mama Mexico	55
+Tribeca Grill	54
+Palma	54
+Ludo	54
+Angelo &amp; Maxie's	53
+Crispo	53
+Nice Matin	53
+The Stanton Social	53
+City Crab &amp; Seafood Company	52
+Maroons	52
+Zoe	52
+Pearl Oyster Bar	52
+Jean Georges	52
+Jekyll &amp; Hyde Club	52
+Town	52
+Kittichai	52
+Havana Alma de Cuba	51
+Korean Temple Cuisine	51
+Matsuri	51
+5 Ninth	51
+Il Bagatto	50
+Woo Lae Oak	50
+Kin Khao	50
+Bubby's	50
+Tanti Baci Caffe	50
+Jackson Hole--Third Avenue	50
+Guastavino's	50
+Spice	50
+Katz's Deli	49
+Old Homestead Steakhouse	49
+Kelley &amp; Ping	49
+Pescatore	49
+China Grill	49
+Gotham Bar and Grill	48
+Lucky Cheng's Restaurant	48
+Esperanto	48
+Chinatown Ice Cream Factory	48
+Casa Mono	48
+Vento	48
+Paul's Place	47
+Wo Hop	47
+Prune	47
+Mizu	47
+Tenement	47
+El Maguey y La Tuna	47
+English is Italian	47
+Coffee Shop	46
+Philip Marie	46
+Keens Steakhouse	46
+Le Bernardin	46
+Cite	46
+Dawat	46
+71 Irving Place	46
+Rosa Mexicano at Lincoln Center	46
+Mary's Fish Camp	46
+The Harrison	46
+Houston's	46
+L'Impero	46
+Supper	46
+Veselka	45
+Mangia e Bevi	45
+Sala	45
+Euzkadi	45
+Amma	45
+'inoteca	45
+Island Burgers and Shakes	44
+Maya	44
+Mercadito	44
+Veniero's Pasticceria &amp; Caffe	43
+La Mela Ristorante	43
+Po	43
+Zerza	43
+Williamsburgh Cafe	43
+Lil' Bistro 33	43
+Jules	42
+The Elephant	42
+Luca Lounge	42
+VaTutto	42
+Planet Thailand	42
+DuMont	42
+Link	42
+Basso Est	42
+Alta	42
+Buddakan New York	42
+Buenos Aires	42
+Two Boots	41
+Ideya	41
+Angelo's of Mulberry Street	41
+Turkish Kitchen	41
+Brother Jimmy's Bait Shack	41
+Trattoria Trecolori Inc	41
+Frankie &amp; Johnnie's Steakhouse	41
+Danube	41
+Esca	41
+Meet	41
+Sushi of Gari	41
+General Store	41
+Riingo Restaurant	41
+Little Giant	41
+Klong	41
+Buttercup Bake Shop	40
+Al Di La Trattoria	40
+Bukhara Grill	40
+Jefferson	40
+ChikaLicious Dessert Bar	40
+Highline Thai Restaurant	40
+Il Buco	39
+The Place	39
+Justin's Bar &amp; Restaurant	39
+Thalia	39
+Cafe Charbon--Epicerie	39
+China 1	39
+Kyoto Sushi	39
+Morimoto	39
+Boca Chica	38
+Garage Restaurant and Cafe	38
+Ruth's Chris Steak House	38
+Aureole	38
+Vong	38
+Patsy's Pizza	38
+Mercer Kitchen	38
+Cones	38
+Roth's Westside Steakhouse	38
+Deborah	38
+Brick Cafe	38
+Bluechili	38
+Ono	38
+The Spotted Pig	38
+Koi	38
+Ribot	38
+24 Prince	38
+Sushi Twist	38
+Famous Original Ray's Pizza	37
+Carnegie Deli	37
+Carmine's Uptown	37
+Cafe Lalo	37
+John's Pizzeria - Times Square	37
+La Lanterna Caffe	37
+'ino	37
+New Green Bo	37
+Vatan	37
+Hell's Kitchen	37
+ChipShop	37
+44 &amp; X	37
+Sushi Lounge	37
+Cafe Moutarde	37
+Uptown Lounge	37
+Chance French Asian Cuisine &amp; Bar	37
+Punch	36
+The Red Cat	36
+Sazerac House	36
+Ben Benson's Steak House	36
+Zarela	36
+Mustang Grill	36
+The Pearl Room	36
+Di Fara Pizzeria	36
+MarkJoseph Steakhouse	36
+Blue Ribbon Brooklyn	36
+Django	36
+Kloe	36
+Dos Caminos Soho	36
+Matador	36
+21 Club	35
+Victor's Cafe	35
+Vynl	35
+Payard	35
+Oceana	35
+Big Nick's Burger and Pizza Joint	35
+Sal's &amp; Carmine Pizza	35
+The Grocery	35
+Gnocco	35
+Trio	35
+Cascina Ristorante	35
+Starfoods	35
+Sugarcane	35
+Plantain	35
+Aleo	35
+Landmarc	35
+Dinosaur Bar-B-Que	35
+Perry Street	35
+Borgo Antico Italian Restaurant	34
+Joe's Shanghai	34
+Piccolo Angolo	34
+Pink Teacup	34
+Patsy's Italian Restaurant	34
+Cafe Mozart	34
+Brasserie Julien	34
+Burger Joint	34
+Billy's Bakery	34
+Extra Virgin	34
+Devi	34
+Azucar	34
+Duke's	33
+Raoul's	33
+Chanterelle	33
+Home	33
+Le Gigot	33
+Mexicana Mama	33
+Bay Leaf Indian Brasserie	33
+The Sea Grill	33
+FireBird Russian Restaurant	33
+Atlantic Grill	33
+Rue 57	33
+The Tasting Room	33
+Marseille	33
+Teany	33
+Pampano	33
+Earl's	33
+Franny's	33
+Cucina di Pesce	32
+La Paella	32
+Kitchenette	32
+Yaffa Cafe	32
+Surya	32
+March	32
+H &amp; H Bagels	32
+Amy Ruth's Home Style Southern Cuisine	32
+Brasserie 8 1/2	32
+Tamarind	32
+F &amp; B	32
+Mamoun's Falafel	32
+Starbucks	32
+Clinton St Baking Co &amp; Rest	32
+Red Bamboo	32
+Alma	32
+Beyoglu Restaurant	32
+Gobo	32
+Ivo &amp; Lulu	32
+Kuma Inn	32
+Cube 63	32
+BLT Fish	32
+Spanky's BBQ	32
+Congee Village	31
+Tio Pepe	31
+Hangawi	31
+Cafe Boulud	31
+Shun Lee Palace	31
+Picholine	31
+Ocean Grill	31
+Sripraphai Thai Restaurant	31
+Puttanesca	31
+Forbidden City	31
+CamaJe Bistro	31
+Joya	31
+Counter	31
+Uncle Jack's Steakhouse	31
+Asiate	31
+Salud Restaurant &amp; Bar	31
+Bombay Talkie	31
+Nolita House Restaurant &amp; Bar	31
+Futura	31
+Kum Gang San	30
+Bolo	30
+Cafe Espanol	30
+Bar 89	30
+City Hall	30
+Florent	30
+Josie's East	30
+Remi	30
+Felidia	30
+Tony's Di Napoli	30
+Mars 2112	30
+D.O.C. Wine Bar	30
+MoBay Uptown	30
+August	30
+Bar Americain	30
+Falai	30
+Bar BQ	30
+Askew	30
+Kion Dining Lounge	30
+Tigerland	30
+Gascogne	29
+Next Door Nobu	29
+Flor de Sol	29
+Saigon Grill -- Broadway	29
+Cara Mia	29
+Cafe Noir	29
+Le Pere Pinard	29
+Macelleria	29
+Convivum Osteria	29
+Bianca	29
+Xing	29
+Shake Shack	29
+Florencia 13	29
+Indochine	28
+Radio Perfecto	28
+Cafe Asean	28
+Savoy	28
+Mexican Radio	28
+L'Ecole, The Restaurant of The French Culinary Institute	28
+Bar Pitti	28
+El Rio Grande Restaurant	28
+Gallagher's Steak House	28
+La Bonne Soupe	28
+World Yacht Dinner Cruises	28
+Big Wong	28
+Xunta Tapas Bar	28
+Jekyll and Hyde	28
+Zen Palate	28
+Ouest	28
+Azul Bistro	28
+Cafe Joul	28
+Brick Lane Curry House	28
+Lever House Restaurant	28
+Cafecito	28
+Bivio	28
+Wolfgang's Steakhouse	28
+Barmarche	28
+Paris Match	28
+THOR	28
+Aspen	28
+Las Ramblas	28
+City Bakery	27
+Cafe Orlin	27
+Novita	27
+Il Corallo Trattoria	27
+Montrachet	27
+L'Orange Bleue	27
+Mi Cocina	27
+Cowgirl	27
+Bryant Park Grill	27
+Le Colonial	27
+Sammy's Fishbox Restaurant	27
+St. Andrews	27
+Utsav Festive India	27
+Beppe	27
+Triomphe New York	27
+Sotto Voce	27
+Rainbow Room	27
+Alice's Tea Cup	27
+Savannah Steak	27
+Chubo	27
+Per Se	27
+davidburke &amp; donatella	27
+Sugar Sweet Sunshine	27
+ici	27
+Diner 24	27
+Tia Pol	27
+Frankie's 457	27
+Momofuku Noodle Bar	27
+Applewood	27
+Whym	27
+Lavagna	26
+Rocking Horse Cafe	26
+Da Nico	26
+Tortilla Flats	26
+Blue Ribbon Bakery	26
+Burrito Loco Restaurant	26
+Mary Ann's	26
+Blue Moon Mexican Cafe	26
+Ruby Foo's	26
+Sylvia's	26
+Sardi's Restaurant	26
+Le Madeleine	26
+Cafe Spice	26
+Tapas Lounge	26
+Cafe St. Bart's	26
+Olives	26
+Nick &amp; Stef's Steakhouse	26
+Sweet-n-Tart	26
+Salmon River	26
+SEA Bistro	26
+Nam	26
+@SQC	26
+Black Duck	26
+Celeste	26
+Bar Tabac	26
+Geisha	26
+Lobo	26
+Zona Rosa	26
+La Bottega	26
+EN Japanese Brasserie	26
+Peperoncino	26
+Fillips	26
+Cookshop	26
+Shaffer City Oyster Bar &amp; Grill	25
+Le Singe Vert	25
+Good	25
+Michael Jordan's Steakhouse	25
+Mr. Chow	25
+La Grenouille	25
+Our Place Shanghai Tea Garden	25
+Shark Bar and Restaurant	25
+Isabella's	25
+Chez Josephine	25
+The Delta Grill	25
+Denino's Pizzeria Tavern	25
+Casimir Restaurant	25
+Mamlouk Restaurant	25
+A Salt and Battery	25
+Crif Dogs	25
+Blue 9 Burger	25
+Rice to Riches	25
+Caracas Arepa Bar	25
+Pacifico	25
+La Caverna	25
+IXTA	25
+Aroma	25
+My Moon	25
+Fatty Crab	25
+Yama	24
+Friend of a Farmer	24
+Rolf's	24
+Tea &amp; Sympathy	24
+Marion's Continental	24
+Il Cortile	24
+Tartine	24
+Hudson Place Restaurant &amp; Bar	24
+Jackson Hole--64th Street	24
+DA Rosina	24
+Dizzy's	24
+Coco Roco	24
+Yuka Restaurant	24
+Blue Hill	24
+Wallse	24
+Rialto Restaurant	24
+Los Dos Molinos	24
+Avra	24
+Negril Village	24
+Portofino Grille	24
+La Villa Pizzeria	24
+Pangea	24
+Pinch Pizza by the Inch	24
+Mas	24
+Viet Cafe	24
+Dish	24
+Diablo Royale	24
+Via	24
+Yuva	24
+Da Andrea Ristorante	23
+I Trulli	23
+Joe's Shanghai	23
+Rock Center Cafe	23
+Josie's West	23
+Gabriel's	23
+Firehouse	23
+Hi-Life Bar &amp; Grill	23
+Annisa	23
+1492 Food	23
+Long Tan Restaurant	23
+Pigalle	23
+Cafe Deville	23
+Brooklyn Ice Cream Factory	23
+Aki	23
+Branzini	23
+Salt	23
+Don Pedro's	23
+Ciao	23
+Westville	23
+Sumile	23
+The Sunburnt Cow	23
+Cafe Gray	23
+bar.vetro	23
+Taboon	23
+BLT Steak	23
+Cru	23
+Freemans	23
+wildflower	23
+Tides Seafood	23
+Del Posto	23
+Loft	23
+Mint	23
+Buddha Bar NYC	23
+Knickerbocker Bar and Grill	22
+L'Express	22
+Holy Basil	22
+Typhoon Lounge	22
+Lucien Restaurant	22
+Avenue A Sushi	22
+Bamiyan	22
+Basta Pasta	22
+Peanut Butter &amp; Co	22
+The Water Club	22
+Sakagura	22
+ViceVersa	22
+Vintage	22
+Sugiyama	22
+Topaz Thai Restaurant	22
+P.J. Clarke's	22
+Citrus Bar &amp; Grill	22
+Pomodoro Rosso	22
+Luxia Restaurant	22
+Trattoria L'incontro	22
+Superfine	22
+Bonnie's Grill	22
+Relish	22
+Dim Sum Go Go	22
+Brother Jimmy's BBQ	22
+Queen of Sheba	22
+Pam Real Thai Food	22
+The Minnow	22
+Opia	22
+Arezzo	22
+Osteria Del Sole	22
+Yujin	22
+Mama Mexico	22
+Carl's Steaks-Philly Cheesesteak	22
+Belleville	22
+BLT Prime	22
+Cherin Sushi	22
+Cafe at Country	22
+Dok Suni	21
+Mama's	21
+Arturo's	21
+Noho Star	21
+Senor Swanky's Mexican Cafe &amp; Celebrity Hangout	21
+The Hog Pit	21
+Da Silvano	21
+Estiatorio Milos	21
+JoJo	21
+David Copperfield's	21
+Nello's	21
+Pasha	21
+Cafe des Artistes	21
+Rain West	21
+Pampa	21
+Erminia Italian Restaurant	21
+Cilantro	21
+York Grill	21
+Nick's Pizza	21
+Amici Amore	21
+Cabana	21
+Paladar	21
+Friend House	21
+Heartland Brewery &amp; Chop House	21
+Haru Broadway	21
+Les Halles Downtown	21
+Icon	21
+Pizza 33	21
+BB Sandwich Bar	21
+Cafe Steinhof	21
+Bread Tribeca	21
+Cortina	21
+Bubba Gump Shrimp Company	21
+Pure Food and Wine	21
+Rickshaw Dumpling Bar	21
+Co Co Sushi	21
+Crema Restaurante	21
+Knife + Fork Restaurant	21
+River Palm Terrace	20
+Bottino	20
+GINGER	20
+Sobaya	20
+Negril Caribbean Restaurant	20
+Francisco's Centro Vasco	20
+Peking Duck House	20
+Nyonya Cuisine Penang	20
+Caliente Cab CO	20
+White Horse Tavern	20
+Ali Baba Turkish Cuisine	20
+Dunkin' Donuts	20
+Ellen's Stardust Diner	20
+Mon Petit Cafe Inc	20
+BiCE Ristorante	20
+The Four Seasons	20
+Ollie's Noodle Shop &amp; Grill	20
+Cafe Frida Restaurant	20
+Terrace In the Sky	20
+Penang - Upper Eastside	20
+Jeollado	20
+Heartland Brewery Midtown	20
+Village	20
+Orsay	20
+Rose Water	20
+Beacon Restaurant	20
+Chow Bar	20
+Yakiniku Juju	20
+Magnolia Restaurant &amp; Bar	20
+Gente	20
+Alias	20
+Sushi Park	20
+Assenzio	20
+Sushi Seki	20
+Ida Mae Kitchen -N- Lounge	20
+360	20
+Snack Taverna	20
+Yuca Bar	20
+Jack's Luxury Oyster Bar	20
+Pop Burger	20
+50 Carmine	20
+Penelope	20
+Room 18	20
+Blue Mill Tavern	20
+Kitchen and Cocktails	20
+Scottadito Osteria Toscana	20
+Gyu-Kaku Japanese BBQ Dining	20
+Cercle Rouge	20
+Beet	20
+Angelica Kitchen	19
+Veritas	19
+Monster Sushi	19
+Rice	19
+Olive Tree Cafe	19
+Restaurant Puglia	19
+Sapore	19
+Jaiya Thai	19
+Kuruma Zushi	19
+Grand Central Oyster Bar &amp; Restaurant	19
+Chin Chin	19
+Caffe Buon Gusto	19
+Chola	19
+Cafe Fiorello	19
+City Grill	19
+Good Enough to Eat	19
+Sarabeth's West	19
+Jezebel	19
+Chez Oskar	19
+Mardi Gras	19
+Fish	19
+La Pizza Fresca Ristorante	19
+Pink Pony	19
+Le Bilboquet	19
+Los Pollitos II	19
+Fried Dumpling	19
+Kai	19
+Carne	19
+Atelier	19
+Press 195	19
+Ota-ya	19
+Biny Japanese Restaurant	19
+Cocotte	19
+Lil' Frankie's Pizza	19
+O Mai	19
+Suenos	19
+Les Enfants Terribles	19
+Primitivo Osteria	19
+Barbuto	19
+El Cocotero	19
+Horus Cafe	19
+Onera	19
+R.U.B.	19
+Cup Diner and Bar	19
+Sura: The King's Meal	19
+SPICE COVE	19
+Tre Dici	19
+Bogota Bistro	19
+Sascha	19
+Blair Perrone	19
+Samba-Le	19
+CHOICE Kitchen &amp; Cocktails	19
+Grand Sichuan International	18
+Golden Unicorn Restaurant	18
+9th Street Market	18
+John's Restaurant	18
+Bona Fides	18
+Funayama	18
+Barolo	18
+Bistro LES AMIS	18
+Honmura An	18
+Le Jardin Bistro	18
+Cendrillon	18
+Casa Bella Restaurant	18
+Novecento	18
+Onieal's Restaurant	18
+Grano Trattoria	18
+Sushi Sennin Japanese Restaurant	18
+Cibo	18
+Stage Delicatessen	18
+Mi Nidito	18
+Baraonda	18
+Dallas BBQ	18
+Campagnola Restaurant	18
+Harry's Burrito Junction	18
+Flor De Mayo Restaurant	18
+Miss Mamie's Spoonbread Too	18
+Zocalo	18
+B Smith's Bar and Restaurant	18
+The View	18
+Hakata Grill	18
+SouthWest NY	18
+Water's Edge	18
+Junior's	18
+Zaytoons	18
+Eugene	18
+Baldoria	18
+Mirchi	18
+Faan	18
+Haru Park Avenue	18
+Voyage	18
+Sparky's American Food	18
+Giorgione	18
+Perbacco Cafe	18
+Talia's Steakhouse &amp; Bar	18
+Coldwater's	18
+Schnack	18
+Sandobe	18
+RAKU - IT'S JAPANESE II!	18
+Jacques-Imo's NYC	18
+Riverview Restaurant &amp; Lounge	18
+The Modern	18
+silverleaf tavern	18
+PastaVino	18
+Gravy	18
+Nobu 57	18
+Barbounia	18
+El Dar	18
+Japonica	17
+Haveli Restaurant	17
+Piadina	17
+Provence	17
+Jerry's Restaurant and Bar	17
+Pellegrino's	17
+Cupping Room Cafe	17
+Buona Notte	17
+Sevilla Restaurant &amp; Bar	17
+Slaughtered Lamb Pub	17
+Baby Bo's Cantina	17
+Molyvos	17
+Park Avenue Cafe	17
+Maloney &amp; Porcelli	17
+Caffe Taci	17
+Jasmine	17
+Yum Yum Bangkok	17
+Bali Nusa Indah Restaurant	17
+Jewel of India	17
+Osteria al Doge	17
+Morton's - The Steakhouse	17
+Vera Cruz	17
+Casa Pepe	17
+Naples 45	17
+Redeye Grill	17
+Seven A Cafe Incorporated	17
+26 Seats	17
+Oliva	17
+Alfredo of Rome	17
+Fetch Bar &amp; Grill	17
+Mosto	17
+Ony	17
+Revival Restaurant Bar &amp; Lounge	17
+Le Zoccole	17
+Paprika Cucina Italiana	17
+Banc Cafe	17
+Poetessa	17
+Zozo's Juice and Grille	17
+Partage	17
+Senor Swanky's Mexican Cafe &amp; Speakeasy	17
+Fusia Asian Cuisine	17
+Gusto Ristorante e Bar Americano	17
+Lima's Taste Ceviche Bar	17
+La Esquina	17
+Hip Hop Chow	17
+El Bocadito	17
+Chanto	17
+Lan	16
+Apple Restaurant &amp; Bombar	16
+Cozy Soup &amp; Burger	16
+Mingala Burmese	16
+Il Cantinori	16
+Sidewalk Cafe	16
+Maryann's	16
+Da Umberto	16
+The Kitchen Club	16
+Cafe Gitane	16
+Salaam Bombay	16
+Pintxos	16
+Felix	16
+Jing Fong Restaurant	16
+Paesano of Mulberry street	16
+Capsouto Freres	16
+Noodles On 28	16
+Phoenix Garden Restaurant	16
+Trattoria dell' Arte	16
+Candle Cafe	16
+La Goulue Restaurant	16
+Fresco	16
+Mughlai	16
+Fred's	16
+Silk Road Palace	16
+Gennaro	16
+44 Southwest	16
+Pongsri Thai Restaurant	16
+Ipanema	16
+Le Rivage	16
+Tropica	16
+Uncle George's	16
+Patois	16
+Narita Japanese Restaurant	16
+Sushi Rose	16
+Blockhead's Burritos	16
+Tsampa	16
+Scalini Fedeli	16
+Porters New York	16
+La Cantina Cucina Italiana	16
+Gradisca	16
+Lou Lou	16
+Locanda Vini &amp; Olii	16
+Pfiff	16
+Blue Grotto (closed)	16
+Cipriani Downtown	16
+Churrascaria Tribeca	16
+Ciao	16
+Shula's Steak House	16
+Acqua Pazza	16
+Thomas Beisl	16
+Croton Reservoir Tavern	16
+Say Cheese	16
+Parish &amp; Co.	16
+A.O.C. Bedford	16
+Pylos	16
+Smorgas Chef Downtown	16
+Crave	16
+Nook Restaurant	16
+Jonez	16
+Gari	16
+Il Bastardo	16
+Milon Restaurant	15
+Sharaku Japanese Restaurant	15
+Kiev Restaurant	15
+Dojo East	15
+Sunburst Espresso Bar	15
+Roy's New York	15
+I Coppi	15
+LE Zie	15
+El Cid	15
+Great Jones Cafe	15
+Pomodoro	15
+Eight Mile Creek Restaurant	15
+Il Palazzo	15
+Walkers	15
+Miracle Bar and Grill	15
+Cornelia Street Cafe	15
+Petite Abeille	15
+Mishima	15
+El Parador Cafe	15
+Palm	15
+El Azteca	15
+Cabana	15
+Fusia	15
+Mr. K's Restaurant	15
+Bouterin	15
+Sambuca	15
+Popover Cafe	15
+Chimichurri Grill	15
+Meskerem	15
+Langan's Bar &amp; Restaurant	15
+Pomaire	15
+Uncle Jack's Steakhouse	15
+Saul	15
+Risotteria	15
+Madiba	15
+Murray's Bagels	15
+dragonfly bar&amp;restaurant	15
+Mare	15
+PIO PIO Express	15
+Sushi a-go-go	15
+Hispaniola Restaurant	15
+Blue Ribbon Sushi Brooklyn	15
+Dish	15
+Kitchenette	15
+Brasserie 360	15
+Bread Bar at Tabla	15
+Bread	15
+Mooncake Foods	15
+Cesca	15
+Cafe Luise	15
+Antique Garage	15
+UK New York	15
+Pacific Echo	15
+Jolie	15
+Tiny Thai Cafe	15
+Alexandra	15
+Chocolate Room	15
+Barna	15
+Providence	15
+Milk &amp; Cookies	15
+Cafe du Soleil	15
+Naima	15
+LoSide Diner	15
+Rosa Mexicano at Union Square	15
+Pair of 8's	15
+A Voce	15
+Je'Bon Noodle House	15
+Black Pearl Restaurant	15
+Bamboo 52	15
+El Cantinero	14
+Capucine's Restaurant	14
+Fraunces Tavern Restaurant	14
+Il Giglio	14
+Caravan of Dreams	14
+Le Tableau	14
+Flea Market Cafe	14
+Mogador Cafe	14
+Frank's Restaurant &amp; Bar	14
+El Quijote	14
+Acme Bar and Grill	14
+Panchito's Mexican Restaurant	14
+Pepe Rosso to Go	14
+F. Illi Ponte Ristorante	14
+The Odeon	14
+Zutto	14
+New York Noodle Town	14
+Doyer's Vietnamese	14
+Hop Kee Restaurant	14
+Rocco Pastry Shop	14
+Hudson Bar &amp; Books	14
+Casa	14
+Caffe Torino	14
+El Faro	14
+Da Ciro Restaurant	14
+Uncle Nick's	14
+Angelo's Pizzeria	14
+Bombay Palace	14
+Iguana	14
+Post House	14
+LA Tour	14
+Sel et Poivre	14
+Nino's Restaurant	14
+Spice	14
+Lasagna Restaurant	14
+Ulrika's	14
+Dallas BBQ	14
+Niko's Mediterranean Grill and Bistro	14
+Totonno's	14
+One Fish Two Fish	14
+Chevy's Fresh Mex	14
+Lattanzi Ristorante	14
+Sofia's	14
+Manducatis	14
+Telly's Taverna	14
+12th Street Bar &amp; Grill	14
+Geido Restaurant	14
+Jackson Diner	14
+Cabana	14
+Gaby's Pizzeria	14
+Yama	14
+Zucchero e Pomodori	14
+Do Hwa	14
+Metrazur	14
+Rue des Crepes	14
+Grand Sichuan International	14
+Virage Restaurant	14
+Hudson Cafeteria	14
+Jean Luc Restaurant	14
+Tsuki Sushi	14
+La Vuelta	14
+Maria Pia	14
+Acappella Ristorante	14
+Ganache	14
+Fada	14
+Hacienda de Argentina	14
+Maison	14
+Goa	14
+Restaurant Gia	14
+Opus	14
+Croxley Ales	14
+Indian Bread Co	14
+Aurora	14
+Cubana Cafe	14
+HK	14
+Emi	14
+Pop Diner	14
+Fornino	14
+TEMPO	14
+Cacio e Pepe	14
+Stone Park Cafe	14
+De Marco's Pizza	14
+Sala One Nine	14
+Toro	14
+NERO	14
+Picket Fence	14
+Bette	14
+Mercadito Grove	14
+Soju	14
+Olea	14
+Khyber Pass	13
+Caliente Cab CO	13
+Osso Buco	13
+Pop	13
+Frutti di Mare	13
+Kate's Joint	13
+Petite Abeille	13
+Wild Lily Tea Room	13
+Chelsea Bistro &amp; Bar	13
+Spain Restaurant &amp; Bar	13
+Cafe Colonial	13
+Ghenet Restaurant	13
+Spring Street Natural Restaurant	13
+Oro Blu Ristorante	13
+Domenico	13
+Hapon Japanese Restaurant	13
+Market Cafe	13
+Rice 'n' Beans	13
+Arriba Arriba Mexican Restaurant	13
+Sapporo Restaurant	13
+Trattoria Del Corso	13
+EJ's Luncheonette--E. 73rd Street	13
+Serafina Fabulous Grill	13
+Picasso Restaurant	13
+Edgar's Cafe	13
+Monsoon	13
+Planet Sushi	13
+Barney Greengrass	13
+McAleer's Pub &amp; Restaurant	13
+Tomo	13
+Arriba Arriba Restaurant	13
+Panorama Cafe	13
+Heidelberg Restaurant	13
+Amarone Ristorante	13
+Les Sans Culottes West	13
+Meson Sevilla	13
+WU Liang Ye 48 Restaurant INC	13
+Joe Allen	13
+Kodama Japanese Restaurant	13
+Lindy's	13
+Elias Corner	13
+Noodle Pudding	13
+Haru Third Avenue	13
+Saigon Grill	13
+Kinoko	13
+Village Yokocho	13
+Bean	13
+Sapphire Indian Cuisine	13
+Alain Ducasse at the Essex House	13
+Quartino	13
+Tagine Dining Gallery	13
+Moda--Modern Italian	13
+Roberto's Restaurant	13
+Beso Restaurant	13
+Caserta Vecchia	13
+Maria's Mexican Bistro	13
+A.O.C.	13
+La Piazzetta	13
+Downtown Atlantic Restaurant &amp; Bakery	13
+Masa	13
+Bar Jamon	13
+In Vino	13
+Taksim	13
+Mocca Lounge	13
+Dumpling Man	13
+Abboccato	13
+Darbar Fine Indian Cuisine	13
+Sip Sak Turkish Restaurant	13
+Bond 45	13
+Bone Lick Park	13
+Harlem Grill	13
+Spigolo	13
+Song	13
+Roberto Passon	13
+Craftbar	13
+Regional	13
+Au Coin Du Feu	13
+Maremma	13
+Little Bistro	13
+Taco Chulo	13
+Night and Day	13
+Bann	13
+Barca 18	13
+Leela Lounge &amp; Restaurant	13
+Alice's Tea Cup Chapter II	13
+Anthony's	13
+Casablanca Tea Room	13
+Gam Mee Ok	12
+David's Bagels	12
+Hasaki	12
+Pongsri Thai Restaurant	12
+Panna II Garden Indian Restaurant	12
+Yakiniku West	12
+Tiramisu	12
+Battery Gardens	12
+Sahara East	12
+Kai Kai Thai Bistro	12
+Old Devil Moon	12
+North Square	12
+Empire Diner	12
+Sammy's Noodle Shop	12
+Gonzalez y Gonzalez	12
+Jean Claude	12
+Dojo West	12
+El Paso	12
+Suzie's Restaurant	12
+Country Cafe	12
+Benito's II Restaurant INC	12
+Kana Restaurant	12
+Pongsri Thai Restaurant	12
+Lupe's East LA Kitchen	12
+Palacinka	12
+Artepasta	12
+Moustache--West Village	12
+Tavern on Jane	12
+Jarnac	12
+Salute	12
+Sotto Cinque Restaurant	12
+East Japanese Restaurant	12
+Diwan Restaurant	12
+Genki Sushi, Inc.	12
+Giggles Restaurant	12
+Rosie O'Grady's	12
+Roxy Delicatessen	12
+Scalinatella Restaurant	12
+Vermicelli	12
+Persepolis	12
+Via Quadronno	12
+Merchants Restaurant	12
+Bella Blu	12
+Ollie's Broadway	12
+Penang - Upper Westside	12
+Zen Palate	12
+Monaco	12
+Absolute Bagels	12
+Alouette	12
+Etats-Unis	12
+Arturo's Pizza	12
+Via Brasil INC	12
+F &amp; J Pine Tavern	12
+Q Bistro	12
+Ballato's	12
+Raga	12
+Gray's Papaya - Downtown	12
+Areo Ristorante	12
+Luna Park	12
+Patsy's Pizza--74th Street	12
+Roc	12
+Babalu	12
+Cosette	12
+Pao!	12
+Monster Sushi	12
+Pick a Bagel on Second	12
+Poke Restaurant	12
+Smith &amp; Wollensky	12
+Spice Grill	12
+Angus McIndoe	12
+Hope &amp; Anchor	12
+Zebu Grill	12
+Itzocan Cafe	12
+Cebu	12
+Orange Valve	12
+Swagat Indian Cuisine	12
+Chipotle Mexican Grill	12
+Cascata Cafe Italiano	12
+Austin's Steakhouse	12
+Casa North	12
+Nooch	12
+Una Pizza Napoletana	12
+Riverdale Garden	12
+Aja Asian Bistro &amp; Lounge	12
+Hedeh	12
+Pukk	12
+Beast	12
+Land	12
+Alto	12
+Melt	12
+Taku	12
+Luz	12
+D'Or Ahn	12
+Big Daddy's Diner	12
+Telepan	12
+Woody McHale's	12
+Nagomi Japanese Restaurant	12
+Dirty Bird To Go	12
+Inagiku	11
+Kang Suh Restaurant	11
+Antique Cafe	11
+Bereket Turkish Kebab House	11
+Bagel Bob's	11
+Shima Restaurant	11
+Patsy's Pizza-University Place	11
+Anyway Cafe	11
+Nebraska Beef	11
+Moustache	11
+Elephant and Castle West	11
+Cafe Loup	11
+Blue Moon Mexican Cafe--West	11
+French Roast Cafe Downtown	11
+Moran's Restaurant	11
+Choga	11
+Vincent's Restaurant	11
+Kori	11
+Asia Roma	11
+Duane Park Cafe	11
+Ghandi Cafe	11
+Waverly Restaurant	11
+Malatesta Trattoria	11
+Coppola's East	11
+Ristorante Grifone	11
+Il Postino	11
+Bricco Restaurant	11
+Osteria del Circo	11
+Chanpen Thai Restaurant	11
+Brooklyn Diner USA	11
+Mediterraneo	11
+Maruzzella Ristorante	11
+LE Bateau Ivre INC	11
+Mimi's Restaurant	11
+Le Perigord	11
+Arte Cafe	11
+Shun Lee West	11
+Neo Sushi	11
+Paola's	11
+Cafe Un Deux Trois	11
+Sarabeth's East	11
+Gino's Restaurant &amp; Pizzeria	11
+Diner	11
+Rice Thai Kitchen	11
+Tako Sushi	11
+O.G.	11
+Park Side	11
+Scopa	11
+Palm Restaurant Westside	11
+Valdino West	11
+French Roast Cafe Uptown	11
+Benny's Burritos	11
+Quintessence	11
+Ping's	11
+New Leaf Cafe	11
+Pepolino	11
+M Shanghai Bistro &amp; Den	11
+Henry's	11
+Esperanto Cafe	11
+Cake Man Raven Confectionary	11
+Shanghai Garden Dimsum Restaurant	11
+Fred's at Barney's New York	11
+Cafe el Portal	11
+Lovely Day Restaurant	11
+Kati Roll (duplicate)	11
+Re Sette	11
+Scopello	11
+Chennai Garden	11
+Nick's	11
+Five Front	11
+City Lobster	11
+Maison Saigon Tacu-Tacu	11
+Jewel Bako Makimono	11
+Dominic Restaurant	11
+Daisy May's BBQ	11
+Savoia	11
+Grotto	11
+Cantinella	11
+Bubby's Brooklyn	11
+TOC	11
+Crumbs Bakeshop	11
+Nina Argentinian Pizzeria	11
+Thai Sky	11
+Fatty's Cafe	11
+Baked	11
+Sachiko's on Clinton	11
+Bottega del Vino	11
+Paris Commune	11
+Bouillabaisse 126	11
+'sNice	11
+Shimizu Sushi Restaurant	11
+Bangkok House	11
+Stan's Place	11
+Kashkaval	11
+Prem-on Thai	11
+Butai	11
+Sette Enoteca E Cucina	11
+Turquoise	11
+Centrico	11
+Melba's	11
+Sensa	11
+Restaurant Sorrel	11
+The Diner	11
+Camino Sur	11
+Yakitori Totto	11
+Aquaterra	11
+Baci &amp; Abbracci	11
+Quality Meats	11
+Tick Tock Diner	10
+Mustang Harry's	10
+Soul Fixins'	10
+New York Kom Tang Soot Bul HSE	10
+Marquet Patisserie	10
+Choshi	10
+Silver Spurs Restaurant	10
+Delmonico's	10
+Orologio	10
+Odessa	10
+Simone Espreso &amp; Wine Bar	10
+Mexico Lindo Restaurant	10
+El Rey Del Sol	10
+Bright Food Shop	10
+East of Eighth	10
+Viceroy	10
+Taste of Tokyo INC	10
+Regional Thai Taste Restaurant	10
+Chelsea Ristorante	10
+Intermezzo	10
+La Belle Vie	10
+Harry's Burritos	10
+Rocco Restaurant	10
+Sosa Borella	10
+Taormina of Mulberry St	10
+Yaffa's	10
+Shanghai Cafe	10
+Pho Bang Restaurant	10
+Pesce Pasta Trattoria	10
+Chez LE Chef INC	10
+Madras Mahal	10
+Trattoria Belvedere	10
+Pongal	10
+LA Giara	10
+Dishes	10
+Wollensky's Grill	10
+Docks Oyster Bar and Seafood Grill	10
+Wondee SIAM Corp	10
+Circus	10
+Isle of Capri	10
+Annie's Restaurant	10
+China Fun	10
+L'Absinthe Restaurant	10
+Il Vagabondo	10
+Serafina Fabulous Pizza	10
+California Pizza Kitchen	10
+La Mangeoire	10
+Jubilee	10
+Shun Lee Cafe	10
+Jackson Hole--Columbus Avenue	10
+Cafe Con Leche--80th Street	10
+Coppola's Pizzeria Restaurant	10
+Flor De Mayo Restaurant	10
+ The Heights Bar and Grill	10
+Jacques Bistro	10
+Elio's Restaurant	10
+Film Center Cafe	10
+L'allegria Italian Restaurant	10
+Sushi Zen	10
+Viva Tequila	10
+Harbour Lights	10
+Carino Ristorante Italiano	10
+Bobby Van's Steakhouse	10
+Waterfront Crab House	10
+Sanford's	10
+Sac's Pizza Place	10
+Two Boots Brooklyn	10
+Tutta Pasta	10
+Trattoria Mangia	10
+Sahara Restaurant	10
+Totonno Pizzeria Napolitano	10
+Parkside Restaurant	10
+Santa Fe Steakhouse	10
+Rosario's Pizzeria	10
+Tir Na Nog	10
+Toast	10
+Jimmy's Uptown	10
+Snack	10
+Inside	10
+Centolire	10
+Tal Bagel	10
+Mombar	10
+Rairaiken Incorporated	10
+Bistro Ten 18	10
+Ebisu Corporation	10
+Rosie O'Grady's	10
+Turkuaz Fine Turkish Cuisine	10
+Common Stock Restaurant &amp; Bar	10
+Vero	10
+Podunk	10
+Tournesol	10
+Pisticci Restaurant	10
+Noi Cafe	10
+Aliseo Osteria del Borgo	10
+Wild Ginger	10
+Dervish Restaurant	10
+Better Burger	10
+Chick-Inn	10
+Kasadela	10
+Red Cafe	10
+Bao Noodles	10
+Pequena	10
+French Quarter	10
+Ruby's	10
+2nd Street Cafe	10
+Chinese Mirch	10
+Flor's Kitchen	10
+Chickpea	10
+Bar Toto	10
+Bar Masa	10
+The Neptune Room	10
+GoWasabi	10
+Maracas Mexican Bar &amp; Grill	10
+Lo Scalco	10
+Antica Venezia	10
+Ama	10
+Boyd Thai	10
+Jeeb	10
+Bellavitae	10
+202	10
+Miriam	10
+Babycakes	10
+Jovia	10
+High Chai	10
+HQ	10
+Valbella	10
+Nolia	10
+Pre:Post	10
+Nomad	10
+Megu Midtown	10
+Zibetto Espresso Bar	10
+Nauna's Bella Casa	9
+Sammy's Roumanian Steakhouse	9
+Mitali East	9
+Buona Sera Restaurant	9
+Kura Sushi Japanese Restaurant	9
+Bayard's	9
+Ecco Restaurant	9
+Cafe de Bruxelles	9
+Periyali	9
+Monte's Trattoria Ltd	9
+Mottsu	9
+Jaya Malaysian Restaurant	9
+Nha Trang Restaurant	9
+Gigino	9
+Diva Restaurant &amp; Bar	9
+Delicia Restaurant	9
+TRE Pomodori Restaurant	9
+Top of the Tower	9
+Maggie's Place	9
+Katsuhama	9
+Bello	9
+Cancun Restaurant	9
+Da Marino	9
+Ralph's Restaurant	9
+Greek Kitchen	9
+LCB Brasserie	9
+Scala	9
+Due Restaurant	9
+Il Monello	9
+Regional Thai Sawoy	9
+Luna Piena Restaurant	9
+Cellini	9
+Montebello Ristorante Italiano	9
+Il Nido	9
+Fresh Basil's Trattoria	9
+Pappardella	9
+Cafe Luxembourg	9
+Bello Giardino	9
+Haru Amsterdam	9
+The Evelyn	9
+Awash	9
+Girasole Restaurant	9
+BLEU Evolution	9
+Pietrasanta Restaurant	9
+South Side Cafe	9
+Nation American Bar &amp; Grill	9
+Torre Di Pisa  -- CLOSED	9
+Casa Di Meglio	9
+Yum	9
+44 Restaurant	9
+Soul Cafe	9
+Luca Restaurant	9
+Taverna Kyclades	9
+Sam's Restaurant	9
+Amin Indian Cuisine	9
+Butta'cup Lounge	9
+Acqua Santa	9
+Second Street Cafe	9
+Johnny Mack's	9
+Santa Fe Grill	9
+Sweet Melissa	9
+Osaka Restaurant	9
+Lundy Brothers -- Sheepshead Bay	9
+Rasputin	9
+Tom's Restaurant	9
+Erawan Thai Restaurant	9
+Pio Pio Restaurant	9
+Dani House of Pizza Restaurant	9
+Caviar Russe	9
+Excellent Dumpling House	9
+V &amp; T Pizzeria	9
+Caffe La Fenice	9
+Teodora	9
+Lucky Strike	9
+Montparnasse	9
+Rothmann's Steakhouse	9
+Ollie's	9
+Carmaya	9
+Hampton Chutney Company	9
+Sugar Hill Bistro	9
+Togi Restaurant	9
+Gajyumaru Japanese Restaurant	9
+Seven	9
+Calico Jack's Cantina	9
+Thai Angel Cuisine	9
+Kurio	9
+Meskerem	9
+Why Curry Incorporated	9
+Roy's	9
+Rouge	9
+Kishti	9
+Galaxy Global Eatery	9
+Le Clown Bistro Francais	9
+Hiro	9
+Edward's	9
+DR-K	9
+Nana	9
+Native	9
+Murals on 54	9
+Tuk Tuk	9
+Sapori D'ischia	9
+Chestnut	9
+Fragole	9
+Il Sogno Ristorante	9
+Radio Perfecto Uptown	9
+Mekong	9
+Brother Jimmy's BBQ	9
+Bocal	9
+Maia Meyhane	9
+Kanoyama	9
+Beard Papa Sweets Cafe	9
+Galanga	9
+L'asso	9
+New York Burger Co.	9
+Beard Papa Sweets Cafe	9
+Le Sans Souci New York	9
+Fusha	9
+Sushi Rock Restaurant	9
+Besito	9
+Apartment 138	9
+Aquavit	9
+Ushi Wakamaru	9
+Nonna	9
+Sette	9
+Radha	9
+Adrienne's Pizza Bar	9
+Uovo	9
+Novo	9
+Ammos	9
+Spice	9
+Urena	9
+OGA Japanese Tapas	9
+El Centro	9
+Jack	9
+Marbella	9
+Craftsteak	9
+The Little Owl	9
+Arthurs Tavern	8
+Frankie &amp; Johnnie's Steakhouse	8
+T.G.I. Friday's	8
+Pepe Giallo	8
+Biricchino Northern Italian	8
+Kossar's Bialys	8
+Yonah Schimmel's Knishes Bakery	8
+Black Hound Bakery	8
+Silver Swan	8
+In Padella	8
+Elvie's Turo-Turo	8
+San Loco	8
+Cafe Pick Me Up	8
+Casa MIA	8
+Don Giovianni Restaurant	8
+Dish	8
+Thali	8
+La Lunchonette	8
+Royal SIAM Thai Cuisine	8
+Ceci-Cela	8
+Pasta Presto Macdougal	8
+Little Charlie's Clam Bar	8
+Trattoria Dante/Caffe Dante	8
+Manhattan Bistro	8
+Caffe Reggio	8
+Pho Viet Huong	8
+Positano Ristorante INC	8
+Forlini's Restaurant	8
+HSF	8
+Oriental Garden Restaurant	8
+MaryAnn's Tribeca Mexican	8
+Kam Chueh	8
+Hunan Pan	8
+Little Havana Restaurant	8
+Cafe Espanol On Carmine	8
+LA Focaccia	8
+Trattoria Alba	8
+Tibetan Kitchen	8
+McCormack's	8
+Caesar's Restaurant	8
+Villa Berulia	8
+Bistango Restaurant	8
+Sarge's Deli &amp; Restaurant	8
+Bella Napoli	8
+Palm Too	8
+Famous Original Ray's Pizza	8
+Petrossian	8
+Azuri Cafe	8
+Old San Juan	8
+Tout Va Bien	8
+Rino Trattoria	8
+ISE Japanese Restaurant	8
+Seppi's Restaurant	8
+Mee Noodle Shop Hell's Kitchen	8
+Tuscan Square	8
+Sushi Hana	8
+Bistro Le Steak	8
+879 Taco	8
+Manhattan Grille	8
+LA Gioconda	8
+Solera Restaurant	8
+Cinquanta Restaurant	8
+Peking Duck House	8
+Monkey Bar	8
+Isola	8
+Savann	8
+LA Cocina Mexicana	8
+Metisse	8
+Tom's Restaurant	8
+Boathouse Cafe	8
+Our Place Cuisines of China	8
+Maz Mezcal Mexican Restaurant	8
+Willy's Bar &amp; Grill	8
+Le Refuge	8
+Martell's Restaurant	8
+Mimi's Pizza Kitchen	8
+Olive Garden	8
+Mr Biggs Bar &amp; Grill	8
+Brazil Grill	8
+Orso	8
+West Bank Cafe	8
+Zuni	8
+Puleo's Too	8
+Le Marais	8
+Rachel's American Bistro	8
+Ryan's Sports Bar &amp; Restaurant	8
+L'orto Ristorante Elegante	8
+Charles' Southern Style Kitchen	8
+Trattoria Romana	8
+Joe &amp; Pat Pizzeria	8
+Ubol's Kitchen	8
+El Olivo	8
+Kum Kau Chinese Food Take Out	8
+Skinflints Restaurant	8
+Embers	8
+Fontana Sushi of Bay Ridge	8
+India Passage Restaurant	8
+Mambo Italiano Restaurant Corp	8
+Bliss	8
+Cheers Thai Restaurant	8
+Eloras Restaurant	8
+Ocean Palace Seafood Restaurant	8
+Primorski	8
+Green Field Restaurant	8
+La Portena	8
+Eddie's Sweet Shop	8
+Bardolino	8
+Won Jo	8
+Canyon Road	8
+Nha Trang Centre	8
+Rafaella Restaurant	8
+Gigino	8
+Boxers	8
+Hurley's Saloon	8
+Anytime	8
+Excellent Pork Chop House	8
+Cipriani Dolci	8
+Max Soha	8
+Paul's Boutique	8
+Hallo Berlin	8
+Rue B	8
+Jakes Barbeque Specialties	8
+Phillies Restaurant &amp; Lounge	8
+Push Cafe	8
+Sipan Restaurant	8
+Pizza Gruppo	8
+Planet Hollywood	8
+Happy Shabu Shabu &amp; Cafe	8
+A Restaurant	8
+Soy	8
+Outback Steakhouse	8
+Moto	8
+Kapadokya	8
+Cafe Luluc	8
+Cho Dang Gol	8
+Ottimo	8
+Dolcino	8
+Jacques Torres Chocolate	8
+Pie by the Pound	8
+Barking Dog Luncheonette	8
+Cuba Cafe	8
+Bacchus	8
+Munch Cafe &amp; Grill	8
+Brooklyn Bagel &amp; Coffee Co	8
+Nouvelle	8
+Tompkins Square Bakery	8
+36 i-BBQ &amp; Shav Shop	8
+Joe	8
+I Tre Merli Bistro	8
+88 Orchard	8
+Sushi Mambo	8
+The Pump - Energy Food (A Physical Fitness Restaurant)	8
+Sushi Sennin At 81	8
+Indus Valley	8
+Candle 79	8
+Oceo	8
+Times Square Brewery	8
+Bistro Cassis	8
+Zaitzeff	8
+Starwich	8
+Chimu	8
+Citron	8
+Lure Fishbar	8
+Frederick's	8
+Taro Sushi NY	8
+JJ's Restaurant	8
+Swizz Restaurant &amp; Wine Bar	8
+Babu	8
+Amber	8
+Breeze	8
+The Capital Grille	8
+Gavroche	8
+Havana Central	8
+No. 28	8
+Ben &amp; Jack's Steakhouse	8
+Lodge	8
+Momoya	8
+101 Restaurant	8
+Slice	8
+Sigiri	8
+Giorgione 508	8
+Dokebi	8
+Butterfield 8	8
+Le Miu	8
+Parea	8
+Q2 Thai	8
+Aura Thai	8
+Burgers &amp; Cupcakes	8
+S'Mac	8
+Amanda's	7
+Cafe Buon Gusto Due INC	7
+Cafe Centosette	7
+Around the Clock 24 Hour	7
+Gandhi	7
+Benny's Burritos to Go--East Village	7
+La Ceiba	7
+Eisenberg's Sandwich Shop	7
+Cola's	7
+Once Upon a Tart	7
+Mezzogiorno	7
+Hoomoos Asli	7
+Marumi Restaurant	7
+Indian Taj	7
+L'Ulivo	7
+TRE Giovani	7
+Tai Hong Lau Restaurant	7
+Burrito Bar	7
+Ferrara Pasteries INC	7
+Reade Street Pub &amp; Kitchen	7
+Ivy's Bistro	7
+Mandarin Court Restaurant INC	7
+Thaison Restaurant INC	7
+Lafayette Grill &amp; Bar	7
+Paoluccis Restaurant	7
+Sal Anthony's SPQR	7
+La Jumelle	7
+Trattoria Spaghetto	7
+Sushi On Hudson	7
+Grove	7
+Pennyfeathers Cafe	7
+Le Pescadou	7
+Ma Ma Buddha	7
+Manatus Restaurant	7
+Baluchis Restaurant	7
+Evergreen Shanghai Restaurant	7
+Fagiolini	7
+Porta Rossa	7
+ISE Restaurant INC	7
+Sushiden Madison Ave	7
+Benihana	7
+Rene Pujol	7
+Renaissance Diner	7
+Playwright Tavern &amp; Restaurant	7
+Chez Napoleon	7
+Matts Grill	7
+Baluchis	7
+Nirvana	7
+Bella Napoli	7
+Ray's Pizza	7
+Club Macanudo	7
+Via Oreto Italian Restaurant	7
+Cafe Carlyle	7
+Patsy's Pizzeria	7
+Willow Restaurant	7
+Vivolo Restaurant	7
+Malaga Restaurant	7
+Cinema Cafe	7
+Petaluma	7
+Green Kitchen Restaurant	7
+Metropolitan Cafe	7
+Houston's	7
+Go Sushi II	7
+DeGrezia Ristorante	7
+LA Maganette Restaurant	7
+Korea Palace	7
+Josephina	7
+Peter's	7
+Rancho	7
+Luzia's	7
+Taquerea y La Fonda Mexicana	7
+Mills Korean Restaurant	7
+Hungarian Pastry Shop	7
+Koronet Pizzeria	7
+Samalita's	7
+Miss Saigon Vietnamese Cooking	7
+El Malecon Restaurant	7
+McDonald's	7
+Foley's Restaurant	7
+Simply Pasta	7
+Bridge Cafe	7
+Hop Shing	7
+Bennie Thai Cafe	7
+Bistro Du Nord	7
+Sachi	7
+Ecco-La	7
+Dominick's Restaurant	7
+Neptune Diner	7
+Castro's Restaurant	7
+Chadwick's	7
+Wasabi INC	7
+Bamonte's Restaurant	7
+Red Hot Restaurant	7
+Thai Cafe	7
+Le Petit Cafe	7
+Kings Plaza Diner	7
+Tavern on Dean	7
+Lucia Pizza	7
+Bagel Oasis	7
+Five Burro Cafe	7
+Bandol	7
+Havana Chelsea Restaurant	7
+Patroon	7
+Petite Abeille	7
+Rao's Restaurant	7
+Shabu-Tatsu Downtown	7
+Hat Restaurant (El Sombrero)	7
+Bayou	7
+Opa! Tony's Souvlaki	7
+Tierras Colombianas	7
+Osso Buco	7
+Liquors	7
+Metsovo	7
+Frere Jacques Restaurant	7
+Johnny Rockets	7
+Greenwich Village Bistro	7
+The Pump - Energy Food (A Physical Fitness Restaurant)	7
+Ciao Bella	7
+Baluchis	7
+La Locanda	7
+Juice Generation	7
+Brick Oven Gallery	7
+Mobay Restaurant (Brooklyn)	7
+SIAM Square Thai Restaurant	7
+Levain Bakery	7
+Atomic Wings	7
+Nisos Restaurant	7
+Rush Hour	7
+ZaZa restaurant	7
+Angelo's	7
+Cafe Sabarsky	7
+Porta Toscana	7
+Xicala Wine and Tapas Bar	7
+Lannam Vietnamese Cuisine	7
+Soho Cantina	7
+Y`s Place Japanese Cuisine	7
+Igloo Ice Cream Cafe	7
+Panino'teca 275	7
+Cavo Cafe	7
+Eamonn's Bar and Grill	7
+Joy Indian Restaurant	7
+Malagueta	7
+Iron Chef Sushi	7
+Jack's Stir Brewed Coffee	7
+Palmira's Italian Food &amp; Jazz	7
+Australian Homemade	7
+Boi	7
+Merrion Square	7
+Saurin Parke Cafe	7
+Anju	7
+Mancora	7
+Miss Williamsburg Porta Via	7
+Swish Cafe &amp; Shabu Shabu	7
+Sweetwater Restaurant	7
+La Mancha	7
+Maggie Brown	7
+Casa La Femme	7
+Ma*ya	7
+Chino's	7
+Smorgas Chef Midtown	7
+La Prima Donna	7
+Lamb &amp; Jaffy	7
+Rangole	7
+Casbah Rouge	7
+Pig'N Out Barbeque	7
+Quickly Shabu Shabu	7
+Royal's Downtown	7
+Sunagawa	7
+Zucco: Le French Diner	7
+Wild Ginger Vegetarian Cafe	7
+Philippe	7
+Dani	7
+Fanny	7
+Colors	7
+Industria Argentina	7
+Flames Steakhouse	7
+Destino	7
+Cafetasia	7
+Imagine Bar &amp; Grill	7
+Rewind	7
+Mr. Chow Tribeca	7
+Chinatown Brasserie	7
+Intent	7
+Benny Tudino's	6
+Krispy Kreme Doughnuts	6
+Dano Restaurant	6
+Yummy House	6
+Yoshi Japanese Restaurant	6
+San Loco	6
+Flor's Kitchen	6
+Hamachi Japanese Restaurant &amp; Sushi Bar	6
+Rosie &amp; Ting Noodles &amp; Grille	6
+BBQ Restaurant	6
+La Linea	6
+Brunettas Restaurant	6
+Life Cafe	6
+Takahachi	6
+Ole Restaurant	6
+Krispy Kreme Doughnuts	6
+Merchants New York	6
+Tequilas Mexican Grill Restaurant	6
+Eros Cafe	6
+Uncle Moe's Burrito &amp; Taco Shop	6
+Raymonds Cafe	6
+Vp2	6
+Savore	6
+Minetta Tavern	6
+Caffe Dante	6
+Two Boots To Go-Go	6
+Ben's Pizza	6
+Fratelli Ristorante	6
+House of Vegetarian	6
+Franklin Station Cafe	6
+Penang Chinatown Restaurant	6
+Lin's Dumpling House	6
+Sambuca's Cafe &amp; Desserts	6
+Hudson Corner Cafe	6
+Vittorio Restaurant	6
+Sam's Place	6
+Pasticcio	6
+Tatany Japanese Restaurant	6
+Park Bistro	6
+Christina's	6
+Hatsuhana Restaurant	6
+Chiam Restaurant	6
+Burger Heaven--291 Madison Avenue	6
+East Japanese Restaurant	6
+Prime Grill	6
+Nanni's Restaurant	6
+Mangia	6
+Hard Rock Cafe	6
+Menchanko-Tei Midtown West	6
+Caffe Cielo	6
+Sushiya	6
+Zenith Vegetarian Cuisine	6
+Da Tommaso	6
+San Domenico NY	6
+Costa Del Sol Restaurant	6
+Nocello	6
+SIAM Inn Cuisine INC	6
+El Deportivo Restaurant	6
+Palm Court	6
+Red Garlic Restaurant	6
+Sacco Pizza	6
+Lusardi's Restaurant	6
+John's Pizzeria Eastside	6
+Manana Restaurant INC	6
+Trata Restaurant	6
+Hunters	6
+Cafe Evergreen	6
+Totoya Restaurant	6
+Brio Restaurant	6
+Uskudar Turkish Restaurant	6
+Beach Cafe	6
+Turtle Bay Grill &amp; Lounge	6
+Bruno Restaurant	6
+Harry Cipriani	6
+San Pietro Restaurant	6
+Al Bustan	6
+Sugar Bar	6
+Baluchi's	6
+Il Violino	6
+Aegean	6
+La Mirabelle	6
+Scaletta Ristorante	6
+La Vela	6
+La Caridad	6
+Triangolo Restaurant	6
+Sassy's Sliders	6
+Baluchis	6
+Sotto Cinque INC	6
+Indian Tandoor-oven Restaurant	6
+Kings' Carriage House	6
+Firenze	6
+Jesse's Place INC	6
+Barbetta	6
+Hourglass Tavern	6
+Don Giovianni	6
+Zen Palate	6
+Galaxy Cafe	6
+Joanna's Restaurant	6
+Elaine's	6
+Cargo Cafe	6
+Bario's Fine Family Dining	6
+Sabor Tropical	6
+Sidetracks	6
+Mezzo Mezzo Restaurant	6
+S'Agapo Taverna Ouzeri	6
+Shima	6
+Rizzo's Italian Village	6
+Caffe Buon Gusto	6
+Heights Cafe	6
+India House Restaurant	6
+LA Traviata INC	6
+Salty Dog Restaurant	6
+Vesuvio Pizzeria &amp; Restaurant	6
+Circles Restaurant	6
+Inaka Sushi House	6
+Smiling Pizzeria	6
+Bedouin Tent	6
+Red Rose	6
+Leonardo's Brick Oven Pizza	6
+Tatiana Restaurant	6
+Ginza Japanese Restaurant	6
+Bourbon Street	6
+Dee's Brick Oven Pizza	6
+Zum Stammtisch Restaurant	6
+Bar Six	6
+E.A.T. Gourmet Foods	6
+Sala Thai	6
+Day-O	6
+Toons Cuisine of Bangkok	6
+Brasserie Centrale	6
+Ginger House	6
+Patsy's Pizza--Murray Hill	6
+Queen	6
+Hooters	6
+Little Pie Company	6
+Resto Leon	6
+Plate 347	6
+Westway Diner-Restaurant	6
+Umberto's Clam House	6
+Tello	6
+Monster Sushi	6
+The Five Spot	6
+92	6
+Suan	6
+Haru Sake Bar	6
+Jimmy's Bronx Cafe	6
+The Doughnut Plant	6
+Chart House	6
+Marco &amp; Pepe	6
+Chinam 28	6
+Shiki Kitchen	6
+Blockheads Mexican Diner	6
+Cafe Lafayette	6
+Ferrara Bakery &amp; Cafe	6
+Chop't Creative SALAD Co	6
+Cooke's Corner	6
+Dakshin	6
+Lunella Restaurante	6
+Mangiarini	6
+Blockheads	6
+Metro Fish Restaurant	6
+Bobby V's Sports Bar &amp; Restaurant	6
+2 West Restaurant	6
+Mancora	6
+Soy Luck Club	6
+Pulse	6
+Magnifico	6
+Yeah Shanghai Deluxe	6
+Taj Mahal of Agra	6
+Cafe Angelique	6
+Lime Leaf	6
+Roxy Delicatessen	6
+Grand Sichuan	6
+Bann Thai Incorporated	6
+Cassidy's Irish Pub &amp; Restaurant	6
+Yello Restaurant	6
+Kirara Sushi	6
+Hill Diner	6
+Rouge Restaurant	6
+Chai Home Kitchen	6
+ONE83	6
+Sac's Place	6
+Fleming's Prime Steakhouse and Wine Bar	6
+St. Helen Cafe	6
+Itzocan Bistro	6
+Carve Unique Sandwiches	6
+Dakar Restaurant	6
+Jacques Torres Chocolate	6
+Luzzo's	6
+Ricardo Steak House	6
+Caffe Del Mare	6
+Crumbs Bakeshop	6
+Cubana Cafe	6
+Boca Junior Argentinian Steakhouse	6
+Etcetera Etcetera Restaurant	6
+Shaburi	6
+Isle	6
+Maxie	6
+2 Rivers Restaurant &amp; Bar	6
+Grotta del Mare	6
+Sarabeth's	6
+Bar Minnow	6
+Sakura Cafe	6
+Brooklyn Fish Camp	6
+Pizza Bar	6
+Chef John Light Catering	6
+Copper Chimney	6
+Piccolo	6
+Lucky Burger	6
+Friend House 2	6
+Ginger	6
+Shilla	6
+Nosh	6
+Wasabi Lobby	6
+The Northeast Kingdom	6
+Earl's Kitchen located@the Tainted Lady Lounge	6
+Blossom Vegan Restaurant	6
+Room 4 Dessert	6
+Casanis	6
+Lenny's	6
+Dona	6
+DUB Pies	6
+Aoki	6
+cafe Boulevard	5
+Houston's	5
+Dimple Indian Fast Food	5
+Mustang Sally's	5
+Il Campanello	5
+Minar Indian Restaurant	5
+Nice Restaurant INC	5
+Ben &amp; Jerry's	5
+Bussola Bar &amp; Grill	5
+Madras Cafe	5
+Montien Thai Restaurant	5
+Zen Restaurant	5
+East Village Thai Restaurant	5
+Paquito's Restaurant	5
+Raj Mahal	5
+California Pizza Oven	5
+Mee Noodle Shop &amp; Grill INC	5
+Pizza Mercato	5
+Bull Run Restaurant &amp; Conference Center	5
+Mudville 9	5
+LA Casalinga Restaurant	5
+Muzzarella Pizza	5
+Barfly INC	5
+Grand Saloon	5
+Mayrose	5
+Lamarca	5
+390 2nd Ave Deli	5
+Maffei Pizza	5
+Flight 151	5
+Food Bar	5
+Restivo Ristorante	5
+Salam Restaurant	5
+Amin Indian Cuisine	5
+Green Papaya	5
+Thai Village	5
+Bari	5
+Quantum Leap Natural Food	5
+Omen	5
+May May Gourmet Chinese Bakery	5
+Harmony Palace Restaurant	5
+Mr Tang of 50 Mott St	5
+Wing Wong Chinese Restaurant	5
+Thai House Cafe	5
+DA Genaros	5
+New Wonton Garden	5
+Bus Stop	5
+Go Sushi INC	5
+Atomic Wings--Downtown	5
+Sakura Hana	5
+Kobma Thai	5
+Mama Buddha Restaurant	5
+WU Liang Ye Lexington Restaurant	5
+Madison Bistro	5
+Le Cafe Creme Madison	5
+Rungsit II Thai Food &amp; Noodles	5
+El Pote Espanol	5
+Marichu	5
+Naniwa of Japan INC	5
+Peking Park	5
+Burger Heaven--49th Street	5
+Chikubu	5
+Connolly's Pub and Restaurant	5
+Comfort Diner	5
+Murano Ristorante	5
+Luigi's Pizza	5
+Fontana di Trevi	5
+Bombay Masala Restaurant INC	5
+Thai Basil	5
+Seeda Thai	5
+Russian Samovar	5
+Fives	5
+Allegria	5
+Gino of Capri	5
+Grace's Trattoria	5
+Hunan Balcony	5
+Primola	5
+Lenox Room	5
+Chihuahua Mexican Place	5
+Coco Pazzo	5
+Mark's Restaurant &amp; Bar	5
+Mitchel London Foods	5
+Grace's Marketplace	5
+The Lakeside Restaurant	5
+Nicole's	5
+Bellini Restaurant	5
+Meltemi	5
+Giambelli Fiftieth	5
+Pig'n Whistle On Third	5
+Typhoon Brewery	5
+Le Veau D'or	5
+Ah Chihuahua	5
+Pesce &amp; Pasta East	5
+It's a Wrap	5
+Nick &amp; Toni's Cafe	5
+Epices INC	5
+Santa Fe Restaurant	5
+Hunan Park	5
+Vinnie's Pizza	5
+Columbus Bakery	5
+Docks Oyster Bar Uptown	5
+EJ's Luncheonette	5
+Les Routiers	5
+City Diner	5
+Metro Diner	5
+Nacho Mama's Burritos	5
+Cafe Con Leche	5
+Indian Cafe	5
+107 West	5
+Ayurveda Cafe	5
+Ithaka Greek Restaurant	5
+Eli's Manhattan Warehouse	5
+Liberta Restaurant	5
+McDonald's	5
+Broadway Joe Steakhouse	5
+Pergola Des Artistes	5
+Celebrity Delicatessen	5
+Moto Japanese Restaurant	5
+Cabana Carioca	5
+Charley O's	5
+Sam's	5
+Le Tre Venezie	5
+Landmark Tavern	5
+Viva Pancho W 44th St	5
+Little Italy Pizza	5
+Jim Brady's Restaurant	5
+Seh Ja Meh	5
+RADIO Mexico Cafe	5
+Tupelo Grill	5
+Taco Taco INC	5
+Barking Dog Luncheonette	5
+Pesce Pasta TRE	5
+Ciao Bella Gelato Cafe	5
+Steamer's Landing	5
+Carol's Cafe &amp; Pub	5
+Aesop's Tables	5
+Burrito Bar	5
+Full Moon Pizzeria &amp; Restaurant	5
+EDO Japanese Steak House	5
+Peter Luger Steak House	5
+Thai Pavilion	5
+Chris &amp; Charlie Deli INC	5
+Stamatis Restaurant	5
+Romano Famous Pizza	5
+Caffe Carciofo	5
+Teresa's Restaurant	5
+Cody's American Bar &amp; Grill	5
+Pete's Downtown	5
+Waterfalls Cafe	5
+Fascati Pizzeria Corp	5
+Cino's Restaurant	5
+Arirang Hibachi Steakhouse	5
+Lento's Restaurant	5
+Sancho's Restaurant	5
+Goodfella's Restaurant &amp; Bar	5
+Tuscany Grill	5
+Elegante Pizzeria	5
+Pizza Wagon	5
+Cono &amp; Son	5
+Kellogg's Diner	5
+Casa Calamari	5
+Terrace Bagels	5
+T Thai Cuisine	5
+Grecian Corner Restaurant	5
+Java Indonesian Rijsttafel	5
+Cousin Johns Cafe INC	5
+Tacis Beyti Restaurant	5
+Ginza Japanese Restaurant INC	5
+Mill Basin Kosher Deli	5
+Maria's Restaurant	5
+Master Grill International Restaurant	5
+Graziella Ristorante	5
+Caffe On the Green Restaurant	5
+Quantum Leap	5
+King Yum Chinese Restaurant	5
+Sly Fox Inn	5
+Delhi Palace Indian Cuisine	5
+LA Fusta Restaurant	5
+Georgia Diner Restaurant	5
+Alberto Restaurant	5
+Bo Ky	5
+Volare	5
+Woo Chon	5
+Kiran	5
+Miyagi	5
+Q56	5
+District	5
+Nino's Positano	5
+Pongal	5
+Table XII	5
+Artie's Delicatessen	5
+Gaby Brasserie Francaise	5
+Fried Dumpling	5
+Dawgs on Park	5
+Tasting Room	5
+Cynthia's	5
+El Paso Taqueria	5
+Tiny's Giant Sandwich Shop	5
+Waterstone Grill	5
+Divine Follie	5
+El Boqueron	5
+Tokyo Teriyaki	5
+Josie Wood's Pub	5
+West Side Sushi	5
+Pinocchio Ristorante	5
+Pizza Rustica	5
+Borobudur Cafe	5
+Connolly's Pub	5
+Curry Leaf	5
+Kazusa	5
+Saravana Bhavan	5
+Silver Moon Bakery	5
+Caffe Bella Serra	5
+Bonita	5
+Pamela's Cantina	5
+Pizza Suprema	5
+Joe Babbington's	5
+Taste Restaurant &amp; Wine Bar	5
+Salon de Tapas	5
+Home Comfort Food	5
+Cafe La Palette	5
+Orbit	5
+Bacco	5
+Franchia	5
+Financier Patisserie	5
+Bite	5
+Congee	5
+Cafe Zaiya	5
+Juice Generation	5
+Acqua	5
+Trattoria Mulino	5
+Yamato Restaurant	5
+Restaurant Ichimura	5
+Baku Palace	5
+Las Margaritas Restaurant Corporation	5
+Yajai Thai Restaurant	5
+Azalea	5
+Cold Stone Creamery	5
+Blue Sky Bakery	5
+Park East Grill	5
+Joe's Ginger	5
+Lentini	5
+Federico's Italian Bistro	5
+La Rosa &amp; Son Pizzeria	5
+Sant Ambroeus	5
+Grace Restaurant	5
+Comfort Diner	5
+La Palapa Rockola	5
+Gimme Coffee	5
+718 Restaurant	5
+Gorilla Coffee	5
+Il Posto	5
+Reve	5
+Saravanaas	5
+Atlantic Chip Shop	5
+Restaurant 343	5
+June	5
+Samurai Japanese Cuisine	5
+Kush Cafe	5
+Quhnia Restaurant and Bar	5
+Ancora Restaurant	5
+Pho32 &amp; Shabu	5
+Lassi	5
+Orchid Caribbean/Soul Cuisine	5
+Gioia	5
+PIOLA	5
+Luscious Food	5
+Abistro	5
+Pazza Notte	5
+Buon' Amici	5
+Bouley Bakery &amp; Market	5
+99 Miles to Philly	5
+Mainland	5
+Cambalache	5
+Sol y Sombra Tapas Bar and Restaurant	5
+Earl Monroe's Restaurant	5
+Jefferson Grill	5
+McCormick &amp; Schmick's Seafood	5
+Little Cupcake Bakeshop	5
+Homer's World Famous Malt Shop	5
+Scarlatto	5
+The Place on West 10th Street	5
+Cube 63	5
+Porcao	5
+The Orchard	5
+Kenka	5
+Ametller	5
+Perch	5
+Posto	5
+Emack &amp; Bolio's - Soho	5
+Pala	5
+Hanco's	5
+Les Deux Gamins	5
+Arium	5
+The Family Restaurant	5
+Cafe d'Alsace	5
+DAVE &amp; BUSTER'S	5
+Blue Point	5
+Aceluck Thai	5
+Devin Tavern	5
+Margherita's Pizza &amp; Cafe	4
+La Isla	4
+Grimaldi's Coal Brick Oven	4
+Tutta Pasta Restaurant	4
+Mexicali Rose	4
+Skylight Diner	4
+Cheyenne Diner	4
+Twins Pub Incorporated	4
+DAE Dong Manhattan INC	4
+Canton Restaurant	4
+Grand Sichuan Chinese Restaurant	4
+Fuleen	4
+China Chalet Restaurant	4
+Stromboli Pizza INC	4
+The Adore	4
+Mary Ann's Restaurant	4
+Cottage	4
+Rose of India	4
+Village Crown Moroccan	4
+Paul &amp; Jimmy's Restaurant	4
+Col Legno	4
+Five Roses Pizza	4
+Stromboli Pizzeria	4
+World's Famous Ray's Pizza	4
+Papoo's Italian Cuisine &amp; Bar	4
+17 Murray Street Restaurant	4
+Cafe Gigi	4
+Atomic Wings	4
+Esashi Japanese Restaurant	4
+David Bagel	4
+Two Boots Restaurant	4
+Pick a Bagel On Third	4
+Frank's Trattoria	4
+Cal's	4
+The Institute of Culinary Education	4
+Hale and Hearty Soups--Ninth Avenue	4
+Amy's Bread--Chelsea Market	4
+Zutto Restaurant Group	4
+Tazza Restaurant &amp; Bar	4
+Eva's Restaurant Corporation	4
+Village Natural	4
+World Famous Ray's Pizza	4
+Big Cup	4
+Vesuvio Bakery	4
+I Tre Merli	4
+La Dolce Vita Ristorante	4
+Porto-bello Restaurant	4
+Chez Jacqueline	4
+Village Ma	4
+Yatagan Kebab House	4
+SOHO Le Petite Cafe Incorporated	4
+Olive's	4
+Ben's Pizzeria	4
+TAI Pan Bakery Chinatown Incorporated	4
+Luna's Restaurant	4
+Sweet-'n'-Tart Cafe	4
+Le Streghe	4
+CHA Cha's In Bocca AL Lupo	4
+Marco Polo Noodle Shop INC	4
+Columbine	4
+Ruben's Empanadas	4
+Curry Curry INC	4
+Istanbul Grill	4
+Goodfellas Kitchen	4
+Petite Abeille--Hudson Street	4
+La Delice Pastry Shop Incorporated	4
+Cinque Terre	4
+Byblos Restaurant	4
+Bloom's Delicatessan	4
+Six Happiness Chinese Restaurant	4
+T.G.I. Friday's	4
+Manhattan Espresso Cafe	4
+Manchester New York INC	4
+Osteria Laguna Restaurant	4
+Pietro's	4
+Oriental Noodle Shop	4
+San Martin Restaurant	4
+Mee Noodle	4
+Colbeh Restaurant	4
+Il Tinello Ristorante	4
+Ariana Afghan Kabab Restaurant	4
+Ciro Trattoria	4
+Cafe Botanica	4
+Tacocina Inc	4
+West Side Chefs	4
+East Japanese Restaurant	4
+Pasta D'oro	4
+Joe G Pizza &amp; Restaurant	4
+T.G.I. Friday's	4
+Favia Lite Cafe	4
+Quatorze BIS Restaurant	4
+Parma Restaurant	4
+Mezzaluna	4
+Lumi Restaurant	4
+Il Riccio	4
+Brunelli	4
+Delizia Pizzeria &amp; Restaurant	4
+Benihana	4
+Ess-a-Bagel	4
+Spoons Squared INC	4
+Raffaele Ristorante	4
+Neary's Pub	4
+Cafe Buon Gusto	4
+All State Cafe	4
+Francesco Pizzeria &amp; Italian	4
+Emack &amp; Bolio's	4
+Bella Luna	4
+Hunan Park II	4
+Deluxe On Broadway	4
+Mana	4
+El Malecon Restaurant II	4
+Ollie's Uptown	4
+Make My Cake	4
+Wimp's Southern Style Bakery	4
+M Rohr's House of Fine TEAS	4
+Papaya King	4
+Sushi Generation Incorporated	4
+Demarchelier	4
+Rughetta Ristorante	4
+WU Liang Ye 86 Restaurant	4
+Caffe Grazie	4
+Sistina	4
+Primavera Ristorante	4
+Viand Coffee Shop of 86th St	4
+Sirabella's	4
+Gino's Pizza	4
+Londel's	4
+Coogans	4
+107 West	4
+Starbucks	4
+Pig &amp; Whistle Pub Restaurant	4
+SIAM Grill Restaurant	4
+Olieng	4
+Burritoville--Ninth Avenue	4
+Barrymore's Restaurant	4
+Cosi Sandwich Bar Incorporated	4
+LA Paloma Burritos	4
+John Shanghai Restaurant INC	4
+Ollie's Midtown	4
+LA Stanza Verde	4
+My Most Favorite Dessert Co.	4
+Little Saigon Cuisine	4
+Ray's Real Pizza	4
+Paris Cafe	4
+Ryan Maguire's Ale House	4
+Yoro Restaurant	4
+Carmine's Italian Seafood	4
+Kismat Indian Restaurant	4
+Rathbones Restaurant	4
+Who's On First	4
+First Wok	4
+Yura &amp; Co	4
+Foxhounds	4
+Adobe Blues Restaurant	4
+Sushi Den	4
+Johnny's Pizzeria	4
+Gebhardt's Restaurant	4
+Daruma of Tokyo	4
+Vespa Cibobuono	4
+Manetta's Ristorante	4
+Zlata Praha Restaurant	4
+Zodiac Cafe	4
+Piccola Venezia Restaurant	4
+Dazie's Restaurant	4
+Ariyoshi Japanese Restaurant	4
+New York Style Eats	4
+Los Amigos Mexican Restaurant	4
+Last Stop	4
+Siam Garden	4
+Henry's End Restaurant	4
+Chianti	4
+Baci Italian Restaurant	4
+Bahia	4
+Phoebe's Cafe	4
+Carmine's Pizzeria	4
+Grand Canyon Restaurant INC	4
+Tofu On 7th	4
+Tonio's Italian Restaurant	4
+Brooklyn Moon Cafe	4
+Laura's Gourmet Restaurant	4
+Amarin Cafe	4
+Nathan's Famous	4
+Tommaso Restaurant	4
+Buddie's Burrito &amp; Taco Bar	4
+Marco Polo Ristorante	4
+Joe's Shanghai	4
+Boulder Creek Steakhouse	4
+Sushi NARA	4
+Fontana Famous Pizza	4
+LA Baraka Restaurant	4
+Persian Tea Room	4
+Jade Fountain Chinese Restaurant	4
+Indian Taj	4
+Portofino Pizza &amp; Restaurant	4
+Danny's Szechuan Garden	4
+New Park Pizzeria	4
+Austin's Steak &amp; Ale House	4
+Alba Pizzeria	4
+Bravo Gianni	4
+Caffe Raffaella	4
+Tea Box Cafe	4
+Cafe Aubette	4
+Lady Mendl's	4
+Jordan's Lobster Dock	4
+Miyako	4
+BAMcafe	4
+East Lake	4
+El Nuevo Amanecer	4
+Athens Cafe	4
+Above Restaurant and Pinnacle Bar	4
+Kino Restaurant	4
+Butta Cup Lounge	4
+Komegashi too Japanese Cuisine	4
+Minado Restaurant	4
+Applebee's	4
+IL Porto	4
+La Cantina Toscana	4
+Lemongrass Grill East	4
+T.G.I. Friday's	4
+Junior's Restaurant	4
+Goodfellas Brk Oven Pizza	4
+Lichee Nut Restaurant	4
+Lai Yuen	4
+Olive Vine Pizza	4
+Paneantico Bakery Cafe Incorporated	4
+Brawta Outpost	4
+Baluchi's	4
+SATO Japanese Cuisine	4
+SEO Japanese Restaurant	4
+Sophie's Restaurant	4
+Psychic Cafe	4
+St Marks Pizza	4
+Cosi Sandwich Bar Incorporated	4
+Cosmic Cantina	4
+Iron Sushi Shef	4
+Sabora Mexico	4
+Sushi Damo Damo	4
+Xando Coffee &amp; Bar	4
+Fairway Cafe	4
+Flamingo Room	4
+Zen One	4
+MJ Grill	4
+Cassis on Stone	4
+Quercy	4
+The Green Table	4
+E La Nave Va	4
+Indian City Restaurant	4
+Rice Avenue	4
+Heartland Brewery &amp; Barbecue	4
+Dosirak Restaurant	4
+Kati Roll Co	4
+Sahara's Turkish Cuisine	4
+Burrito Box Incorporated	4
+Patsy Pizzeria	4
+AL Baraka	4
+Metrazur	4
+Rainbow Grill Restaurant	4
+Gabriella's Restaurant &amp; Bar	4
+Fabianes Cafe &amp; Pastry Shop	4
+RIVIERA GRILL&amp;SUSHI	4
+Zana	4
+Lola's Cafe	4
+Outback Steakhouse	4
+Archway	4
+Soul Spot Restaurant	4
+Snacky	4
+Union Picnic &amp; Rotisserie	4
+Kiku Sushi	4
+Sip N Chat Cocktail Lounge	4
+Islands	4
+SheepMeadow Cafe	4
+Charritos Restaurant	4
+Morton's - The Steakhouse	4
+Bella Via Restaurant	4
+Rafaella On Ninth	4
+Laboratorio del Gelato	4
+Bully's of New York	4
+The Press Box	4
+Wild Ginger	4
+Full City Coffee	4
+Little Toninos Pizzeria Cafe	4
+Oyama Japanese Restaurant	4
+Mr. Dennehy's	4
+Takahachi Tribeca Restaurant	4
+Bleecker Street Pizza	4
+City75 Market &amp; Restaurant	4
+Bouchon Bakery	4
+Oyama of Tokyo	4
+Bobby Van's Steakhouse	4
+Bonobo's Real Food Restaurant	4
+Broken Cup Cafe LLC	4
+Taj Mahal Indian Restaurant	4
+Hope &amp; Union Cafe	4
+Bombay Grill	4
+Pillow Cafe Lounge	4
+Cucharamama	4
+Bozu	4
+Le Cafe Creme Brasserie	4
+Lady M Cake Boutique	4
+Waldy's Wood-Fired Pizza &amp; Penne	4
+La Masseria	4
+Minado	4
+Snooky's	4
+Cafe Indulge	4
+Essex Street Bar &amp; Lounge	4
+Turquoise Grill	4
+Roti Roll Bombay Frankie	4
+Angon on 6th	4
+Gen Restaurant	4
+Mojito	4
+Li Hua	4
+Harrington's Bar &amp; Grill	4
+Gobo - Upper East	4
+Curly's Lunch	4
+Fig &amp; Olive	4
+Mama Empanada	4
+The Queens Hideaway	4
+Union Smith Cafe	4
+The Hideaway	4
+La Carne Grill	4
+Aquamarine	4
+Gilt	4
+Chicory Brooklyn	4
+Divertimento Bistro	4
+Blaue Gans	4
+Tost	4
+Don Veitia	4
+Tintol	4
+Buttercup Bake Shop	4
+Singas Famous Pizza	4
+Tocqueville	4
+Smorgas Chef West Village	4
+Billy's Original BBQ	4
+Per Lei	4
+Setacci	4
+Carne Vale	4
+Tavalon Tea Bar	4
+Degustation	4
+Frankie's 17 Spuntino	4
+Dressler	4
+Cafe Condesa	4
+Ditch Plains	4
+Inase Sushi Restaurant	4
+The V-Spot	4
+Le Cirque	4
+Japonais	4
+Lucky's Famous	4
+Staghorn Steakhouse	4
+Honshu Lounge	4
+Outback Steakhouse	3
+Archetypus Cafe	3
+Yama Sushi	3
+Fiore Deli of Hoboken	3
+Cafe Michelina	3
+Ruth's Chris Steak House	3
+Arthur's Landing	3
+Forno's of Spain Restaurant	3
+El CID Restaurant	3
+South City Grill	3
+Starbucks	3
+Krour Thai Restaurant	3
+Hanbat Restaurant	3
+New South Wind Incorporated	3
+El Castillo De Jagua	3
+Famous Original Ray's Pizza	3
+Tracy J's Watering Hole	3
+Teresa Coffee Shop &amp; Restaurant	3
+Josie Woods	3
+Burritoville	3
+Tang Tang On 20th Street	3
+Mumbles Restaurant	3
+Tajmahal Indian Restaurant	3
+Telephone Bar and Grill	3
+Tara Thai Cuisine	3
+Sanctuary	3
+Calcutta Indian Restaurant	3
+Giorgio's Pizza	3
+Mission Cafe	3
+Joseph's Restaurant	3
+P &amp; C Garden Chinese Restaurant	3
+Suspenders	3
+Ho Yip Restaurant	3
+LA Foccaceria	3
+Gray Papayas	3
+Lanza Restaurant	3
+Pete's Place Restaurant	3
+Viang Ping Palace INC	3
+Cosmos Restaurant	3
+Bull &amp; Bear	3
+LA Ribolita	3
+Mike's Pizza	3
+Boston Market	3
+LA Bergamote Pastries	3
+Spring Joy	3
+Mullen's Pub	3
+Chelsea Cottage Chinese Restaurant	3
+Chelsea Square Restaurant	3
+Jazz at the Cajun  -- CLOSED	3
+Great Burrito	3
+Baluchi's Downtown	3
+Massimo AL Ponte Vecchio	3
+Carpos Cafe	3
+The Emerald Planet	3
+Doozo Japanese Restaurant	3
+Villa Mosconi	3
+Le Figaro Cafe	3
+Ennio &amp; Michael Restaurant	3
+LE Frite Kot	3
+Lahore Deli	3
+Ray's Pizza	3
+Burger King	3
+The Independent	3
+Cafe Sorrento	3
+New Chao Chow	3
+Pacifica Restaurant Incorporated	3
+Umbertos Clam House	3
+Cody's Bar &amp; Grill	3
+Hop Lee Restaurant	3
+Raimo Pizza	3
+Village Delight Cafe	3
+Bagels On the Square	3
+Patisserie Claude	3
+McNulty's Tea &amp; Coffee Company	3
+Pepe Verde--To Go	3
+Dragonfly	3
+Burritoville--Bleecker Street	3
+Barrow's Pub	3
+Dayo Restaurant	3
+Caffe Vivaldi	3
+Coffee Sweet Heart	3
+Moonstruck East Restaurant	3
+Spades Noodle Rice &amp; More	3
+Nader Restaurant Park Avenue	3
+Mad 28	3
+Toledo Restaurant	3
+Benjamin Restaurant &amp; Bar	3
+Nicola Paone	3
+Caterina's Restaurant	3
+Belluno Ristorante	3
+Best Wingers Incorporated	3
+Bagels &amp; More	3
+Anitas Deli &amp; Grocery	3
+Restaurant Tokyo	3
+LA Pizzeria	3
+Imperial Pizza	3
+Aiello's Pizza Emporium	3
+Mondello Pizzeria &amp; Restaurant	3
+Patrick Conway's	3
+S. Dynasty Restaurant	3
+Hizen Japanese Restaurant	3
+Turtle Bay Cafe	3
+Keats Restaurant	3
+Menchanko-Tei Midtown East	3
+Thady Con's	3
+Harries Cafe	3
+Ben's Kosher Delicatessen	3
+Selena Restaurant Incorporated	3
+Arno Ristorante	3
+Blaggards Pub	3
+Le Bryant Park Cafe	3
+Famous Original Ray's Pizza	3
+Starbucks	3
+Fuji Restaurant	3
+Morning Star Restaurant	3
+LA Vineria	3
+Druids	3
+Park Cafe	3
+Yips	3
+Famous Famiglia Pizzeria	3
+B B Doyles	3
+Sitar Indian Cuisine INC	3
+Kikku	3
+Cafe Europa of 57th St INC	3
+Belly Delly Deli	3
+Coffee Pot	3
+Tang's Pavilion	3
+Japas 55	3
+Lukes Bar &amp; Grill	3
+Tang Tang Noodle &amp; More	3
+Sette Mezzo	3
+Burritoville	3
+Belladonna Restaurant	3
+Cafe Greco	3
+Healthy Bagel &amp; Things INC	3
+Vinci's Brothers Pizza Corp	3
+East River Cafe	3
+Dresner's Restaurant	3
+Little Vincent's Pizza INC	3
+Pizza Park	3
+Ariyoshi Japanese Restaurant	3
+da Antonio Ristorante	3
+Tatany 52	3
+An American Place	3
+Baluchis Restaurant	3
+Panda Restaurant-Sutton Place	3
+Pasta Presto	3
+Nippon Restaurant	3
+Paper Moon Restaurant	3
+The Leopard Restaurant	3
+Pooket Thai Restaurant	3
+LES Sans-Culottes Restaurant	3
+Suibi Japanese Restaurant	3
+Jameson's	3
+Nicky's Pizzeria &amp; Restaurant	3
+Margot Patisserie	3
+Vince and Eddie's	3
+Roppongi Restaurant	3
+88 Noodle House	3
+Restaurant 222	3
+Louie's Westside Cafe	3
+Lenny's Gourmet	3
+Columbia Cottage	3
+Pertutti Cafe	3
+Symposium Greek Restaurant	3
+Aahirah's Palace	3
+Massawa Restaurant	3
+Strictly Roots	3
+Jimbo's Coffee Shop	3
+William Greenberg Jr. Desserts	3
+Fiona's Bar &amp; Restaurant	3
+Giorgio's Trattoria	3
+Quattro Gatti Restaurant INC	3
+Tokubei 86	3
+Marino's Restaurant	3
+KO Sushi	3
+Nectar Coffee Shop	3
+Divino Ristorante	3
+Sesumi Japanese Restaurant INC	3
+Pisa Pizza	3
+Queen Sheeba Restaurant	3
+Starbucks	3
+Pozzo Pastry	3
+Amy's Bread--Ninth Avenue	3
+Afghan Kebab House--Midtown	3
+Figaro Pizzeria &amp; Bar	3
+La Strada	3
+LE Beaujolais	3
+Times Square Deli	3
+Blimpie	3
+Pizzeria Uno--South Street Seaport	3
+China 99 Restaurant	3
+Tandoor Palace Incorporated	3
+Texas Rotisserie &amp; Grill	3
+La Borsa Di Roma	3
+Beekman Pub	3
+OK Falafel House	3
+Sharz Cafe &amp; Wine Bar	3
+Uptown Cottage	3
+Pascalou	3
+AL Bacio	3
+Island	3
+Picasso Pizzeria Restaurante	3
+Brother's Pizzeria	3
+Cafe Mare Monte	3
+Bocca	3
+Nunzio's Restaurant	3
+Pasquale Rigoletto Restaurant	3
+Giovanni	3
+Brisas Del Caribe	3
+Seashore Restaurant &amp; Marina	3
+Ronnie's Pizzeria	3
+Fratelli's Restaurant	3
+Nick's Pizza Restaurant	3
+Bayou Restaurant	3
+Joe's Fleetwood Pizzeria	3
+Arigato Sushi	3
+Rose &amp; Joe's Italian Bakery	3
+La Guli Pastry Shop	3
+Lefkos Pirgos Bakery Corporation	3
+Forno Italia Brick Oven Pizza	3
+Zygos Restaurant	3
+Stamatis Restaurant	3
+Belaire Diner	3
+Kolonaki Cafe	3
+Napoli Pizza Pasta	3
+Nanatori Japanese Restaurant	3
+Cousins II	3
+My Little Pizzeria	3
+Park Avenue Luncheonette	3
+Tillie's of Brooklyn	3
+Circles International Grill	3
+Canedo's Restaurant	3
+Pegasus Restaurant	3
+101	3
+Nino's Pizza	3
+Lords Bakery	3
+Fortunato Brothers	3
+Giando On the Water	3
+San Marco Pizzeria	3
+II Colosseo Restaurant &amp; Pizza	3
+Bagel Hole INC	3
+Mister Falafel	3
+India House Restaurant	3
+Mezcals Mexican Restaurant	3
+Connecticut Muffin	3
+Pinos LA Forchetta Pizzeria	3
+Bergen Bagels	3
+Rocky's Pizzaria Restaurant	3
+Rocco's Italian Cafeteria Incorporated	3
+Maria Puk Grocery	3
+New Corner	3
+Jay &amp; Lloyd's Kosher Deli	3
+Caraville Restaurant Corporation	3
+Fall Cafe	3
+Nino's Restaurant	3
+Nino's Pizzeria	3
+Lenny &amp; John Pizzeria	3
+Tatiana Cafe	3
+Roll-n-roaster	3
+El Greco Diner	3
+Wing Wagon	3
+Garden Cafe	3
+Kum Gang INC	3
+Friends &amp; CO	3
+Akiyama Japanese Restaurant	3
+Cascarino Pizzera INC	3
+Napa &amp; Sonoma Steakhouse	3
+Cherry Valley Deli &amp; Grill	3
+Donovan's of Bayside	3
+Sal's Little Neck Pizzeria	3
+IL Toscano Restaurant	3
+Applebee's	3
+Fresh Meadow Pizzeria &amp; Restaurant	3
+Original Rosa's Pizza Inc	3
+Jackson Hole	3
+Kabab King Diner	3
+La Pequena Colombia	3
+Armondo's Italian Restaurant	3
+Ping's	3
+My Thai Restaurant	3
+London Lennie's	3
+Tandoor Restaurant	3
+Pasta Del Giorno	3
+Irish Cottage	3
+White Castle	3
+Pizza Boy II Incorporated	3
+LI Wan Restaurant INC	3
+Carlos Pizza	3
+Arte	3
+Burger Heaven	3
+Onigashima	3
+Spirit Cruises	3
+Jo-An	3
+Bally Bunion	3
+Nick and Joe's	3
+Custard Beach	3
+Ommonia Cafe	3
+Amaranth Restaurant	3
+Michael's Restaurant	3
+Uncle Moe's	3
+Josephs	3
+Cafe Milou	3
+Sandwich Planet	3
+Legal Sea Foods	3
+Vago Restaurant	3
+Viand Coffee Shop of 61st St	3
+Sushi Hana Restaurant	3
+Applebee's	3
+Dumpling House	3
+Pintaile's Pizza	3
+Agra Indian &amp; Pakistan Rest	3
+A Z	3
+Deux AMIS	3
+El Charro Restaurant	3
+Etou Incorporated	3
+D &amp; S Harumi Sushi	3
+J &amp; B Coffee Shop	3
+Otafuku	3
+Playwright Bar &amp; Restaurant	3
+Sammy's Asian Gourmet	3
+Sido Falafel &amp; More	3
+Parisi Bakery	3
+Commodore Grill	3
+Starbucks	3
+Sophie's Restaurant	3
+Ruddy &amp; Dean	3
+Cafe Glechik	3
+Happy Days Diner	3
+El Coyote Mexican Restaurant	3
+East Buffet	3
+Enzo's Restaurants	3
+Paquito's Restaurant	3
+Chevy's Fresh Mex	3
+Tono Sushi	3
+Protein Bakery	3
+Pearl's	3
+Caffe Linda	3
+Dalga Seafood Grill	3
+Kyma Restaurant	3
+Le Pain Quotidien	3
+Okinawa Japanese Restaurant	3
+Urban America	3
+JI P Mustard Incorporated	3
+Tad's Steaks	3
+Goodfella's Victory	3
+Umanoff &amp; Parsons' Bakery	3
+Caffe Pane e Cioccolato	3
+Sushi Taro	3
+THE BAGEL STORE	3
+Melissa Blue	3
+Sequoia	3
+Ziggie's Cafe	3
+Serafina Sandro	3
+Bruno Jamais	3
+Willow Creek Fresh Baja Grill	3
+Pio's	3
+Soba Nippon	3
+Oka Yama	3
+Nyonya	3
+Sumo	3
+Sushi-Ann	3
+Cima Cafe	3
+San Loco	3
+Cafe Medina	3
+Murray's Falafel	3
+Krystal's Cafe	3
+Patsys Pizzeria	3
+Eleni's	3
+Danny NG Restaurant	3
+Red Lantern	3
+China Moon	3
+Maxies Delicatessen	3
+Grand Sichuan Eastern	3
+Fez	3
+Settepani Bakery	3
+Ethiopian Restaurant	3
+Yuko	3
+Tracks	3
+Omiya Japanese Restaurant Incorporated	3
+Notaro	3
+Spot	3
+Murray's Bagels	3
+El-Rawsheh	3
+Kim Chee Korean Rest	3
+Jack's Fifth Avenue	3
+Mama Rao	3
+Cobble Grill	3
+Sunshine Factory Cafe	3
+Yummy Sushi Village	3
+Energy Kitchen	3
+Chip's Mexican Grill Incorporated	3
+Star of India	3
+Amin Indian Cuisine Incorporated	3
+Green Papaya Thai Cuisine	3
+The Brass Rail	3
+Havana New York	3
+South's	3
+Grotta Azzurra	3
+Bamiyan Restaurant	3
+Ceci-Cela Patisserie	3
+Dallas Jones BBQ	3
+Sushi Hana	3
+Sosa Borella	3
+Cafe Spice	3
+Corner Shop	3
+Joe The Art of Coffee	3
+UMI Japanese Restaurant	3
+Ottomanelli NY Grill Incorporated	3
+Yolele African Bistro	3
+Nature's Grill	3
+Quiznos Sub	3
+Teeda Thai Cuisine	3
+Rice	3
+Jaipur's Indian Cuisine	3
+Hana Cafe &amp; Japanese Restaurant	3
+Mountain Bobs Steak House	3
+Pit Stop	3
+Jamba Juice	3
+Le Cafe at L'Occitane	3
+In Vino Veritas	3
+Cafe El Cubanito	3
+Angelina Cafe	3
+Lisca	3
+Fake orchid	3
+The Burger Joint	3
+Better Burger	3
+Cafe Mocha	3
+Delivery.com	3
+Azucar Cuban Cuisine	3
+Tony Luke's	3
+Hummus Place	3
+Juice Generation	3
+Alamo	3
+44 1/2	3
+Bar Bossa	3
+Sezz Medi'	3
+Libretto's Pizzeria &amp; Restaurant	3
+Sullivan Diner	3
+Sacred Chow	3
+Il Sole	3
+Park Luncheonette	3
+Habana Outpost: Brooklyn	3
+Y Canteen	3
+Haku	3
+Elio's	3
+Anh Restuarant	3
+Smokey's 11101	3
+Totonno's	3
+Cafe Baron	3
+The Chemist Club	3
+Taka	3
+ARTE around the corner	3
+Mangiami	3
+Taim	3
+Mule Cafe and Wine Bar	3
+Jimmy's	3
+Good Burger	3
+Sabry's Seafood	3
+The Soda Shop	3
+Mundo	3
+Yatra Restaurant	3
+Haru Gramercy Park	3
+Agata &amp; Valentina Ristorante	3
+MamaGoo's	3
+Agnanti Meze	3
+Em Thai	3
+Roebling Tea Room	3
+Fukumatsu	3
+Stove	3
+New Cats Cafe	3
+Brasserie Ruhlmann	3
+Mexicana Mama Centro	3
+Chicken Cabaret	3
+Summers Restaurant &amp; Bar	3
+Grand Cafe	3
+Mazhi	3
+Turks &amp; Frogs Tribeca	3
+Pam Real Thai Encore	3
+Ada Restaurant	3
+Food	3
+Yama 49	3
+DODO Cafe &amp; Restaurant	3
+Zip Burger	3
+Da Gianni	3
+Cafe Bello	2
+Fulton Crab House	2
+Bella Napoli	2
+Roberto's II Ristorante	2
+Rebecca's Restaurant	2
+John's Shanghai Restaurant	2
+Goodfellas Restorante	2
+Rose Pizza	2
+India On the Hudson	2
+Ted &amp; Jo's	2
+La Scala	2
+City Bistro	2
+Deja Vu Restaurant	2
+South Park Bar &amp; Grill	2
+Sushi Hana Japanese Restaurant	2
+Palazzo Restaurant	2
+AL DI LA Ristorante &amp; Caterers	2
+Orbis Bistro	2
+Cafe Matisse	2
+Trattoria Corrado	2
+Mazur's Bakery	2
+Medieval Times Incorporated	2
+La Bella Vita Pizzeria	2
+Steve's Sizzling Steaks	2
+Park &amp; Orchard Restaurant	2
+Bagel Buffet	2
+Don Pepe Restaurant &amp; Caterers	2
+Tommy's Italian Sausage	2
+Ibby's Falafel	2
+Komegashi Japanese Restaurant	2
+Laico's Restaurant &amp; Cocktail	2
+Chili's Grill &amp; Bar	2
+LA Hacienda	2
+White Mana	2
+Sea Shack Restaurant	2
+Brooklyn's Brick Oven Pizzeria	2
+Smoke Chophouse &amp; Cigar Empor	2
+Chili's Grill &amp; Bar	2
+On The Border	2
+Nanni Ristorante	2
+Taco Bell	2
+Niles Restaurant	2
+O'reilly's Pub	2
+McDonald's	2
+Greek Corner	2
+Speedy Deli	2
+Triple Crown Restaurant &amp; Ale	2
+Estoril Sol Restaurant	2
+Streits Matzo Company	2
+Wing Shoon Restaurant	2
+88 Palace Restaurant	2
+Pings Seafood Restaurant	2
+Mom's Pizzeria I	2
+Starbucks	2
+McDonald's	2
+Moishe's Kosher Bake Shop--Second Avenue	2
+Karen's On Astor	2
+Porto Rico Importing CO	2
+Bangkok Cafe	2
+Adriatic Italian Restaurant	2
+Cafe Viva Natural Pizza	2
+J East	2
+Natori Restaurant	2
+Curry Mahal Indian Restaurant	2
+Rupali Restaurant	2
+Big Enchilada	2
+Shades of Green Pub &amp; Restaurant	2
+Royal Indian Cuisine	2
+SONAR Goan Restaurant	2
+BBQ Restaurant	2
+Dean &amp; Deluca	2
+Kokura Japanese Restaurant	2
+St. Maggie's Cafe	2
+Moran's	2
+Big Al's Chicago Style Pizza	2
+Majestic Pizza Corp	2
+Stark's Veranda Restaurant	2
+Stage Door Deli III	2
+McDonald's	2
+McDonald's	2
+McDonald's	2
+LA Gould Finch	2
+Oriental Grill Incorporated	2
+Fei MA	2
+Punjabi Grocery &amp; Deli Incorporated	2
+Famous Ray's Pizza	2
+Petes-A-Place	2
+Starbucks	2
+Starbucks	2
+McDonald's	2
+Tossed	2
+Sirtaj Indo-pak Cuisine INC	2
+Starbucks	2
+Starbucks	2
+Calidad Restaurant	2
+Hasta LA Pasta Restaurant	2
+Rita's Burgers	2
+LA Dolce Vita Ristorante	2
+Tomotachi Sushi Take Out	2
+East Boat Restaurant INC	2
+12 Chairs	2
+Mexican Village	2
+Ciao Stella	2
+Cafe Tina	2
+Pizza Box	2
+M &amp; O Market Corporation	2
+Pizza Booth INC	2
+Maria's Bakery	2
+New Eastern Villa Restaurant	2
+Wong Kee Restaurant	2
+Pakistan Tea House	2
+Arqua Italian Restaurant	2
+Il Mattone	2
+Jazzy's	2
+Shang Hai Cuisine	2
+Broome Street Bar	2
+Pig &amp; Whistle Tribeca	2
+New Big Wong Restaurant INC	2
+Juniper Cafe	2
+Il Fornaio	2
+Starbucks	2
+Falafel Hudson Restaurant	2
+Empire Szechuan Village	2
+Karavas Place	2
+Halo Restaurant &amp; Lounge	2
+Junno's	2
+Two Boots to Go West	2
+Barrow Street Ale House	2
+Sweet Life Cafe	2
+Rivoli Pizza	2
+Starbucks	2
+Starbucks	2
+La Posada Mexican Food	2
+Rossini's Restaurant	2
+Full Moon Saloon	2
+Joy of India	2
+Chef 28 Restaurant	2
+Empire Pizza Deli	2
+Hunan 5th Avenue	2
+Fino Restaurant	2
+Cinema Diner	2
+Abigael's	2
+New Udipi Palace	2
+Delectica Catering	2
+Shaheen Sweets	2
+Keko Cafe	2
+Tony's Burger	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Hatsuhana Park	2
+Malika Indian Restaurant	2
+Jimmy Sung Restaurant	2
+O'Casey's	2
+Lily's Restaurant &amp; Bar	2
+Teriyaki Boy	2
+Sichuan Palace	2
+Restaurant Riki	2
+Annie Moores Bar &amp; Restaurant	2
+Starbucks	2
+Starbucks	2
+Bread Factory Cafe	2
+Kashmir 9	2
+Shala Gourmet	2
+Broadway's Jerusalem II Kosher	2
+T.G.I. Friday's	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+China Regency Restaurant	2
+Pearl's	2
+Kennedy's Restaurant	2
+Taprobane Sri Lankan Restaurant	2
+Little Bangkok Restaurant	2
+Great American Health Bar	2
+Africa Restaurant	2
+Astro Restaurant	2
+Bengal Express	2
+Lou's Cafe INC	2
+Tuscany	2
+Mangia Restaurant	2
+BOS Noodle Shop	2
+Ned Kelly's Bar &amp; Restaurant	2
+Le Biarritz	2
+Michael's Restaurant	2
+Tad's Steaks	2
+West Side Cottage INC	2
+Route 66 Cafe INC	2
+Stage Door Deli	2
+Ray's Pizza	2
+Fat Sal's Pizza	2
+KFC	2
+Orwasher's Bakery	2
+Sedutto	2
+Hale and Hearty Soups--Lexington Avenue	2
+Silver Star Restaurant INC	2
+Boonthai Restaurant	2
+Kitaro Japanese Restaurant	2
+Tomashi Restaurant	2
+Padrone	2
+Pamir - 2nd Avenue	2
+Simla Indian Cuisine	2
+Caffe MED	2
+Happy Taco	2
+Sultan Turkish Restaurant	2
+Wicked Wolf Restaurant	2
+Shabu Shabu 70	2
+Angels	2
+Chicken Kitchen On Second	2
+Bread Factory Cafe	2
+John &amp; Tony's Pizzeria	2
+Figaro Pizza INC	2
+Don Filippo Restaurant	2
+Ray Bari Pizza of E 76 Street	2
+Starbucks	2
+Dessert Delivery	2
+Juan Valdez Cafe	2
+Cafe du Pont	2
+Suzu Sushi Corporation	2
+Il Valentino	2
+Paper Moon Express	2
+LE Train Blue Restaurant	2
+Suku's Clay Oven	2
+L'entrecote Incorporated	2
+Old Stand	2
+NADA Sushi Restaurant INC	2
+Lite Bites	2
+Abitino's	2
+Ultimate In Pizza	2
+Starbucks	2
+LA Dinastia Restaurant	2
+Empire Szechuan Valley	2
+Lenge Japanese Restaurant	2
+Dan Tempura House	2
+Broadway Delights	2
+Freddie &amp; Pepper Pizza Pub	2
+Famous Original Ray's Pizza	2
+Harriets Kitchen	2
+AL Dente	2
+Baci	2
+Miss Elle's Homesick Bar and Grill	2
+Cottage Restaurant	2
+Shining Star Diner	2
+Mary Ann's West	2
+Garlic Bob's Brick Pizza Bar	2
+T &amp; R Pizza	2
+Lenny's Bagels	2
+Calcutta Cafe	2
+West End	2
+LA Rosita Restaurant	2
+Royal Kabab &amp; Curry	2
+Wrapp Factory--Uptown	2
+Texas Rotisserie &amp; Grill	2
+Lemon Grass Grill	2
+Key West Diner &amp; Cafe	2
+Zanny's	2
+Ajanta Indian Restaurant	2
+Mannas	2
+M &amp; G Diner	2
+Starbucks	2
+Pizzeria Uno--East Side	2
+H &amp; H Midtown Bagels East	2
+Cafe Trevi	2
+LE Boeuf a LA Mode	2
+Nicola's Restaurant	2
+Galil Restaurant INC	2
+Frankie's Restaurant	2
+Va Bene	2
+Mansion Restaurant	2
+Flaming Embers INC	2
+Tevere 84 Glatt Kosher Cuisine of Rome	2
+Pig Heaven Restaurant	2
+New Great India Restaurant	2
+Pastrami Queen	2
+Mumtaz India Restaurant	2
+Mimma's Pizza &amp; Pasta	2
+KFC	2
+Halal Pizzeria	2
+Carrot Top Pastries	2
+No 1 Chinese Restaurant	2
+Angela's Coffee Shop	2
+George's Pizza	2
+Burger King	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Sbarro	2
+Westside Cottage II	2
+Pizza Plus Incorporated	2
+Ninth Ave Golden Chicken &amp; Rib	2
+Turkish Cuisine	2
+Via Italia INC	2
+Basilica Restaurant	2
+Cafe Europa Enterprises INC	2
+Market Diner	2
+Charlotte	2
+Mezzanine Restaurant	2
+Red Flame Coffee Shop	2
+The Argentine Pavillion	2
+The Supper Club	2
+Paramount Cafe	2
+Cranberry Gourmet Deli	2
+Sequoia Restaurant	2
+McDonald's	2
+China Chalet Restaurant	2
+Seaport Soup CO	2
+Seaport Cafe Incorporated	2
+El Rancho Jubille	2
+Starbucks	2
+Glaser's Bake Shop	2
+Bella Cucina Incorporated	2
+Table D'hote	2
+Dumpling King	2
+Atomic Wings--Third Avenue	2
+Mary Ann's Mexican Restaurant	2
+Isohama Japanese Restaurant	2
+Midnight Express	2
+Ruby's Tap House	2
+Anna Maria Pizzeria	2
+Osaka Oriental Food Incorporated	2
+Mamaritas	2
+Cafe Pasta	2
+Pizza Hut	2
+Chevy's Fresh Mex	2
+Boston Market	2
+LA Strada Restaurant	2
+Gennaro's Restaurant &amp; Pizza	2
+Applebee's	2
+Tack's Chinese Take Out	2
+Giovanni's Pizza	2
+Ann &amp; Tony's Restaurant	2
+Garden Coffee Shop	2
+Emilia's Restaurant	2
+Pugsley Pizza	2
+Mike's Pizzeria &amp; Restaurant	2
+Crosby Pizza Stop	2
+Palace of Japan Restaurant	2
+Corner Cafe &amp; Bakery	2
+Louis Seafood Restaurant	2
+Rino's Italian Restaurant	2
+Tommy's Pizzeria	2
+Bagel Den Incorporated	2
+Sal &amp; Dom's Pastry Shop	2
+Burger King	2
+Cafe Porto	2
+Rory Dolan's Restaurant	2
+Valentino's Restaurant	2
+Coromandel Cuisine of India	2
+Myoora Thai Restaurant	2
+Tequila Sunrise II	2
+Jackson Avenue Steakhouse	2
+Pinocchio Restaurant INC	2
+Ponticello Restaurant	2
+Girassol Churrascaria Steak	2
+La Fonda Antioquena	2
+Fresca Tortillas	2
+Gyro UNO	2
+Rizzo's Pizza	2
+Domino's Pizza	2
+Alba's Restaurant &amp; Pizza	2
+Parisi Brothers Bakery	2
+Martha's Bakery	2
+Bartolino's	2
+Arharn Thai Restaurant	2
+Zenon Restaurant	2
+Green's	2
+Ruthies Restaurant	2
+Original California Taqueria	2
+Mezcal's Restaurant	2
+Grand Canyon Restaurant	2
+Ichiban Japanese Restaurant	2
+Mr Souvlaki Incorporated	2
+Caruso Pizzeria Restaurant	2
+Rosscoe's East	2
+Rencher's Crab Inn	2
+Danny's Pizzeria	2
+Dunkin' Donuts	2
+Hunter's Steak &amp; Ale House	2
+Caffe Cafe	2
+Hinsch's	2
+Ponte Vecchio Restaurant	2
+Tarantella	2
+Sally's &amp; George's Place Incorporated	2
+Mezcal's D'os Restaurant	2
+Greenhouse Cafe	2
+Frost Restaurant INC	2
+Miyako Japanese Restaurant	2
+Anna Maria Pizza	2
+Driggs Ave Pizza	2
+Lenny's Pizza of Brooklyn	2
+Rancho Alegre Restaurant INC	2
+Taqueria DF	2
+Monte's Italian Restaurant	2
+Laila Restaurant	2
+UNCLE Liao's Chinese Restaurant	2
+Snooky's Pub	2
+Milan Restaurant	2
+Hunan Delight	2
+Tacos New Mexico	2
+JFK Fried Chicken	2
+Number One Garden Chinese	2
+Two TOMS Restaurant	2
+Luigi's Pizza	2
+Sabella Pizzeria	2
+Manny's Pizza	2
+Park Cafe	2
+Calexico	2
+El Viejo Yayo Restaurant	2
+Roma Pizza	2
+Korner Pizzeria	2
+Joe &amp; Joe Pizzeria &amp; Restaurant	2
+D &amp; L Pizza Royale	2
+George's Restaurant	2
+Gia Lam II	2
+Johnny's Pizzeria	2
+Valdiano Incorporated	2
+Fiorentino's Ristorante	2
+L &amp; B Gardens Incorporated	2
+Ciccio Pizza	2
+San Remo Pizza	2
+Aunt Butchies Desserts	2
+Mona Lisa Bakery	2
+Ocean Palace Pavilion INC	2
+Brennan &amp; Car Restaurant INC	2
+Michael's	2
+Trio Pizzeria	2
+Mazzola Bakery	2
+Ferdinando's Focacceria Restaurant	2
+Vinny's of Carroll Gardens	2
+Giardini Pizzeria &amp; Restaurant	2
+MOLA Pizzeria	2
+Nick's Lobster Fish Market	2
+Paco's Tacos	2
+Floridian Diner	2
+LA Villa Pizzeria &amp; Restaurant	2
+Frank's Pizza	2
+T.G.I. Friday's	2
+Castle Harbour	2
+National	2
+Gastronome Odessa Incorporated	2
+Cafe Istanbul	2
+Papa Leone's Pizzeria	2
+Pizza Boulevard	2
+Bay Pizzeria	2
+Christie's	2
+Little Miss Muffin N Her Stffn	2
+Jang Tuh Sutbulgui Incorporated	2
+Spicy &amp; Tasty Inc	2
+Flamingo Cafe	2
+Yuraku Restaurant	2
+Applebee's	2
+Omega Coffee Shop	2
+Laterna Restaurant	2
+First Edition	2
+Tequila Sunrise	2
+V I Pizza	2
+Giardino Restaurant	2
+Acquista Trattoria	2
+Oneness-Fountain-Heart	2
+Naomi's Kosher Pizza	2
+LA Brisa	2
+Rincon Criollo Restaurant	2
+Gianni	2
+IHOP	2
+Arunee Thai	2
+Luigi Restaurant	2
+Cafe Salamanca Restaurant INC	2
+Elmhurst Famous Pizza-Jackson	2
+Tierras Colombianas Restaurant	2
+Pizza Boy	2
+Elmhurst Pho Bang Restaurant	2
+Pho BAC Restaurant	2
+Singas Famous Pizza INC	2
+Takrai Thai Restaurant	2
+Elmhurst Famous Pizza	2
+Jay Dee Bakery	2
+Tung Shing House	2
+Pollos Ala Brasa PIO PIO INC	2
+Avellino Pizza of Rego Park	2
+Tower Diner	2
+Joe Abbracciamento Restaurant	2
+PIU Bello	2
+Network Cafe	2
+Golden Pond Seafood Restaurant	2
+Peking Duck Forest	2
+Sgt Garcia's	2
+Simply Thai Restaurant	2
+T.G.I. Friday's	2
+Mickey's Place	2
+Lillian Pizzeria	2
+A J Pizza	2
+Krystal's Pastry Shop	2
+Kilmegan Bar &amp; Restaurant	2
+Pat's Italian Restaurant	2
+Rosa's Pizza	2
+Salvatore's Italian Restaurant	2
+Gino's Pizzeria	2
+Mehak Restaurant	2
+Queens Buffet	2
+USA Diner Incorporated	2
+Margherita Pizza Incorporated	2
+Kelly's Coffee Shop	2
+RCL Enterprises	2
+Nadaman Hakubai	2
+Metro Grill	2
+Meridiana	2
+Grotta Azzurra	2
+Donald Sacks	2
+El Gran Castillo de Jagua	2
+Terramare	2
+Yaffa's Tea Room	2
+Amour Restaurant	2
+Eamonn's	2
+Kar	2
+PJ Hanley's	2
+Plaka Taverna	2
+Amici II	2
+Robert Emmett's	2
+Verdict	2
+Mi	2
+The Organic Grill	2
+Miracle Bar and Grill	2
+Miss Maude's Spoonbread Too	2
+Le Figaro	2
+Ninety Grand Grille	2
+Sisters Cuisine	2
+Sistas' Place	2
+Starbucks	2
+Petrossian Cafe &amp; Boutique	2
+JOEY THAI	2
+Cafe Edison	2
+Peter The Great	2
+Madison Bar &amp; Grill	2
+Karma KAFE	2
+Zafra Kitchen Incorporated	2
+Starbucks	2
+MI Bandera Restaurant	2
+Diva Lounge	2
+Satay Malaysian Cuisine	2
+Curioni's Pizza	2
+Daruma	2
+Mignon Steak House	2
+Doughnut Plant	2
+Cafe Space 212	2
+Starbucks	2
+IL Patrizio	2
+Crosby Connection	2
+La Gamin Cafe	2
+Organic Harvest Cafe	2
+Maui Tacos	2
+Fay DA Mott St Incorporated	2
+Barking Dog Luncheonette	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Starbucks	2
+Broadway Cafe	2
+Wakamba Restaurant &amp; Tavern	2
+Caffe Bondi	2
+Lento's Restaurant	2
+Verb Cafe	2
+Daisey's Diner	2
+Domino's Pizza	2
+Second Helpings	2
+Sage American Restaurant	2
+Koliba Restaurant	2
+Oki Japanese Restaurant Corporation	2
+Outback Steakhouse	2
+Tricolorii Restaurant &amp; Cafe	2
+Patricia's Pizza &amp; Pasta II	2
+O'Neil's/central Park West	2
+Due Amici	2
+Tom's Delicious Pizza	2
+Al - Baraka	2
+Baluchis	2
+El Nido's Pan Pizza	2
+Nikki Sushi	2
+Natural Tofu	2
+Sunrise 27 Incorporated	2
+Tamarind	2
+Wendy's Old Fashioned Hamburgers	2
+Yogee Noodle	2
+Quiznos Sub	2
+Koryodang Incorporated	2
+Letizia Restaurant	2
+Cinema Cafe	2
+Cinema Restaurant	2
+Loggia	2
+La Locanda del Buongustaio	2
+Sciue' Sciue'	2
+Bombay Grill	2
+The Black Sheep Bar	2
+Roumeli Taverna	2
+Loj	2
+Stage Deli	2
+Christos Steak House	2
+The Upstairs at 21	2
+Freddie and Pepper's	2
+East Pacific	2
+MJ Armstrong's	2
+Kiva Cafe	2
+The Red Parrot Caffe	2
+Malika	2
+McDonald's	2
+McDonald's	2
+Due Amici Cafe	2
+Culinaria	2
+Salt Bar	2
+Sido Falafel &amp; More	2
+Yvonne	2
+Something Sweet Incorporated	2
+Rocket Wrapps	2
+Starbucks	2
+Paolina Restaurant	2
+Osaka Japanese Restaurant	2
+Olive Garden	2
+Doma Cafe &amp; Gallery	2
+Ajisai Japanese Restaurant	2
+Six Happiness	2
+Cilantro	2
+Angelos Pizzeria	2
+Big Nicks Burger Joint Too	2
+D'netto's Bagels	2
+Arby's	2
+Liberty House Restaurant	2
+Ruthy's Bakery	2
+Elysee Bar &amp; Restaurant	2
+Topsy	2
+Riazor	2
+Cafe Metro	2
+UNO Chicago Grill	2
+SE Salio El Pollo	2
+Tokyo Sushi Bar &amp; Japanese	2
+Sunswick Limited	2
+Black Iris	2
+Provence en Boite	2
+Pazzo	2
+Pho Tay Ho Vietnamese Restaurant	2
+Delices DE Paris	2
+Moon Shadow	2
+Kotobuki Bistro	2
+Myung GA Tofu Restaurant Corporation	2
+Sushi OH	2
+Nana's Treats	2
+Q 56 Restaurant	2
+Hane Fine Japanese Restaurant	2
+Wild Red Onion	2
+Cafe Mexicano	2
+Sorriso Ristorante &amp; Bar	2
+SOHO Sandwich Bar &amp; Blendz	2
+Rice	2
+Thai Sesame	2
+Gerritsen Beach Bagel	2
+Cafe DORE	2
+Outback Steakhouse	2
+Shane's Restaurant	2
+Gum Fung Restaurant LLC	2
+Tangra Masala	2
+Red Lobster	2
+La Terraza Italian Restaurant	2
+Village Crown Moroccan	2
+Sabor Restaurant	2
+Cecere Restaurant	2
+Clinton Restaurant	2
+ISE Restaurant	2
+Sarabeth's Bakery	2
+Toyo Sushi Incorporated	2
+Hale &amp; Hearty Soups	2
+Thai-Nam Restaurant	2
+Lili's Noodle Shop &amp; Grill	2
+Emporium Brasil Restaurant	2
+DI Como Restaurant	2
+Quintessence	2
+Papa John's Pizza	2
+Nougatine	2
+Ole' Mexifunk Cocina	2
+Bravo Pizza	2
+Conti's Pastry Shoppe	2
+Life Cafe 983	2
+Miso Sushi	2
+Melampo Imported Foods	2
+Mandler's: The Original Sausage Co.	2
+Rooftop Rest.-Bentley Hotel	2
+Ambrosia Cafe Ltd.	2
+Mudspot	2
+Lemongrass Grill	2
+Blondies Wings On 2 AV	2
+Jubilee 51	2
+La Cicala	2
+Oak Room Restaurant &amp; Supper Club	2
+Bodegas	2
+Wolfgang Puck EXP Restaurant	2
+Daruma Japanese Restaurant	2
+Public Restaurant LP	2
+Quan Sushi	2
+Yummy Noodles	2
+San Marcos Restaurant	2
+Swagat Indian Restaurant	2
+Cafe Antique	2
+Sushi Excellent	2
+Zutto Great Neck Restaurant	2
+Fabio's Tropical ICES	2
+Banana Leaf	2
+Nectar	2
+Coney's	2
+La Villa Restaurant	2
+Cafe Regular	2
+Cold Stone Creamery	2
+Rancho Cafe	2
+Baja Mexican Restaurant	2
+The Archive	2
+Morton's, The Steakhouse - Midtown Manhattan	2
+Hana Food Corporation	2
+Milieu	2
+Surreal Cafe	2
+Choux Factory	2
+Sushi Tatsu	2
+P.F. Chang's China Bistro	2
+Nicky's Vietnamese Sandwiches	2
+Salvatores of SOHO	2
+Don's Bogam BBQ & Wine Bar	2
+Ripe Restaurant	2
+La Palette	2
+Chop't	2
+Sombrero	2
+Hummus Place	2
+Chipotle Mexican Grill	2
+Ammos	2
+Soba Koh	2
+Dopey Benny's	2
+Cima	2
+Grill 44	2
+Rice	2
+Bombay Eats	2
+Ziggiz	2
+'Wichcraft	2
+Cloister Cafe	2
+Raices	2
+Harry's at Water Taxi Beach	2
+Pearl on the Sushi	2
+Puff &amp; Pao	2
+Yum Yum 3	2
+Poona Classical Cuisine of India	2
+Manon	2
+Jour et Nuit	2
+Bobby Van's Steakhouse	2
+Blue Spoon Coffee Company	2
+Puff and Pao	2
+Pongal Restaurant	2
+Monkeytown	2
+Dash Dogs	2
+Tazza	2
+The Original Soup Man	2
+Miharu Sushi	2
+David Burke at Bloomingdale's	2
+Asnanti	2
+South	2
+P.J. Clarke's	2
+Bugambilia Lounge	2
+Pio Maya	2
+Ginger &amp; ginger express	2
+Al Forno Pizzeria	2
+Masso	2
+Noodle Bar	2
+Raga	2
+The 10th &amp; Willow Bar &amp; Grill	2
+Azuki Sushi	2
+Horus Cafe	2
+Queens - A Taste of the World	2
+Coco Roco	2
+Oh Mammamia Restaurant	2
+Caliente Cab	2
+Wave Sushi	2
+En Plo	2
+KitchenBar	2
+Europa Restaurant	2
+Pier 2110	2
+Harmony View Bar &amp; Grill	2
+Sundaes &amp; Cones	2
+Sukhadia's Indian Vegetarian	2
+Tisserie	2
+Gabriela's Restaurante and Tequila Bar	2
+Gilileo	2
+DiningFever.com	2
+Krunch Pizza Bar	2
+Outlet Koca Lounge	2
+Sfoglia	2
+AJ Maxwell's Steakhouse	2
+Darna Restaurant	2
+Magic Fountain Ice Cream	1
+Hot Bagels Abroad	1
+Bloomfield Steak &amp; Seafood	1
+Nevada Diner Restaurant	1
+Pebble Beach Pub	1
+Michel Zio Restaurant	1
+It's Greek To ME	1
+Belvedere Restaurant Incorporated	1
+Hot Grill	1
+Fall View Grill	1
+Chengdu 46	1
+Rutt's Hut	1
+Paulie Pizza	1
+Crab House	1
+Don Quijote Restaurant	1
+So Kong Dong Restaurant	1
+Spanish Pavillion	1
+Gaslight Restaurant	1
+Anthony David's Gourmet	1
+Port of Spain Incorporated	1
+Willie McBride's	1
+Baja Mexican Cuisine	1
+Gerrino Restaurant &amp; Roof Top	1
+Mission Burritos	1
+East LA	1
+Sri Thai	1
+Vito's Deli	1
+Enzo's Pizza	1
+Roma Restaurant	1
+Pizzaland	1
+Cafe Eclectic	1
+Just Jake's	1
+Raymond's	1
+Tuptim Thai Cuisine	1
+Nicolo's Italian Bakery	1
+Dai-Kichi Japanese Restaurant	1
+Hunan House	1
+O'Neils Restaurant &amp; Pub	1
+Famous Ray's Pizza	1
+Tapas De Espana	1
+Stephen's Cafe	1
+Palermo Pizza &amp; Italian Restaurant	1
+Manor	1
+Highlawn Pavilion	1
+Mount Fuji Japanese Steak HSE	1
+Quincy's Place	1
+Los Tapatios	1
+Papa Moe's Pizzeria &amp; Restaurant	1
+Puto Fijo Restaurant	1
+Anticucheria El Chevere	1
+Las Palmitas Restaurant	1
+Lyndhurst Pastry Shop	1
+IL Cafone Trattoria	1
+Charlie Brown's Steakhouse	1
+Segovia Restaurant Incorporated	1
+Cryan's Beef &amp; Ale House	1
+Niecy's Southern Cuisine	1
+Blue Moon Diner	1
+Gas Light Brewery-restaurant	1
+Tiffany Gardens Restaurant	1
+Mark TWAIN Diner Restaurant	1
+Vina Del Mar	1
+Beyti Restaurant	1
+Meson Espanol	1
+Colonade Deli	1
+Iberia Peninsula Restaurant	1
+Francesca's Pizzeria &amp; Rest	1
+Red Parrot Cafe	1
+Restaurant Valenca	1
+Six Forty Club	1
+Michelinos Pizzeria	1
+Goodman's Delicatessen	1
+Shadman Restaurant	1
+Flamingo Restaurant	1
+Ria's Cafe	1
+Kitchen Cafe	1
+La Congita Restaurant	1
+RITA &amp; Joe's Italian Restaurant	1
+Larry &amp; Joe's Pizzeria	1
+Pizza Masters	1
+Elmwood Barn	1
+River Palm Terrace	1
+Good Times Drive Thru Burgers	1
+Peter's Whale	1
+Ness Pizza House	1
+Campania Restaurant	1
+Libby's Lunch	1
+Vine Valley Lebanese Cuisine	1
+Albasha Restaurant	1
+B &amp; W Bakery	1
+Mi-Tierrita Restaurant	1
+Bangkok Garden Thai Restaurant	1
+Wondee's Fine Thai Food Noodle	1
+101 Pub	1
+Bendix Diner	1
+Mount Fuji Japanese Steak HSE	1
+Wild Ginger Sushi &amp; Satay Bar	1
+Baumgarts	1
+Sorrento Pastry Shop	1
+Scardino's	1
+Napoli Pizza	1
+New Bridge Inn	1
+Savino's Pizza	1
+La Bella Roma Pizzeria	1
+Jingle Inn	1
+Fuki Sushi	1
+Sanducci's Restaurant	1
+Que Pasta	1
+Louie's Charcoal Pit	1
+Jerusalem Pizza	1
+Ranch 1	1
+Manhattan Bakery Incorporated	1
+Hot &amp; Crusty	1
+Tasti D Lite	1
+Gyro II	1
+Cosmic Coffee Shop	1
+Johnys	1
+Diner On the Square	1
+Hyo Dong Gak Incorporated	1
+La Villa	1
+Canaan	1
+Liberty Bagel &amp; Deli	1
+Famous Roma Bono Pizza	1
+Delicious Pizzas	1
+Pho Bang Restaurant Incorporated	1
+Cong LY Restaurant	1
+New York Villa INC	1
+East Side Cafe Incorporated	1
+Ipos Restaurant Incorporated	1
+Tien Garden INC	1
+Olympic Restaurant	1
+Proton Saga Malaysian Restaurant	1
+Tu DO Restaurant Corporation	1
+Tindo Restaurant	1
+Great Shanghai	1
+Lucky's Restaurant	1
+Famous Original Ray's Pizza	1
+Joe's Pizza	1
+Famous Original Ray's Pizza	1
+Open Pantry Food Mart	1
+Daphne's Caribbean Express	1
+Cooper Square Restaurant	1
+Japas	1
+Joe's Jr Restaurant	1
+Jack Dempsey's	1
+University Place Restaurant	1
+Panna India Cuisine	1
+Thailand Cafe	1
+Ukrainian East Village Restaurant	1
+Okura Japanese Restaurant INC	1
+Jade Mountain Restaurant	1
+Little Saigon	1
+Souen Restaurant	1
+Souen Restaurant	1
+Gramercy Restaurant	1
+EDO Japanese Restaurant	1
+East Village Pizzeria	1
+Pronto Pizza	1
+Due Amici	1
+Coffee Master Incorporated	1
+Ranch 1	1
+Gerardi's Restaurant	1
+A J Kelly	1
+Zigolinis	1
+Pearl Palace of NY	1
+Rubens Empandadas Incorporated	1
+Amazing Thailand Restaurant	1
+Taste of Tokyo	1
+Traders Cafe	1
+Zams	1
+Pranzo	1
+Killarney Rose	1
+Daroma Restaurant	1
+Cordatos Deli &amp; Bar	1
+O'hara's Restaurant &amp; Pub	1
+Blarney Stone Restaurant	1
+Champs Gourmet Deli	1
+Noon &amp; Night INC	1
+Morgan Williams Restaurant	1
+Essex World Cafe	1
+Cafe Exchange	1
+Nathan Hale's Bar &amp; Grill	1
+Burritoville--Chambers Street	1
+Gee Whiz Restaurant	1
+Taste of Tandoor Incorporated	1
+Portobello Pizzeria Restaurant	1
+H &amp; Z Giant Fried Chicken	1
+Original Famous Pizza	1
+Step Mama	1
+China Woks	1
+Aunt B's Restaurant	1
+Kennedy Fried Chicken	1
+Joe Jr	1
+Nino's Pizza of NY INC	1
+Famous Original Ray's Pizza	1
+New York City Bagels	1
+Lyric Diner	1
+Limerick House	1
+Fresco Tortilla Grill	1
+First Avenue Pub	1
+Taco &amp; Tortilla King	1
+Havana Pies	1
+Pastrami Factory Restaurant	1
+La Cafe	1
+Oscar's	1
+Lexington Avenue Deli	1
+Olympia Deli	1
+Anna Maria Pizzeria	1
+Penguin Cafe	1
+Andrew's Coffee Shop	1
+Unbagelievable	1
+Pick a Bagel On Sixth	1
+Lafayette Bakery	1
+Gene's Restaurant	1
+Sandwiches	1
+Sumo Japanese Restaurant	1
+Burritoville--West 23rd Street	1
+Bombay Gardens	1
+Paradise Cafe	1
+Red Light	1
+Malibu Restaurant	1
+Daioh Sushi	1
+Moonstruck Diner Restaurant	1
+Nick's City Kitchen	1
+Noodle Corner Restaurant	1
+Thai Diam	1
+North Village Deli Emporium	1
+Crispy Pizza	1
+Rocco's Pizza Joint	1
+J's Pizza	1
+NewsBar--19th Street	1
+Pamela's Bake Shop	1
+Midnight Cafe	1
+Rocky's Restaurant	1
+Spring Street Social Club	1
+LA Margarita Restaurant	1
+Nile Falafel Incorporated	1
+Mona Lisa Gourmet Pizza	1
+Caffe Roma Pastry	1
+Duane Park Patisserie	1
+La Bella Ferrara	1
+Socrates Restaurant	1
+Cafe Cafe	1
+Delphi Restaurant Corp	1
+Duck River Restaurant	1
+SOHO Made Soups	1
+World of Vegetarian Incorporated	1
+Applejack Coffee Shop	1
+New Pasteur Restaurant	1
+Tribeca Pizzeria	1
+P.J. Charlton	1
+May Wah Fast Food	1
+Bingo Seafood Restaurant INC	1
+New Malaysia Restaurant Incorporated	1
+Karahi Restaurant	1
+Costa Azzurra Restaurant INC	1
+Ellen's Deli &amp; Grocery	1
+IPN Deli	1
+Sal's Pizzeria &amp; Restaurant	1
+Buddha House	1
+Bagel Restaurant	1
+LA Ripaille	1
+Tutta Pasta Restaurant	1
+Osteria Siorentina Restaurant	1
+Sung Chu Mei Chinese Restaurant	1
+Rafaella To Go	1
+Factory Cafe	1
+Cucina Stagionale Restaurant	1
+New Baby Buddha Restaurant	1
+Ecco L'italia Ristorante	1
+Chez Brigitte	1
+Village Pizza	1
+Rivoli Pizza	1
+Daniel's Bagel Corp	1
+Bagel &amp; Schmear	1
+Cafe Rustico	1
+Sunflower Diner	1
+Townhouse Cafe	1
+Annapurna Indian Restaurant	1
+East Bay Restaurant	1
+Bienvenue Restaurant INC	1
+HAO Tong Chinese Restaurant	1
+Empire Szechuan Balcony INC	1
+Famous Chicken Place	1
+Stella del Mare	1
+Hong Kong Chinese Restaurant	1
+La Petite Auberge	1
+Mee Noodle Shop &amp; Grill	1
+Oxford Cafe	1
+Scotty's Diner	1
+Rosa's Pizza &amp; Pasta	1
+3rd Floor Cafe Incorporated	1
+Raffles Cafe	1
+Muldoon's Irish Pub	1
+Azusa of Japan	1
+Luna Blue	1
+Andrew's Coffee Shop	1
+Sushi Masa	1
+P J Moran's Irish Pub &amp; Restaurant	1
+Alonzo's Restaurant	1
+Hop Won Restaurant	1
+Maharaja	1
+Food Merchants	1
+Liberty Foods	1
+P S Wolf's Bay Deli Restaurant	1
+Double Star Restaurant	1
+Sahara Grill	1
+Supreme Macaroni Co.	1
+Kashmir Restaurant	1
+Chicken House	1
+Mr Broadway Glatt Kosher	1
+Cafe Metro	1
+La Bellezza Pizza	1
+Bagel &amp; Bean	1
+Bagel Baron of 57 INC	1
+Pick a Bagel	1
+Philip's Coffee	1
+Hale and Hearty Soups--56th Street	1
+Art Cafe Restaurant	1
+China Gourmet Chinese Restaurant	1
+Giovanni Restaurants	1
+Club Metropolitan Tower Incorporated	1
+Benash Delicatessen	1
+Afghan Kebab House	1
+Teriyaki Boy	1
+Lyn's Cafe	1
+Moonrock Diner	1
+1050 Restaurant	1
+Connolly's	1
+Fresco Tortillas	1
+Maristella Restaurant	1
+Mammalinda	1
+Pluck U	1
+Imperial Dragon Restaurant	1
+Reunion	1
+Oyster Bar Fifty-Fourth Street	1
+Kiran &amp; Indian Cuisine	1
+Kabul Cafe	1
+New Garden Restaurant	1
+Tango Japanese Restaurant	1
+Lindy's	1
+Pasta Lovers	1
+Olympic Restaurant	1
+New World Grill	1
+Olympic Diner	1
+Rinconcito Peruano	1
+Gourmet Pizza	1
+Pizza Villagio	1
+Minamoto Kitchoan	1
+Sushiden Sixth Ave	1
+Hurley's Steak &amp; Seafood	1
+Canova INC	1
+Dean &amp; Deluca	1
+Szechuan Kitchen	1
+Starlite Diner Cafe	1
+Rafina Taverna Restaurant	1
+Muggs	1
+La Crosta	1
+Pyramida Foods	1
+Da Filippo Restaurante Italian	1
+First Wok	1
+Taco King	1
+Cafe Luka	1
+Murphy's Law	1
+Neils Coffee Shop	1
+Gardenia Restaurant	1
+Loui Loui INC	1
+Vivolo Cucina	1
+East Japanese Restaurant	1
+Silver Spoon Restaurant	1
+Mugshot Saloon	1
+Atomic Wings--First Avenue	1
+Le Charlot	1
+Contrapunto  Restaurant	1
+Taiyo Japanese Restaurant INC	1
+Lenox Hill Diner	1
+Wrap N Run	1
+Schmoopie Deli	1
+City Food Deli &amp; Market	1
+Italian Village Pizzeria	1
+Gourmet 53	1
+Canaletto	1
+Gene's Coffee Shop	1
+Jimbos Hamburger Place	1
+Midori Sushi	1
+Madison Restaurant	1
+Gusto Va Mare	1
+Zacco	1
+Eastside Cottage Restaurant	1
+Regents	1
+Tse Yang Restaurant	1
+Ashton's Bar &amp; Restaurant	1
+Pita Grill	1
+Blockheads Mexican Diner	1
+The Park Restaurant	1
+Ocean's Eleven	1
+Billy's	1
+Pax	1
+Cafe Metropolitan	1
+Belmora Pizza &amp; Restaurant	1
+Cafe Fonduta	1
+Fuji Sushi &amp; Teriyaki	1
+Cafe LEX 52	1
+Pizza Fresh Basil	1
+Istana Restaurant	1
+Muffins Cafe	1
+Sensuous Bean of Columbus Ave	1
+Empire Szechuan Garden	1
+China Fun	1
+Burritoville--Amsterdam Avenue	1
+Olympic Flame Diner	1
+Dougie's BBQ &amp; Grill	1
+Westside Restaurant	1
+Cafe LA Fortuna	1
+Elite Cafe Restaurant	1
+Il Duomo Restaurant	1
+Ying Chen Chinese Restaurant	1
+Utopia	1
+Fine &amp; Schapiro	1
+Levana	1
+Verdi Square Delicatessen	1
+Rigoletto Pizza	1
+Columbus Gourmet Food	1
+New World Coffee	1
+Pizzeria Uno--West Side	1
+Hot &amp; Crusty Bagel Cafe	1
+Xando Coffee and Bar--Broadway	1
+Ozu Restaurant	1
+La Chandelle Cafe	1
+Three Star Coffee Shop	1
+Cafe Eighty Two	1
+Barzini	1
+Ceasar's Palace Pizza	1
+Nusbaum &amp; WU Bakery	1
+Indian Cafe	1
+Obento Delight	1
+Krik Krak	1
+Afghan Kebab House	1
+GAN Asia	1
+Empire Szechuan Kyoto Sushi	1
+U Like Chinese Restaurant	1
+Dynasty Restaurant	1
+Wai Lee Chinese Restaurant	1
+Hunan Balcony	1
+Strand Diner	1
+Broadway Restaurant	1
+Westside Restaurant Incorporated	1
+Manhattan Indian Restaurant	1
+Broadway Bagels	1
+Mani Market Place	1
+Mama's Pizzeria	1
+Perfecto Ristorante	1
+Africa Restaurant	1
+Tremes Restaurant &amp; Bakery	1
+Mi Floridita Restaurant INC	1
+Park East Kosher Butchers	1
+Siegels Kosher Delicatessen	1
+Spada	1
+Carlow East	1
+Trattoria Rustica	1
+Ottomanelli's Cafe 86	1
+Amity Restaurants	1
+Giovanni Venti Cinque Restaurant	1
+Chicky's On 86	1
+Lexington Candy Shop	1
+Ray Bono Pizza	1
+Mama's Original Pan Pizza Corporation	1
+Piazza Restaurant	1
+La Hacienda	1
+Hanratty's Restaurant	1
+La Fonda Boricua	1
+El Caribeno Restaurant	1
+IL Fornaio Pizzeria Incorporated	1
+Gary's Jamaican Hot Pot Restaurant	1
+Famous Fish Market, Inc.	1
+Slice of Harlem	1
+Toyamadel Jamerican Restaurant	1
+Bus Stop Luncheonette	1
+Bama Fish N Chips INC	1
+Bolero's Argentinian Restaurant	1
+Empire Szechuan Noodle House	1
+Margot Restaurant	1
+El Presidente Restaurant	1
+Hoppin Jalapeno Bar &amp; Grill	1
+Pizza Haven	1
+Hang Lee Chinese Restaurant	1
+Park View Restaurant	1
+Bella Delia Pizzeria	1
+Ivoire Restaurant	1
+A Taste of Seafood	1
+Ranch 1	1
+Puleo's Restaurant	1
+LA Rivista Palatine Restaurant	1
+T J Keane's Pub	1
+Cottage Noodle Shop	1
+Claudio Pizzeria	1
+Le Monde	1
+La Cocina	1
+Bistro 43	1
+Caribbean Spice	1
+Blake &amp; Todd Restaurant	1
+Evergreen Coffee Shop Restaurant	1
+Nino's Trattoria	1
+American Delicatessen of NY	1
+Daniela Restaurant	1
+Pancho Magico Restaurant	1
+Pearl Street Diner Incorporated	1
+Europa	1
+Pita Express	1
+Liquid Lab	1
+American Cafe Health	1
+Burritoville--John Street	1
+Rubens Empanadas	1
+Lisa Pizzeria	1
+My Daddy's Pizza	1
+Mirage Restaurant	1
+Mariella Pizza	1
+Beema Grill INC	1
+Famous Original Ray's Pizza	1
+Bagel Mill	1
+Temptations INC	1
+Chef Ho's Chinese Restaurant	1
+Roma Pizza	1
+Three Guys Restaurant	1
+Luigi's Pizzeria	1
+Lexington Rib CO	1
+Knick's Lunch East	1
+Vinegar Factory Cafe	1
+Cafe Guy Pascal Ltd	1
+Vico Madison Avenue Ristorante	1
+Chinatown East	1
+Halal Indo Pak Restaurant	1
+Antonella's Authentic Italian	1
+Sal's Pizza	1
+Zesty Pizzeria	1
+Delizia Pizzeria &amp; Restaurant	1
+L'Espresso	1
+Morell Wine Bar &amp; Cafe	1
+Zen	1
+The Cove	1
+Yangtze On Hudson	1
+Au Mandarin	1
+Chef Hong's Kitchen	1
+Iguana Cafe	1
+Side Street Saloon	1
+Fortune Cookie Chinese Restaurant	1
+Spain Restaurant	1
+Bella Mama Restaurant	1
+Kristys	1
+Royal Crown Bakery	1
+Cafe Luna	1
+Italianissimo Restaurant	1
+Basilio Inn	1
+Nino's Restaurant	1
+Joe's Lobster House	1
+Bellavita Restaurant	1
+Joe &amp; John Toto's Restaurant	1
+Pronto Pizza Cafe	1
+Good Fellas Brick Oven Pizza	1
+Brioso	1
+La Fontana Restaurant	1
+Eggers Ice Cream Parlor	1
+Forest Thai Cuisine	1
+New Dakota Diner	1
+Silvestro's Deli	1
+Mister Pizza's Pasta House	1
+El Valle Barbecue Incorporated	1
+Vinny's Famous Pizza Incorporated	1
+Bona Pizza	1
+Egidio Pastry Shop Incorporated	1
+University Pizza &amp; Restaurant	1
+Howl At the Moon INC	1
+Webster Cafe	1
+Tino's Delicatessen	1
+Rocco's Pizza	1
+El Provocon Restaurant	1
+Enrico's Pastry Shop	1
+Reyes Segura Restaurant Corporation	1
+Emilio's Pizza Gourmet	1
+Hawaii Sea Restaurant Corp	1
+G &amp; R Deli Corporation	1
+Sorrento Pizzeria	1
+Louie &amp; Ernie's Pizza	1
+Castle Hill Diner	1
+Domand Deli &amp; Caterers Incorporated	1
+Luciano Pizza	1
+Caridad International	1
+Josepina Restaurant	1
+Blue Bay INC	1
+Planet Tokyo Japanese Restaurant	1
+Sorrentos	1
+Crab Shanty One	1
+Lobster Box Restaurant	1
+Tito Puente's Restaurant	1
+Black Whale	1
+Tosca Brick Oven Bread INC	1
+Casey's Bar &amp; Restaurant	1
+Jun BOE Restaurant	1
+Tommy's Kitchen	1
+Feroza's Restaurant Roti	1
+Nicky's Pizza &amp; Restaurant	1
+Andrew Pizza Chef Incorporated	1
+Sal's Pizzeria	1
+Montezuma Mexican Rest	1
+Pelham Bay Diner Incorporated	1
+Mama Rosa's Corporation	1
+Venezia Pizzeria	1
+Peppinos Pizza	1
+Broadway Pizza	1
+Dino's Pizza Restaurant	1
+Gold Lobster Restaurant Incorporated	1
+DOM &amp; Vinnies Pizzeria	1
+Tombolino Restaurant	1
+J J Mannion's	1
+Japan Inn	1
+A'mangiare	1
+Modern Pizza	1
+La Fontanella Incorporated	1
+Pelham Pizza	1
+La Gioconda	1
+Colbeh	1
+North Shore Steak House	1
+Shishkabob Palace	1
+Bocca DI Rosa	1
+Matsuya Japanese Restaurant	1
+Pancho's Borlder Grill	1
+Scotto Pizza	1
+Luigis Restaurant &amp; Bar INC	1
+Juniors Cafe	1
+Blue Crystal Diner	1
+Georgia's Deli Restaurant	1
+San Remo Pizza	1
+Lena's Coffee Shop Incorporated	1
+Plaza Lounge	1
+Dumas &amp; Associates Incorporated	1
+Blue Sea Cafe INC	1
+El Rey Restaurant	1
+Pinocchio Palace	1
+Nino's Restaurant	1
+Piazza Pizza	1
+Mario Pollo's	1
+Cyprus Deli	1
+Grand Avenue Pizza	1
+Kabab Cafe	1
+El Comelon Restaurant	1
+Mario's Restaurant	1
+Bliss Street Station Restaurant	1
+Romanian Garden	1
+Skillman's Famous Pizza Shop	1
+Happy Family	1
+Dragon &amp; Phoenix Restaurant	1
+Mike's Diner	1
+Pizza Palace	1
+Demitris Seafood Restaurant	1
+Caravan Chicken Incorporated	1
+Chirping Chicken	1
+Nuevo Jardin DE China Restaurant	1
+Tasty Fast Food Incorporated	1
+Papa George's Pizza Incorporated	1
+Andy's Kitchen Corp	1
+Lotus Chinese Restaurant	1
+Hale &amp; Hearty Soup	1
+Victory	1
+St Claire Restaurant Incorporated	1
+Mexicanli Restaurant	1
+Moroccan Star	1
+Oishi Oochi Restaurant Incorporated	1
+Tabouleh Restaurant	1
+Petite Crevette	1
+Verandah Place Deli	1
+Smith Deli	1
+Tutt Cafe	1
+Front St Pizza INC	1
+Campobello Pizzeria &amp; Restaurant	1
+Villabate Pastry Shop	1
+Danza's Authentic Cuisine	1
+Red Crab Tavern	1
+Gino's Focacceria	1
+LA Palina Restaurant	1
+Ortobello Restaurant	1
+DA Vinci Pizza INC	1
+Clinton Hill Restaurant	1
+Pratt Coffee Shop	1
+Mike's Coffee Shop	1
+Chan's Garden	1
+Pizza Spot I	1
+Liberty Pizzeria	1
+Barzola Restaurante	1
+Cozzi Pizza	1
+Napoli's Pizza	1
+Circles Cantina	1
+Omonia Cafe	1
+Leske's Bakery	1
+Jean Denet French Pastries	1
+Areo Restaurant Corp	1
+Mr LI Dragon China Incorporated	1
+Tiffany Diner	1
+Lighthouse Cafe	1
+Pietro's Trattoria	1
+Cappuccino Cafe	1
+Thristino's Restaurant	1
+Isabela Italian Restaurant	1
+Hokkaido Japanese Restaurant	1
+Pipin's Pub	1
+La Stella Restaurant	1
+Elia Restaurant	1
+Pearl of China	1
+Espresso Pizzeria	1
+Paradise Restaurant	1
+Mejlander &amp; Mulgannon	1
+Bay Ridge Pizzeria	1
+Sal's Pizzeria	1
+Grandma's Original Pizza Corporation	1
+Didi Chinese Restaurant	1
+Napoli Pizza	1
+Bruno Bakery	1
+Bean	1
+Right Bank	1
+Raymond's Place	1
+Tony's Pizza	1
+AL Soul Food Kitchen	1
+New Cheung Lee Kitchen	1
+Tasty Bagels	1
+West End Bakery	1
+Angelo's Royal Pastry Shop	1
+New Ruan's Restaurant	1
+Vegas Diner	1
+Casa Tomasino Restaurant	1
+Retro 50 Diner	1
+La Casa Bella	1
+Mama MIA Pizzeria	1
+Pizza Den	1
+Two Little Red Hens	1
+Uprising Bread Bakery Store	1
+New College Restaurant	1
+Burritos &amp; Tacos Don Clemente	1
+Pizza Plus INC	1
+Food Chow Restaurant	1
+El Viejo Yayo Restaurant	1
+Ozzie's Coffee	1
+Big Pizza Cafe Incorporated	1
+Faredahs Halal Restaurant	1
+Arias Restaurant	1
+Lemon Grass Grill	1
+200 5th Ave Restaurant &amp; Bar	1
+Fifth Ave Pizzeria	1
+Luv-N-Oven Pizzeria	1
+Not Ray's Nick's Pizza INC	1
+La Bagel Delight	1
+Vostok	1
+Amnon Kosher Pizza Incorporated	1
+Savoy Bakery	1
+Las Antillas Restaurant	1
+Sunstone Tortillas Express	1
+Sun Ming Gee Restaurant	1
+Little Malaysia	1
+Americana Diner	1
+Rax's Pizza	1
+Dominick's Pizzeria	1
+Scotti's Pizzeria	1
+erb	1
+Cozy Corner Coffee Shop	1
+Krolewskie Jadio Incorporated	1
+Shanghai-Lee Chinese Restrnt	1
+Lomzynianka Restaurant	1
+Russ Pizza	1
+Enzo's Pizzeria &amp; Italian Specialists	1
+Kings Take-Out	1
+Joe's of Avenue U Italian	1
+Carolina Restaurant	1
+Scoops Ice Cream Parlor	1
+Vee's Restaurant	1
+Ferrara Pizzeria &amp; Restaurant	1
+John's Bakery &amp; Pastry Shop	1
+Roti Shack Incorporated	1
+Lenny's Pizzeria	1
+Krispy Pizzeria	1
+Original Brooklyn Bagel Incorporated	1
+Adelman's Kosher Deli	1
+Buckley's Bar &amp; Restaurant	1
+Original Pizza IV	1
+Knapp Street Pizza	1
+N &amp; D Pizza INC	1
+J &amp; R Pizzeria INC	1
+Ske Foods Incorporated	1
+Ukraine of Brooklyn Incorporated	1
+Pizza Time	1
+Bagels by the Park	1
+Casa Rosa Restaurant	1
+Vinny's Pizzeria	1
+Taste of China Incorporated	1
+Nick's Restaurant	1
+Sunset Deli	1
+Lodomino's Taste of Italy	1
+Palermo Pastry Shop	1
+Basins Best Deli Corporation	1
+Apollo Pizza	1
+Cafe Restaurant Volna	1
+II Fornetto	1
+China Max	1
+Grotta D'oro On the Bay	1
+SIAM Orchid	1
+Wheeler's Restaurant	1
+Atlantic Oceana	1
+Palace Fried Chicken	1
+Momoyama	1
+Connie's Pizza Incorporated	1
+Villa Bay Pizzeria &amp; Restaurant	1
+Del Mar Pizzeria	1
+Game Express &amp; Video Game	1
+New Prospect Cafe	1
+Kam Hong Chinese Restaurant	1
+Antonio's Pizzeria	1
+TAI Pan Bakery	1
+Pho Vietnamese Restaurant	1
+Han Yang Restaurant	1
+Gum Tong Gung Restaurant INC	1
+K B Garden INC	1
+Amore Pizzeria	1
+Yeh's Bakery	1
+Chatkhara Kabab	1
+Kanes Diner	1
+Buddha Bodai	1
+AL Dente Pizzeria	1
+Cascon Cheesecake	1
+Pizza Chef	1
+Freddy's Pizzeria	1
+Oasis Cafe	1
+Gyro Corner	1
+Steve's Coffee Shop	1
+PA DO Whae House	1
+Ernesto's Restaurant Corporation	1
+Tokyo Delight	1
+Jade Sea Restaurant	1
+Okinawa Japanese Restaurant	1
+Monahan &amp; Fitzgerald	1
+Jackson Hole	1
+Pier 25a INC	1
+Gold Star Restaurant	1
+Aunt Bellas Restaurant	1
+Sushi Family Incorporated	1
+Tomi Sushi	1
+TJK Cafe	1
+Centre Pizza	1
+Patoug Foods Incorporated	1
+Wah Hing Kitchen	1
+Anthony's	1
+Brother's Pizza	1
+El Gauchito	1
+New Ying Chinese Restaurant	1
+Jade King Restaurant	1
+S K Deli	1
+Peters Kitchens Incorporated	1
+Angelo's Pizzeria	1
+Jardin DE China	1
+Double Happiness	1
+Buccaneer Diner	1
+Tan Bar Bq Chicken Incorporated	1
+Inti Raymi Restaurant	1
+La Boina Roja Steak House Incorporated	1
+Ricky's Cafe	1
+Casa Columbia	1
+Chung Ki-Wa Restaurant	1
+El Arrayan Restorante Chileno	1
+JAI YA Thai Restaurant	1
+Super Pollo Latino	1
+Harbor City Restaurant Incorporated	1
+Taste Good Malaysian Cuisine	1
+Szechuan Palace	1
+Kazan Turkish Cuisine	1
+Columbia Chicken	1
+Hot Bialys Bagels	1
+Gotta Getta Bagel Incorporated	1
+Bonelle Pastry Shop	1
+U J's Luncheonette	1
+Friend's Coffee Shop	1
+Lucien's	1
+Chalet Alpina Restaurant	1
+Sorisi Pizza Incorporated	1
+El Mariachi Restaurant	1
+IL Felice	1
+El Sitio Restaurant	1
+Woodside Tavern	1
+El Nuevo Izalco Corporation	1
+Stop Inn	1
+Pollos A La Brasa Marion	1
+Donantos Pizzeria Restaurant	1
+DE Dona Pizzeria	1
+Rosario's Pizza	1
+Clinton Diner &amp; Bar	1
+Caruana Pizzeria &amp; Restaurant	1
+Kopp's Bakery	1
+Joe's Restaurant	1
+Antica Trattoria	1
+Belmont Steaks	1
+Cooper Ale House	1
+Corato Pizza II	1
+Sugar Bun Bake Shop Incorporated	1
+Waterview Diner-Restaurant	1
+Lenny's Pizza	1
+Vincent's Clam Bar	1
+La Nora Restaurant	1
+Beer Garden	1
+Romeo's Pizzeria	1
+Salerno Italian Restaurant	1
+Kaieteur Restaurant &amp; Sports	1
+Alfie's Pizzeria	1
+Bamboo Garden Restaurant	1
+Don Peppe INC	1
+Nakisaki International Restaurant	1
+Cindee's Cakes &amp; Catering	1
+HI Class Pizza Corporation	1
+Cara MIA Restaurant	1
+Sybil's Bakery	1
+PARA TI Colombia Con Sabor	1
+Phillippine Grill	1
+Nino's Pizza	1
+Genesis #1 Jamaican American	1
+Liberty Pizza	1
+Flagship Restaurant	1
+Tommy's Pizza	1
+East Meets West	1
+Harbor Light Pub	1
+Cafe S.F.A.	1
+Garden Cafe Park Avenue	1
+B&amp;H Dairy	1
+Mandalay Palace	1
+Nhu Y	1
+Ginger Ty	1
+Angelika Film Center Cafe	1
+Takino Japanese	1
+Monte's	1
+El Pollo-Soho	1
+Corner Deli	1
+Sweet-n-Tart Cafe	1
+Burritoville--West 39th Street	1
+Fletcher Morgan Catering	1
+Martell's Grill	1
+Streeters Cafe	1
+Citarella To Go	1
+Al's Roti Shop	1
+House of Seafood	1
+Nakasaki	1
+Padre Mio	1
+Cantinetta	1
+Metropolitan Grill	1
+D &amp; J Garden	1
+Man Hing Chinese Restaurant	1
+Woody's Steakhouse	1
+R's Place	1
+IL Mulino Restaurant	1
+Hanil Kwan Korean &amp; Japanese	1
+Market Street Bar &amp; Grill	1
+Maize	1
+Liberte	1
+Vale Restaurant	1
+Taste of Tuscany	1
+Algarve Restaurant &amp; Take-Out	1
+Hiro Japanese Restaurant	1
+Cap Noodle	1
+El Floridita Restaurant	1
+Piper's Kilt of Inwood Incorporated	1
+YA Hala Restaurant	1
+Pine Tavern Too	1
+Joe's Place	1
+Madisons Restaurant &amp; Bar	1
+Las Palmas Restaurant	1
+Westway Cafe	1
+Amore Pizza Restaurant	1
+Brothers Pizza	1
+Kosher Creations	1
+Famous Famiglia	1
+Fat Sal's Pizza	1
+Rocket Joe's	1
+China Place	1
+Cucina &amp; Co	1
+Darna	1
+East 53 Teriyaki House	1
+El Conde Restaurant	1
+Europa	1
+Shanghai Pavillion	1
+Go Sushi III	1
+Jimbos Hamburger	1
+Judge Crater's	1
+Kyoto of Japan	1
+La Houppa	1
+Leon	1
+Mannas Deli Restaurant	1
+Luciano's Restaurant	1
+Casablanca Cafe	1
+Ravaugh Restaurant	1
+New Pizza Town II	1
+Home Sweet Harlem Cafe	1
+Pepper Jones	1
+Trois Marches Incorporated	1
+American Grill	1
+Stephanie's Deli	1
+Nucci's Restaurant	1
+Curry Leaf	1
+Abu's Bakery	1
+Vernisazh Restaurant	1
+Tokyo Cafe Incorporated	1
+Mr Wonton	1
+Bayridge Sushi	1
+Bayridge Acapulco Restaurant	1
+Cathy's Place	1
+Fast &amp; Fresh Deli	1
+Peppinos	1
+Shiki Japanese Restaurant	1
+Ariel Pizzeria &amp; Restaurant	1
+Lentini Pizza	1
+Mediterraneo Pizzeria Restaurant	1
+Vincent &amp; Andrea	1
+Pacific Chinese Restaurant	1
+Tikka Masala	1
+Fresca Tortilla	1
+Polish American Deli &amp; Grocery	1
+El Tio	1
+Sapporo Ichiban Japanese	1
+Caffee Italia	1
+Rangoli	1
+Sports Plus Cafe Incorporated	1
+Kennedy Fried Chicken	1
+Slice of Harlem II	1
+Rico	1
+Swifty's	1
+Sanpanino	1
+Primo New York Pizza	1
+Dynasty Deli	1
+D &amp; S Pizzeria	1
+Famous Famiglia	1
+Tasty Munchies	1
+Mammino Ristorante	1
+Atlas Cafe	1
+Andrea's Brick Oven Ristorante	1
+Backyard Chicken	1
+Baluchis	1
+Izumi Sushi	1
+Burritoville	1
+Cafe Monte	1
+Emilou Incorporated	1
+KO Sushi	1
+Jennifer's Cafe	1
+Mike's Papaya	1
+New Era Cafe	1
+El Toro Partido	1
+Tasty Cafe	1
+Toasties	1
+23 Lexington Incorporated	1
+WU Kong Restaurant	1
+Le Pain Quotidien	1
+Stonewall Bistro	1
+Java Den	1
+Ruby Fruit Bar &amp; Grill	1
+Bull Run Grill	1
+Pret A Manger	1
+Pret A Manger	1
+Pret A Manger	1
+Pret A Manger	1
+Battery Park Applebees	1
+Babylon Restaurant	1
+Guatemala Restaurant	1
+Spinelli's Pizzeria	1
+Uncle LouieG	1
+Elysee Cafe Theater	1
+Tiengarden Vegan Restaurant	1
+Vida	1
+Britti Cafe	1
+cafe spinoza	1
+Captain's Ketch	1
+Cast Iron Cafe	1
+Chez Suzette	1
+Chez Isabelle	1
+Budo-en	1
+Tribakery	1
+Hirams	1
+Martha's Vineyard	1
+Original Ray's Pizza &amp; Restaurant	1
+Buffa's Cafe'	1
+Terrace Bagels	1
+Focacceria	1
+Rush Hour	1
+Sidecar @ P.J. Clarke's	1
+Toros Turkish &amp; Mediterranean	1
+Essence Bar &amp; Restaurant	1
+Oriental Garden	1
+Play By Play Restaurant	1
+9th Street Coffee	1
+Le Gamin Cafe	1
+Morelli's	1
+Hanami Japanese Cuisine	1
+Baluchis Restaurant	1
+Moxa Incorporated	1
+Singapore Cafe Incorporated	1
+Hsin Wong	1
+Baluchis Restaurant	1
+Devon &amp; Blakely Fine Food	1
+Wolf's Delicatessen	1
+Bread Factory Cafe	1
+Oldcastle Pub	1
+IL Gattopardo	1
+Bistro 60	1
+Rice Bowl	1
+Assaggio	1
+Nile Ethiopian Restaurant	1
+108 Mini Cafe	1
+Auyama Sushi Corporation	1
+Miyako Sushi Corporation	1
+Native	1
+El Nuevo Amanecer Restaurant	1
+Jou Jou Incorporated	1
+Tacos Neza Restaurant	1
+Hing Won	1
+Tulcingo Restaurant	1
+Panini &amp; Co Cafe	1
+Eastern Taco	1
+La Rotonda	1
+Tibetan Kitchen	1
+Ogawa	1
+Pick A Bagel At Battery Park	1
+Santorini Cafe	1
+Fuel Restaurant	1
+Two Fifteen Cucina Napoletan	1
+Jalepeno Restaurant	1
+Sichuan Dynasty Chinese Restur	1
+Prince Seafood Restaurant	1
+Bowne Lounge Limited	1
+Samdado Restaurant	1
+Cafe Rubio Restaurant	1
+Mama's Empanadas	1
+Jungsook Song	1
+Pret A Manger	1
+Ham JI Bach Restaurant	1
+Caruso's Tuscan Grill	1
+K-Dee's	1
+7th Regiment Restaurant	1
+Central	1
+Acqua	1
+Garden Cafe at the Kitano New York	1
+Pat Thai Restaurant	1
+Tinga Taqueria	1
+Cosi Sandwich Bar	1
+Pizza 33	1
+Wonjo Restaurant	1
+My Sisters Gourmet Deli	1
+Max Cafe	1
+Kawa Sushi	1
+Kai Kai 3 Thai Bistro	1
+Jimmy's Coffee Shop	1
+Tad's Broiled Steaks Times Sqr	1
+Grill Room	1
+Miami Bar	1
+Klatch	1
+Cafe 33	1
+Cellini Restaurant	1
+Forest Deli &amp; Grocery	1
+Wasabi Boy	1
+Bergen Bagels On Myrtle	1
+Chopstix Restaurant	1
+Purity Diner	1
+Cafe Scaramouche	1
+XO Creperie	1
+Contis Ristorante Inc	1
+Gatana Bakery	1
+Chikurin Japanese Restaurant	1
+Khao Homm	1
+Grappa Cafe	1
+Grand Cafe	1
+Brookside Thai Restaurant	1
+SIAM Thai Restaurant	1
+French Brasserie	1
+Lighthorse Tavern	1
+Ruby et Violette	1
+Cafe' New World	1
+Gramercy Park Bagel Incorporated	1
+Jerry's Kitchen Caffe	1
+Labella Ferrara Cafe	1
+Food Exchange	1
+Georgios Country Grill	1
+Old John's Luncheonette	1
+Dallas BBQ	1
+Fulton Chef	1
+Diwan Khas	1
+Cafe LEX	1
+Press Cafe	1
+El Rey Del Marisco Restaurant	1
+Giantina Restaurant	1
+Mr Taco	1
+Robert's Cafe	1
+Rice Shop Restaurant	1
+T Thai	1
+Havana Bay Coffee	1
+Comfort Bistro	1
+Robalino's Restaurant	1
+Ushiwaka Maru	1
+Minar Indian Restaurant	1
+Pecoraro Bakery	1
+Jake's Steakhouse	1
+Tokyo House	1
+Sumo	1
+Church &amp; Dey	1
+75 Greenwich Cafe	1
+Balzar	1
+Rupali Indian Restaurant	1
+Mangia Trattoria	1
+West 79 Restaurant	1
+Baluchis Restaurant	1
+Restaurant 33	1
+Vbar	1
+Lenny's	1
+Number 8 Chinese Restaurant	1
+Djerdan #1	1
+Cafe Opaline	1
+Khushie	1
+IL Forno	1
+Carribean Cuisine	1
+Focaccia Fiorentina	1
+Cafe Spice	1
+Atomic Wings	1
+Sal Anthony's Restaurant	1
+Sushi Nouveau Corporation	1
+Shack's Barbeque	1
+Cafe 7	1
+Oreste Trattoria	1
+Sweet Spring Restaurant	1
+#1 Chinese Restaurant	1
+Panino Sportivo Roma	1
+Bruckner Bar &amp; Grill	1
+Rose Restaurant	1
+Artopolis Bakery Incorporated	1
+Greepoint Coffee House	1
+Caroll Salonike Garden Classic	1
+Turkish Breeze	1
+Altadonna Restaurant	1
+La Hacienda	1
+Famous Ray's New York Pizza	1
+Diva	1
+Mikes Bistro	1
+Ciao Soho	1
+Little Poland Restaurant	1
+James Duane	1
+The Green Cow Gourmet Market	1
+Europa Pastry Shop and Pizzeria	1
+Lucille's Grill	1
+Surreal Cafe	1
+Paradou Incorporated	1
+Kebab House II	1
+Almondine	1
+Thai101	1
+Paclo Bakery	1
+Mambi Lounge	1
+C &amp; C Everett Incorporated	1
+Frank's Waterside	1
+Philly Slim's Cheesesteaks	1
+Cafe 2	1
+The New Fuel Energy Grill	1
+Better Burger	1
+South City Grill	1
+Carl's Steaks-Philly Cheesesteak	1
+Turmeric	1
+Columbus Grill	1
+Viviano's Mediteranian Mkt	1
+Cafe Daniello's Pizzeria	1
+Paradisus 121	1
+Teany to go	1
+Tebaya	1
+Heartland Brewery &amp; Rotisserie	1
+The Cuckoo's Nest	1
+Song Kran Thai Cuisine	1
+Bread and Olive	1
+Chipotle Mexican Grill	1
+Downtown Bakery II	1
+Frederick's Madison	1
+Big Booty Bread Co	1
+Pie	1
+Nino's Tuscany	1
+Southside Cafe	1
+Mo's BBQ	1
+The Pita Pit	1
+Zakuro	1
+Communitea	1
+Tuck Shop	1
+Egg	1
+Chipotle Mexican Grill	1
+Mainland India	1
+Cafe B	1
+Ruben's Empanadas	1
+Mai	1
+Bettola	1
+Hudson Yards	1
+Piada	1
+Butterfly Grill	1
+Awash	1
+DuMont Burger	1
+Sawa	1
+The Original Soup Man	1
+Jamba Juice	1
+Sweet Melissa	1
+Naka Naka	1
+Chocolat Michel Cluizel	1
+Boca Soul	1
+Press 195	1
+Sugarspun Bakery	1
+Waverly at IFC	1
+OMS/B	1
+Adria Wine Bar	1
+Brasserie Aix	1
+Grand Sichuan International	1
+Clark Station Bar and Grill	1
+Papillon	1
+Don Giovanni	1
+n.6	1
+Woolworth Tower Kitchen	1
+Rare Bar &amp; Grill	1
+Hampton Chutney Company	1
+Minangasli	1
+Little Dishes	1
+Koyzina Grill &amp; Bar	1
+Kellari	1
+Jacques	1
+Ronald's Pizza	1
+Kellari Taverna	1
+Tokyo Pop	1
+Planet Wings	1
+Shelly's	1
+The Good Fork	1
+Bombay Kitchen	1
+Nine-D	1
+Cafe Soleil	1
+Buzina Pop	1
+Gribouille	1
+Bistro Citron	1
+Choice Market	1
+JivamukTea	1
+Rack &amp; Soul	1
+Vezzo	1
+My Befana	1
+Bella Vita	1
+Cafe Sutra	1
+Daisy May's BBQ Cart	1
+Trinity Place	1
+Chipotle Mexican Grill	1
+roomservice	1
+Junior's Cheesecake	1
+Energy Kitchen	1
+Panade	1
+Planet Thailand 212	1
+Rockmeisha Izakaya	1
+Enoteca Barbone	1
+Trestle on Tenth	1
+Graziella's Restaurant	1
+Mamoun's Falafel	1
+Room Service Thai	1

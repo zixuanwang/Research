@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/30/trunk/blogs/diningfever
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/30/trunk/blogs/diningfever/urls
+END
+test_dining_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/30/trunk/blogs/diningfever/test_dining_parser.rb
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/30/trunk/blogs/diningfever/geturls.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/30/trunk/blogs/diningfever/badurls
+END

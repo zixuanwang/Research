@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/40/trunk/blogs/thefoodsection
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/urls
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/out
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/getUrls.rb
+END
+test_foodsection_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/test_foodsection_parser.rb
+END
+foodsection.log
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/foodsection.log
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/40/trunk/blogs/thefoodsection/badurls
+END

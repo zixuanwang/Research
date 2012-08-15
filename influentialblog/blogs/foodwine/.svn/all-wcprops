@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/11/trunk/blogs/foodwine
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/11/trunk/blogs/foodwine/urls
+END
+foodwine_parse.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/11/trunk/blogs/foodwine/foodwine_parse.rb
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/9/trunk/blogs/foodwine/getUrls.rb
+END
+test_foodwine_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/11/trunk/blogs/foodwine/test_foodwine_parser.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/11/trunk/blogs/foodwine/badurls
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/24/trunk/blogs/wonderingeater
+END
+wanderingeater.log
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/24/trunk/blogs/wonderingeater/wanderingeater.log
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/24/trunk/blogs/wonderingeater/urls
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/24/trunk/blogs/wonderingeater/getUrls.rb
+END
+test_wanderingeater_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/24/trunk/blogs/wonderingeater/test_wanderingeater_parser.rb
+END

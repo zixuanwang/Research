@@ -1,0 +1,17 @@
+
+</ br>
+<table border="1">
+  <tr>
+    <th>Shared Link ID</th>
+    <th>Site ID</th>
+    <th>Site ID</th>
+  </tr>
+  <% @post.each do |p| %>
+    <tr>
+      <td><%=p["outlink_id"]%></td>
+      <td><%=p["left_site"]%></td>  
+      <td><%=p["right_site"]%></td>
+    </tr>
+  <%end%>
+</table>
+<%= image_tag("overlaplinks.jpeg") %>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/26/trunk/blogs/eastofnyc
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/urls
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/out
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/geturls.rb
+END
+test_eastofnyc_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/test_eastofnyc_parser.rb
+END
+eastofnyc.log
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/eastofnyc.log
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/26/trunk/blogs/eastofnyc/badurls
+END

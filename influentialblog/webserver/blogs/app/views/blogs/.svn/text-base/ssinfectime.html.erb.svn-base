@@ -1,0 +1,14 @@
+<table border="1">
+  <tr>
+    <th>Site</th>
+    <th>Site</th>
+    <th>Infect Time(Day)</th>
+  </tr>
+  <% @sstime.each do |s|%>
+    <tr>
+      <td><%=s["fromsite"]%></td>
+      <td><%=s["tosite"]%></td>
+      <td><%=s["time"]%></td>
+    </tr>
+  <%end%> 
+</table>

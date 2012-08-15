@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/42/trunk/blogs/bitten
+END
+bitten_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/42/trunk/blogs/bitten/bitten_parser.rb
+END
+pagelog
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/42/trunk/blogs/bitten/pagelog
+END
+download_bitten.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/42/trunk/blogs/bitten/download_bitten.rb
+END

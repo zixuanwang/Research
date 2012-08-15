@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/42/trunk/blogs/nymag
+END
+testlink.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/42/trunk/blogs/nymag/testlink.rb
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/42/trunk/blogs/nymag/test.rb
+END
+download_nymag.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/42/trunk/blogs/nymag/download_nymag.rb
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/42/trunk/blogs/nymag/urls
+END
+testblog.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/42/trunk/blogs/nymag/testblog.rb
+END
+testscript.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/42/trunk/blogs/nymag/testscript.rb
+END
+parse_nymag.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/42/trunk/blogs/nymag/parse_nymag.rb
+END
+nymag_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/42/trunk/blogs/nymag/nymag_parser.rb
+END

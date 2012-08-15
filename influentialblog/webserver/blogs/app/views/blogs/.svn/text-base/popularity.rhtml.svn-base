@@ -1,0 +1,11 @@
+<h2>
+  Calculate Popularity based on comments
+</h2>
+
+<% form_remote_tag( :url =>{:action => 'showpopbysite'}, :update =>"orderbysite") do %>
+  Less than <%= text_field_tag :days, '1' %> Days
+<%= submit_tag("Search") %> 
+<% end %>
+<div id="orderbysite">
+</div>
+

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation/urls
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation/getUrls.rb
+END
+test_eatingintranslation_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation/test_eatingintranslation_parser.rb
+END
+eatingintranslation.log
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/23/trunk/blogs/eatingintranslation/eatingintranslation.log
+END

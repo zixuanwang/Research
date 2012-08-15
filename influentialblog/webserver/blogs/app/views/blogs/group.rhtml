@@ -1,0 +1,34 @@
+<h2>
+  Group post by Restaurant Name
+</h2>
+
+<% form_remote_tag( :url =>{:action => 'showpostbyname'}, :update =>"postbyname") do %>
+  Search Post by Restuarant Name: 
+  <%= text_field_tag :name, 'Anthos' %>
+  <%= submit_tag("Search") %> 
+<% end %>
+<div id="postbyname">
+</div>
+
+<br />
+<%= link_to_remote("Blog Referring Graph", :update => "graphbyname", :url => {:action => "showgraphbyname"}) %>
+<div id="graphbyname">
+</div>
+
+<br /> 
+<%= link_to_remote("Implicit links Graph", :update => "implicitgraph", :url => {:action => "showimplicitgraph"}) %>
+<div id="implicitgraph">
+</div>
+
+<br />
+
+<%= link_to_remote("Complete links Graph", :update => "completegraph", :url => {:action => "showcompletegraph"}) %>
+<div id="completegraph">
+</div>
+
+<br />
+
+<%= link_to_remote("OverLapped Outlinks Graph", :update => "overlaplinks", :url => {:action => "showoverlaplinks"}) %>
+
+<div id="overlaplinks">
+</div>

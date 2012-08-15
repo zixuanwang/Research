@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+    <title>BlogsInfluence Online</title>
+    <%= stylesheet_link_tag "BlogsInfluence" , :media => "all" %>
+    <%= javascript_include_tag :defaults %>
+    <!-- <meta http-equiv="refresh" content="5" /> -->
+  </head>
+  <body> 
+    <div id="banner">
+      <%= image_tag("spider.gif" ) %>
+      <%= @page_title || "SPIDR@Rutgers" %>
+    </div>
+      <%= link_to "Back to Main", :controller => "blogs", :action => "main"%>
+    <div id="main">                                     
+      <%= yield :layout %>
+    </div>
+    <div class="footer">
+      <a href="http://www.cs.rutgers.edu/~jinyuny/">Jinyun Yan</a>
+    </div>
+    
+  <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-10225082-2");
+        pageTracker._trackPageview();
+      } catch(err) {}
+  </script>
+  </body>
+  
+<html>
+

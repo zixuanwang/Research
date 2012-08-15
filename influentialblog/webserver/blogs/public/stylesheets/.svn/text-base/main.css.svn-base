@@ -1,0 +1,84 @@
+/*Style for the Head*/
+#banner 
+{
+  background: #9c9 ;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282 ;
+  text-align: center;
+}
+
+#banner img
+{
+    float: left;
+}
+
+#ss img
+{
+  float:right;
+}
+
+/*Style for tabs*/
+#columns, #column table
+{
+  font-size: smaller;
+  color:     white;
+}
+  
+table.tab
+{
+  text-align: center;
+  width: 100%; 
+  height: 30%;
+  color: #6D929B;
+  border-top: 1px dotted #595 ;
+  border-bottom: 1px dotted #595 ;
+  margin-bottom: 10px;
+  table-layout: automatic;
+  background: #CAE8EA;
+}
+
+/*Style for main frame*/
+h1 
+{
+    font: 100% sans-serif;
+    color: #226 ;
+    border-bottom: 3px dotted #77d ;
+}
+
+#main 
+{
+    margin-left: 1em;
+    padding-top: 4ex;
+    padding-left: 1em;
+    background: white;
+    font-size: smaller;
+}
+
+/* Style for footer*/
+#footer
+{
+  font-size: 0.7em;
+  margin-top: 50px;
+  padding-bottom: 12px;
+  padding-top:12px;
+}
+
+ul#foot_nav
+{
+  margin:0;
+  padding:0;
+  text-align: center;
+  list-style-position: outside;
+}
+
+ul#foot_nav li
+{
+  display: inline;
+  margin: 0;
+  padding: 0 7px;
+}
+
+

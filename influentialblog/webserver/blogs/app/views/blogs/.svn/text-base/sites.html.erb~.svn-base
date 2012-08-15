@@ -1,0 +1,26 @@
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Sites</th>
+    <th>Outlinks</th>
+    <th>Selflinks</th>
+    <th>Inlinks</th>
+    <th>Posts</th>
+    <th>Comments</th>
+    <th>From</th>
+    <th>To</th>
+  </tr>
+  <% @allsites.each do |s|%>
+  <tr>
+    <td><%=s["id"]%></td>
+    <td><%=s["name"]%></td>
+    <td><%=s["outlinks"]%></td>
+    <td><%=s["selflinks"]%></td>
+    <td><%=s["inlinks"]%></td>
+    <td><%=s["posts"]%></td>
+    <td><%=s["comments"]%></td>
+    <td><%=s["from"]%></td>
+    <td><%=s["to"]%></td>
+  </tr>
+  <% end %>
+</table>

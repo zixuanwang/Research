@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/51/trunk/blogs/roboppy
+END
+modify_roboppy_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/51/trunk/blogs/roboppy/modify_roboppy_parser.rb
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/51/trunk/blogs/roboppy/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/14/trunk/blogs/roboppy/urls
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/14/trunk/blogs/roboppy/out
+END
+test_roboppy_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/14/trunk/blogs/roboppy/test_roboppy_parser.rb
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/14/trunk/blogs/roboppy/geturls.rb
+END
+roboppy_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/14/trunk/blogs/roboppy/roboppy_parser.rb
+END
+roboppy.log
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/51/trunk/blogs/roboppy/roboppy.log
+END

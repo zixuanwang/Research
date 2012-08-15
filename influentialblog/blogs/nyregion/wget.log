@@ -1,0 +1,154 @@
+--15:18:36--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:18:36--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:18:36--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.48 KB/s
+
+15:18:36 (106.48 KB/s) - `temp' saved [9917]
+
+--15:19:23--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:19:23--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:19:23--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.52 KB/s
+
+15:19:24 (106.52 KB/s) - `temp' saved [9917]
+
+--15:20:12--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:20:12--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:20:12--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.65 KB/s
+
+15:20:13 (106.65 KB/s) - `temp' saved [9917]
+
+--15:20:55--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:20:55--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:20:55--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.15 KB/s
+
+15:20:56 (106.15 KB/s) - `temp' saved [9917]
+
+--15:22:32--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:22:33--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:22:33--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.00 KB/s
+
+15:22:33 (106.00 KB/s) - `temp' saved [9917]
+
+--15:24:48--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:24:48--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:24:48--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                                53.19 KB/s
+
+15:24:49 (53.19 KB/s) - `temp' saved [9917]
+
+--15:26:32--  http://www.nytimes.com//2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?pagewanted=2&_r=5
+           => `temp'
+Resolving www.nytimes.com... 170.149.173.130
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2 [following]
+--15:26:32--  http://www10.nytimes.com/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html?_r=6&pagewanted=2
+           => `temp'
+Resolving www10.nytimes.com... 199.239.137.119
+Connecting to www10.nytimes.com|199.239.137.119|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR [following]
+--15:26:32--  http://www.nytimes.com/auth/login?URI=/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html&OQ=_rQ3D6Q26pagewantedQ3D2&REFUSE_COOKIE_ERROR=SHOW_ERROR
+           => `temp'
+Connecting to www.nytimes.com|170.149.173.130|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+
+    0K .........                                               106.47 KB/s
+
+15:26:33 (106.47 KB/s) - `temp' saved [9917]
+

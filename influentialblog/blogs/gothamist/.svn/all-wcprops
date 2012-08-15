@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/40/trunk/blogs/gothamist
+END
+gothamist.log
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/40/trunk/blogs/gothamist/gothamist.log
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/40/trunk/blogs/gothamist/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/40/trunk/blogs/gothamist/urls
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/40/trunk/blogs/gothamist/out
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/40/trunk/blogs/gothamist/getUrls.rb
+END
+test_gothamist_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/40/trunk/blogs/gothamist/test_gothamist_parser.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/40/trunk/blogs/gothamist/badurls
+END

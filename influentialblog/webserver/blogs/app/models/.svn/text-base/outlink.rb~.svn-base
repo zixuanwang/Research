@@ -1,0 +1,2 @@
+class Outlink < ActiveRecord::Base
+end

@@ -413,7 +413,6 @@ def addMoreChoice(request,ehash,uhash):
         try: 
             choice_objs = []
             e = event.objects.get(ehash=ehash)
-
             proposer = user.objects.get(uhash=uhash)
             for cid in attender_choices:
                 try:

@@ -1,0 +1,21 @@
+</ br>
+<table border="1">
+  <tr>
+    <th>Site ID</th>
+    <th>Total Comments</th>
+    <th>Less Than cnt.</th>
+    <th>Less Than ratio</th>
+    <th>Larger Than 30 days cnt.</th>
+    <th>Larger Than ratio</th>
+</tr>
+  <% @pop.each do |p| %>
+    <tr>
+      <td><%=p["site_id"]%></td>
+      <td><%=p["comcnt"]%></td>
+      <td><%=p["lesscnt"]%></td>  
+      <td><%=p["lessratio"]%></td>
+      <td><%=p["largecnt"]%></td>  
+      <td><%=p["largeratio"]%></td>
+   </tr>
+ <%end%>
+</table>

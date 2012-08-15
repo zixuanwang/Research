@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/32/trunk/blogs/winedanddined
+END
+winedine.log
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/32/trunk/blogs/winedanddined/winedine.log
+END
+droppedurls
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/32/trunk/blogs/winedanddined/droppedurls
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/32/trunk/blogs/winedanddined/urls
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/32/trunk/blogs/winedanddined/getUrls.rb
+END
+test_wineddined_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/32/trunk/blogs/winedanddined/test_wineddined_parser.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/32/trunk/blogs/winedanddined/badurls
+END

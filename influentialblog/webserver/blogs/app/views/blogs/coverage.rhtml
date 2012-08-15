@@ -1,0 +1,21 @@
+<h2>
+  How many restaurants are covered by a site
+</h2>
+<table border="1">
+  <tr>
+    <th>Site ID</th>
+    <th>Site Name</th>
+    <th>Restaurants Number </th>
+    <th>Restaurants Percentage </th>
+  </tr>
+  <% @rests.each do |s|%>
+  <tr>
+    <td><%=s["id"]%></td>
+    <td><%=s["site"]%></td>
+    <td><%=s["rests"]%></td>
+    <td><%=s["percent"]%></td>
+  </tr>
+<% end %></table>
+<div>
+ <!img src="http://chart.apis.google.com/chart?chd=t:60,40&amp;cht=lxy&amp;chl=sites|restaurants" alt="coverage chart" />
+</div>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl
+END
+test_restaurantgirl_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/test_restaurantgirl_parser.rb
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/urls
+END
+restaurantgirl.log
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/restaurantgirl.log
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/out
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/geturls.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/33/trunk/blogs/restaurantgirl/badurls
+END

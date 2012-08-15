@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/42/trunk/blogs/nytimesdining
+END
+nytimesdining_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/42/trunk/blogs/nytimesdining/nytimesdining_parser.rb
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/42/trunk/blogs/nytimesdining/test.rb
+END
+other_urls
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/42/trunk/blogs/nytimesdining/other_urls
+END
+download_nytimesdining.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/42/trunk/blogs/nytimesdining/download_nytimesdining.rb
+END
+dining_urls
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/42/trunk/blogs/nytimesdining/dining_urls
+END

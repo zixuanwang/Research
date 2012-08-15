@@ -1,0 +1,21 @@
+/res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract_adapter.rb:212:in `rescue in log': Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Essentially, I followed the first lesson" has once again forced me to toss your ' at line 3:         select comment_id from comments where blog_id = 38102 (ActiveRecord::StatementInvalid)
+          and author_name = "Gary Wiviott" and publish_date = "2009-05-25 11:51:00"
+          and content = "Dear Mr. Perlow,While I am complimented you found Low & Slow informative, and your chicken looks delicious, your use of the word essentially, as in "Essentially, I followed the first lesson" has once again forced me to toss your a** out of the program. I will be in contact with both your wife and mother to see if there any chance of getting you to do one Lesson front to back. I am realistic as to the possibilities. Regards,
+Gary Wiviott, Barbecue Life Coach"
+	from /res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract_adapter.rb:195:in `log'
+	from /res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/mysql_adapter.rb:320:in `execute'
+	from /res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/mysql_adapter.rb:595:in `select'
+	from /res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all'
+	from /res/users/jinyuny/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:62:in `select_all_with_query_cache'
+	from test_offthebroiler_parser.rb:337:in `block in parse'
+	from test_offthebroiler_parser.rb:331:in `each'
+	from test_offthebroiler_parser.rb:331:in `parse'
+	from test_offthebroiler_parser.rb:362:in `main'
+	from test_offthebroiler_parser.rb:113:in `blogparser_pipeline'
+	from test_offthebroiler_parser.rb:369:in `<main>'
+http://offthebroiler.wordpress.com/2009/05/31/new-york-dining-fire-and-ice/
+insert into db: http://offthebroiler.wordpress.com/2009/05/31/new-york-dining-fire-and-ice/
+38101
+http://offthebroiler.wordpress.com/2009/05/23/gary-wiviott-please-let-me-back-in-the-program/
+insert into db: http://offthebroiler.wordpress.com/2009/05/23/gary-wiviott-please-let-me-back-in-the-program/
+38102

@@ -1,0 +1,11 @@
+<table border="1" align="center">
+  <tr>
+    <td>Site ID</td>
+    <td><%=@post["site_id"] %> </td>
+  </tr>
+  <tr>
+    <td>URL</td>
+    <td><%=@post["site_url"] %> </td>
+  </tr>  
+ </table>
+ 

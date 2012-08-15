@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/7/trunk/blogs/eatsblog
+END
+eatsblog.log
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/7/trunk/blogs/eatsblog/eatsblog.log
+END
+eatsblog.urls
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/6/trunk/blogs/eatsblog/eatsblog.urls
+END
+nyregion_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6/trunk/blogs/eatsblog/nyregion_parser.rb
+END
+test_eatsblog_parse.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/6/trunk/blogs/eatsblog/test_eatsblog_parse.rb
+END
+test_getPostUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6/trunk/blogs/eatsblog/test_getPostUrls.rb
+END
+template.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/6/trunk/blogs/eatsblog/template.rb
+END
+getPostUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/6/trunk/blogs/eatsblog/getPostUrls.rb
+END
+eatsblog_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6/trunk/blogs/eatsblog/eatsblog_parser.rb
+END

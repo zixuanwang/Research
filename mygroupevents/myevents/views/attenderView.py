@@ -478,7 +478,7 @@ def fun_prepare_attender_add_chioce_data(eid,uid):
                 'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash, 'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S'),'has_recommendation':has_recommendation} 
     return data
 
-#allow attender to propose choices
+# allow attender to propose choices
 def attenderAddChoice(request, ehash, uhash):
     try:
         e = event.objects.get(ehash=ehash)

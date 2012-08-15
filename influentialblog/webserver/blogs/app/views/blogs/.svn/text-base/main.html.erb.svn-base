@@ -1,0 +1,33 @@
+<h3>
+  Current Features Provided 
+</h3>
+<ul>
+   <li>
+     <%= link_to("WeblogDB",{:action => "weblog_db"})%>
+   </li>
+   <li>
+     <%= link_to("Sites Info",{:action => "sites"})%>
+   </li>
+   <li>
+     <%= link_to("Site_Site_Outlinks",{:action => "sslinks"})%>
+   </li>
+   <li>
+     <%= link_to("Site_Site_Infect_Time",{:action => "ssinfectime"})%>
+   </li>
+   <li>
+   <%= link_to("Search_Post/Link/Site",{:action => "search"})%>
+   </li>
+   <li>
+   <%= link_to("Cluster:Group Post by Restaurant Name",{:action => "group"})%>
+   </li>
+  <li>
+   <%= link_to("Novelty: Find_First_Post",{:action => "novelty"})%>
+   </li>
+  <li>
+   <%= link_to("Popularity: Mining_Comments",{:action => "popularity"})%>
+   </li>
+  <li>
+   <%= link_to("Coverage: Indexed by Restaurant Name",{:action => "coverage"})%>
+   </li>
+ </ul>
+

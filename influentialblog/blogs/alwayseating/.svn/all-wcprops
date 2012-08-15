@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/19/trunk/blogs/alwayseating
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/19/trunk/blogs/alwayseating/urls
+END
+test_alwayseating_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/19/trunk/blogs/alwayseating/test_alwayseating_parser.rb
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/19/trunk/blogs/alwayseating/geturls.rb
+END
+alwayseating.log
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/19/trunk/blogs/alwayseating/alwayseating.log
+END

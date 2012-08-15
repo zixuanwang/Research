@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>The New York Times &gt; Log In</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="CG" content="Member Center">
+<meta name="PT" content="Access">
+<meta name="PST" content="Login">
+<script language="JavaScript" src="/js/browserSize.js" type="text/javascript"></script><script language="JavaScript" src="/js/mc_app1.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="/css/regi.css">
+</head>
+<body onload="document.login.USERID.focus();">
+<div id="header">
+<div class="nytLogo"><a href="http://www.nytimes.com/"><img src="http://graphics8.nytimes.com/images/article/header/nytlogoleft_article.gif" width="184" height="40" border="0" alt="The New York Times"></a></div>
+<div class="nytHeader"><a href="http://www.nytimes.com/membercenter/index.html"><img src="http://graphics8.nytimes.com/images/article/header/sect_membercenter.gif" width="400" height="40" border="0" alt="The New York Times Member Center"></a></div>
+<div class="loginRule"></div>
+</div>
+<div id="nytLogin">
+<ul>
+<li class="noLink">NYTimes:</li>
+<li>
+<a href="http://www.nytimes.com/">Home</a> - </li>
+<li>
+<a href="http://www.nytimes.com/ref/membercenter/help/siteindex.html">Site Index</a> - </li>
+<li>
+<a href="http://query.nytimes.com/search/archive.html">Archive</a> - </li>
+<li><a href="http://www.nytimes.com/membercenter/sitehelp.html">Help</a></li>
+</ul>
+<div class="loginRule"></div>
+</div>
+<div id="mainContainer">
+<div class="articleContent">
+<div class="toContinue"><img src="http://graphics8.nytimes.com/images/apps/regi2/login_header.gif" alt="Free Exclusive Online Access to The New York Times" width="628" height="52"></div>
+<div class="registerTable"><table width="658" border="0" cellspacing="0" cellpadding="0" bgcolor="#F7F7F1"><tr>
+<td width="15" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="15" height="15" alt=""></td>
+<td width="320" align="left" valign="top">
+<img src="http://graphics8.nytimes.com/images/spacer.gif" width="15" height="15" alt=""><br><table width="320" border="0" cellspacing="0" cellpadding="0"><form name="register" method="post" action="http://www.nytimes.com/gst/regi.html">
+<input type="hidden" name="URI" value="/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html"><input type="hidden" name="OQ" value="_rQ3D6Q26pagewantedQ3D2"><input type="hidden" name="OP" value=""><tr><td colspan="3" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/apps/regi2/abstract_regibox_top.gif" width="320" height="18" alt=""></td></tr>
+<tr>
+<td width="45" align="left" valign="top" background="http://graphics8.nytimes.com/images/apps/regi2/abstract_regibox_left.gif"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="45" height="1" alt=""></td>
+<td width="230" align="left" valign="top" bgcolor="#FFFFFF">
+<img src="http://graphics8.nytimes.com/images/apps/regi2/abstract_not_register2.gif" alt="Get Free Access" width="230" height="50"><br><span class="regiTextTitle">Register for NYTimes.com.</span><br><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="10" alt=""><table width="230" border="0" cellspacing="0" cellpadding="0" class="regiText">
+<tr>
+<td width="10" align="left" valign="top">&#149;</td>
+<td width="220" align="left" valign="top">Breaking news and award winning multimedia</td>
+</tr>
+<tr>
+<td width="10" align="left" valign="top">&#149;</td>
+<td width="220" align="left" valign="top">New York Times newspaper articles</td>
+</tr>
+<tr>
+<td width="10" align="left" valign="top">&#149;</td>
+<td width="220" align="left" valign="top">Arts &amp; Dining reviews</td>
+</tr>
+<tr>
+<td width="10" align="left" valign="top">&#149;</td>
+<td width="220" align="left" valign="top">Online Classifieds</td>
+</tr>
+</table>
+<img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="15" alt=""><br><span class="regiTextPromo">It's free and it only takes a minute!</span><br><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="10" alt=""><br><input type="submit" name="Submit" value="Register Now!">
+</td>
+<td width="45" align="left" valign="top" background="http://graphics8.nytimes.com/images/apps/regi2/abstract_regibox_right.gif"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="45" height="1" alt=""></td>
+</tr>
+<tr><td colspan="3" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/apps/regi2/abstract_regibox_bottom.gif" width="320" height="23" alt=""></td></tr>
+</form></table>
+</td>
+<td width="30" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="30" height="20" alt=""></td>
+<td width="278" align="left" valign="top">
+<img src="http://graphics8.nytimes.com/images/spacer.gif" width="15" height="15" alt=""><br><table width="268" border="0" cellspacing="0" cellpadding="0"><form name="login" method="post" action="/auth/login">
+<input type="hidden" name="is_continue" value="true"><input type="hidden" name="URI" value="/2007/04/01/nyregion/nyregionspecial2/01Rdinner.html"><input type="hidden" name="OQ" value="_rQ3D6Q26pagewantedQ3D2"><input type="hidden" name="OP" value=""><tr><td colspan="2" align="left" valign="top">
+<img src="http://graphics8.nytimes.com/images/apps/regi2/abstract_already_login.gif" alt="Log In Now" width="268" height="69"><br><span class="regiTextError">In order to access our Web site, your Web browser must accept cookies from NYTimes.com. <a href="http://www.nytimes.com/membercenter/faq/cookies.html" onClick="window.open('','popup','height=430,width=640,scrollbars=yes,resizable=yes')" target="popup">More information</a>. </span><br><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="15" alt="">
+</td></tr>
+<tr>
+<td width="100" align="left" valign="top" class="regiTextTitle">Member ID or<br>E-Mail Address:</td>
+<td width="168" align="left" valign="top"><input name="USERID" type="text" id="textfield1" size="20" maxlength="64" value=""></td>
+</tr>
+<tr><td colspan="2" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="5" alt=""></td></tr>
+<tr>
+<td width="100" align="left" valign="top" class="regiTextTitle">Password:</td>
+<td width="168" align="left" valign="top"><input name="PASSWORD" type="password" id="textfield1" size="20" maxlength="32" value=""></td>
+</tr>
+<tr><td colspan="2" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="5" alt=""></td></tr>
+<tr>
+<td width="100" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="1" height="1" alt=""></td>
+<td width="168" align="left" valign="top" class="notes"><a href="http://www.nytimes.com/forgot">Forgot Your Password?</a></td>
+</tr>
+<tr><td colspan="2" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="5" alt=""></td></tr>
+<tr>
+<td width="100" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="100" height="5" alt=""></td>
+<td width="168" align="left" valign="top"><table width="168" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="20" align="left" valign="top"><input name="SAVEOPTION" type="checkbox" value="YES" checked></td>
+<td width="148" align="left" valign="top" class="notes">Remember me on this computer.</td>
+</tr></table></td>
+</tr>
+<tr><td colspan="2" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="15" alt=""></td></tr>
+<tr>
+<td width="100" align="left" valign="top">
+<img src="http://graphics8.nytimes.com/images/spacer.gif" width="1" height="1" alt=""><img src="http://graphics8.nytimes.com/images/spacer.gif" width="1" height="1" alt="">
+</td>
+<td width="168" align="left" valign="top"><input type="submit" name="Submit2" value="Log In"></td>
+</tr>
+<tr><td colspan="2" align="left" valign="top"><img src="http://graphics8.nytimes.com/images/spacer.gif" width="20" height="15" alt=""></td></tr>
+</form></table>
+</td>
+</tr></table></div>
+</div>
+<div class="nytFooter"><ul>
+<li><a class="footer" href="http://www.nytimes.com/ref/membercenter/help/copyright.html" onClick="window.open('','popup','height=430,width=795,scrollbars=yes,resizable=yes')" target="popup">Copyright 2009</a></li>
+<li>
+<a class="footer" href="http://www.nytco.com/" onClick="window.open('','popup','height=430,width=795,scrollbars=yes,resizable=yes')" target="popup">The New York Times Company</a> | </li>
+<li>
+<a class="footer" href="http://www.nytimes.com/ref/membercenter/help/privacy.html" onClick="window.open('','popup','height=430,width=795,scrollbars=yes,resizable=yes')" target="popup">Privacy Policy</a> | </li>
+<li><a class="footer" href="http://www.nytimes.com/membercenter/formr.html" onclick="window.open('','popup','height=430,width=795,scrollbars=yes,resizable=yes')" target="popup">Contact Us</a></li>
+</ul></div>
+</div>
+			
+		<!-- Start UPT call -->
+		<img height="1" width="3" border=0 src="http://up.nytimes.com/?d=0/16/&t=8&s=0&ui=&r=&u=www%2enytimes%2ecom%2fauth%2flogin%3fURI%3d%2f2007%2f04%2f01%2fnyregion%2fnyregionspecial2%2f01Rdinner%2ehtml%26OQ%3d%5frQ3D6Q26pagewantedQ3D2%26REFUSE%5fCOOKIE%5fERROR%3dSHOW%5fERROR">
+		<!-- End UPT call -->
+	
+		
+        <script language="JavaScript"><!--
+          var dcsvid="";
+          var regstatus="non-registered";
+        //--></script>
+        <script src="http://graphics8.nytimes.com/js/app/analytics/trackingTags_v1.1.js" type="text/javascript"></script>
+        <noscript>
+          <div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://wt.o.nytimes.com/dcsym57yw10000s1s8g0boozt_9t1x/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=1.0.7"/></div>
+        </noscript>
+   </body>
+</html>

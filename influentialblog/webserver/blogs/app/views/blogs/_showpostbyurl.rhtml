@@ -1,0 +1,51 @@
+<table border="1" align="center">
+  <tr>
+    <td>Site_id</td>
+    <td><%=@post["site_id"] %> </td>
+  </tr>
+  <tr>
+    <td>Blog_id</td>
+    <td><%=@post["blog_id"] %> </td>
+  </tr>  
+  <tr>
+    <td>Url</td>
+    <td><%=@post["url"] %> </td>
+  </tr>  
+  <tr>
+    <td>Publish_Date</td>
+    <td><%=@post["publish_date"] %> </td>
+  </tr>  
+  <tr>
+    <td>Title</td>
+    <td><%=@post["title"] %> </td>
+  </tr>  
+  <tr>
+    <td>Outlinks Number</td>
+    <td><%=@post["outlink_cnt"] %> </td>
+  </tr>  
+  <tr>
+    <td>Comment Number</td>
+    <td><%=@post["comment_cnt"] %> </td>
+  </tr>  
+  <tr>
+    <td>Outlinks</td>
+    <td>
+    <table>
+    <% @post["outlinks"].each do |l| %>
+      <tr>
+      <%=l%>
+      </tr>
+    <%end%>
+    </table>
+    </td>
+  </tr> 
+  <tr>
+    <td>Content Length</td>
+    <td><%=@post["length"] %> </td>
+  </tr>
+  <tr>
+    <td>Content</td>
+    <td><%=@post["content"] %> </td>
+  </tr>
+ </table>
+ 

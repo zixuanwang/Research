@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/42/trunk/blogs/nyseriouseats
+END
+parse_seriouseats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/42/trunk/blogs/nyseriouseats/parse_seriouseats.rb
+END
+download_nyseriouseats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/42/trunk/blogs/nyseriouseats/download_nyseriouseats.rb
+END
+nyseriouseats_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/42/trunk/blogs/nyseriouseats/nyseriouseats_parser.rb
+END
+testpage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/42/trunk/blogs/nyseriouseats/testpage.rb
+END

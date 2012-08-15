@@ -1,0 +1,33 @@
+<div id="ss">
+  <%= image_tag("site_site_outlinks.jpeg" ) %>
+  <p>
+  <ul>
+    Thickness level and color are decided by connectivity ratio*100
+  <li>5-9 level 1 black</li>
+  <li>10-19 level 2 blue </li>    
+  <li>20-30 level 3 green</li>    
+  <li>31-50 level 4 orange</li>    
+  <li>51-150 level 5 red</li>    
+  </ul>
+  </p>
+  <table border="1">
+  <tr>
+    <th>From Site</th>
+    <th>Site Name</th>
+    <th>To Site</th>
+    <th>Site Name</th>
+    <th>Outlinks</th>
+    <th>Connectivity ratio</th>
+  </tr>
+  <% @sspairs.each do |s|%>
+    <tr>
+      <td><%=s["fromsite"]%></td>
+      <td><%=s["fromname"]%></td>
+      <td><%=s["tosite"]%></td>
+      <td><%=s["toname"]%></td>
+      <td><%=s["outlinks"]%></td>
+      <td><%=s["ratio"]%></td>
+    </tr>
+  <%end%> 
+</table>
+</div>

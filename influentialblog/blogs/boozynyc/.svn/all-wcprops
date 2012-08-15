@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/19/trunk/blogs/boozynyc
+END
+testlog
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/15/trunk/blogs/boozynyc/testlog
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/15/trunk/blogs/boozynyc/urls
+END
+test_boozyny_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/15/trunk/blogs/boozynyc/test_boozyny_parser.rb
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/19/trunk/blogs/boozynyc/out
+END
+geturls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/15/trunk/blogs/boozynyc/geturls.rb
+END
+boozynyc_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/15/trunk/blogs/boozynyc/boozynyc_parser.rb
+END
+boozynyc.log
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/19/trunk/blogs/boozynyc/boozynyc.log
+END

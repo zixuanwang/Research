@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/36/trunk/blogs/offthebroiler
+END
+out.bak
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/out.bak
+END
+droppedurls
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/droppedurls
+END
+test_geturl.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/test_geturl.rb
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/urls
+END
+out
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/out
+END
+test_offthebroiler_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/test_offthebroiler_parser.rb
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/getUrls.rb
+END
+offthebroiler.log
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/offthebroiler.log
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/36/trunk/blogs/offthebroiler/badurls
+END

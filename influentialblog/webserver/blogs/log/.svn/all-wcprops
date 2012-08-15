@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/82/trunk/webserver/blogs/log
+END
+test.log
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/12/trunk/webserver/blogs/log/test.log
+END
+development.log
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/82/trunk/webserver/blogs/log/development.log
+END
+production.log
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/12/trunk/webserver/blogs/log/production.log
+END
+server.log
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/12/trunk/webserver/blogs/log/server.log
+END

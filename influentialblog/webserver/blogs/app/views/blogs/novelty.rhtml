@@ -1,0 +1,14 @@
+<h2>
+  Find the first posts for a list of restaurants
+</h2>
+<div id="mform">
+<% form_remote_tag(:url => {:action => :showfirstpost}, :update => "firstpost") do %>
+  Restaurants List
+  <%= text_field_tag(:rests, 'Buddakan,Del Posto,Morimoto,The Little Owl,A Voce,Country,Telepan,Sfoglia,Gramercy Tavern', :size => 120) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</div> 
+
+<div id="firstpost">
+</div>
+

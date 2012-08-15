@@ -1,0 +1,26 @@
+<table border="1">
+  <tr>
+    <th>Site_id</th>
+    <th>Site_name</th>
+    <th>Blog_id</th>
+    <th><%= link_to_remote("Publish_Date", :update => "postbyname", :url => {:action => "sort_by_publishdate"}) %></th>
+    <th>Title</th>
+    <th>Lenght</th>
+    <th><%= link_to_remote("Outlinks", :update => "postbyname", :url => {:action => "sort_by_outlinkcnt"}) %></th>
+    <th><%= link_to_remote("Comments", :update => "postbyname", :url => {:action => "sort_by_comcnt"}) %></th>
+  </tr>
+  <%@post.each do |p|%>
+  <tr>
+  <td><%=p["site_id"] %></td>
+  <td><%=p["site_name"] %></td>
+  <td><%=p["blog_id"] %></td>
+  <td><%=p["publish_date"] %></td>
+  <td><%=p["title"] %></td>
+  <td><%=p["length"] %></td>
+  <td><%=p["linkcnt"] %></td>
+  <td><%=p["comcnt"] %></td>
+  </tr>
+  <%end%>
+ </table>
+ 
+        

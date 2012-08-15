@@ -1,0 +1,16 @@
+<h2>
+  Below are restaurant names collected from yelp.com. Each category has top 5 most popular restaurants.
+</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Restaurant Name</th>
+    <th>Category</th>
+  </tr>
+  <% @rests.each do |s|%>
+  <tr>
+    <td><%=s["id"]%></td>
+    <td><%=s["name"]%></td>
+    <td><%=s["category"]%></td>
+  </tr>
+  <% end %></table>

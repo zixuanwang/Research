@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull
+END
+mouthfull.log
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull/mouthfull.log
+END
+urls
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull/urls
+END
+getUrls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull/getUrls.rb
+END
+test_mouthfull_parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull/test_mouthfull_parser.rb
+END
+badurls
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/35/trunk/blogs/writingwithmouthfull/badurls
+END

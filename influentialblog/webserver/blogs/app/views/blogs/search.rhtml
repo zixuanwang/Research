@@ -1,0 +1,43 @@
+<h2>
+  Search Post / Outlink / Site
+</h2>
+
+<% form_remote_tag( :url =>{:action => 'showsitebyid'}, :update =>"showsite") do %>
+  Search Site by ID 
+  <%= text_field_tag :site_id, '1' %>
+  <%= submit_tag("Search") %> 
+<% end %>
+<br />
+<div id="showsite">
+</div>
+
+<% form_remote_tag( :url =>{:action => 'showlinkbyid'}, :update =>"showlink") do %>
+  Search Link by ID
+  <%= text_field_tag :link_id, '1' %>
+  <%= submit_tag("Search") %> 
+<% end %>
+
+<div id="showlink">
+</div>
+<br />
+
+<% form_remote_tag( :url =>{:action => 'showpostbyid'}, :update => "showpost") do %>
+  Search Post by ID: 
+  <%= text_field_tag :blog_id, '1' %>
+  <%= submit_tag("Search") %> 
+<% end %>
+<br />
+
+<% form_remote_tag( :url =>{:action => 'showpostbyurl'}, :update => "showpost") do %>
+  Search Post by URL: 
+  <%= text_field_tag(:blog_url, 'http://newyork.seriouseats.com/2006/01/cast_iron_chef.html', :size => 120) %>
+  <%= submit_tag("Search") %> 
+<% end %>
+<br />
+
+<div id="showpost">
+</div>
+<br />
+
+
+
