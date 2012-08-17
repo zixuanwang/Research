@@ -91,8 +91,39 @@
     <p> Step 3: Invite your friends, propose different things to do, and decide as a group. </p>
     <br>
     
-    <form class="well form-inline" name="indexForm" action = '/myevents/createEvent/' method = "post" onsubmit="return validateEmail();">
-    {% csrf_token %}
+  	<div class="row">
+  	<!--
+    	<div class="span4"> 
+    	 <form class="well form-inline" name="indexForm" action = '/myevents/login/' method = "post" onsubmit="return validateEmail();">
+    	{% csrf_token %}
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Email address</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-envelope"></i></span>
+              <input lass="input-xlarge" type="text" id="user_email" name="user_email"  placeholder="Email address"  autofocus required>  
+            </div>
+          </div>
+        </div>
+    	
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+             <input class="input-xlarge" type="password" id="user_passwd" name="user_passwd" placeholder="Password" required>
+             </div>
+          </div>
+        </div>
+ 
+    	<button type="submit" class="btn-primary btn-large">Login</button>
+ 
+    	</div>
+    	-->
+    	
+    	<div class="span8">  
+    	<form class="well form-inline" name="indexForm" action = '/myevents/createEvent/' method = "post" onsubmit="return validateEmail();">
+    	{% csrf_token %}
     	 <div class="control-group">
           <label class="control-label" for="inputIcon">Email address</label>
           <div class="controls">
@@ -119,7 +150,10 @@
     	<br>
     	-->
     	<button type="submit" class="btn-primary btn-large">Submit</button>
-    </form>
+    	</form>
+    	</div>
+    </div>
+ 
 </div>
 	
     <br>

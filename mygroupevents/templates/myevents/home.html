@@ -22,15 +22,15 @@
 	<header id="mainheader">
 	
 	<div id="top">
-	<h1 id="sitename">MyEvents: Group Recommender System</h1>
+	<h1 id="sitename">MyEvents: organize group events</h1>
 	</div>
 	
 	<nav id="mainnav">
 		<ul>
 			<li class="current"><a href="#">Home</a></li>
-			<li><a href="#">Admin</a></li>
-			<li><a href="#">Attender</a></li>
-			<li><a href="#">Result</a></li>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Signup</a></li>
+			<li><a href="#">Guest</a></li>
 		</ul>
 		<div class="righticons"><img src="{%static "images/feedicon.png"%}" width="19" height="22" alt="feed"></div>
 	</nav>
@@ -56,7 +56,7 @@
 <section id="grayblock">
 <div class="getquote">
 	<h3>Start the Process!</h3>
-	<form name = "indexForm" action = '/myEvents/createEvent/' method = "post" onsubmit="return validateEmail();"> 
+	<form name = "indexForm" action = '/myevents/createEvent/' method = "post" onsubmit="return validateEmail();"> 
 		{% csrf_token %}
 		<div class="eml">
 			<label for="id_user_email"> Email </label>
@@ -75,7 +75,7 @@
 </div>
 <div class="getquote">
 	<h3> Register: Become a member! </h3>
-	<form name = "registerForm" action = '/myEvents/register/' method = "post" onsubmit="return validateEmail();"> 
+	<form name = "registerForm" action = '/myevents/register/' method = "post" onsubmit="return validateEmail();"> 
 		{% csrf_token %}
 		<div class="eml">
 			<label for="id_user_email"> Email </label>

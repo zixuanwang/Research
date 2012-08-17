@@ -28,12 +28,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "pinax_site_db",                       # Or path to database file if using sqlite3.
-        "USER": "root",                             # Not used with sqlite3.
-        "PASSWORD": "fighting123",                         # Not used with sqlite3.
-        "HOST": "localhost",                             # Set to empty string for localhost. Not used with sqlite3.
-        "PORT": "3336",                             # Set to empty string for default. Not used with sqlite3.
+        "ENGINE": "django.db.backends.sqlite3", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
+        "NAME": "dev.db",                       # Or path to database file if using sqlite3.
+        "USER": "",                             # Not used with sqlite3.
+        "PASSWORD": "",                         # Not used with sqlite3.
+        "HOST": "",                             # Set to empty string for localhost. Not used with sqlite3.
+        "PORT": "",                             # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -42,8 +42,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-#TIME_ZONE = "US/Eastern"
-TIME_ZONE = "UTC"
+TIME_ZONE = "US/Eastern"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -93,7 +92,7 @@ ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 COMPRESS_OUTPUT_DIR = "cache"
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "ml)qufg*@@(&vi)htalwt)gopmn6fcxoss1=13gmwb%o$*8rch"
+SECRET_KEY = "rros1l#0m7okpnkeka@s)t-9y@tnst(t96g*h*x2a2x7i07hxl"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [

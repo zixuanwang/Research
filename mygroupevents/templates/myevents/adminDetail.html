@@ -32,6 +32,28 @@
 			jQuery("#emails").tagit();
 	    });
 	 
+	 
+	 function validateEmail(a_email)
+		{
+			var x = a_email;
+			if (x.indexOf(' ') >= 0)  //if contain white space
+			{
+				alert(x+ " is not a valid e-mail address");
+				return false;
+			}
+			else{	
+				var atpos=x.indexOf("@");
+				var dotpos=x.lastIndexOf(".");
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  				{
+ 					alert(x+ " is not a valid e-mail address");
+  					return false;
+ 				 }
+ 				 else
+ 			 		return true;
+			}
+		}
+		
 	function validateForm()
 	{
 		var x=document.forms["fixedAttrForm"]["when_date"].value;
@@ -48,7 +70,10 @@
 			alert("Date should be in the format of yyyy-mm-dd ! ")
 			return false;
 		}
- 		var friendEmails = $("#emails").tagit("assignedTags").toString();
+ 		//var friendEmails = $("#emails").tagit("assignedTags").toString();
+		var friendEmails = $("#emails").val();
+		//var friendEmails = document.getElementById("emails").value;
+		 
 		if (friendEmails=="")
 		{
 			alert("You Should Invite at least one friend! Press Enter or Tab to confirm your friend input ");
@@ -59,14 +84,30 @@
 			alert('Please do not invite yourself....');
 			return false;
 		}
+		var friend_email_list = friendEmails.split(',');
+
+		for(var a_index in friend_email_list)
+		{
+			var a_email = friend_email_list[a_index];
+			a_email=a_email.trim();
+			if(a_email)
+			{   
+				console.debug(a_email);
+				var test_result = validateEmail(a_email);
+				if(test_result ==false)
+				{	
+					return false;
+				}
+			}
+		}
 		
 		return true;
 	}
-	 
+	/*	 
 	function add_friend_choice (value){
 		$("#emails").tagit("createTag", value);
 	};
-	  
+	*/
 	$(document).ready(function() {
 		$('.myfriend').live('click',function(){
 			var fname = $(this).text();
@@ -133,14 +174,16 @@
 			
 		<div class="row-fluid  show-grid">
 			<h3> WHO </h3>
-			<p><span class="add-on"><i class="icon-user"></i></span> Who do you want to invite? Provide their correct email addresses. </p>
-			<p> <ul id="emails" name="emails"></ul>
- 
+			<p><span class="add-on"><i class="icon-user"></i></span> Who do you want to invite? Provide email addresses delimitered by comma. </p>
+			<!--<p> <ul id="emails" name="emails"></ul> -->
+ 			<div class="field">
+ 				<textarea class="input-xlarge span8" id="emails" rows="2" name="emails"></textarea>
+			</div>
 			{%if myfriends%}
-			  	<p> Consider including 
-			  	{%for f in myfriends%}
+			  	<p> Consider including {{  myfriends }}
+			  	<!--{%for f in myfriends%}
 			  		<a class="myfriend"> {{f}} </a> 
-			  	{%endfor%}
+			  	{%endfor%}-->
 			  	<p>
 			{%endif%}
 		</div>

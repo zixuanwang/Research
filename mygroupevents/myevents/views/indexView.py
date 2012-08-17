@@ -6,6 +6,13 @@ from myevents.models import *
 from myevents.forms  import IndexForm
 import datetime 
 
+
+def login(request):
+    return render_to_response('myevents/login.html',{},context_instance=RequestContext(request))
+
+def signup(request):
+    return render_to_response('myevents/signup.html',{},context_instance=RequestContext(request))
+
 def index(request):
     return render_to_response('myevents/index.html',{},context_instance=RequestContext(request))
 

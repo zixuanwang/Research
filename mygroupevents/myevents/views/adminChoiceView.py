@@ -11,7 +11,6 @@ from django.core import serializers
 import urllib2 
 import unicodedata
 
-             
 def adminChoice(request, ehash, uhash):
     try:
         e = event.objects.get(ehash=ehash)

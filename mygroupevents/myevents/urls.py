@@ -11,6 +11,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('myevents.views',
     url(r'^$', 'index'),
+    url(r'^signup/$', 'signup'),
+    url(r'^login/$', 'login'),
     url(r'^index/$', 'index'),
     url(r'^faq/$', direct_to_template,{'template': 'myevents/faq.html'}),
     url(r'^createEvent/$', 'createEvent'),

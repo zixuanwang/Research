@@ -1,0 +1,151 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %} Welcome {% endblock %}
+{% block extrastyle %}
+		<style type="text/css">
+			.ftwraper{
+				background:  #000; /*#000;*/
+				position:fixed;
+				bottom:0;
+				left:0; 
+				width:100%;
+				padding:10px,0;
+				text-align:center;
+			}
+		img {
+    		 width:100%; /* %100%; */
+    		height:auto; /*auto;*/
+		}
+		</style>
+{% endblock %}
+{% block morescript %}
+   <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{%static "js/bootstrap-carousel.js"%}"></script> 
+    <!--<script type="text/javascript" src="js/bootstrap-carousel.js"></script>-->
+   	<script>
+		function validateEmail()
+		{
+			var x=document.forms["indexForm"]["user_email"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+ 				alert("Not a valid e-mail address");
+  				return false;
+ 			 }
+		}
+		
+		$(document).ready(function() {
+		    $('.carousel').carousel({
+    			interval: 6000
+   			 });
+		});
+		
+	</script>
+{% endblock %}
+
+{% block content%} 
+	<!-- Hello Unit
+	================================================== -->
+<div class="container">	
+<!--
+     <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="static/img/1.png" alt="">
+                <div class="carousel-caption">
+                  <h4>Create the Event</h4>
+                  <p>Submit your email address and an event name</p>
+                </div>
+              </div>
+              
+              <div class="item">
+                <img src="static/img/2.png" alt="">
+                <div class="carousel-caption">
+                  <h4>Organize your Event</h4>
+                  <p>Receive an email with a link to organize your event and invite your friends</p>
+                </div>
+              </div>
+
+              <div class="item">
+                 <img src="static/img/3.png" alt="">
+                 <div class="carousel-caption">
+                  <h4>Group Decision on Choices</h4>
+                  <p>With the help of our recommendation, pick several choices for the group, and ask your friends to decide as a group </p>
+                </div>
+              </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+     </div>
+     -->
+    <div class="hero-unit">
+    
+	<div class="row">
+	<div class="span6 offset2">
+	<h1>Sign Up</h1>
+    <br>	
+    <form class="well form-inline" name="indexForm" action = '/myevents/singup/' method = "post" onsubmit="return validateEmail();">
+    {% csrf_token %}
+    
+        <div class="control-group">
+          <label class="control-label" for="inputIcon">User Name</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user"></i></span>
+              <input lass="input-xlarge" id="user_name" name="user_name" type="text" autofocus required>
+            </div>
+          </div>
+        </div>
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Email address</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-envelope"></i></span>
+              <input lass="input-xlarge" id="user_email" name="user_email" type="text" autofocus required>
+            </div>
+          </div>
+        </div>
+    	
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+              <input lass="input-xlarge"  type="password" id="user_passwd" name="user_passwd" type="text"  required>
+            </div>
+          </div>
+        </div>
+        
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Confirm Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+                <input lass="input-xlarge"  type="password" id="user_confirm_passwd" name="user_confirm_passwd" type="text"  required>
+            </div>
+          </div>
+        </div>
+ 
+    	<button type="submit" class="btn-primary btn-large">Submit</button>
+    </form>
+</div>
+</div>
+</div>
+	
+    <br>
+    <br>
+	<!-- Footer
+    ================================================== -->
+	<footer class="footer  ftwraper">
+        <!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+        <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+	</footer>
+
+</div> <!-- /container -->	 
+   
+{% endblock%}
+
