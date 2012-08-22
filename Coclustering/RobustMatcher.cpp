@@ -1,7 +1,7 @@
 #include "RobustMatcher.h"
 
 RobustMatcher::RobustMatcher() :
-		ratio(0.75), distance(1.0) {
+		ratio(0.8), distance(1.0) {
 	// SURF is the default feature
 	detector = new cv::SurfFeatureDetector();
 	extractor = new cv::SurfDescriptorExtractor();
@@ -24,10 +24,10 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2,
 	std::vector<cv::KeyPoint> keypoint2;
 	cv::Mat imageDescriptor1;
 	cv::Mat imageDescriptor2;
-	BoWDescriptor::instance()->extractDescriptor(&keypoint1, &imageDescriptor1,
-			image1);
-	BoWDescriptor::instance()->extractDescriptor(&keypoint2, &imageDescriptor2,
-			image2);
+	detector->detect(image1,keypoint1);
+	extractor->compute(image1,keypoint1,imageDescriptor1);
+	detector->detect(image2,keypoint2);
+	extractor->compute(image2,keypoint2,imageDescriptor2);
 	cv::BFMatcher matcher(cv::NORM_L2);
 	// from image 1 to image 2
 	// based on k nearest neighbours (with k=2)

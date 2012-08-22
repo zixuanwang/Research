@@ -10,6 +10,8 @@ public:
 	void addSample(const Sample& sample, float weight = 1.0);
 	// the number of samples to be clustered.
 	int sampleCount();
+	// the center of the cluster.
+	Sample center();
 	Sample sample(size_t index) const;
 	std::vector<int> labelArray() const;
 protected:
