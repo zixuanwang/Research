@@ -11,26 +11,34 @@ from django.core import serializers
 import urllib2 
 import unicodedata
 
-def adminChoice(request, ehash, uhash):
-    try:
-        e = event.objects.get(ehash=ehash)
-        if int(e.status) < EVENT_STATUS.HASDETAIL:
-            data = {'error_msg': 'Please Provide The Detail First'}
-            return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
-        if int(e.status) == EVENT_STATUS.VOTING:
-            started = True
-        else:
-            started = False
+def adminChoice(request, ehash):
+    uid = request.session['user_id']
+    if uid:
+        u = get_user_by_uid(uid)
+        if u is not None and u.is_authenticated(): 
+            try:
+                e = event.objects.get(ehash=ehash)
+                if int(e.status) < EVENT_STATUS.HASDETAIL:
+                    data = {'message': 'Please Provide Event Detail First'}
+                    return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+                if int(e.status) == EVENT_STATUS.VOTING:
+                    started = True
+                else:
+                    started = False
             
-        has_recommendation = False
-        if isValidForRecommendation(e.detail,e.location):
-            has_recommendation = True
-                
-        data = {'event':e, 'uhash':uhash, 'started':started,'has_recommendation':has_recommendation}
-        return render_to_response('myevents/adminChoice.html', data, context_instance=RequestContext(request))
-    except event.DoesNotExist:
-        data = {'error_msg': 'event does not exist'}
-        return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+                has_recommendation = False
+                if isValidForRecommendation(e.detail,e.location):
+                    has_recommendation = True
+                data = {'event':e, 'user':u,'uhash':u.uhash, 'started':started,'has_recommendation':has_recommendation}
+                return render_to_response('myevents/adminChoice.html', data, context_instance=RequestContext(request))
+            except event.DoesNotExist:
+                data = {'message': 'event does not exist'}
+                return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+        else:
+            return render_to_response('myevents/error.html', {'message':'invalid user'}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('myevents/error.html', {'message':'invalid session'}, context_instance=RequestContext(request))
+
         
 def addManualChoice(request, ehash, uhash):
     if request.method == "POST":
@@ -262,7 +270,6 @@ def build_baseline_reclist(user_rate):
     ulist = user_rate.values()
     item_union = {}
     for u in ulist:
-        print u 
         #u.keys= items. 
         for iid,rating in u.iteritems():
             if item_union.has_key(iid):
@@ -287,9 +294,68 @@ def build_baseline_reclist(user_rate):
 
 # work in july 19. 
 # baseline recommendation algorithm
-def getBaseRecommendation(request,ehash,uhash):
+def getBaseRecommendation2(request,ehash,uhash):
+    print ehash,uhash
     if request.method == 'GET':
         u = user.objects.get(uhash=uhash)
+        e = event.objects.get(ehash=ehash)
+        data = {}
+        # select all users of this event 
+        eu = event_user.objects.filter(event_id=e.id)
+        if eu:
+            user_rate = {}
+            for row in eu:
+                uid = row.user_id
+                # for this user, select past positive ratings, build the dictionary of item:rating
+                iu = poll.objects.filter(user_id=uid)
+                if iu:  #user has voted before.
+                    user_rate[uid] = {}     #build the rating list for the user
+                    for i in iu:
+                        cid = i.choice_id 
+                        rating = get_baseline_rating(uid,cid)
+                        # get the item id according to choice id.
+                        item_id = None
+                        try:
+                            item_id = choice.objects.get(id=cid).pickid
+                        except choice.DoesNotExist:
+                            print 'can not find the choice??'
+                        if (rating!=None) and item_id:
+                            user_rate[uid][item_id] = rating
+            if user_rate:
+                sorted_items =[]
+                sorted_items = build_baseline_reclist(user_rate) 
+                #print 'sorted_items:%s'%','.join(sorted_items)
+                ys = []                                                                                       
+                item_count = 0 
+                for i in sorted_items:
+                    print i
+                    if item_count > 10:   # only recommend top 10 items
+                        break
+                    try:
+                        item_instance = item.objects.get(id = i)
+                        #print item_instance
+                        ys.append(item_instance)
+                        item_count += 1
+                    except item.DoesNotExist:
+                        print 'can not find the past item ??'
+                data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
+            else:  #if nobody has rated before
+                q = search_query.objects.create(term=e.detail,location=e.location, search_by_id = u.id, search_for_id=e.id)
+                data = search_yelp('restaurants','restaurants',e.location,q.id)
+            return HttpResponse(data, mimetype='application/json')
+        else:  # no users in the event
+            return render_to_response('myevents/error.html', {"message":" failed to identify your friends"}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+
+def getBaseRecommendation(request,ehash,uhash=None):
+    print ehash,uhash
+    if request.method == 'GET':
+        if uhash is None:
+            uid = request.session['user_id']
+            u = user.objects.get(id=uid)
+        else:
+            u = user.objects.get(uhash=uhash)
         e = event.objects.get(ehash=ehash)
         data = {}
         # select all users of this event 
@@ -338,10 +404,37 @@ def getBaseRecommendation(request,ehash,uhash):
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
 #select from search results
-def getMyYelpSearchChoices(request,ehash,uhash):
+def getMyYelpSearchChoices(request,ehash,uhash=None):
+    print ehash.uhash
+    if uhash is None:
+        uid = request.session['user_id']
+        u=user.objects.get(id=uid)
+    else:
+        u= user.objects.get(uhash=uhash)
     if request.method=="POST":
-        u = user.objects.get(uhash=uhash)
         e = event.objects.get(ehash=ehash)
+        data = {}
+        query_term = request.POST.get('query')
+        location = request.POST.get('location')
+        
+        #record query behavior, what if one user, for one event, searched twice??? record them but be careful when pulling out the results
+        q = search_query.objects.create(term=query_term,location=location, search_by_id = u.id, search_for_id=e.id)
+        if e.detail == 'dining out':
+            data = search_yelp('restaurants',query_term,location, q.id)
+        if e.detail == 'drink':
+            data = search_yelp('nightlife',query_term,location, q.id)
+        #for d in data:
+        #    s = search_result.objects.create(query_id=q.id, yelp_result_id=d.id)
+        #return to client, render search results 
+        return HttpResponse(data, mimetype='application/json')
+    else:
+        return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+
+#select from search results
+def getMyYelpSearchChoices2(request,ehash,uhash):
+    if request.method=="POST":
+        e = event.objects.get(ehash=ehash)
+        u= user.objects.get(uhash=uhash)
         data = {}
         query_term = request.POST.get('query')
         location = request.POST.get('location')
@@ -360,13 +453,20 @@ def getMyYelpSearchChoices(request,ehash,uhash):
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
     
 # use item rather than different types
-def editEventChoice(request, ehash, uhash):
+def editEventChoice(request, ehash,uhash=None):
     if request.method == "POST":
         admin_choices = request.POST.getlist('admin_choice_ids')
         try: 
             choice_objs = []
             e = event.objects.get(ehash=ehash)
-            inviter = user.objects.get(uhash=uhash)
+            if uhash is None:
+                uid = request.session['user_id']
+                if uid is None:
+                    return render_to_response('myevents/error.html', {"message":"invalid user"}, context_instance=RequestContext(request))      
+                else:
+                    inviter = user.objects.get(id=uid)
+            else:
+                inviter = user.objects.get(uhash=uhash)
             for cid in admin_choices:
                 try:
                     c = choice.objects.get(pickid=cid,pickby_id=inviter.id)
@@ -400,7 +500,7 @@ def editEventChoice(request, ehash, uhash):
               
             e.status = EVENT_STATUS.VOTING
             e.save()
-            data = {'event': e, 'choices':choice_objs}        
+            data = {'event': e, 'user':inviter,'choices':choice_objs}        
             return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      
@@ -441,7 +541,7 @@ def addMoreChoice(request,ehash,uhash):
                 except user.DoesNotExist:   #ignore the user which doesn't exist in the db
                     continue
 
-            data = {'event': e, 'choices':choice_objs}        
+            data = {'event': e, 'user':proposer,'choices':choice_objs}        
             return render_to_response('myevents/addChoiceSuccess.html', data, context_instance=RequestContext(request))
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html', {"message":"event or user does not exist"}, context_instance=RequestContext(request))      

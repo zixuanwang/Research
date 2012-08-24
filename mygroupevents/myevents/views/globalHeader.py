@@ -216,3 +216,36 @@ def isValidForRecommendation(detail,location):
     else:  # must have both
         return {}    
 
+def get_user_by_uid(uid):
+    try:
+        u = user.objects.get(id=uid)
+        return u
+    except user.DoesNotExist:
+        return None
+    
+def get_my_friends(uid):
+    u = get_user_by_uid(uid)
+    friendids = []
+    friends = []
+    if u:
+        try:
+            myfriends = friend.objects.filter(u_id=uid)
+            if myfriends:
+                for row in myfriends:
+                    v_id = row.v_id
+                    friendids.append(v_id)
+                    afriend = user.objects.get(id=v_id)
+                    friends.append(afriend)
+            rightfriend = friend.objects.filter(v_id=uid)
+            if rightfriend:
+                for row in rightfriend:
+                    u_id = row.u_id
+                    if u_id in friendids:
+                        pass
+                    else:
+                        friendids.append(u_id)
+                        afriend = user.objects.get(id=u_id)
+                        friends.append(afriend)
+        except friend.DoesNotExist or user.DoesNotExist:
+            return None
+    return friends

@@ -33,8 +33,37 @@ def getMyFriends(uhash):
     except user.DoesNotExist or friend.DoesNotExist:
         return False
     return friends 
+
+def adminDetail(request,ehash):
+    uid = request.session['user_id']
+    eid = request.session['event_id']
+    print uid,eid
+    if uid:
+        u = get_user_by_uid(uid)
+        if u is not None and u.is_authenticated(): 
+            uhash = u.uhash
+            try:
+                if eid:
+                    e = event.objects.get(id=eid)
+                else:
+                    e = event.objects.get(ehash=ehash)
+                if int(e.status) == EVENT_STATUS.VOTING:
+                    started = True
+                else:
+                    started = False
+                myfriends = getMyFriends(uhash)
+                data = {'event':e, 'user':u, 'uhash':uhash, 'started':started, 'myfriends':','.join(myfriends),'myemail':e.inviter}
+                return render_to_response('myevents/adminDetail.html', data, context_instance=RequestContext(request))
+            except event.DoesNotExist:
+                data = {'error_msg': 'Event does not exist' }
+                return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+        else:
+            return render_to_response('myevents/error.html',{'error_msg':'invalid user. Please log in'},context_instance=RequestContext(request))
+    else:
+        return render_to_response('myevents/error.html',{'error_msg':'invalid user. Please log in'},context_instance=RequestContext(request))
+
  
-def adminDetail(request, ehash, uhash):
+def adminDetail2(request, ehash, uhash):
     try:
         e = event.objects.get(ehash=ehash)
         if int(e.status) == EVENT_STATUS.VOTING:
@@ -45,7 +74,7 @@ def adminDetail(request, ehash, uhash):
         data = {'event':e, 'uhash':uhash, 'started':started, 'myfriends':','.join(myfriends),'myemail':e.inviter}
         return render_to_response('myevents/adminDetail.html', data, context_instance=RequestContext(request))
     except event.DoesNotExist:
-        data = {'error_msg': 'Event does not exist' }
+        data = {'message': 'Event does not exist' }
         return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
 
 def fun_remove_extra_comma(friendEmails):
@@ -57,43 +86,49 @@ def fun_remove_extra_comma(friendEmails):
             correct_list.append(f)
     return ','.join(correct_list)
 
-def editEventAttrForm(request, ehash, uhash):
-    updateResult = False
-    if request.method == "POST":
-        what = request.POST.get('what')
-        #print what
-        what_other = request.POST.get('what_other')
-        eventDate = request.POST.get('when_date')
-        #print eventDate
-        eventTime = request.POST.get('when_time')
-        #print eventTime
-        #e3 = request.POST.getlist("item[tags][]")
-        #if len(e3)>=2:
-        #    friendEmails = ','.join(e3)
-        #else:
-        #    friendEmails=e3[0]
-         
-        friendEmailList = request.POST.get('emails')
+def editEventAttrForm(request,ehash):
+    uid= request.session['user_id']
+    if not uid:
+        return render_to_response('myevents/error.html', {'message':'invalid session'}, context_instance=RequestContext(request))
+    try:
+        u = user.objects.get(id=uid)
+        uhash=u.uhash
+        updateResult = False 
+        if request.method == "POST":
+            what = request.POST.get('what')
+            print what
+            what_other = request.POST.get('what_other')
+            eventDate = request.POST.get('when_date')
+            print eventDate
+            eventTime = request.POST.get('when_time')
+            print eventTime
+            #e3 = request.POST.getlist("item[tags][]")
+            #if len(e3)>=2:
+            #    friendEmails = ','.join(e3)
+            #else:
+            #    friendEmails=e3[0]         
+            friendEmailList = request.POST.get('emails')
         
-        friendEmails = fun_remove_extra_comma(friendEmailList)
-        print friendEmails    
-        location = request.POST.get('location')
+            friendEmails = fun_remove_extra_comma(friendEmailList)
+            print friendEmails    
+            location = request.POST.get('location')
   
-        updateResult = updateEventFixedAttr(ehash, uhash, what,what_other, friendEmails, eventDate,eventTime, location)
-        if updateResult:
-            e = event.objects.get(ehash=ehash)
-            if e.status == 1:
-                started = True
+            updateResult = updateEventFixedAttr(ehash, uhash, what,what_other, friendEmails, eventDate,eventTime, location)
+            if updateResult:
+                e = event.objects.get(ehash=ehash)
+                if e.status == 1:
+                    started = True
+                else:
+                    started = False
+                data = {'event': e, 'user':u,'uhash':uhash, 'started':started }  
+                return HttpResponseRedirect('../adminChoice/')
             else:
-                started = False
-            data = {'event': e, 'uhash':uhash, 'started':started }  
-            return HttpResponseRedirect('../adminChoice/')
-        else:
-            data = {'error_msg': 'update Event detail failed'}
-            return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
-    return render_to_response('myevents/adminDetail.html', {}, context_instance=RequestContext(request))
-
-
+                data = {'message': 'update Event detail failed'}
+                return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+            return render_to_response('myevents/adminDetail.html', {}, context_instance=RequestContext(request))
+    except user.DoesNotExist:
+        return render_to_response('myevents/error.html', {'message':'invalid user'}, context_instance=RequestContext(request))
+        
 def updateEventFixedAttr(ehash, uhash, what, what_other, friendEmails, eventDate,eventTime,location):
     try:
         e = event.objects.get(ehash=ehash)

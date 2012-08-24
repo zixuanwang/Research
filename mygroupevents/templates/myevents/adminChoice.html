@@ -1,4 +1,4 @@
-{% extends "myevents/base.html" %}
+{% extends "myevents/auth_base.html" %}
 {% load static %}
 {% block title %} Welcome to MyGroupEvents {% endblock %}
 {% block extrastyle %}
@@ -325,14 +325,18 @@ $(function() {
 <!-- hidden values--> 
 <p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
 
-<div class="container">
-	<p><a class="btn btn-primary" href='../adminDetail/'> BACK TO EVENT DETAILS </a> </p>
-	<br/>
+ <header class="jumbotron subhead">
+  <div class="container">
+ {% if user.is_authenticated %}  
+  <h1>Welcome, {{ user.name }}. </h1>
+<h3> Organize your event  <font color='#08c'>{{event.name}} </font> </h3>
+{% else %}
+  <p>Welcome, Please <a href='../login/'>log in</a> to view this page.</p>
+{% endif %}
+</div>
+</header>
 
-	<div class="row-fluid" id="event_builder">
-		<h2> Organize your event  <font color='#08c'>  {{event.name}} </font> </h2>
- 	</div> 
-	<br>
+<div class="container">
 	
 	{%if started  %} 
 	     <div class="alert">
@@ -357,9 +361,10 @@ $(function() {
    			 near <u> {{event.location}} </u>
     		{%endif%}
 	 	</p>
+	<p><a class="btn btn-primary" href='../adminDetail/'> BACK TO EDIT EVENT DETAILS </a> </p>
  	</div>
  	
- 	<br/>
+ 	<hr/>
   	<div class="row-fluid  show-grid">
 		<h3>PICK OPTIONS </h3>
 		<p ><span class="add-on"><i class="icon-list-alt"></i></span> Now give your friends multiple options to select from. 
@@ -463,7 +468,7 @@ $(function() {
 		</div>  
 		
 		<br/>
-		<form class="well" name="AdminChoiceForm" action = '/myevents/{{event.ehash}}/{{uhash}}/editEventChoice/' method = "post" onsubmit="return validateForm(); ">
+		<form class="well" name="AdminChoiceForm" action = '../editEventChoice/' method = "post" onsubmit="return validateForm(); ">
 			<div id="hidden_manual_choice_list"  class="row-fluid  show-grid">
 			</div>
 			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">

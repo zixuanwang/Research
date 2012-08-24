@@ -57,7 +57,10 @@
 	<div class="span6 offset2">
 	<h1>Log In</h1>
     <br>	
-    <form class="well form-inline" name="indexForm" action = '/myevents/login/' method = "post" onsubmit="return validateEmail();">
+    {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+   {% endif %}
+    <form class="well form-inline" name="loginForm" action = '/myevents/loginUser/' method = "post" onsubmit="return validateEmail();">
     {% csrf_token %}
     	 <div class="control-group">
           <label class="control-label" for="inputIcon">Email address</label>
@@ -78,8 +81,7 @@
             </div>
           </div>
         </div>
- 
-    	<button type="submit" class="btn-primary btn-large">Submit</button>
+    	<button type="submit" class="btn-primary btn-large" value="login">Login</button>
     </form>
 </div>
 </div>

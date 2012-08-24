@@ -121,10 +121,11 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
-     #'django.contrib.sessions',
+    'django.contrib.sessions',
     'django.contrib.sessions.backends.signed_cookies',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.humanize',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -133,7 +134,16 @@ INSTALLED_APPS = (
     #'lunch',
     #'httpproxy',
     #'multilingual',
+    'email_usernames',
+    'registration',
     'myevents'
+)
+
+AUTHENTICATION_BACKENDS = (
+    # Our custom auth backend that allows email addresses to be used as usernames.
+    'email_usernames.backends.EmailOrUsernameModelBackend', 
+    # Default auth backend that handles everything else.
+    'django.contrib.auth.backends.ModelBackend', 
 )
 
 #TEMPLATE_CONTEXT_PROCESSORS = (
@@ -174,6 +184,8 @@ LOGGING = {
 
 
 #add by jinyun
+ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '../../myevents/profile'
 EMAIL_USE_TLS=True
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='mygroupevents@gmail.com'

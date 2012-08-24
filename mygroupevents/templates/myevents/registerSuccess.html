@@ -1,0 +1,39 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% load place_extra %}
+{% block title %} Thanks {% endblock %}
+ 
+{% block extrastyle %}
+<link type="text/css" href="{%static "css/tagit/reset.css"%}" rel="stylesheet" />
+<link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
+<style type="text/css">
+.wordwrap{
+	max-width:940px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+}
+</style>
+{% endblock %}
+
+{% block content%}
+<br/>
+<div class="container">	
+<div class="hello" >
+	{%if success%}
+		<h2> Thanks! {{message}} </h2> 
+		<p>Your account is created successfully. </h2>
+		<p>You can <a href="../login">Log In </a>right now  </p>
+	{%else%}
+		<h2> Failed! </h2>
+		<p>Your account creation is failed because {{message}} </h2>
+		<p>Wanna <a href="../signup"> Sign Up </a> again? </p>
+	{%endif%}
+</div>
+</div>
+<br/>
+
+{%endblock%}

@@ -7,3 +7,4 @@ from adminChoiceView import *
 from attenderView import *
 from resultView import *
 from reviewView import *
+from profileView import *

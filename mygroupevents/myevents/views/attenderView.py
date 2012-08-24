@@ -382,6 +382,17 @@ def db_get_all_attender_emails(eid):
     
     return attender_emails 
 
+def create_guest_user(email):
+    try:
+        u = user.objects.get(email=email)
+        return u
+    except user.DoesNotExist:
+        user_name = getNamebyEmail(email)
+        date_join= datetime.datetime.now()
+        uhash=make_uuid()
+        u = user.objects.create(name=user_name, email=email, passwd='', uhash=uhash,is_registered=False, is_active=True,date_join=date_join)
+        return u
+
 def addMoreFriends(request,ehash,uhash):     
     if request.method=="POST":
         try:
@@ -407,9 +418,7 @@ def addMoreFriends(request,ehash,uhash):
                             attender = user.objects.get(email=uemail)
                             uhash = attender.uhash
                         except user.DoesNotExist:
-                            uhash = make_uuid()
-                            name = getNamebyEmail(uemail)
-                            attender = user.objects.create(email=uemail, uhash=uhash, name=name)
+                            attender = create_guest_user(uemail)
                         try:
                             ### avoid the case that the user is already inserted. 
                             eu = event_user.objects.get(event_id=e.id, user_id=attender.id, role="attender")
@@ -439,7 +448,7 @@ def addMoreFriends(request,ehash,uhash):
                 #e.friends = e.friends+','+newfriends
                 e.save()   
             #END OF IF    
-            return render_to_response('myevents/addFriendsSuccess.html',{},context_instance=RequestContext(request))               
+            return render_to_response('myevents/addFriendsSuccess.html',{'user':u},context_instance=RequestContext(request))               
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html',{"message":"invalid event or user"},context_instance=RequestContext(request))  
     else:

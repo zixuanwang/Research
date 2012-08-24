@@ -1,0 +1,182 @@
+<!DOCTYPE html> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<meta name="Keywords" content="Recommender System, Group, Lunch" />
+	<meta name="Description" content=" Group Recommender System, Lunch,Dinner,Movie" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	{% load staticfiles %}	
+	<title>{%block title %} {% endblock %} </title>		
+	 <!--[if lt IE 9]>
+    	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   	<![endif]-->
+			
+	<!-- CSS ================================================== -->
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/bootstrap-responsive.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/jquery-ui-1.8.18.custom.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "css/font-awesome.css" %}" rel="stylesheet" type="text/css">
+		 
+	<style type="text/css">
+		.ftwraper{
+			background:  #eee; /*#000;*/
+			position:fixed;
+			bottom:0;
+			left:0; 
+			width:100%;
+			padding:10px,0;
+			text-align:center;
+		}
+
+body {
+  position: relative;
+  padding-top: 40px;
+}
+
+/* Change the docs' brand */
+body > .navbar .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+body > .navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+
+/* Sections
+-------------------------------------------------- */
+
+/* padding for in-page bookmarks and fixed navbar */
+section {
+  padding-top: 30px;
+}
+section > .page-header,
+section > .lead {
+  color: #5a5a5a;
+}
+section > ul li {
+  margin-bottom: 5px;
+}
+
+/* Separators (hr) */
+.bs-docs-separator {
+  margin: 40px 0 39px;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 70px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+
+/* Footer  */
+/*
+.footer {
+  padding: 70px 0;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  margin-right: 10px;
+}
+*/
+		
+		
+	</style>
+	{% block extrastyle %}{% endblock %}
+	<script type="text/javascript" src="{%static "js/jquery-1.7.1.min.js"%}"></script>
+	<script type="text/javascript" src="{%static "js/jquery-ui-1.8.18.custom.min.js"%}"></script>
+	<script type="text/javascript" src="{%static "js/bootstrap.js"%}"></script>
+	
+	</head> 
+	   
+  <body>
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+       
+       	 <a class="brand" target="_blank" href="/myevents/">MyGroupEvents</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/myevents/faq/" target="_blank">FAQ</a>
+              </li>
+              <li  >
+                <a href="/myevents/leaveComments/" target="_blank">COMMENT</a>
+              </li>
+                         	 <li>
+                  <a href="mailto:mygroupevents@gmail.com"><i class="icon-envelope"></i> CONTACT US</a>
+              </li>
+            </ul>
+            <ul  class="nav pull-right">
+                  
+            {% if not user.is_authenticated %}
+            <li>
+             <a href="/myevents/login/"><i class="icon-home"></i>LOGIN</a>
+            </li>
+            <li>
+                  <a href="/myevents/register/"><i class="icon-ok-sign"></i>SIGNUP</a>
+             </li>
+             {%endif%}
+             {% if user.is_authenticated %}
+              <li>
+                  <a href="/myevents/profile/"><i class="icon-user"></i>Profile</a>
+             </li>
+             <li>
+                  <a href="/myevents/logout/"><i class="icon-off"></i>LOGOUT</a>
+             </li>
+             
+             {%endif%}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+	</div>
+	<!-- Page Header
+	================================================== --> 
+    <!-- Thanks Unit
+	================================================== -->
+	
+	{% block content %}
+	{% endblock %}
+	<!--put javascript at the end of the page-->
+	{%block morescript %} {%endblock %} 
+</body>
+
+</html>
+
+

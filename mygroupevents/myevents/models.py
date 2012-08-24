@@ -7,7 +7,16 @@ class user(models.Model):
 	uhash = models.CharField(max_length=36)
 	name = models.CharField(max_length=255)
 	email = models.EmailField(max_length=100)
-	passwd = models.CharField(max_length=100)
+	passwd = models.CharField(max_length=128)
+	is_registered=models.IntegerField()
+	is_active=models.IntegerField()
+	date_join = models.DateTimeField(editable=True)
+	last_login = models.DateTimeField(auto_now_add=True)
+	def is_authenticated(self):
+		if self.is_registered:
+			return True
+		else:
+			return False	
 	
 # cnt is the number of time u and v appear in the same event
 class friend(models.Model):

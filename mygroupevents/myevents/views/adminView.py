@@ -9,6 +9,8 @@ from django.forms.fields import ChoiceField, MultipleChoiceField
 from django.utils import simplejson
 from django.core import serializers
 import urllib2 
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -33,20 +35,30 @@ def getMyFriends(uhash):
     except user.DoesNotExist or friend.DoesNotExist:
         return False
     return friends 
- 
-def admin(request, ehash, uhash):
-    try:
-        e = event.objects.get(ehash=ehash)
-        if int(e.status) == 1:
-            started = True
+
+def admin(request):
+    uid = request.session['user_id']
+    eid = request.session['event_id']
+    if uid and eid:
+        u = get_user_by_uid(uid)
+        if u is not None and u.is_authenticated(): 
+            try:
+                e = event.objects.get(id=eid)
+                if int(e.status) == 1:
+                    started = True
+                else:
+                    started = False
+                myfriends = getMyFriends(u.uhash)
+                data = {'event':e, 'uhash':u.uhash, 'started':started, 'myfriends':myfriends}
+                return render_to_response('myevents/adminDetail.html', data, context_instance=RequestContext(request))
+            except event.DoesNotExist:
+                data = {'create EventError': 'an error is occured!'}
+                return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
         else:
-            started = False
-        myfriends = getMyFriends(uhash)
-        data = {'event':e, 'uhash':uhash, 'started':started, 'myfriends':myfriends}
-        return render_to_response('myevents/admin.html', data, context_instance=RequestContext(request))
-    except event.DoesNotExist:
-        data = {'create EventError': 'an error is occured!'}
-        return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
+            return render_to_response('myevents/error.html',{'error_msg':'invalid user. Please log in'},context_instance=RequestContext(request))
+    else:
+        return render_to_response('myevents/error.html',{'error_msg':'invalid user. Please log in'},context_instance=RequestContext(request))
+
    
 def editEventAttr(request, ehash, uhash):
     updateResult = False
