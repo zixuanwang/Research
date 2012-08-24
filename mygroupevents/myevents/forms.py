@@ -9,11 +9,6 @@ class IndexForm(forms.Form):
 	user_email = forms.EmailField()
 	event_name = forms.CharField(max_length=1024,initial="Replace with your event name")
 
-class LoginForm(forms.Form):
-	user_email = forms.EmailField()
-	user_passwd = forms.CharField(max_length=1024)
-
-
 class AdminForm(forms.Form):
 	eventDate = forms.DateField()
 	voteDate = forms.DateField()

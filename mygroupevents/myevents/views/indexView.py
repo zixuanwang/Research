@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import Context, loader,RequestContext
 from django.http import HttpResponse,HttpResponseRedirect
 from myevents.models import * 
-from myevents.forms  import IndexForm
 import datetime 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
