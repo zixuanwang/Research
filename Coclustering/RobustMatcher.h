@@ -2,7 +2,6 @@
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/nonfree/nonfree.hpp>
-#include "BoWDescriptor.h"
 
 class RobustMatcher {
 private:

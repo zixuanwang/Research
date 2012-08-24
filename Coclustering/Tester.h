@@ -24,6 +24,8 @@
 #include "Evaluation.h"
 #include "RankItem.h"
 #include "VelocityComputer.h"
+#include "CameraCalibrator.h"
+#include "Tracker.h"
 // this class is used for testing functions
 class Tester {
 public:
@@ -53,5 +55,8 @@ public:
 	static void testLFWA();
 	static void testHalf();
 	static void testVelocity();
+	static void testCalibration();
+	static void testTracker();
+	static void testProjection();
 };
 

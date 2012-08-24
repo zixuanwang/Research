@@ -818,12 +818,12 @@ void Tester::testLFWA() {
 }
 
 void Tester::testHalf(){
-	std::string imageDirectory="c:/users/zixuan/dropbox/microsoft/experiment/image";
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
 	std::string outputDirectory="c:/users/zixuan/desktop/half";
 	std::vector<std::string> filenameArray;
 	File::getFiles(&filenameArray,imageDirectory, false);
 	for(size_t i=0;i<filenameArray.size();++i){
-		cv::Mat image=cv::imread(filenameArray[i],1);
+		cv::Mat image=cv::imread(filenameArray[i],0);
 		int width=image.cols;
 		cv::Rect rect(0,0,width/2,image.rows);
 		cv::Mat half=image(rect);
@@ -833,7 +833,7 @@ void Tester::testHalf(){
 
 void Tester::testVelocity(){
 	std::string imageDirectory="c:/users/zixuan/desktop/half";
-	std::ofstream outStream("c:/users/zixuan/desktop/image_velocity.txt");
+	std::ofstream outStream("c:/users/zixuan/desktop/imageVelocity.txt");
 	std::vector<std::string> filenameArray;
 	File::getFiles(&filenameArray,imageDirectory,false);
 	RobustMatcher matcher;
@@ -848,9 +848,147 @@ void Tester::testVelocity(){
 		std::vector<cv::KeyPoint> keypointArray2;
 		cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
 		if(!h.empty()){
-			outStream<<(endTime+startTime)/2<<"\t"<<computer.compute(startTime,endTime,h)<<std::endl;
+			//outStream<<(endTime+startTime)/2<<"\t"<<computer.compute(startTime,endTime,h)<<std::endl;
+			outStream<<(endTime+startTime)/2<<",";
+			std::ostream_iterator<double> outIter(outStream,",");
+			std::copy(h.ptr<double>(0),h.ptr<double>(0)+9,outIter);
+			outStream<<std::endl;
 		}
-		//matcher.show(image1,image2,keypointArray1,keypointArray2);
+		//matcher.show(image1,image2,keypointArray1,keypointArray2,"c:/users/zixuan/desktop/match/"+File::getFileStem(filenameArray[i])+File::getFileStem(filenameArray[i+1])+".jpg");
 	}
 	outStream.close();
+}
+
+void Tester::testCalibration(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<distCoeffs<<std::endl;
+}
+
+void Tester::testTracker(){
+	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	cv::Mat object=cv::imread(imagePath,0);
+	std::vector<cv::Point2f> srcCornerArray;
+	srcCornerArray.push_back(cv::Point2f(0,0));
+	srcCornerArray.push_back(cv::Point2f(object.cols,0));
+	srcCornerArray.push_back(cv::Point2f(object.cols,object.rows));
+	srcCornerArray.push_back(cv::Point2f(0,object.rows));
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::Mat gray;
+	cv::namedWindow("frame",1);
+	Tracker tracker;
+	bool init=false;
+	cv::Mat homography;
+	while(true){
+		capture>>frame;
+		cv::cvtColor(frame,gray,CV_BGR2GRAY);
+		std::vector<cv::Point2f> dstCornerArray;
+		if(!init){
+			init = tracker.locatePlanarObject(object,gray,srcCornerArray,&dstCornerArray);
+			tracker.track(gray);
+			homography=tracker.getBaseHomography().clone();
+		}else{
+			cv::Mat h=tracker.track(gray);
+			homography=homography*h;
+			tracker.applyHomograpy(&dstCornerArray,srcCornerArray,homography);
+			std::cout<<homography<<std::endl;
+		}
+		for(size_t i=0; i<dstCornerArray.size();++i){
+			cv::Point2f& r1=dstCornerArray[i%4];
+			cv::Point2f& r2=dstCornerArray[(i+1)%4];
+			cv::line(frame,r1,r2,CV_RGB(255,0,0));
+        }
+		cv::imshow("frame",frame);
+		//cv::Mat h=tracker.track(gray);
+		//std::cout<<h<<std::endl;
+		if(cv::waitKey(30) >= 0) break;
+	}
+	capture.release();
+	//std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	//cv::Mat image=cv::imread(imagePath,0);
+	//Tracker tracker;
+	//tracker.track(image);
+}
+
+void Tester::testProjection(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	cv::Mat R=cv::Mat::eye(3,3,CV_32FC1);
+	float tArray[3]={0,0,1000};
+	cv::Mat tvec(3,1,CV_32FC1,tArray);
+	cv::Mat rvec;
+	cv::Rodrigues(R,rvec,cv::noArray());
+	float objectArray[4][3]={{0,0,0},{0,600,0},{800,600,0},{800,0,0}};
+	cv::Mat objectPoints(4,3,CV_32FC1,objectArray);
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<imagePoints<<std::endl;
+	Tracker tracker;
+	cv::namedWindow("frame");
+	float yaw=0.0f;
+	float pitch=0.0f;
+	float roll=0.0f;
+	while(true){
+		cv::Mat frame=cv::Mat::zeros(800,800,CV_8UC3);
+		for(int i=0; i<imagePoints.rows;++i){
+			int index1=i%4;
+			int index2=(i+1)%4;
+			float* ptr1=imagePoints.ptr<float>(index1);
+			float* ptr2=imagePoints.ptr<float>(index2);
+			cv::Point2f r1(ptr1[0],ptr1[1]);
+			cv::Point2f r2(ptr2[0],ptr2[1]);
+			cv::line(frame,r1,r2,CV_RGB(255,0,0),1,CV_AA);
+        }
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(0);
+		switch (c)
+		{
+		case 'a':
+			tvec.at<float>(0,0)-=10;
+			break;
+		case 'd':
+			tvec.at<float>(0,0)+=10;
+			break;
+		case 'r':
+			tvec.at<float>(1,0)+=10;
+			break;
+		case 'f':
+			tvec.at<float>(1,0)-=10;
+			break;
+		case 'w':
+			tvec.at<float>(2,0)*=1.1;
+			break;
+		case 's':
+			tvec.at<float>(2,0)*=0.9;
+			break;
+		case 'i':
+			yaw+=0.1f;
+			break;
+		case 'j':
+			pitch+=0.1f;
+			break;
+		case 'k':
+			roll+=0.1f;
+			break;
+		}
+		cv::Mat rotation=tracker.buildRotationMatrix(yaw,pitch,roll);
+		cv::Rodrigues(rotation,rvec,cv::noArray());
+		cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	}
+	cv::destroyAllWindows();
 }
