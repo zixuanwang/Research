@@ -992,3 +992,110 @@ void Tester::testProjection(){
 	}
 	cv::destroyAllWindows();
 }
+
+void Tester::testRemap(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	cv::Mat R=cv::Mat::eye(3,3,CV_32FC1);
+	float tArray[3]={0,0,-1000};
+	cv::Mat tvec(3,1,CV_32FC1,tArray);
+	cv::Mat rvec;
+	cv::Rodrigues(R,rvec,cv::noArray());
+	float objectArray[4][3]={{0,0,0},{0,600,0},{800,600,0},{800,0,0}};
+	cv::Mat objectPoints(4,3,CV_32FC1,objectArray);
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<imagePoints<<std::endl;
+	Tracker tracker;
+	cv::namedWindow("frame");
+	float yaw=0.0f;
+	float pitch=0.0f;
+	float roll=0.0f;
+	cv::Mat frame;
+	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	cv::Mat src=cv::imread(imagePath,1);
+	cv::flip(src,src,1);
+	while(true){
+		cv::Mat rotation=tracker.buildRotationMatrix(yaw,pitch,roll);
+		cv::Rodrigues(rotation,rvec,cv::noArray());
+		frame=tracker.warpImage(src,rvec,tvec,cameraMatrix);
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(0);
+		switch (c)
+		{
+		case 'a':
+			tvec.at<float>(0,0)-=10;
+			break;
+		case 'd':
+			tvec.at<float>(0,0)+=10;
+			break;
+		case 'r':
+			tvec.at<float>(1,0)+=10;
+			break;
+		case 'f':
+			tvec.at<float>(1,0)-=10;
+			break;
+		case 'w':
+			tvec.at<float>(2,0)*=1.1;
+			break;
+		case 's':
+			tvec.at<float>(2,0)*=0.9;
+			break;
+		case 'i':
+			yaw+=0.1f;
+			break;
+		case 'j':
+			pitch+=0.1f;
+			break;
+		case 'k':
+			roll+=0.1f;
+			break;
+		}
+	}
+	cv::destroyAllWindows();
+}
+
+void Tester::testSolvePnP(){
+	std::string dirPath="c:/users/zixuan/desktop/tmp";
+	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	PlanarObjectTracker tracker;
+	tracker.calibrateCamera(dirPath);
+	tracker.loadTemplate(templateImagePath);
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::Mat gray;
+	cv::namedWindow("frame");
+	int frameCounter=0;
+	bool trackSuccess=false;
+	while(true){
+		capture>>frame;
+		cv::cvtColor(frame,gray,CV_BGR2GRAY);
+		//cv::imwrite("c:/users/zixuan/desktop/"+boost::lexical_cast<std::string>(frameCounter++)+".jpg",gray);
+		if(!trackSuccess){
+			trackSuccess=tracker.initTrack(gray);
+		}else{
+			tracker.track(gray);
+		}
+		if(trackSuccess){
+			std::vector<cv::Point2f> corners=tracker.getProjectedCorners();
+			for(size_t i=0; i<corners.size();++i){
+				cv::Point2f& r1=corners[i%4];
+				cv::Point2f& r2=corners[(i+1)%4];
+				cv::line(frame,r1,r2,CV_RGB(255,0,0));
+			}
+		}
+		cv::Mat rvec=tracker.getRotationVec();
+		cv::Mat tvec=tracker.getTranslationVec();
+		std::cout<<rvec<<std::endl;
+		std::cout<<tvec<<std::endl;
+		cv::imshow("frame",frame);
+		if(cv::waitKey(30) >= 0) break;
+	}
+}
