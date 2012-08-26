@@ -23,15 +23,16 @@ public:
 	cv::Mat getRotationVec();
 	cv::Mat getTranslationVec();
 	std::vector<cv::Point2f> getProjectedCorners();
+	cv::Mat warpTemplateImage(const cv::Size& size);
 private:
 	cv::Mat mObjectPoints;
 	cv::Mat mIntrinsicMatrix;
 	cv::Mat mDistCoeffs;
 	cv::Mat mRVec;
 	cv::Mat mTVec;
-	cv::Mat mLastFrame;
+	//cv::Mat mLastFrame;
+	cv::Mat mTemplateImage;
 	std::string mTemplateImagePath;
-	int mTemplateImageWidth;
-	int mTemplateImageHeight;
+	std::vector<cv::Point3f> mTemplateImageCorners;
 };
 

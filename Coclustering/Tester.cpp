@@ -1074,6 +1074,7 @@ void Tester::testSolvePnP(){
 	cv::namedWindow("frame");
 	int frameCounter=0;
 	bool trackSuccess=false;
+	cv::Mat warpImage;
 	while(true){
 		capture>>frame;
 		cv::cvtColor(frame,gray,CV_BGR2GRAY);
@@ -1085,6 +1086,7 @@ void Tester::testSolvePnP(){
 		}
 		if(trackSuccess){
 			std::vector<cv::Point2f> corners=tracker.getProjectedCorners();
+			//warpImage=tracker.warpTemplateImage(gray.size());
 			for(size_t i=0; i<corners.size();++i){
 				cv::Point2f& r1=corners[i%4];
 				cv::Point2f& r2=corners[(i+1)%4];
@@ -1095,6 +1097,7 @@ void Tester::testSolvePnP(){
 		cv::Mat tvec=tracker.getTranslationVec();
 		std::cout<<rvec<<std::endl;
 		std::cout<<tvec<<std::endl;
+		//cv::imshow("frame",warpImage);
 		cv::imshow("frame",frame);
 		if(cv::waitKey(30) >= 0) break;
 	}
