@@ -44,7 +44,7 @@ def attender(request,ehash,uhash):
         local_tz = pytz.timezone('America/Dawson')
         loc_dt = e.closeDate.astimezone(local_tz)
         
-        data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
+        data = {'choices':choices,'user':u, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
                 'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':ehash,'uhash':uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S')}
         return render_to_response('myevents/attender.html',data,context_instance=RequestContext(request))
     except event.DoesNotExist, user.DoesNotExist:
@@ -221,11 +221,13 @@ def terminateEvent(request,ehash,uhash):
         try:
             e = event.objects.get(ehash=ehash)
             finalChoice = request.POST.get('finalChoice')
-            e.status = EVENT_STATUS.TERMINATED
-            e.closeDate = datetime.datetime.utcnow();
             e.finalChoice = finalChoice
+            e.closeDate = datetime.datetime.utcnow();
             e.save()
-            if finalMessageMail(ehash):
+            if finalMessageMail(ehash,uhash):
+                #seems this change doesnt work here. Why? because of the threads?
+                e.status = EVENT_STATUS.TERMINATED  
+                e.save()  
                 json = simplejson.dumps({'Terminated':True})   
             else:
                 json = simplejson.dumps({'Terminated':False})   
@@ -354,7 +356,7 @@ def fun_prepare_attender_data(eid,uid):
     local_tz = pytz.timezone('America/Dawson')
     loc_dt = e.closeDate.astimezone(local_tz)
         
-    data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
+    data = {'choices':choices, 'user':u,'posvotes':init_pos_votes,'negvotes':init_neg_votes,
                 'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash,'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S')} 
     return data
 
@@ -365,7 +367,7 @@ def eventSummary(request,ehash,uhash):
         data = fun_prepare_attender_data(e.id,u.id)
         return render_to_response('myevents/eventSummary.html',data,context_instance=RequestContext(request))               
     except event.DoesNotExist, user.DoesNotExist:
-        return render_to_response('myevents/error.html',{"message":"the event is closed, don't add friends"},context_instance=RequestContext(request))  
+        return render_to_response('myevents/error.html',{"message":"the event or user does not exist"},context_instance=RequestContext(request))  
 
 #for a given eid, return the list of attenders' emails
 def db_get_all_attender_emails(eid):

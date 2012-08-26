@@ -12,8 +12,10 @@ import urllib2
 import unicodedata
 
 def adminChoice(request, ehash):
-    uid = request.session['user_id']
-    if uid:
+	if 'user_id' not in request.session:
+		return render_to_response('myevents/error.html', {'message':'This session is expired'}, context_instance=RequestContext(request))
+	else:
+		uid = request.session['user_id']
         u = get_user_by_uid(uid)
         if u is not None and u.is_authenticated(): 
             try:
@@ -36,11 +38,40 @@ def adminChoice(request, ehash):
                 return render_to_response('myevents/error.html', data, context_instance=RequestContext(request))
         else:
             return render_to_response('myevents/error.html', {'message':'invalid user'}, context_instance=RequestContext(request))
-    else:
-        return render_to_response('myevents/error.html', {'message':'invalid session'}, context_instance=RequestContext(request))
+
+
+def addManualChoice(request, ehash):
+	if 'user_id' not in request.session:
+		return render_to_response('myevents/error.html', {"message":"invalid user, please log in"}, context_instance=RequestContext(request))
+	
+	if request.method == "POST":
+		try:
+			e = event.objects.get(ehash=ehash) 
+			uid = request.session['user_id']
+			u = user.objects.get(id=uid)
+			name = request.POST.get('name', '')
+			location = request.POST.get('location', '')
+			notes = request.POST.get('notes', '')
+			try:
+				### if this particular user already added the entry before, update the entry 
+				c = manual.objects.get(name=name, addby_id=u.id)
+				c.location = location
+				c.notes = notes
+				c.save()
+				newitem = item.objects.get(foreign_id=c.id, ftype=CHOICE_SOURCE.MANUAL)
+			except manual.DoesNotExist:
+				c = manual.objects.create(name=name, location=location, notes=notes, addby_id=u.id) 
+				newitem = item.objects.create(foreign_id=c.id, name=c.name, location=c.location, image=None,notes=c.notes,url=None,ftype=CHOICE_SOURCE.MANUAL)
+			json = simplejson.dumps({"choice_id":newitem.id, "choice_name":c.name, "choice_location":c.location, "choice_notes":c.notes})
+			return HttpResponse(json, mimetype='application/json')
+		except event.DoesNotExist or user.DoesNotExist:
+			json = simplejson.dumps({"choice":None})
+			return HttpResponse(json, mimetype='application/json')
+	else:
+		return render_to_response('myevents/error.html', {"message":"the request is not a post"}, context_instance=RequestContext(request))
 
         
-def addManualChoice(request, ehash, uhash):
+def addManualChoice2(request, ehash, uhash):
     if request.method == "POST":
         try:
             e = event.objects.get(ehash=ehash) 
@@ -404,31 +435,30 @@ def getBaseRecommendation(request,ehash,uhash=None):
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
 #select from search results
-def getMyYelpSearchChoices(request,ehash,uhash=None):
-    print ehash.uhash
-    if uhash is None:
-        uid = request.session['user_id']
-        u=user.objects.get(id=uid)
-    else:
-        u= user.objects.get(uhash=uhash)
-    if request.method=="POST":
-        e = event.objects.get(ehash=ehash)
-        data = {}
-        query_term = request.POST.get('query')
-        location = request.POST.get('location')
-        
-        #record query behavior, what if one user, for one event, searched twice??? record them but be careful when pulling out the results
-        q = search_query.objects.create(term=query_term,location=location, search_by_id = u.id, search_for_id=e.id)
-        if e.detail == 'dining out':
-            data = search_yelp('restaurants',query_term,location, q.id)
-        if e.detail == 'drink':
-            data = search_yelp('nightlife',query_term,location, q.id)
-        #for d in data:
-        #    s = search_result.objects.create(query_id=q.id, yelp_result_id=d.id)
-        #return to client, render search results 
-        return HttpResponse(data, mimetype='application/json')
-    else:
-        return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+def getMyYelpSearchChoices(request,ehash):
+	if 'user_id' not in request.session:
+		return render_to_response('myevents/error.html', {"message":"the session is not valid"}, context_instance=RequestContext(request))
+	else:
+		if request.method=="POST":
+			uid = request.session['user_id']
+			e = event.objects.get(ehash=ehash)
+			u= user.objects.get(id=uid)
+			data = {}
+			query_term = request.POST.get('query')
+			location = request.POST.get('location')
+		
+		#record query behavior, what if one user, for one event, searched twice??? record them but be careful when pulling out the results
+			q = search_query.objects.create(term=query_term,location=location, search_by_id = u.id, search_for_id=e.id)
+			if e.detail == 'dining out':
+				data = search_yelp('restaurants',query_term,location, q.id)
+			if e.detail == 'drink':
+				data = search_yelp('nightlife',query_term,location, q.id)
+		#for d in data:
+		#    s = search_result.objects.create(query_id=q.id, yelp_result_id=d.id)
+		#return to client, render search results 
+			return HttpResponse(data, mimetype='application/json')
+		else:
+			return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
 #select from search results
 def getMyYelpSearchChoices2(request,ehash,uhash):

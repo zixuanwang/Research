@@ -1,4 +1,4 @@
-{% extends "myevents/base.html" %}
+{% extends "myevents/auth_base.html" %}
 {% load static %}
 {% block title %} Welcome {% endblock %}
 {% block extrastyle %}
@@ -49,14 +49,17 @@
 {% block content%} 
 	<!-- Hello Unit
 	================================================== -->
+     <header class="jumbotron subhead">
+    <div class="container">
+    <h2> Welcome! Use myGroupEvents to manage events.</h2>
+    </div>
+     </header>
 <div class="container">	
  
     <div class="hero-unit">
-    
 	<div class="row">
 	<div class="span6 offset2">
-	<h1>Log In</h1>
-    <br>	
+	<h1>Log In</h1>	
     {% if form.errors %}
     <p class="error">Sorry, that's not a valid username or password</p>
    {% endif %}

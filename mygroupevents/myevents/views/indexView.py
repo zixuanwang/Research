@@ -4,7 +4,7 @@ from django.template import Context, loader,RequestContext
 from django.http import HttpResponse,HttpResponseRedirect
 from myevents.models import * 
 import datetime 
-from django.contrib.auth import authenticate, login
+#from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from passlib.apps import custom_app_context as pwd_context
 
@@ -15,7 +15,9 @@ def signup(request):
     return render_to_response('myevents/signup.html',{},context_instance=RequestContext(request))
 
 def index(request):
-    return render_to_response('myevents/index.html',{},context_instance=RequestContext(request))
+#    return render_to_response('myevents/index.html',{},context_instance=RequestContext(request))
+    return render_to_response('myevents/login.html',{},context_instance=RequestContext(request))
+
 
 def guest(request):
     return render_to_response('myevents/guest.html',{},context_instance=RequestContext(request))

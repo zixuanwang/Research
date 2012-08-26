@@ -36,17 +36,12 @@ def getMyFriends(uhash):
 
 def adminDetail(request,ehash):
     uid = request.session['user_id']
-    eid = request.session['event_id']
-    print uid,eid
     if uid:
         u = get_user_by_uid(uid)
         if u is not None and u.is_authenticated(): 
             uhash = u.uhash
             try:
-                if eid:
-                    e = event.objects.get(id=eid)
-                else:
-                    e = event.objects.get(ehash=ehash)
+                e = event.objects.get(ehash=ehash)
                 if int(e.status) == EVENT_STATUS.VOTING:
                     started = True
                 else:

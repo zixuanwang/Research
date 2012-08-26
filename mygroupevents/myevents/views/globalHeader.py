@@ -12,7 +12,7 @@ import sys
 import uuid
 import datetime
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 
 import json
 import oauth2
@@ -92,9 +92,57 @@ def newChoiceNotificationMail(ehash,uhash, proposer,event_name,send_to):
     #send_mail(subject, message, MYGROUPEMAIL, [send_to])
     #email = EmailMessage(subject,message,to=[send_to])
     #email.send()
+   
+# add link in the email, have to send it out one by one. how to solve this problem?    
+def finalMessageMail2(ehash,uhash):
+    try:
+        e = event.objects.get(ehash=ehash)
+        admin_u = user.objects.get(uhash=uhash)
+        attender_us = []
+        attender_us = get_attenders(e.id)
+        all_user = attender_us.append(admin_u)
+        
+        subject = "The final decision of the event: " +e.name
+        #url_in= "http://192.168.50.201:8888/myEvents/"+e_hash+"/"+u_hash+"/admin/"
+        #message = "Ladies and Gentlemen: \n Thanks for your participation. We made our decision for the event " + e.name +". \n  The majority agreed on: " + e.finalChoice +" \n"
+        for u  in all_user:
+            link = "http://74.95.195.230:8889/myevents/"+e.ehash+"/"+u.uhash+"/eventSummary/"
+            html_content = render_to_string('myevents/finalDecisionEmailText.html', {'event':e, 'link':link, 'user':u})
+            try:
+                send_email(subject,html_content,EMAIL_HOST_USER,[u.email],fail_silently=False)
+            except BadHeaderError:
+                return False
+        #msg = EmailMultiAlternatives(subject, text_content, MYGROUPEMAIL, send_to)
+        #msg.attach_alternative(html_content, "text/html")
+        #msg.send()
+        #try:
+        #    send_mail(subject, message, MYGROUPEMAIL,[send_to],fail_silently=False)
+        #except BadHeaderError:
+        #    return False
+        #email = EmailMessage(subject,message, to=send_to)
+        #if email.send():
+        #    return True
+        #else:
+        #    return False
+    except event.DoesNotExist:
+        return False    
     
-#TODO: maybe add the link for event summary
-def finalMessageMail(ehash):
+    
+def get_event_user_emails(eid):
+    attender_emails = []
+    try:
+        e = event.objects.get(id=eid)
+        eu = event_user.objects.filter(event_id=e.id)
+        if eu:
+            for row  in eu:
+               
+                u = user.objects.get(id=row.user_id)
+                attender_emails.append(u.email)
+    except event.DoesNotExist, event_user.DoesNotExist:
+        pass
+    return attender_emails
+
+def finalMessageMail(ehash,uhash):
     try:
         e = event.objects.get(ehash=ehash)
         friends = e.friends
@@ -103,12 +151,16 @@ def finalMessageMail(ehash):
         #url_in= "http://192.168.50.201:8888/myEvents/"+e_hash+"/"+u_hash+"/admin/"
         #message = "Ladies and Gentlemen: \n Thanks for your participation. We made our decision for the event " + e.name +". \n  The majority agreed on: " + e.finalChoice +" \n"
         html_content = render_to_string('myevents/finalDecisionEmailText.html', {'event':e})
-            
-        send_to = str(e.friends).split(',')
-        send_to.append(str(e.inviter))
+        send_to = get_event_user_emails(e.id)
+        #send_to = str(e.friends).split(',')
+        #send_to.append(str(e.inviter))
         print send_to
+        
     
         EmailThread(subject, html_content, send_to).start()
+    
+        e.status = EVENT_STATUS.TERMINATED  #update status only when every one received notification
+        e.save() 
         #msg = EmailMultiAlternatives(subject, text_content, MYGROUPEMAIL, send_to)
         #msg.attach_alternative(html_content, "text/html")
         #msg.send()
@@ -222,6 +274,20 @@ def get_user_by_uid(uid):
         return u
     except user.DoesNotExist:
         return None
+    
+def get_attenders(eid):
+    attender_users = []
+    try:
+        e = event.objects.get(id=eid)
+        eu = event_user.objects.filter(event_id=e.id)
+        if eu:
+            for row  in eu:
+                if row.role=='attender':
+                    u = user.objects.get(id=row.user_id)
+                    attender_users.append(u)
+    except event.DoesNotExist, event_user.DoesNotExist:
+        pass
+    return attender_users
     
 def get_my_friends(uid):
     u = get_user_by_uid(uid)
