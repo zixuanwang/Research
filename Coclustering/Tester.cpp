@@ -1082,16 +1082,10 @@ void Tester::testSolvePnP(){
 		if(!trackSuccess){
 			trackSuccess=tracker.initTrack(gray);
 		}else{
-			tracker.track(gray);
+			trackSuccess=tracker.track(gray);
 		}
 		if(trackSuccess){
-			std::vector<cv::Point2f> corners=tracker.getProjectedCorners();
-			//warpImage=tracker.warpTemplateImage(gray.size());
-			for(size_t i=0; i<corners.size();++i){
-				cv::Point2f& r1=corners[i%4];
-				cv::Point2f& r2=corners[(i+1)%4];
-				cv::line(frame,r1,r2,CV_RGB(255,0,0));
-			}
+			tracker.drawProjectedCorners(frame);
 		}
 		cv::Mat rvec=tracker.getRotationVec();
 		cv::Mat tvec=tracker.getTranslationVec();

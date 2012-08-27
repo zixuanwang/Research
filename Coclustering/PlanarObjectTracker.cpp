@@ -18,6 +18,7 @@ void PlanarObjectTracker::calibrateCamera(const std::string& dirPath){
 	calibrator.calibrate(cv::Size(768,432));
 	mIntrinsicMatrix=calibrator.getCameraMatrix();
 	mDistCoeffs=calibrator.getDistCoeffs();
+	std::cout<<mIntrinsicMatrix<<std::endl;
 }
 
 void PlanarObjectTracker::loadTemplate(const std::string& filepath){
@@ -76,7 +77,7 @@ bool PlanarObjectTracker::initTrack(const cv::Mat& image){
 	return true;
 }
 
-void PlanarObjectTracker::track(const cv::Mat& image){
+bool PlanarObjectTracker::track(const cv::Mat& image){
 	std::vector<cv::Point2f> candidateImagePoints;
 	std::vector<float> objectArray;
 	std::vector<float> imageArray;
@@ -104,8 +105,9 @@ void PlanarObjectTracker::track(const cv::Mat& image){
 		imagePoints=imagePoints.reshape(0,imageArray.size()/2);
 		std::cout<<objectPoints.rows<<std::endl;
 		cv::solvePnP(objectPoints,imagePoints,mIntrinsicMatrix,cv::Mat(),mRVec,mTVec,true,cv::ITERATIVE);// use the initial guess.
-		//mLastFrame=image.clone();
+		return true;
 	}
+	return false;
 }
 
 float PlanarObjectTracker::match(const cv::Mat& srcImage, const cv::Point& srcPoint, const cv::Mat& dstImage, cv::Point* pDstPoint){
@@ -149,6 +151,15 @@ std::vector<cv::Point2f> PlanarObjectTracker::getProjectedCorners(){
 	std::vector<cv::Point2f> corners;
 	cv::projectPoints(mTemplateImageCorners,mRVec,mTVec,mIntrinsicMatrix,cv::noArray(),corners,cv::noArray(),0);
 	return corners;
+}
+
+void PlanarObjectTracker::drawProjectedCorners(cv::Mat& image){
+	std::vector<cv::Point2f> corners=getProjectedCorners();
+		for(size_t i=0; i<corners.size();++i){
+		cv::Point2f& r1=corners[i%4];
+		cv::Point2f& r2=corners[(i+1)%4];
+		cv::line(image,r1,r2,CV_RGB(255,0,0));
+	}
 }
 
 cv::Mat PlanarObjectTracker::warpTemplateImage(const cv::Size& size){

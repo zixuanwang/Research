@@ -17,12 +17,13 @@ public:
 	// return true means tracking is initialized. otherwise return false.
 	bool initTrack(const cv::Mat& image);
 	// once the tracking is initialized, this function can be called.
-	void track(const cv::Mat& image);
+	bool track(const cv::Mat& image);
 	float match(const cv::Mat& srcImage, const cv::Point& srcPoint, const cv::Mat& dstImage, cv::Point* pDstPoint);
 	cv::Rect getImageWindow(const cv::Mat& image, int x, int y, int windowSize);
 	cv::Mat getRotationVec();
 	cv::Mat getTranslationVec();
 	std::vector<cv::Point2f> getProjectedCorners();
+	void drawProjectedCorners(cv::Mat& image);
 	cv::Mat warpTemplateImage(const cv::Size& size);
 private:
 	cv::Mat mObjectPoints;
