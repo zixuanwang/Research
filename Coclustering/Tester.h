@@ -27,6 +27,7 @@
 #include "CameraCalibrator.h"
 #include "Tracker.h"
 #include "PlanarObjectTracker.h"
+#include "Ticker.h"
 // this class is used for testing functions
 class Tester {
 public:

@@ -1065,32 +1065,42 @@ void Tester::testRemap(){
 void Tester::testSolvePnP(){
 	std::string dirPath="c:/users/zixuan/desktop/tmp";
 	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	CameraCalibrator calibrator;
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,dirPath);
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
 	PlanarObjectTracker tracker;
-	tracker.calibrateCamera(dirPath);
+	tracker.setIntrinsicMatrix(calibrator.getCameraMatrix());
+	tracker.setDistCoeffs(calibrator.getDistCoeffs());
 	tracker.loadTemplate(templateImagePath);
 	cv::VideoCapture capture(0);
 	cv::Mat frame;
 	cv::Mat gray;
 	cv::namedWindow("frame");
 	int frameCounter=0;
-	bool trackSuccess=false;
 	cv::Mat warpImage;
+	Ticker ticker;
 	while(true){
 		capture>>frame;
-		cv::cvtColor(frame,gray,CV_BGR2GRAY);
+		//cv::cvtColor(frame,gray,CV_BGR2GRAY);
 		//cv::imwrite("c:/users/zixuan/desktop/"+boost::lexical_cast<std::string>(frameCounter++)+".jpg",gray);
-		if(!trackSuccess){
-			trackSuccess=tracker.initTrack(gray);
+		if(!tracker.status()){
+			ticker.start();
+			tracker.initTrack(frame);
+			std::cout<<"initialization takes "<<ticker.stop()<<std::endl;
 		}else{
-			trackSuccess=tracker.track(gray);
+			ticker.start();
+			tracker.track(frame);
+			std::cout<<"tracking takes "<<ticker.stop()<<std::endl;
 		}
-		if(trackSuccess){
+		if(tracker.status()){
 			tracker.drawProjectedCorners(frame);
 		}
-		cv::Mat rvec=tracker.getRotationVec();
-		cv::Mat tvec=tracker.getTranslationVec();
-		std::cout<<rvec<<std::endl;
-		std::cout<<tvec<<std::endl;
+		//cv::Mat rvec=tracker.getRotationVec();
+		//cv::Mat tvec=tracker.getTranslationVec();
+		//std::cout<<rvec<<std::endl;
+		//std::cout<<tvec<<std::endl;
 		//cv::imshow("frame",warpImage);
 		cv::imshow("frame",frame);
 		if(cv::waitKey(30) >= 0) break;
