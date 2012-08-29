@@ -2,8 +2,10 @@
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/nonfree/nonfree.hpp>
-#include "RobustMatcher.h"
+#include "ImageResizer.h"
 #include "RankItem.h"
+#include "RobustMatcher.h"
+#include "SURFDetector.h"
 #include "Ticker.h"
 
 class PlanarObjectTracker
@@ -25,7 +27,13 @@ public:
 	std::vector<cv::Point2f> getProjectedCorners();
 	void drawProjectedCorners(cv::Mat& image);
 	cv::Mat warpTemplateImage(const cv::Size& size);
-	bool status(){return mOnTrack;}
+	inline bool status(){return mOnTrack;}
+	cv::Mat getObjectPoints();
+	inline void enableDebug(){mDebugMode=true;}
+	inline void disableDebug(){mDebugMode=false;}
+	inline bool getDebugMode(){return mDebugMode;}
+	void drawMatches(cv::Mat& image1, cv::Mat& image2, const std::vector<cv::KeyPoint>& keypointArray1, const std::vector<cv::KeyPoint>& keypointArray2,
+		const std::vector<std::pair<int,int> >& matchPairArray);
 private:
 	cv::Mat mObjectPoints;
 	cv::Mat mIntrinsicMatrix;
@@ -39,7 +47,10 @@ private:
 	std::string mTemplateImagePath;
 	std::vector<cv::Point3f> mTemplateImageCorners;
 	cv::Ptr<cv::FeatureDetector> mpDetector;
+	//cv::Ptr<SURFDetector> mpDetector;
 	cv::Ptr<cv::DescriptorExtractor> mpDescriptor;
+	cv::Ptr<cv::DescriptorMatcher> mpMatcher;
 	bool mOnTrack;
+	bool mDebugMode;
 };
 

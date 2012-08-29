@@ -1063,17 +1063,30 @@ void Tester::testRemap(){
 }
 
 void Tester::testSolvePnP(){
-	std::string dirPath="c:/users/zixuan/desktop/tmp";
+	std::string dirPath="c:/users/zixuan/desktop/laptop_calibration";
 	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
 	CameraCalibrator calibrator;
 	std::vector<std::string> filelist;
 	File::getFiles(&filelist,dirPath);
 	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
-	calibrator.calibrate(cv::Size(768,432));
+	calibrator.calibrate(cv::Size(640,480));
+	std::cout<<calibrator.getCameraMatrix()<<std::endl;
+	std::cout<<calibrator.getDistCoeffs()<<std::endl;
 	PlanarObjectTracker tracker;
 	tracker.setIntrinsicMatrix(calibrator.getCameraMatrix());
 	tracker.setDistCoeffs(calibrator.getDistCoeffs());
 	tracker.loadTemplate(templateImagePath);
+
+	//// output object patches
+	//cv::Mat templateImage=cv::imread(templateImagePath);
+	//cv::Mat objectPoints=tracker.getObjectPoints();
+	//for(int i=0;i<objectPoints.rows;++i){
+	//	float* ptr=objectPoints.ptr<float>(i);
+	//	cv::Rect patchRect=tracker.getImageWindow(templateImage,ptr[0],ptr[1],8);
+	//	cv::Mat patch=templateImage(patchRect);
+	//	cv::imwrite("c:/users/zixuan/desktop/object_patches/"+boost::lexical_cast<std::string>(i)+".jpg",patch);
+	//}
+
 	cv::VideoCapture capture(0);
 	cv::Mat frame;
 	cv::Mat gray;
@@ -1102,6 +1115,29 @@ void Tester::testSolvePnP(){
 		//std::cout<<rvec<<std::endl;
 		//std::cout<<tvec<<std::endl;
 		//cv::imshow("frame",warpImage);
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(30);
+		switch (c)
+		{
+		case 'd':
+			if(!tracker.getDebugMode()){
+				tracker.enableDebug();
+			}else{
+				tracker.disableDebug();
+			}
+			break;
+		}
+	}
+}
+
+void Tester::testCapture(){
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::namedWindow("frame");
+	int frameCount=0;
+	while(true){
+		capture>>frame;
+		cv::imwrite("c:/users/zixuan/desktop/calibration/"+boost::lexical_cast<std::string>(frameCount++)+".jpg",frame);
 		cv::imshow("frame",frame);
 		if(cv::waitKey(30) >= 0) break;
 	}

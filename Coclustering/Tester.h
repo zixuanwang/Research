@@ -62,5 +62,6 @@ public:
 	static void testProjection();
 	static void testRemap();
 	static void testSolvePnP();
+	static void testCapture();
 };
 

@@ -7,5 +7,6 @@ int main(int argc, char* argv[]) {
 	//Tester::testProjection();
 	//Tester::testRemap();
 	Tester::testSolvePnP();
+	//Tester::testCapture();
 	return 0;
 }
