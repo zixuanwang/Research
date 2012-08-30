@@ -34,6 +34,8 @@ public:
 	inline bool getDebugMode(){return mDebugMode;}
 	void drawMatches(cv::Mat& image1, cv::Mat& image2, const std::vector<cv::KeyPoint>& keypointArray1, const std::vector<cv::KeyPoint>& keypointArray2,
 		const std::vector<std::pair<int,int> >& matchPairArray);
+	// two images must be of type CV_8UC1.
+	float zncc(const cv::Mat& image, const cv::Mat& templateImage, cv::Point* pMaxPoint);
 private:
 	cv::Mat mObjectPoints;
 	cv::Mat mIntrinsicMatrix;

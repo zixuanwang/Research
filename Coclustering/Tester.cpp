@@ -1098,6 +1098,8 @@ void Tester::testSolvePnP(){
 		capture>>frame;
 		//cv::cvtColor(frame,gray,CV_BGR2GRAY);
 		//cv::imwrite("c:/users/zixuan/desktop/"+boost::lexical_cast<std::string>(frameCounter++)+".jpg",gray);
+		//cv::Point point;
+		//tracker.zncc(gray,gray,&point);
 		if(!tracker.status()){
 			ticker.start();
 			tracker.initTrack(frame);

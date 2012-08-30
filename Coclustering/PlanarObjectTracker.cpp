@@ -7,7 +7,8 @@ PlanarObjectTracker::PlanarObjectTracker(void)
 	mpDescriptor=cv::Ptr<cv::DescriptorExtractor>(new cv::OrbDescriptorExtractor());
 	//mpDetector=cv::Ptr<SURFDetector>(new SURFDetector(100));
 	//mpDescriptor=cv::Ptr<cv::DescriptorExtractor>(new cv::SurfDescriptorExtractor());
-	mpMatcher=cv::DescriptorMatcher::create("BruteForce-Hamming(2)");
+	//mpMatcher=cv::DescriptorMatcher::create("BruteForce-Hamming(2)");
+	mpMatcher=cv::Ptr<cv::DescriptorMatcher>(new cv::BFMatcher(cv::NORM_HAMMING,true));
 	mOnTrack=false;
 	mDebugMode=false;
 }
@@ -76,7 +77,7 @@ void PlanarObjectTracker::initTrack(cv::Mat& image){
 	cv::Mat h=findHomography(&matchPairArray,frameKeypointArray,frameDescriptor);
 	int matchCount=(int)matchPairArray.size();
 	//std::cout<<matchCount<<std::endl;
-	if(h.empty() || matchCount<20){
+	if(h.empty() || matchCount<15){
 		mOnTrack=false;
 		return;
 	}
@@ -127,9 +128,11 @@ cv::Mat PlanarObjectTracker::findHomography(std::vector<std::pair<int, int> >* p
 	//	return homography;
 	//}
 	//return cv::Mat();
-
+	Ticker ticker;
+	ticker.start();
 	std::vector<cv::DMatch> matches;
 	mpMatcher->match(descriptor,mTemplateDescriptor,matches,cv::Mat());
+	std::cout<<"match: "<<ticker.stop()<<std::endl;
 	std::vector<cv::Point2f> srcPoints;
 	std::vector<cv::Point2f> dstPoints;
 	int matchCount=(int)matches.size();
@@ -140,7 +143,9 @@ cv::Mat PlanarObjectTracker::findHomography(std::vector<std::pair<int, int> >* p
 		dstPoints.push_back(keypointArray[matches[i].queryIdx].pt);
 	}
 	std::vector<uchar> inliers(srcPoints.size(), 0);
+	ticker.start();
 	cv::Mat homography = cv::findHomography(srcPoints, dstPoints, CV_RANSAC, 2.0f, inliers);
+	std::cout<<"homography: "<<ticker.stop()<<std::endl;
 	int inlierCount=0;
 	for(size_t i=0;i<inliers.size();++i){
 		if(inliers[i]!=0){
@@ -214,8 +219,9 @@ void PlanarObjectTracker::track(cv::Mat& image){
 	for(size_t i=0;i<candidateImagePoints.size();++i){
 		cv::Point srcPoint(floor(candidateImagePoints[i].x+0.5f),floor(candidateImagePoints[i].y+0.5f));
 		cv::Point dstPoint;
+		cv::circle(image,srcPoint,3,CV_RGB(255,0,0),1,CV_AA,0);
 		float score=match(warpImage,srcPoint,gray,&dstPoint);
-		if(score>0.8f){
+		if(score>0.6f){
 			//update rotation and translation
 			float* objectPtr=mObjectPoints.ptr<float>(i);
 			objectArray.push_back(objectPtr[0]);
@@ -224,7 +230,7 @@ void PlanarObjectTracker::track(cv::Mat& image){
 			imageArray.push_back((float)dstPoint.x);
 			imageArray.push_back((float)dstPoint.y);
 			// draw features
-			cv::circle(image,srcPoint,3,CV_RGB(255,0,0),1,CV_AA,0);
+			//cv::circle(image,srcPoint,3,CV_RGB(255,0,0),1,CV_AA,0);
 			cv::circle(image,dstPoint,3,CV_RGB(0,255,0),1,CV_AA,0);
 			cv::line(image,srcPoint,dstPoint,CV_RGB(255,255,255),1,CV_AA,0);
 		}
@@ -256,15 +262,21 @@ float PlanarObjectTracker::match(const cv::Mat& srcImage, const cv::Point& srcPo
 	cv::Rect targetRect=getImageWindow(dstImage,srcPoint.x,srcPoint.y,neighborhoodSize);
 	cv::Mat templateImage=srcImage(templateRect);
 	cv::Mat targetImage=dstImage(targetRect);
-	cv::Mat matchResult(targetImage.rows-templateImage.rows+1,targetImage.cols-templateImage.cols+1,CV_32FC1);
-	cv::matchTemplate(targetImage,templateImage,matchResult,CV_TM_CCOEFF_NORMED);
-	double minVal; double maxVal; 
-	cv::Point minLoc; 
-	cv::Point maxLoc;
-	cv::minMaxLoc(matchResult, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
-	pDstPoint->x=targetRect.x+maxLoc.x+windowSize/2;
-	pDstPoint->y=targetRect.y+maxLoc.y+windowSize/2;
-	return (float)maxVal;
+	// using zncc
+	cv::Point maxPoint;
+	float maxResponse=zncc(targetImage,templateImage,&maxPoint);
+	pDstPoint->x=targetRect.x+maxPoint.x+windowSize/2;
+	pDstPoint->y=targetRect.y+maxPoint.y+windowSize/2;
+	return maxResponse;
+	//cv::Mat matchResult(targetImage.rows-templateImage.rows+1,targetImage.cols-templateImage.cols+1,CV_32FC1);
+	//cv::matchTemplate(targetImage,templateImage,matchResult,CV_TM_CCOEFF_NORMED);
+	//double minVal; double maxVal; 
+	//cv::Point minLoc; 
+	//cv::Point maxLoc;
+	//cv::minMaxLoc(matchResult, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
+	//pDstPoint->x=targetRect.x+maxLoc.x+windowSize/2;
+	//pDstPoint->y=targetRect.y+maxLoc.y+windowSize/2;
+	//return (float)maxVal;
 }
 
 cv::Rect PlanarObjectTracker::getImageWindow(const cv::Mat& image, int x, int y, int windowSize){
@@ -336,4 +348,54 @@ void PlanarObjectTracker::drawMatches(cv::Mat& image1, cv::Mat& image2, const st
 		int index2=matchPairArray[i].second;
 		cv::line(image2,smallKeypointArray1[index1].pt,keypointArray2[index2].pt,CV_RGB(255,255,255),1,CV_AA,0);
 	}
+}
+
+float PlanarObjectTracker::zncc(const cv::Mat& image, const cv::Mat& templateImage, cv::Point* pMaxPoint){
+	if(image.empty() || templateImage.empty()){
+		return 0.0f;
+	}
+	int templateSum=0;
+	int templateSquareSum=0;
+	for(int i=0;i<templateImage.rows;++i){
+		const uchar* ptr=templateImage.ptr<uchar>(i);
+		for(int j=0;j<templateImage.cols;++j){
+			int val=(int)ptr[j];
+			templateSum+=val;
+			templateSquareSum+=val*val;
+		}
+	}
+	int resultRows=image.rows-templateImage.rows+1;
+	int resultCols=image.cols-templateImage.cols+1;
+	float n=1.0f/((float)templateImage.rows*templateImage.cols);
+	std::vector<float> scoreArray(resultRows * resultCols);
+	for(int y1=0;y1<resultRows;++y1){
+		for(int x1=0;x1<resultCols;++x1){
+			int x2=x1+templateImage.cols;
+			int y2=y1+templateImage.rows;
+			int locationSum=0;
+			int locationSquareSum=0;
+			int crossSum=0;
+			for(int i=0;i<templateImage.rows;++i){
+				const uchar* templatePtr=templateImage.ptr<uchar>(i);
+				const uchar* imagePtr=image.ptr<uchar>(y1+i);
+				for(int j=0;j<templateImage.cols;++j){
+					int imageVal=imagePtr[x1+j];
+					crossSum+=templatePtr[j]*imageVal;
+					locationSum+=imageVal;
+					locationSquareSum+=imageVal*imageVal;
+				}
+			}
+			float numer = crossSum-(float)templateSum*locationSum*n;
+			float denom_a = templateSquareSum-(float)templateSum*templateSum*n;
+			float denom_b = locationSquareSum-(float)locationSum*locationSum*n;
+			float denom = denom_a * denom_b;
+			float val_sq = (numer * fabsf(numer)) / denom;
+			scoreArray[y1*resultCols + x1] = val_sq;
+		}
+	}
+	std::vector<float>::iterator iter=std::max_element(scoreArray.begin(),scoreArray.end());
+	int index=iter-scoreArray.begin();
+	pMaxPoint->x=index%resultCols;
+	pMaxPoint->y=index/resultCols;
+	return *iter;
 }
