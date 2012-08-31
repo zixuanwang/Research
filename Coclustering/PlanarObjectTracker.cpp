@@ -1,8 +1,11 @@
 #include "PlanarObjectTracker.h"
 
+const int PlanarObjectTracker::windowSize = 8;
+const int PlanarObjectTracker::searchRange = 32;
+
 PlanarObjectTracker::PlanarObjectTracker(void) {
 	mpDetector = cv::Ptr < cv::FeatureDetector
-			> (new cv::OrbFeatureDetector(400));
+			> (new cv::OrbFeatureDetector(200));
 	mpDescriptor = cv::Ptr < cv::DescriptorExtractor
 			> (new cv::OrbDescriptorExtractor());
 	//mpDetector=cv::Ptr<SURFDetector>(new SURFDetector(100));
@@ -82,7 +85,7 @@ void PlanarObjectTracker::initTrack(cv::Mat& image) {
 			frameDescriptor);
 	int matchCount = (int) matchPairArray.size();
 	//std::cout<<matchCount<<std::endl;
-	if (h.empty() || matchCount < 15) {
+	if (h.empty() || matchCount < 10) {
 		mOnTrack = false;
 		return;
 	}
@@ -174,41 +177,6 @@ cv::Mat PlanarObjectTracker::findHomography(
 
 }
 
-/*
- bool PlanarObjectTracker::initTrack(const cv::Mat& image){
- RobustMatcher matcher;
- //cv::Ptr<cv::FeatureDetector> pDetector(new cv::OrbFeatureDetector(200));
- cv::Ptr<cv::FeatureDetector> pDetector(new cv::DynamicAdaptedFeatureDetector(new cv::SurfAdjuster(2000.0,2.0,16000.0),100,110,1));
- cv::Ptr<cv::DescriptorExtractor> pDescriptor(new cv::SurfDescriptorExtractor());
- matcher.setFeatureDetector(pDetector);
- matcher.setDescriptorExtractor(pDescriptor);
- std::vector<cv::KeyPoint> templateKeypointArray;
- std::vector<cv::KeyPoint> keypointArray;
- cv::Mat h=matcher.match(mTemplateImage,image,&templateKeypointArray,&keypointArray);
- if(h.empty()){
- return false;
- }
- int templateKeypointCount=(int)templateKeypointArray.size();
- cv::Mat objectPoints=cv::Mat(templateKeypointCount,3,CV_32FC1);
- for(int i=0;i<templateKeypointCount;++i){
- float* ptr=objectPoints.ptr<float>(i);
- ptr[0]=templateKeypointArray[i].pt.x;
- ptr[1]=templateKeypointArray[i].pt.y;
- ptr[2]=0.0f;
- }
- cv::Mat imagePoints=cv::Mat(templateKeypointCount,2,CV_32FC1);
- for(int i=0;i<templateKeypointCount;++i){
- float* ptr=imagePoints.ptr<float>(i);
- ptr[0]=keypointArray[i].pt.x;
- ptr[1]=keypointArray[i].pt.y;
- }
- cv::solvePnP(objectPoints,imagePoints,mIntrinsicMatrix,cv::Mat(),mRVec,mTVec,false,cv::ITERATIVE);
- //mLastFrame=image.clone();
- return true;
- }
-
- */
-
 void PlanarObjectTracker::track(cv::Mat& image) {
 	if (!mOnTrack) {
 		return;
@@ -223,19 +191,33 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 	std::vector<cv::Point2f> candidateImagePoints;
 	std::vector<float> objectArray;
 	std::vector<float> imageArray;
-	ticker.start();
+	objectArray.reserve(mObjectPoints.rows*3);
+	imageArray.reserve(mObjectPoints.rows*2);
 	cv::projectPoints(mObjectPoints, mRVec, mTVec, mIntrinsicMatrix,
 			mDistCoeffs, candidateImagePoints, cv::noArray(), 0);
-	std::cout << "projection: " << ticker.stop() << std::endl;
-	ticker.start();
+	//cv::Mat templatePatch(windowSize,windowSize,CV_8UC1);
+	//cv::Mat invH=getInverseHomography();
+
+
+	//ticker.start();
 	cv::Mat warpImage = warpTemplateImage(gray.size());
-	std::cout << "warping: " << ticker.stop() << std::endl;
+	//std::cout << "warping: " << ticker.stop() << std::endl;
 	ticker.start();
 	for (size_t i = 0; i < candidateImagePoints.size(); ++i) {
 		cv::Point srcPoint(floor(candidateImagePoints[i].x + 0.5f),
 				floor(candidateImagePoints[i].y + 0.5f));
 		cv::Point dstPoint;
-		cv::circle(image, srcPoint, 3, CV_RGB(255, 0, 0), 1, CV_AA, 0);
+		
+		//bool success=getTemplatePatch(&templatePatch,invH,srcPoint);
+		//if(!success){
+		//	continue;
+		//}
+		//cv::Rect targetRect = getImageWindow(gray, srcPoint.x, srcPoint.y,
+		//	searchRange);
+		//cv::Mat targetPatch = gray(targetRect);
+		//float score=match(templatePatch,targetPatch,srcPoint,&dstPoint);
+		
+		//cv::circle(image, srcPoint, 3, CV_RGB(255, 0, 0), 1, CV_AA, 0);
 		float score = match(warpImage, srcPoint, gray, &dstPoint);
 		if (score > 0.6f) {
 			//update rotation and translation
@@ -246,7 +228,7 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 			imageArray.push_back((float) dstPoint.x);
 			imageArray.push_back((float) dstPoint.y);
 			// draw features
-			//cv::circle(image,srcPoint,3,CV_RGB(255,0,0),1,CV_AA,0);
+			cv::circle(image,srcPoint,3,CV_RGB(255,0,0),1,CV_AA,0);
 			cv::circle(image, dstPoint, 3, CV_RGB(0, 255, 0), 1, CV_AA, 0);
 			cv::line(image, srcPoint, dstPoint, CV_RGB(255, 255, 255), 1, CV_AA,
 					0);
@@ -271,6 +253,35 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 	std::cout << "pnp: " << ticker.stop() << std::endl;
 }
 
+bool PlanarObjectTracker::getTemplatePatch(cv::Mat* pTemplatePatch, const cv::Mat& invH, const cv::Point& point){
+	double* ptr=(double*)invH.data;
+	int halfWindowSize=windowSize/2;
+	int i,j;
+	for(int x=-1*halfWindowSize, i=0;x<halfWindowSize;++x,++i){
+		for(int y=-1*halfWindowSize, j=0;y<halfWindowSize;++y,++j){
+			double du,dv;
+			projectPoint(&du,&dv,ptr,(double)point.x+x,(double)point.y+y);
+			int u=floor(du+0.5f);
+			int v=floor(dv+0.5f);
+			if(u>0 && u<mTemplateImage.cols && v>0 && v<mTemplateImage.rows){
+				pTemplatePatch->at<uchar>(j,i)=mTemplateImage.at<uchar>(v,u);
+			}else{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+void PlanarObjectTracker::projectPoint(double* pX, double* pY, const double h[9], double x, double y){
+	double _x=h[0]*x+h[1]*y+h[2];
+	double _y=h[3]*x+h[4]*y+h[5];
+	double _z=h[6]*x+h[7]*y+h[8];
+	double _invz=1.0f/_z;
+	*pX=_x*_invz;
+	*pY=_y*_invz;
+}
+
 float PlanarObjectTracker::match(const cv::Mat& srcImage,
 		const cv::Point& srcPoint, const cv::Mat& dstImage,
 		cv::Point* pDstPoint) {
@@ -278,12 +289,10 @@ float PlanarObjectTracker::match(const cv::Mat& srcImage,
 			|| srcPoint.y >= srcImage.rows) {
 		return 0.0f;
 	}
-	int windowSize = 8;
-	int neighborhoodSize = 32;
 	cv::Rect templateRect = getImageWindow(srcImage, srcPoint.x, srcPoint.y,
 			windowSize);
 	cv::Rect targetRect = getImageWindow(dstImage, srcPoint.x, srcPoint.y,
-			neighborhoodSize);
+			searchRange);
 	cv::Mat templateImage = srcImage(templateRect);
 	cv::Mat targetImage = dstImage(targetRect);
 	// using zncc
@@ -301,6 +310,14 @@ float PlanarObjectTracker::match(const cv::Mat& srcImage,
 	//pDstPoint->x=targetRect.x+maxLoc.x+windowSize/2;
 	//pDstPoint->y=targetRect.y+maxLoc.y+windowSize/2;
 	//return (float)maxVal;
+}
+
+float PlanarObjectTracker::match(const cv::Mat& templatePatch, const cv::Mat& targetPatch, const cv::Point& srcPoint, cv::Point* pDstPoint){
+	cv::Point maxPoint;
+	float maxResponse = zncc(targetPatch, templatePatch, &maxPoint);
+	pDstPoint->x = srcPoint.x + maxPoint.x;
+	pDstPoint->y = srcPoint.y + maxPoint.y;
+	return maxResponse;
 }
 
 cv::Rect PlanarObjectTracker::getImageWindow(const cv::Mat& image, int x, int y,
@@ -352,6 +369,18 @@ cv::Mat PlanarObjectTracker::warpTemplateImage(const cv::Size& size) {
 	return warpImage;
 }
 
+cv::Mat PlanarObjectTracker::getInverseHomography(){
+	std::vector<cv::Point2f> dst;
+	dst.reserve(4);
+	for (int i = 0; i < 4; ++i) {
+		dst.push_back(
+			cv::Point2f(mTemplateImageCorners[i].x,
+			mTemplateImageCorners[i].y));
+	}
+	std::vector<cv::Point2f> src = getProjectedCorners();
+	return cv::getPerspectiveTransform(src, dst);
+}
+
 cv::Mat PlanarObjectTracker::getObjectPoints() {
 	return mObjectPoints;
 }
@@ -398,16 +427,27 @@ float PlanarObjectTracker::zncc(const cv::Mat& image,
 			templateSquareSum += val * val;
 		}
 	}
-	int resultRows = image.rows - templateImage.rows + 1;
-	int resultCols = image.cols - templateImage.cols + 1;
+	// integral image
+	int integralSum[searchRange+1][searchRange+1]={0};
+	int integralSquareSum[searchRange+1][searchRange+1]={0};
+	for(int i=1;i<=image.rows;++i){
+		const uchar* imagePtr=image.ptr<uchar>(i-1);
+		for(int j=1;j<=image.cols;++j){
+			int val=(int)imagePtr[j-1];
+			integralSum[i][j]=integralSum[i-1][j]+integralSum[i][j-1]-integralSum[i-1][j-1]+val;
+			integralSquareSum[i][j]=integralSquareSum[i-1][j]+integralSquareSum[i][j-1]-integralSquareSum[i-1][j-1]+val*val;
+		}
+	}
+	const int resultRows = searchRange - windowSize + 1;
+	const int resultCols = searchRange - windowSize + 1;
 	float n = 1.0f / ((float) templateImage.rows * templateImage.cols);
-	std::vector<float> scoreArray(resultRows * resultCols);
+	float scoreArray[resultRows*resultCols];
 	for (int y1 = 0; y1 < resultRows; ++y1) {
 		for (int x1 = 0; x1 < resultCols; ++x1) {
 			int x2 = x1 + templateImage.cols;
 			int y2 = y1 + templateImage.rows;
-			int locationSum = 0;
-			int locationSquareSum = 0;
+			int locationSum=integralSum[y2][x2]+integralSum[y1][x1]-integralSum[y1][x2]-integralSum[y2][x1];
+			int locationSquareSum=integralSquareSum[y2][x2]+integralSquareSum[y1][x1]-integralSquareSum[y1][x2]-integralSquareSum[y2][x1];
 			int crossSum = 0;
 			for (int i = 0; i < templateImage.rows; ++i) {
 				const uchar* templatePtr = templateImage.ptr < uchar > (i);
@@ -415,8 +455,6 @@ float PlanarObjectTracker::zncc(const cv::Mat& image,
 				for (int j = 0; j < templateImage.cols; ++j) {
 					int imageVal = imagePtr[x1 + j];
 					crossSum += templatePtr[j] * imageVal;
-					locationSum += imageVal;
-					locationSquareSum += imageVal * imageVal;
 				}
 			}
 			float numer = crossSum - (float) templateSum * locationSum * n;
@@ -429,9 +467,8 @@ float PlanarObjectTracker::zncc(const cv::Mat& image,
 			scoreArray[y1 * resultCols + x1] = val_sq;
 		}
 	}
-	std::vector<float>::iterator iter = std::max_element(scoreArray.begin(),
-			scoreArray.end());
-	int index = iter - scoreArray.begin();
+	float* iter = std::max_element(scoreArray, scoreArray+resultRows*resultCols);
+	int index = iter - scoreArray;
 	pMaxPoint->x = index % resultCols;
 	pMaxPoint->y = index / resultCols;
 	return *iter;

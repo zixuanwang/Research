@@ -20,10 +20,14 @@ public:
 	cv::Mat findHomography(std::vector<std::pair<int, int> >* pMatchPairArray,
 			const std::vector<cv::KeyPoint>& keypointArray,
 			const cv::Mat& descriptor);
+	cv::Mat getInverseHomography();
+	bool getTemplatePatch(cv::Mat* pTemplatePatch, const cv::Mat& invH, const cv::Point& point);
+	void projectPoint(double* pX, double* pY, const double h[9], double x, double y);
 	// once the tracking is initialized, this function can be called.
 	void track(cv::Mat& image);
 	float match(const cv::Mat& srcImage, const cv::Point& srcPoint,
 			const cv::Mat& dstImage, cv::Point* pDstPoint);
+	float match(const cv::Mat& templatePatch, const cv::Mat& targetPatch, const cv::Point& srcPoint, cv::Point* pDstPoint);
 	cv::Rect getImageWindow(const cv::Mat& image, int x, int y, int windowSize);
 	cv::Mat getRotationVec();
 	cv::Mat getTranslationVec();
@@ -69,5 +73,7 @@ private:
 	cv::Ptr<cv::DescriptorMatcher> mpMatcher;
 	bool mOnTrack;
 	bool mDebugMode;
+	static const int windowSize;
+	static const int searchRange;
 };
 
