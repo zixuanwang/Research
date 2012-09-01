@@ -158,8 +158,10 @@ cv::Mat PlanarObjectTracker::findHomography(
 	}
 	std::vector<uchar> inliers(srcPoints.size(), 0);
 	ticker.start();
-	cv::Mat homography = cv::findHomography(srcPoints, dstPoints, CV_RANSAC,
-			2.0f, inliers);
+	//cv::Mat homography = cv::findHomography(srcPoints, dstPoints, CV_RANSAC,
+	//		2.0f, inliers);
+	GeometricVerifier verifier;
+	cv::Mat homography=verifier.findHomography(cv::Mat(srcPoints),cv::Mat(dstPoints),inliers);
 	std::cout << "homography: " << ticker.stop() << std::endl;
 	int inlierCount = 0;
 	for (size_t i = 0; i < inliers.size(); ++i) {
@@ -204,8 +206,8 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 	//std::cout << "warping: " << ticker.stop() << std::endl;
 	ticker.start();
 	for (size_t i = 0; i < candidateImagePoints.size(); ++i) {
-		cv::Point srcPoint(floor(candidateImagePoints[i].x + 0.5f),
-				floor(candidateImagePoints[i].y + 0.5f));
+		cv::Point srcPoint((int)(candidateImagePoints[i].x + 0.5f),
+				(int)(candidateImagePoints[i].y + 0.5f));
 		cv::Point dstPoint;
 		
 		//bool success=getTemplatePatch(&templatePatch,invH,srcPoint);
@@ -221,7 +223,7 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 		float score = match(warpImage, srcPoint, gray, &dstPoint);
 		if (score > 0.6f) {
 			//update rotation and translation
-			float* objectPtr = mObjectPoints.ptr<float>(i);
+			float* objectPtr = mObjectPoints.ptr<float>((int)i);
 			objectArray.push_back(objectPtr[0]);
 			objectArray.push_back(objectPtr[1]);
 			objectArray.push_back(objectPtr[2]);
@@ -239,9 +241,9 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 	ticker.start();
 	if (objectArray.size() > 120) {
 		cv::Mat objectPoints(objectArray, false);
-		objectPoints = objectPoints.reshape(3, objectArray.size() / 3);
+		objectPoints = objectPoints.reshape(3, (int)objectArray.size() / 3);
 		cv::Mat imagePoints(imageArray, false);
-		imagePoints = imagePoints.reshape(2, imageArray.size() / 2);
+		imagePoints = imagePoints.reshape(2, (int)imageArray.size() / 2);
 		std::cout << "matched points: " << objectPoints.rows << std::endl;
 		//cv::solvePnP(objectPoints, imagePoints, mIntrinsicMatrix, mDistCoeffs,
 		//		mRVec, mTVec, true, cv::ITERATIVE);	// use the initial guess.
@@ -256,13 +258,14 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 bool PlanarObjectTracker::getTemplatePatch(cv::Mat* pTemplatePatch, const cv::Mat& invH, const cv::Point& point){
 	double* ptr=(double*)invH.data;
 	int halfWindowSize=windowSize/2;
-	int i,j;
+	int i=0;
+	int j=0;
 	for(int x=-1*halfWindowSize, i=0;x<halfWindowSize;++x,++i){
 		for(int y=-1*halfWindowSize, j=0;y<halfWindowSize;++y,++j){
 			double du,dv;
 			projectPoint(&du,&dv,ptr,(double)point.x+x,(double)point.y+y);
-			int u=floor(du+0.5f);
-			int v=floor(dv+0.5f);
+			int u=(int)(du+0.5f);
+			int v=(int)(dv+0.5f);
 			if(u>0 && u<mTemplateImage.cols && v>0 && v<mTemplateImage.rows){
 				pTemplatePatch->at<uchar>(j,i)=mTemplateImage.at<uchar>(v,u);
 			}else{
@@ -301,15 +304,6 @@ float PlanarObjectTracker::match(const cv::Mat& srcImage,
 	pDstPoint->x = targetRect.x + maxPoint.x + windowSize / 2;
 	pDstPoint->y = targetRect.y + maxPoint.y + windowSize / 2;
 	return maxResponse;
-	//cv::Mat matchResult(targetImage.rows-templateImage.rows+1,targetImage.cols-templateImage.cols+1,CV_32FC1);
-	//cv::matchTemplate(targetImage,templateImage,matchResult,CV_TM_CCOEFF_NORMED);
-	//double minVal; double maxVal; 
-	//cv::Point minLoc; 
-	//cv::Point maxLoc;
-	//cv::minMaxLoc(matchResult, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
-	//pDstPoint->x=targetRect.x+maxLoc.x+windowSize/2;
-	//pDstPoint->y=targetRect.y+maxLoc.y+windowSize/2;
-	//return (float)maxVal;
 }
 
 float PlanarObjectTracker::match(const cv::Mat& templatePatch, const cv::Mat& targetPatch, const cv::Point& srcPoint, cv::Point* pDstPoint){
@@ -350,7 +344,7 @@ void PlanarObjectTracker::drawProjectedCorners(cv::Mat& image) {
 	for (size_t i = 0; i < corners.size(); ++i) {
 		cv::Point2f& r1 = corners[i % 4];
 		cv::Point2f& r2 = corners[(i + 1) % 4];
-		cv::line(image, r1, r2, CV_RGB(255, 0, 0));
+		cv::line(image, r1, r2, cv::Scalar(255,255,255,255), 2, CV_AA);
 	}
 }
 
@@ -468,21 +462,21 @@ float PlanarObjectTracker::zncc(const cv::Mat& image,
 		}
 	}
 	float* iter = std::max_element(scoreArray, scoreArray+resultRows*resultCols);
-	int index = iter - scoreArray;
+	int index = (int)(iter - scoreArray);
 	pMaxPoint->x = index % resultCols;
 	pMaxPoint->y = index / resultCols;
 	return *iter;
 }
 
-float huber_weight(float err_sq)
+double huber_weight(double err_sq)
 {
-	const float kk = 2.5e-5;
+	const double kk = 2.5e-5;
 	if (err_sq < kk)
 		return 1.f;
-	return sqrtf(kk / err_sq);
+	return sqrt(kk / err_sq);
 }
 
-float PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs, cv::Mat& rvec, cv::Mat& tvec){
+double PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs, cv::Mat& rvec, cv::Mat& tvec){
 	cv::Mat undistortImagePoints;
 	cv::undistortPoints(imagePoints,undistortImagePoints,cameraMatrix,distCoeffs);
 	double error=0.0f;
@@ -523,10 +517,11 @@ float PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const c
 			b+=JTMat * EMat * w;
 		}
 		//std::cout<<"Error: "<<sqrt(error/objectPoints.rows)<<std::endl;
-		cv::Mat updateVec;
+		double updateVArray[6];
+		cv::Mat updateVec(6,1,CV_64FC1,updateVArray);
 		cv::solve(A,b,updateVec,cv::DECOMP_CHOLESKY);//cholesky is used to solve the equation.
 		SE3 updateTransform;
-		SE3_exp(updateTransform,(const double*)updateVec.data);
+		SE3_exp(updateTransform,updateVArray);
 		currentTransform=SE3_mult(updateTransform,currentTransform);
 	}
 	SE3_rectify(currentTransform);

@@ -872,52 +872,6 @@ void Tester::testCalibration(){
 	std::cout<<distCoeffs<<std::endl;
 }
 
-void Tester::testTracker(){
-	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
-	cv::Mat object=cv::imread(imagePath,0);
-	std::vector<cv::Point2f> srcCornerArray;
-	srcCornerArray.push_back(cv::Point2f(0,0));
-	srcCornerArray.push_back(cv::Point2f(object.cols,0));
-	srcCornerArray.push_back(cv::Point2f(object.cols,object.rows));
-	srcCornerArray.push_back(cv::Point2f(0,object.rows));
-	cv::VideoCapture capture(0);
-	cv::Mat frame;
-	cv::Mat gray;
-	cv::namedWindow("frame",1);
-	Tracker tracker;
-	bool init=false;
-	cv::Mat homography;
-	while(true){
-		capture>>frame;
-		cv::cvtColor(frame,gray,CV_BGR2GRAY);
-		std::vector<cv::Point2f> dstCornerArray;
-		if(!init){
-			init = tracker.locatePlanarObject(object,gray,srcCornerArray,&dstCornerArray);
-			tracker.track(gray);
-			homography=tracker.getBaseHomography().clone();
-		}else{
-			cv::Mat h=tracker.track(gray);
-			homography=homography*h;
-			tracker.applyHomograpy(&dstCornerArray,srcCornerArray,homography);
-			std::cout<<homography<<std::endl;
-		}
-		for(size_t i=0; i<dstCornerArray.size();++i){
-			cv::Point2f& r1=dstCornerArray[i%4];
-			cv::Point2f& r2=dstCornerArray[(i+1)%4];
-			cv::line(frame,r1,r2,CV_RGB(255,0,0));
-        }
-		cv::imshow("frame",frame);
-		//cv::Mat h=tracker.track(gray);
-		//std::cout<<h<<std::endl;
-		if(cv::waitKey(30) >= 0) break;
-	}
-	capture.release();
-	//std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
-	//cv::Mat image=cv::imread(imagePath,0);
-	//Tracker tracker;
-	//tracker.track(image);
-}
-
 void Tester::testProjection(){
 	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
 	std::vector<std::string> filelist;
@@ -959,22 +913,22 @@ void Tester::testProjection(){
 		switch (c)
 		{
 		case 'a':
-			tvec.at<float>(0,0)-=10;
+			tvec.at<float>(0,0)-=10.0f;
 			break;
 		case 'd':
-			tvec.at<float>(0,0)+=10;
+			tvec.at<float>(0,0)+=10.0f;
 			break;
 		case 'r':
-			tvec.at<float>(1,0)+=10;
+			tvec.at<float>(1,0)+=10.0f;
 			break;
 		case 'f':
-			tvec.at<float>(1,0)-=10;
+			tvec.at<float>(1,0)-=10.0f;
 			break;
 		case 'w':
-			tvec.at<float>(2,0)*=1.1;
+			tvec.at<float>(2,0)*=1.1f;
 			break;
 		case 's':
-			tvec.at<float>(2,0)*=0.9;
+			tvec.at<float>(2,0)*=0.9f;
 			break;
 		case 'i':
 			yaw+=0.1f;
@@ -1031,22 +985,22 @@ void Tester::testRemap(){
 		switch (c)
 		{
 		case 'a':
-			tvec.at<float>(0,0)-=10;
+			tvec.at<float>(0,0)-=10.0f;
 			break;
 		case 'd':
-			tvec.at<float>(0,0)+=10;
+			tvec.at<float>(0,0)+=10.0f;
 			break;
 		case 'r':
-			tvec.at<float>(1,0)+=10;
+			tvec.at<float>(1,0)+=10.0f;
 			break;
 		case 'f':
-			tvec.at<float>(1,0)-=10;
+			tvec.at<float>(1,0)-=10.0f;
 			break;
 		case 'w':
-			tvec.at<float>(2,0)*=1.1;
+			tvec.at<float>(2,0)*=1.1f;
 			break;
 		case 's':
-			tvec.at<float>(2,0)*=0.9;
+			tvec.at<float>(2,0)*=0.9f;
 			break;
 		case 'i':
 			yaw+=0.1f;

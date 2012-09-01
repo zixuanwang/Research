@@ -1,12 +1,9 @@
 #pragma once
 
 #include <opencv2/opencv.hpp>
-#include <opencv2/nonfree/nonfree.hpp>
+#include "GeometricVerifier.h"
 #include "ImageResizer.h"
-#include "RankItem.h"
-#include "RobustMatcher.h"
 #include "SE3_basic.h"
-#include "SURFDetector.h"
 #include "Ticker.h"
 
 class PlanarObjectTracker {
@@ -54,7 +51,7 @@ public:
 	// two images must be of type CV_8UC1.
 	float zncc(const cv::Mat& image, const cv::Mat& templateImage,
 			cv::Point* pMaxPoint);
-	float solveGaussNewton(const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs, cv::Mat& rvec, cv::Mat& tvec);
+	double solveGaussNewton(const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs, cv::Mat& rvec, cv::Mat& tvec);
 private:
 	cv::Mat mObjectPoints;
 	cv::Mat mIntrinsicMatrix;

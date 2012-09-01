@@ -58,7 +58,6 @@ public:
 	static void testHalf();
 	static void testVelocity();
 	static void testCalibration();
-	static void testTracker();
 	static void testProjection();
 	static void testRemap();
 	static void testSolvePnP();
