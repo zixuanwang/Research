@@ -1018,14 +1018,15 @@ void Tester::testRemap(){
 
 void Tester::testSolvePnP(){
 	std::string dirPath="c:/users/zixuan/desktop/laptop_calibration";
+	//std::string dirPath="c:/users/zixuan/desktop/tablet_calibration";
 	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
 	CameraCalibrator calibrator;
 	std::vector<std::string> filelist;
 	File::getFiles(&filelist,dirPath);
 	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
 	calibrator.calibrate(cv::Size(640,480));
-	std::cout<<calibrator.getCameraMatrix()<<std::endl;
-	std::cout<<calibrator.getDistCoeffs()<<std::endl;
+	//std::cout<<calibrator.getCameraMatrix()<<std::endl;
+	//std::cout<<calibrator.getDistCoeffs()<<std::endl;
 	PlanarObjectTracker tracker;
 	tracker.setIntrinsicMatrix(calibrator.getCameraMatrix());
 	tracker.setDistCoeffs(calibrator.getDistCoeffs());
