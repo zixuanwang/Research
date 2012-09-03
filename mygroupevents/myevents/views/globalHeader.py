@@ -127,7 +127,6 @@ def finalMessageMail2(ehash,uhash):
     except event.DoesNotExist:
         return False    
     
-    
 def get_event_user_emails(eid):
     attender_emails = []
     try:

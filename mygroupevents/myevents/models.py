@@ -150,3 +150,4 @@ class review(models.Model):
 	name = models.CharField(max_length=1024)
 	comment = models.TextField()
 	pub_date = models.DateTimeField(auto_now_add=True)
+

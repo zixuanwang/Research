@@ -33,7 +33,7 @@ def get_my_events(uid):
 					continue
 	except user.DoesNotExist,event_user.DoesNotExist:
 		pass
-	print my_events
+	#print my_events
 	return my_events
 
 def profile(request):

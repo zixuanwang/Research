@@ -153,7 +153,8 @@ def updateEventFixedAttr(ehash, uhash, what, what_other, friendEmails, eventDate
             except user.DoesNotExist:
                 uhash = make_uuid()
                 name = getNamebyEmail(uemail)
-                attender = user.objects.create(email=uemail, uhash=uhash, name=name)
+                date_join= datetime.datetime.now()
+                attender = user.objects.create(email=uemail,passwd='', uhash=uhash, name=name, is_registered=False, is_active=True,date_join=date_join)
             try:
                 ### avoid the case that the user is already inserted. 
                 eu = event_user.objects.get(event_id=e.id, user_id=attender.id, role="attender")

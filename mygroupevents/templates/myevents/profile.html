@@ -16,6 +16,7 @@
 	<script src="{%static "js/bootstrap-tab.js"%}" type="text/javascript" charset="utf-8"></script> 
 	<script src="{%static "js/bootstrap-affix.js"%}" type="text/javascript" charset="utf-8"></script> 
 	<script src="{%static "js/bootstrap-scrollspy.js"%}" type="text/javascript" charset="utf-8"></script> 
+	<script src="{%static "js/d3.v2.js"%}" type="text/javascript" charset="utf-8"></script> 
 	
 	<script>
 		//jQuery.noConflict(); // substituting $ for jQuery
@@ -89,7 +90,7 @@
        
           <div class="page-header">
             <h1>Create New Event</h1>
-			<h3>Invite your friend, pick options and reach agreement.</h3>
+			<h3>Invite your friends, pick options and reach an agreement of what to do.</h3>
 			<form class="well form-inline" name="indexForm" action = '/myevents/createEvent/' method = "post" onsubmit="return validateEmail();">
 				{%csrf_token%}
             	 <label class="control-label" for="inputIcon">Event Name</label>
@@ -106,8 +107,9 @@
         <div class="tab-pane fade in active" id="onGoingEvent">
           <div class="page-header">
           {%if events_to_organize%}
-          <h2>Manage events you created but not yet started</h2>
-             <!--
+          <h2> Created but not yet started events</h2>
+          <!-- 
+		  <h2>Manage events you created but not yet started</h2>
              <ul>
    				{%for e in events_to_organize%}
    				<li>{{e.name}} created on {{e.pub_date}}  <a href="../{{e.ehash}}/adminDetail/">Edit</a> </li>
@@ -124,7 +126,7 @@
    			 
           {%endif%}
           {%if events_to_participate%}
-          <h2>Check the status of participated events</h2>
+          <h2> Active events</h2>
            
              <table class="table table-hover">
    				<tbody>

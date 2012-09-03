@@ -98,6 +98,7 @@ def addManualChoice2(request, ehash, uhash):
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a post"}, context_instance=RequestContext(request))
 
+# out of date.. needs double check 8/31/2012
 def addSearchChoice(request, ehash, uhash):
     if request.method == "POST":
         try:
@@ -121,7 +122,7 @@ def addSearchChoice(request, ehash, uhash):
                 c.rating = rating
                 c.reviewcount = reviewcount 
                 c.save()
-            except manual.DoesNotExist:
+            except yelp.DoesNotExist:
                 c = manual.objects.create(name=name, location=location, notes=notes, addby_id=u.id) 
             json = simplejson.dumps({"choice_id":c.id, "choice_name":c.name, "choice_location":c.location, "choice_notes":c.notes})
             return HttpResponse(json, mimetype='application/json')
