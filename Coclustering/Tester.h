@@ -26,6 +26,8 @@
 #include "VelocityComputer.h"
 #include "CameraCalibrator.h"
 #include "Tracker.h"
+#include "PlanarObjectTracker.h"
+#include "Ticker.h"
 // this class is used for testing functions
 class Tester {
 public:
@@ -56,7 +58,9 @@ public:
 	static void testHalf();
 	static void testVelocity();
 	static void testCalibration();
-	static void testTracker();
 	static void testProjection();
+	static void testRemap();
+	static void testSolvePnP();
+	static void testCapture();
 };
 

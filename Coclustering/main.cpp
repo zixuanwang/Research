@@ -4,6 +4,9 @@ int main(int argc, char* argv[]) {
 	//Tester::testVelocity();
 	//Tester::testCalibration();
 	//Tester::testTracker();
-	Tester::testProjection();
+	//Tester::testProjection();
+	//Tester::testRemap();
+	Tester::testSolvePnP();
+	//Tester::testCapture();
 	return 0;
 }

@@ -18,6 +18,8 @@ public:
 	cv::Mat getBaseHomography();
 	void applyHomograpy(std::vector<cv::Point2f>* pDstArray, const std::vector<cv::Point2f>& srcArray, const cv::Mat& h);
 	cv::Mat buildRotationMatrix(float yaw, float pitch, float roll);
+	cv::Mat warpImage(const cv::Mat& src, const cv::Mat& rvec, const cv::Mat& tvec, const cv::Mat& cameraMatrix);
+	void estimateRigidTransform(cv::Mat* pRvec, cv::Mat* pTvec, const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs);
 private:
 	std::vector<cv::KeyPoint> mLastKeyPointArray;
 	cv::Mat mLastDescriptor;

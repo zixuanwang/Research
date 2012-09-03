@@ -134,3 +134,28 @@ cv::Mat Tracker::buildRotationMatrix(float yaw, float pitch, float roll){
 	rotation.at<float>(2,2)=cos(pitch)*cos(roll);
 	return rotation;
 }
+
+cv::Mat Tracker::warpImage(const cv::Mat& src, const cv::Mat& rvec, const cv::Mat& tvec, const cv::Mat& cameraMatrix){
+	cv::Mat map1(src.size(),CV_32FC1);
+	cv::Mat objectPoints(src.rows*src.cols,3,CV_32FC1);
+	int rowCounter=0;
+	for(int i=0;i<src.rows;++i){
+		for(int j=0;j<src.cols;++j){
+			float* ptr=objectPoints.ptr<float>(rowCounter);
+			ptr[0]=(float)i;
+			ptr[1]=(float)j;
+			ptr[2]=0.0f;
+			++rowCounter;
+		}
+	}
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints);
+	imagePoints=imagePoints.reshape(0,src.rows);
+	cv::Mat warpedImage;
+	cv::remap(src,warpedImage,imagePoints,cv::Mat(),CV_INTER_LINEAR);
+	return warpedImage;
+}
+
+void estimateRigidTransform(cv::Mat* pRvec, cv::Mat* pTvec, const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs){
+
+}

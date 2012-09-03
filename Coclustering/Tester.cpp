@@ -872,52 +872,6 @@ void Tester::testCalibration(){
 	std::cout<<distCoeffs<<std::endl;
 }
 
-void Tester::testTracker(){
-	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
-	cv::Mat object=cv::imread(imagePath,0);
-	std::vector<cv::Point2f> srcCornerArray;
-	srcCornerArray.push_back(cv::Point2f(0,0));
-	srcCornerArray.push_back(cv::Point2f(object.cols,0));
-	srcCornerArray.push_back(cv::Point2f(object.cols,object.rows));
-	srcCornerArray.push_back(cv::Point2f(0,object.rows));
-	cv::VideoCapture capture(0);
-	cv::Mat frame;
-	cv::Mat gray;
-	cv::namedWindow("frame",1);
-	Tracker tracker;
-	bool init=false;
-	cv::Mat homography;
-	while(true){
-		capture>>frame;
-		cv::cvtColor(frame,gray,CV_BGR2GRAY);
-		std::vector<cv::Point2f> dstCornerArray;
-		if(!init){
-			init = tracker.locatePlanarObject(object,gray,srcCornerArray,&dstCornerArray);
-			tracker.track(gray);
-			homography=tracker.getBaseHomography().clone();
-		}else{
-			cv::Mat h=tracker.track(gray);
-			homography=homography*h;
-			tracker.applyHomograpy(&dstCornerArray,srcCornerArray,homography);
-			std::cout<<homography<<std::endl;
-		}
-		for(size_t i=0; i<dstCornerArray.size();++i){
-			cv::Point2f& r1=dstCornerArray[i%4];
-			cv::Point2f& r2=dstCornerArray[(i+1)%4];
-			cv::line(frame,r1,r2,CV_RGB(255,0,0));
-        }
-		cv::imshow("frame",frame);
-		//cv::Mat h=tracker.track(gray);
-		//std::cout<<h<<std::endl;
-		if(cv::waitKey(30) >= 0) break;
-	}
-	capture.release();
-	//std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
-	//cv::Mat image=cv::imread(imagePath,0);
-	//Tracker tracker;
-	//tracker.track(image);
-}
-
 void Tester::testProjection(){
 	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
 	std::vector<std::string> filelist;
@@ -959,22 +913,22 @@ void Tester::testProjection(){
 		switch (c)
 		{
 		case 'a':
-			tvec.at<float>(0,0)-=10;
+			tvec.at<float>(0,0)-=10.0f;
 			break;
 		case 'd':
-			tvec.at<float>(0,0)+=10;
+			tvec.at<float>(0,0)+=10.0f;
 			break;
 		case 'r':
-			tvec.at<float>(1,0)+=10;
+			tvec.at<float>(1,0)+=10.0f;
 			break;
 		case 'f':
-			tvec.at<float>(1,0)-=10;
+			tvec.at<float>(1,0)-=10.0f;
 			break;
 		case 'w':
-			tvec.at<float>(2,0)*=1.1;
+			tvec.at<float>(2,0)*=1.1f;
 			break;
 		case 's':
-			tvec.at<float>(2,0)*=0.9;
+			tvec.at<float>(2,0)*=0.9f;
 			break;
 		case 'i':
 			yaw+=0.1f;
@@ -991,4 +945,157 @@ void Tester::testProjection(){
 		cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
 	}
 	cv::destroyAllWindows();
+}
+
+void Tester::testRemap(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	cv::Mat R=cv::Mat::eye(3,3,CV_32FC1);
+	float tArray[3]={0,0,-1000};
+	cv::Mat tvec(3,1,CV_32FC1,tArray);
+	cv::Mat rvec;
+	cv::Rodrigues(R,rvec,cv::noArray());
+	float objectArray[4][3]={{0,0,0},{0,600,0},{800,600,0},{800,0,0}};
+	cv::Mat objectPoints(4,3,CV_32FC1,objectArray);
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<imagePoints<<std::endl;
+	Tracker tracker;
+	cv::namedWindow("frame");
+	float yaw=0.0f;
+	float pitch=0.0f;
+	float roll=0.0f;
+	cv::Mat frame;
+	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	cv::Mat src=cv::imread(imagePath,1);
+	cv::flip(src,src,1);
+	while(true){
+		cv::Mat rotation=tracker.buildRotationMatrix(yaw,pitch,roll);
+		cv::Rodrigues(rotation,rvec,cv::noArray());
+		frame=tracker.warpImage(src,rvec,tvec,cameraMatrix);
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(0);
+		switch (c)
+		{
+		case 'a':
+			tvec.at<float>(0,0)-=10.0f;
+			break;
+		case 'd':
+			tvec.at<float>(0,0)+=10.0f;
+			break;
+		case 'r':
+			tvec.at<float>(1,0)+=10.0f;
+			break;
+		case 'f':
+			tvec.at<float>(1,0)-=10.0f;
+			break;
+		case 'w':
+			tvec.at<float>(2,0)*=1.1f;
+			break;
+		case 's':
+			tvec.at<float>(2,0)*=0.9f;
+			break;
+		case 'i':
+			yaw+=0.1f;
+			break;
+		case 'j':
+			pitch+=0.1f;
+			break;
+		case 'k':
+			roll+=0.1f;
+			break;
+		}
+	}
+	cv::destroyAllWindows();
+}
+
+void Tester::testSolvePnP(){
+	std::string dirPath="c:/users/zixuan/desktop/laptop_calibration";
+	//std::string dirPath="c:/users/zixuan/desktop/tablet_calibration";
+	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	CameraCalibrator calibrator;
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,dirPath);
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(640,480));
+	//std::cout<<calibrator.getCameraMatrix()<<std::endl;
+	//std::cout<<calibrator.getDistCoeffs()<<std::endl;
+	PlanarObjectTracker tracker;
+	tracker.setIntrinsicMatrix(calibrator.getCameraMatrix());
+	tracker.setDistCoeffs(calibrator.getDistCoeffs());
+	tracker.loadTemplate(templateImagePath);
+
+	//// output object patches
+	//cv::Mat templateImage=cv::imread(templateImagePath);
+	//cv::Mat objectPoints=tracker.getObjectPoints();
+	//for(int i=0;i<objectPoints.rows;++i){
+	//	float* ptr=objectPoints.ptr<float>(i);
+	//	cv::Rect patchRect=tracker.getImageWindow(templateImage,ptr[0],ptr[1],8);
+	//	cv::Mat patch=templateImage(patchRect);
+	//	cv::imwrite("c:/users/zixuan/desktop/object_patches/"+boost::lexical_cast<std::string>(i)+".jpg",patch);
+	//}
+
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::Mat gray;
+	cv::namedWindow("frame");
+	int frameCounter=0;
+	cv::Mat warpImage;
+	Ticker ticker;
+	while(true){
+		capture>>frame;
+		//cv::cvtColor(frame,gray,CV_BGR2GRAY);
+		//cv::imwrite("c:/users/zixuan/desktop/"+boost::lexical_cast<std::string>(frameCounter++)+".jpg",gray);
+		//cv::Point point;
+		//tracker.zncc(gray,gray,&point);
+		if(!tracker.status()){
+			ticker.start();
+			tracker.initTrack(frame);
+			std::cout<<"initialization takes "<<ticker.stop()<<std::endl;
+		}else{
+			ticker.start();
+			tracker.track(frame);
+			std::cout<<"tracking takes "<<ticker.stop()<<std::endl;
+		}
+		if(tracker.status()){
+			tracker.drawProjectedCorners(frame);
+		}
+		//cv::Mat rvec=tracker.getRotationVec();
+		//cv::Mat tvec=tracker.getTranslationVec();
+		//std::cout<<rvec<<std::endl;
+		//std::cout<<tvec<<std::endl;
+		//cv::imshow("frame",warpImage);
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(30);
+		switch (c)
+		{
+		case 'd':
+			if(!tracker.getDebugMode()){
+				tracker.enableDebug();
+			}else{
+				tracker.disableDebug();
+			}
+			break;
+		}
+	}
+}
+
+void Tester::testCapture(){
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::namedWindow("frame");
+	int frameCount=0;
+	while(true){
+		capture>>frame;
+		cv::imwrite("c:/users/zixuan/desktop/calibration/"+boost::lexical_cast<std::string>(frameCount++)+".jpg",frame);
+		cv::imshow("frame",frame);
+		if(cv::waitKey(30) >= 0) break;
+	}
 }
