@@ -1019,7 +1019,8 @@ void Tester::testRemap(){
 void Tester::testSolvePnP(){
 	std::string dirPath="c:/users/zixuan/desktop/laptop_calibration";
 	//std::string dirPath="c:/users/zixuan/desktop/tablet_calibration";
-	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	//std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/design.jpg";
 	CameraCalibrator calibrator;
 	std::vector<std::string> filelist;
 	File::getFiles(&filelist,dirPath);
@@ -1046,6 +1047,7 @@ void Tester::testSolvePnP(){
 	cv::Mat frame;
 	cv::Mat gray;
 	cv::namedWindow("frame");
+	cv::namedWindow("render");
 	int frameCounter=0;
 	cv::Mat warpImage;
 	Ticker ticker;
@@ -1067,11 +1069,17 @@ void Tester::testSolvePnP(){
 		if(tracker.status()){
 			tracker.drawProjectedCorners(frame);
 		}
+
 		//cv::Mat rvec=tracker.getRotationVec();
 		//cv::Mat tvec=tracker.getTranslationVec();
 		//std::cout<<rvec<<std::endl;
 		//std::cout<<tvec<<std::endl;
-		//cv::imshow("frame",warpImage);
+		if(tracker.status()){
+			warpImage=tracker.warpTemplateImage(frame.size());
+			cv::imshow("render",warpImage);
+		}else{
+			cv::imshow("render",cv::Mat::zeros(frame.size(),CV_8UC1));
+		}
 		cv::imshow("frame",frame);
 		char c=cv::waitKey(30);
 		switch (c)
