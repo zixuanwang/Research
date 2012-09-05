@@ -91,12 +91,12 @@ def editEventAttrForm(request,ehash):
         updateResult = False 
         if request.method == "POST":
             what = request.POST.get('what')
-            print what
+            #print what
             what_other = request.POST.get('what_other')
             eventDate = request.POST.get('when_date')
-            print eventDate
+            #print eventDate
             eventTime = request.POST.get('when_time')
-            print eventTime
+            #print eventTime
             #e3 = request.POST.getlist("item[tags][]")
             #if len(e3)>=2:
             #    friendEmails = ','.join(e3)
@@ -105,7 +105,7 @@ def editEventAttrForm(request,ehash):
             friendEmailList = request.POST.get('emails')
         
             friendEmails = fun_remove_extra_comma(friendEmailList)
-            print friendEmails    
+            #print friendEmails    
             location = request.POST.get('location')
   
             updateResult = updateEventFixedAttr(ehash, uhash, what,what_other, friendEmails, eventDate,eventTime, location)
@@ -146,7 +146,7 @@ def updateEventFixedAttr(ehash, uhash, what, what_other, friendEmails, eventDate
         friendEs = friendEmails.split(',')
         for uemail in friendEs:
             uemail = str(uemail.strip())
-            print uemail
+            #print uemail
             try:
                 attender = user.objects.get(email=uemail)
                 uhash = attender.uhash

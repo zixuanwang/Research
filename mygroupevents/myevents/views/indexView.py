@@ -28,7 +28,7 @@ def verify_user(email,password):
     try:
         u = user.objects.get(email=email, is_registered=True)
         passwdhash = u.passwd
-        print passwdhash
+        #print passwdhash
         ok =  pwd_context.verify(password, passwdhash)
         if ok:
             print 'OK'

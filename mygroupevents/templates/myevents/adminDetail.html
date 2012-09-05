@@ -76,7 +76,7 @@
 		 
 		if (friendEmails=="")
 		{
-			alert("You Should Invite at least one friend! Press Enter or Tab to confirm your friend input ");
+			alert("You Should Invite at least one friend!");
 			return false;
 		}
 		else if (friendEmails.match(myemail))
@@ -84,6 +84,8 @@
 			alert('Please do not invite yourself....');
 			return false;
 		}
+		//todo: should i consider all wrong symbols to let users to fix
+		friendEmails = friendEmails.replace(';',',')
 		var friend_email_list = friendEmails.split(',');
 
 		for(var a_index in friend_email_list)

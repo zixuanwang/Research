@@ -120,7 +120,8 @@ class search_query(models.Model):
 class search_result(models.Model):
 	query = models.ForeignKey(search_query)
 	yelp_result = models.ForeignKey(yelp)	
-	
+
+#todo 9-2-2012: need pub_date. to display events by date and time
 class event_user(models.Model):
 	event = models.ForeignKey(event)
 	user = models.ForeignKey(user)
@@ -134,6 +135,14 @@ class event_choice(models.Model):
 	pub_date = models.DateTimeField(auto_now=True, auto_now_add=True)
 
 class poll(models.Model):
+	event = models.ForeignKey(event)
+	choice = models.ForeignKey(choice)
+	user = models.ForeignKey(user)
+	vote = models.IntegerField()
+	date = models.DateTimeField(auto_now=True, auto_now_add=True)
+
+#record all clicks of a user made to a choice for an event 
+class pollClick(models.Model):
 	event = models.ForeignKey(event)
 	choice = models.ForeignKey(choice)
 	user = models.ForeignKey(user)

@@ -31,9 +31,9 @@ def enum(**enums):
 def make_uuid():
     return str(uuid.uuid4().hex)
 
-EVENT_STATUS = enum(INIT=0,HASDETAIL=1,VOTING=2,TERMINATED=3)
+EVENT_STATUS = enum(INIT=0,HASDETAIL=1,VOTING=2,TERMINATED=3,INVALID=4)
 VOTE_STATUS = enum(NO=0,YES=1,DONTKNOW=2)
-CHOICE_SOURCE = enum(MANUAL=0,YELP = 1, REC = 2)
+CHOICE_SOURCE = enum(MANUAL=0,YELP = 1, REC = 2,TEST=3)
 EMAIL_HOST_USER = "mygroupevents@gmail.com"
 def adminMail(ehash,uhash,user_name,event_name,send_to):
     subject = "Invitation to manage your event: " + event_name
@@ -153,7 +153,7 @@ def finalMessageMail(ehash,uhash):
         send_to = get_event_user_emails(e.id)
         #send_to = str(e.friends).split(',')
         #send_to.append(str(e.inviter))
-        print send_to
+        #print send_to
         
     
         EmailThread(subject, html_content, send_to).start()
@@ -193,7 +193,7 @@ def yelp_request(host, path, url_params, consumer_key, consumer_secret, token, t
   if url_params:
     encoded_params = urllib.urlencode(url_params)
   url = 'http://%s%s?%s' % (host, path, encoded_params)
-  print 'URL: %s' % (url)
+  #print 'URL: %s' % (url)
 
   # Sign the URL
   consumer = oauth2.Consumer(consumer_key, consumer_secret)
@@ -206,7 +206,7 @@ def yelp_request(host, path, url_params, consumer_key, consumer_secret, token, t
   token = oauth2.Token(token, token_secret)
   oauth_request.sign_request(oauth2.SignatureMethod_HMAC_SHA1(), consumer, token)
   signed_url = oauth_request.to_url()
-  print 'Signed URL: %s\n' % (signed_url,)
+  #print 'Signed URL: %s\n' % (signed_url,)
 
   # Connect
   try:

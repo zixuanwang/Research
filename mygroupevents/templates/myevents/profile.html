@@ -73,8 +73,8 @@
 	<div class="container" style="width:auto;">
     -->    <ul class="nav nav-tabs" id="menu-tab">
           <li><a href="#createNewEvent" data-toggle="tab"> Create New Event</a></li>
-          <li class="active"><a href="#onGoingEvent" data-toggle="tab"> OnGoing Event</a></li>
-          <li><a href="#pastEvent" data-toggle="tab"> Past Event</a></li>
+          <li class="active"><a href="#onGoingEvent" data-toggle="tab"> OnGoing Events</a></li>
+          <li><a href="#pastEvent" data-toggle="tab"> Past Events</a></li>
           <li><a href="#myFriends" data-toggle="tab"> My Friends</a></li>
         </ul>
      <!-- </div>
@@ -131,7 +131,11 @@
              <table class="table table-hover">
    				<tbody>
    				{%for e in events_to_participate%}
-   				<tr>  <td>{{e.name}} </td> <td>on {{e.pub_date}} </td> <td> <a href="../{{e.ehash}}/{{user.uhash}}/attender/">Check</a></td> </tr>
+   				<tr> 
+					<td>{{e.name}} </td> 
+					<td>on {{e.eventTime}} {{e.eventDate}} </td> 
+					<td>as {%ifequal e.inviter user.email%} admin{%else%}attender{%endifequal%}</td>
+					<td> <a href="../{{e.ehash}}/{{user.uhash}}/attender/">Check</a></td> </tr>
    				{%endfor%}
    				</tbody>
    			 </table>
@@ -144,12 +148,12 @@
         ================================================== -->
          <div class="tab-pane fade" id="pastEvent">
          <div class="page-header">
-			{%if events_to_organize%}
+			{%if events_closed%}
           	<h2>View  the summary of past events</h2>
             <table class="table table-hover">
    				<tbody>
    				{%for e in events_closed%}
-   				<tr>  <td>{{e.name}} </td> <td> on {{e.pub_date}} </td> <td> <a href="../{{e.ehash}}/{{user.uhash}}/eventSummary/">View</a></td> </tr>
+   				<tr>  <td>{{e.name}} </td> <td> on {{e.eventTime}} {{e.eventDate}}</td> <td> closed on {{e.closeDate}} </td> <td> by {{e.inviter}}</td> <td> <a href="../{{e.ehash}}/{{user.uhash}}/eventSummary/">View</a></td> </tr>
    				{%endfor%}
    				</tbody>
    			 </table>

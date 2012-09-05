@@ -128,8 +128,20 @@ def random_sample_list(item_list, k):
 			item_list[j] = item_list[i-1] 
 			item_list[i-1] = tmp
 	return item_list
-		
-def create_event(event_name,event_date,event_time,members):
+
+#sample items for n events
+#number of items is fixed to be 6
+def random_sample_items(n):
+	ys = item.objects.all()
+	item_ids = []
+	for y in ys:
+		item_ids.append(y.id)
+	for i in range(n):
+		random.seed(int(time.time()))
+		random.shuffle(item_ids)   #shuffle ids all the time
+		print item_ids[0:6]
+
+def create_event(event_name,event_date,event_time,members,item_ids):
 	print event_name,event_date, event_time,members
 	e_hash = make_uuid()
 	admin_u = user.objects.get(id=members[0])
@@ -155,21 +167,17 @@ def create_event(event_name,event_date,event_time,members):
 			except friend.DoesNotExist:
 				uv = friend.objects.create(u_id=admin_u.id, v_id=attender_u.id,cnt=1)
 	#select choice randomly, update event_choice
-	random.seed(int(time.time()))
-	ys = item.objects.all()
-	item_ids = []
-	for y in ys:
-		item_ids.append(y.id)
-	random.shuffle(item_ids)
-	for cid in item_ids:
-		if random.random() <= 0.1:
-			try:
-				c = choice.objects.get(pickid=cid,pickby_id=admin_u.id)
-				c.cnt +=1
-				c.save()
-			except choice.DoesNotExist:
-				c = choice.objects.create(pickid=cid, pickby_id=admin_u.id,cnt=1)
-				ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+	random.shuffle(item_ids)   #shuffle ids all the time
+	print item_ids[0:6]
+	for cid in item_ids[0:6]:  #select first 6 items
+		try:
+			c = choice.objects.get(pickid=cid,pickby_id=admin_u.id)
+			c.cnt +=1
+			c.save()
+			ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+		except choice.DoesNotExist:
+			c = choice.objects.create(pickid=cid, pickby_id=admin_u.id,cnt=1)
+			ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
 	#update event
 	e.friends =','.join(friend_emails)
 	e.status = EVENT_STATUS.VOTING
@@ -179,7 +187,7 @@ def createItems():
 	yelp_item = yelp.objects.all()
 	for y in yelp_item:
 		location =y.location_display_address
-		newitem = item.objects.create(foreign_id=y.id, name=y.name, location=location, image=y.rating_img_url,notes=y.review_count,url=y.url,ftype=CHOICE_SOURCE.YELP)
+		newitem = item.objects.create(foreign_id=y.id, name=y.name, location=location, image=y.rating_img_url,notes=y.review_count,url=y.url,ftype=CHOICE_SOURCE.TEST)
 		
 
 def createDetails():
@@ -187,14 +195,20 @@ def createDetails():
 	id_list = []
 	for row in all_users:
 		id_list.append(row.id)
-	
+	ys = item.objects.all()
+	item_ids = []
+	for y in ys:
+		item_ids.append(y.id)
+
 	group_size = [2,4,8]
 	event_date = ["2012-09-04","2012-09-05","2012-09-06","2012-09-08","2012-09-10","2012-09-11","2012-09-12","2012-09-13","2012-09-14","2012-09-15",
 				"2012-09-17","2012-09-18","2012-09-19","2012-09-20","2012-09-21","2012-09-22","2012-09-24","2012-09-25","2012-09-26","2012-09-27","2012-09-28","2012-09-29",
-				"2012-10-01","2012-10-01","2012-10-03","2012-10-04","2012-10-05","2012-10-06"]
+			"2012-10-01","2012-10-03","2012-10-04","2012-10-05","2012-10-06"]
 	event_times = ["12:01","18:01"] 
 	event_title = ["Lunch","Dinner"]
+	event_cnt = 0
 	for one_date in event_date:
+		random.seed(int(time.time()))
 		for event_time in event_times:
 			if event_time=="12:01":
 				event_name = "Lunch"
@@ -204,16 +218,27 @@ def createDetails():
 			
 			group_eight = sampled_list[0:8]
 			left_list = sampled_list[8:]
+			event_cnt +=1 	
+			create_event(event_name,one_date, event_time,group_eight,item_ids)
 			
-			create_event(event_name,one_date, event_time,group_eight)
 			sample_four = random_sample_list(left_list,4)
-			create_event(event_name,one_date,event_time,sample_four[0:4])
+			
+			create_event(event_name,one_date,event_time,sample_four[0:4],item_ids)
+		
+			event_cnt +=1 	
 			sample_four_twice= random_sample_list(sample_four[4:],4)
-			create_event(event_name,one_date,event_time,sample_four_twice[0:4])
+			
+			create_event(event_name,one_date,event_time,sample_four_twice[0:4],item_ids)
+			
+			event_cnt +=1 	
 			sample_two = random_sample_list(sample_four_twice[4:],2)
-			create_event(event_name,one_date,event_time,sample_two[0:2])
-			create_event(event_name,one_date,event_time,sample_two[2:4])
-	
-	
+			
+			create_event(event_name,one_date,event_time,sample_two[0:2],item_ids)
+			
+			event_cnt +=1 	
+			create_event(event_name,one_date,event_time,sample_two[2:4],item_ids)
+			event_cnt +=1 	
+
+	print "create %i events in total"%event_cnt
 	
 	

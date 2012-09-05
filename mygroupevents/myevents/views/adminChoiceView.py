@@ -292,7 +292,7 @@ def sort_items_by_score(mydict):
     itemlist = []
     newdict = sorted(mydict.iteritems(), key=lambda (k,v): (v,k), reverse=True)
     for k,v in newdict:
-        print "%s: %s" % (k,v)
+        #print "%s: %s" % (k,v)
         if v>0:
             itemlist.append(k)
     return itemlist
@@ -327,7 +327,7 @@ def build_baseline_reclist(user_rate):
 # work in july 19. 
 # baseline recommendation algorithm
 def getBaseRecommendation2(request,ehash,uhash):
-    print ehash,uhash
+    #print ehash,uhash
     if request.method == 'GET':
         u = user.objects.get(uhash=uhash)
         e = event.objects.get(ehash=ehash)
@@ -360,7 +360,7 @@ def getBaseRecommendation2(request,ehash,uhash):
                 ys = []                                                                                       
                 item_count = 0 
                 for i in sorted_items:
-                    print i
+                    #print i
                     if item_count > 10:   # only recommend top 10 items
                         break
                     try:
@@ -381,7 +381,7 @@ def getBaseRecommendation2(request,ehash,uhash):
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
 def getBaseRecommendation(request,ehash,uhash=None):
-    print ehash,uhash
+    #print ehash,uhash
     if request.method == 'GET':
         if uhash is None:
             uid = request.session['user_id']

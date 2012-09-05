@@ -156,27 +156,33 @@ def setChoiceVote(event_id,user_id, choice_id,vote):
     except poll.DoesNotExist:
         ep = poll.objects.create(event_id=event_id, choice_id=choice_id,user_id=user_id, vote=vote)
 
+#record all clicks into db
+def setPollClick(event_id,user_id, choice_id,vote):
+	ep = pollClick.objects.create(event_id=event_id,choice_id=choice_id,user_id=user_id, vote=vote)
+	return ep
+
 # set the vote of a choice
 def setVote(request,ehash,uhash):
-    if request.method == "POST":    
-        try:
-            e = event.objects.get(ehash=ehash) 
-            u = user.objects.get(uhash=uhash)
-            c_id = request.POST.get('choice_id')
-            vote  = request.POST.get('vote')
-            #print c_id,vote
-            if c_id.isdigit():  #'-1'.isdigit() = False
-                num_vote = int(vote)
-                setChoiceVote(e.id,u.id,int(c_id),num_vote)
-                json = simplejson.dumps({"message":"Vote Success!"})
-            else:
-                json = simplejson.dumps({"message":"Wrong Vote value, not integer"})
-            return HttpResponse(json, mimetype='application/json')
-        except event.DoesNotExist or user.DoesNotExist:
-            json = simplejson.dumps({"message":"Wrong Event or User !"})
-            return HttpResponse(json, mimetype='application/json')
-    else:
-        return render_to_response('myEvents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  
+	if request.method == "POST":    
+		try:
+			e = event.objects.get(ehash=ehash) 
+			u = user.objects.get(uhash=uhash)
+			c_id = request.POST.get('choice_id')
+			vote  = request.POST.get('vote')
+			#print c_id,vote
+			if c_id.isdigit():  #'-1'.isdigit() = False
+				num_vote = int(vote)
+				setChoiceVote(e.id,u.id,int(c_id),num_vote)
+				setPollClick(e.id,u.id,int(c_id),num_vote)
+				json = simplejson.dumps({"message":"Vote Success!"})
+			else:
+				json = simplejson.dumps({"message":"Wrong Vote value, not integer"})
+			return HttpResponse(json, mimetype='application/json')
+		except event.DoesNotExist or user.DoesNotExist:
+			json = simplejson.dumps({"message":"Wrong Event or User !"})
+			return HttpResponse(json, mimetype='application/json')
+	else:
+		return render_to_response('myEvents/error.html',{"message":"the request is not a post"},context_instance=RequestContext(request))  
 
 # NEED Improve -> a new algorithm to pick the best one.
 # return the most liked place, with the number of likes
