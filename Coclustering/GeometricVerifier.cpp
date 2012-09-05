@@ -32,7 +32,7 @@ cv::Mat GeometricVerifier::findHomography(const cv::Mat& srcPoints, const cv::Ma
 	CvMat modelMat=cvMat(3,3,CV_64FC1,modelArray);
 	CvMat bestModelMat=cvMat(3,3,CV_64FC1,bestModelArray);
 	int bestSupport=0;
-	for(int iteration=0;iteration<1000;++iteration){
+	for(int iteration=0;iteration<500;++iteration){
 		int support=0;
 		_inliers.assign(count,0);
 		for(int i=0;i<4;++i){

@@ -8,11 +8,10 @@ PlanarObjectTracker::PlanarObjectTracker(void) {
 			> (new cv::OrbFeatureDetector(200));
 	mpDescriptor = cv::Ptr < cv::DescriptorExtractor
 			> (new cv::OrbDescriptorExtractor());
-	//mpDetector=cv::Ptr<SURFDetector>(new SURFDetector(100));
-	//mpDescriptor=cv::Ptr<cv::DescriptorExtractor>(new cv::SurfDescriptorExtractor());
-	//mpMatcher=cv::DescriptorMatcher::create("BruteForce-Hamming(2)");
 	mpMatcher = cv::Ptr < cv::DescriptorMatcher
 			> (new cv::BFMatcher(cv::NORM_HAMMING, true));
+	mRVec=cv::Mat::zeros(3,1,CV_64FC1);
+	mTVec=cv::Mat::zeros(3,1,CV_64FC1);
 	mOnTrack = false;
 	mDebugMode = false;
 }
@@ -69,15 +68,20 @@ void PlanarObjectTracker::initTrack(cv::Mat& image) {
 	} else {
 		gray = image;
 	}
+	Ticker ticker;
+	ticker.start();
 	std::vector<cv::KeyPoint> frameKeypointArray;
 	cv::Mat frameDescriptor;
 	mpDetector->detect(gray, frameKeypointArray, cv::Mat());
 	if (frameKeypointArray.empty()) {
 		return;
 	}
+	std::cout<<"detection: "<<ticker.stop()<<std::endl;
+	ticker.start();
 	//cv::Mat uFrameDescriptor;
 	//mpDescriptor->compute(gray,frameKeypointArray,uFrameDescriptor);
 	mpDescriptor->compute(gray, frameKeypointArray, frameDescriptor);
+	std::cout<<"description: "<<ticker.stop()<<std::endl;
 	//uFrameDescriptor.assignTo(frameDescriptor,CV_32FC1);
 	// find the homograhpy between the frame and the template.
 	std::vector<std::pair<int, int> > matchPairArray;
@@ -506,6 +510,7 @@ double PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const 
 			double dy=imagePtr[1]-v;
 			double err_sq = dx*dx+dy*dy;
 			double w = huber_weight(err_sq);
+			//double w=1.0f;
 			error+= w*err_sq;
 			double eArray[2]={dx,dy};
 			cv::Mat EMat(2,1,CV_64FC1,eArray);
