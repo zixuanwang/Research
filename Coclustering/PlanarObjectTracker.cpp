@@ -31,15 +31,9 @@ void PlanarObjectTracker::loadTemplate(const std::string& filepath) {
 	mTemplateImagePath = filepath;
 	mTemplateImage = cv::imread(mTemplateImagePath, 0);
 	mpDetector->detect(mTemplateImage, mTemplateKeypointArray, cv::Mat());
-	//cv::Mat templateDescriptor;
-	//mpDescriptor->compute(mTemplateImage,mTemplateKeypointArray,templateDescriptor);
 	mpDescriptor->compute(mTemplateImage, mTemplateKeypointArray,
 			mTemplateDescriptor);//CV_8UC1 in mTemplateDescriptor if ORB descriptor.
-	// FLANN only accepts floating type
-	//templateDescriptor.assignTo(mTemplateDescriptor,CV_32FC1);
 	int templateKeypointCount = (int) mTemplateKeypointArray.size();
-	// build the kd tree for the descriptor
-	//mpTempalateDescriptorIndex=cv::Ptr<cv::flann::Index>(new cv::flann::Index(mTemplateDescriptor,cv::flann::KDTreeIndexParams(2)));
 	// initialize object points
 	mObjectPoints = cv::Mat(templateKeypointCount, 3, CV_32FC1);
 	for (int i = 0; i < templateKeypointCount; ++i) {
@@ -59,6 +53,9 @@ void PlanarObjectTracker::loadTemplate(const std::string& filepath) {
 					(float) mTemplateImage.rows, 0.0f));
 	mTemplateImageCorners.push_back(
 			cv::Point3f(0.0f, (float) mTemplateImage.rows, 0.0f));
+	// build the template pyramid
+	buildPyramid(&mPyramid,mTemplateImage,4);
+	mTemplateArea=(double)mTemplateImage.cols*(double)mTemplateImage.rows;
 }
 
 void PlanarObjectTracker::initTrack(cv::Mat& image) {
@@ -69,27 +66,20 @@ void PlanarObjectTracker::initTrack(cv::Mat& image) {
 		gray = image;
 	}
 	Ticker ticker;
-	ticker.start();
+	//ticker.start();
 	std::vector<cv::KeyPoint> frameKeypointArray;
 	cv::Mat frameDescriptor;
 	mpDetector->detect(gray, frameKeypointArray, cv::Mat());
 	if (frameKeypointArray.empty()) {
 		return;
 	}
-	std::cout<<"detection: "<<ticker.stop()<<std::endl;
-	ticker.start();
-	//cv::Mat uFrameDescriptor;
-	//mpDescriptor->compute(gray,frameKeypointArray,uFrameDescriptor);
 	mpDescriptor->compute(gray, frameKeypointArray, frameDescriptor);
-	std::cout<<"description: "<<ticker.stop()<<std::endl;
-	//uFrameDescriptor.assignTo(frameDescriptor,CV_32FC1);
 	// find the homograhpy between the frame and the template.
 	std::vector<std::pair<int, int> > matchPairArray;
 	cv::Mat h = findHomography(&matchPairArray, frameKeypointArray,
 			frameDescriptor);
 	int matchCount = (int) matchPairArray.size();
-	//std::cout<<matchCount<<std::endl;
-	if (h.empty() || matchCount < 10) {
+	if (h.empty() || matchCount < 12) {
 		mOnTrack = false;
 		return;
 	}
@@ -108,7 +98,6 @@ void PlanarObjectTracker::initTrack(cv::Mat& image) {
 	}
 	cv::solvePnP(objectPoints, imagePoints, mIntrinsicMatrix, mDistCoeffs,
 			mRVec, mTVec, false, cv::ITERATIVE);
-	//solveGaussNewton(objectPoints,imagePoints,mIntrinsicMatrix,mDistCoeffs,mRVec,mTVec);
 	mOnTrack = true;
 	if (mDebugMode) {
 		drawMatches(mTemplateImage, image, mTemplateKeypointArray,
@@ -120,37 +109,8 @@ cv::Mat PlanarObjectTracker::findHomography(
 		std::vector<std::pair<int, int> >* pMatchPairArray,
 		const std::vector<cv::KeyPoint>& keypointArray,
 		const cv::Mat& descriptor) {
-	//cv::Mat indices;
-	//cv::Mat dists;
-	////mpTempalateDescriptorIndex->knnSearch(descriptor,indices,dists,1,cv::flann::SearchParams(32));
-	//std::vector<cv::Point2f> srcPoints;
-	//std::vector<cv::Point2f> dstPoints;
-	//srcPoints.reserve(descriptor.rows);
-	//dstPoints.reserve(descriptor.rows);
-	//for(int i=0;i<descriptor.rows;++i){
-	//	int* index=indices.ptr<int>(i);
-	//	srcPoints.push_back(mTemplateKeypointArray[*index].pt);
-	//	dstPoints.push_back(keypointArray[i].pt);
-	//}
-	//std::vector<uchar> inliers(descriptor.rows, 0);
-	//cv::Mat homography = cv::findHomography(srcPoints, dstPoints, CV_RANSAC, 3.0f, inliers);
-	//int inlierCount=0;
-	//for(size_t i=0;i<inliers.size();++i){
-	//	if(inliers[i]!=0){
-	//		int* index=indices.ptr<int>(i);
-	//		pMatchPairArray->push_back(std::pair<int,int>(*index,(int)i));
-	//		++inlierCount;
-	//	}
-	//}
-	//if(inlierCount>10){
-	//	return homography;
-	//}
-	//return cv::Mat();
-	Ticker ticker;
-	ticker.start();
 	std::vector<cv::DMatch> matches;
 	mpMatcher->match(descriptor, mTemplateDescriptor, matches, cv::Mat());
-	std::cout << "match: " << ticker.stop() << std::endl;
 	std::vector<cv::Point2f> srcPoints;
 	std::vector<cv::Point2f> dstPoints;
 	int matchCount = (int) matches.size();
@@ -161,26 +121,16 @@ cv::Mat PlanarObjectTracker::findHomography(
 		dstPoints.push_back(keypointArray[matches[i].queryIdx].pt);
 	}
 	std::vector<uchar> inliers(srcPoints.size(), 0);
-	ticker.start();
-	//cv::Mat homography = cv::findHomography(srcPoints, dstPoints, CV_RANSAC,
-	//		2.0f, inliers);
 	GeometricVerifier verifier;
 	cv::Mat homography=verifier.findHomography(cv::Mat(srcPoints),cv::Mat(dstPoints),inliers);
-	std::cout << "homography: " << ticker.stop() << std::endl;
-	int inlierCount = 0;
 	for (size_t i = 0; i < inliers.size(); ++i) {
 		if (inliers[i] != 0) {
 			pMatchPairArray->push_back(
 					std::pair<int, int>(matches[i].trainIdx,
 							matches[i].queryIdx));
-			++inlierCount;
 		}
 	}
-	if (inlierCount > 10) {
-		return homography;
-	}
-	return cv::Mat();
-
+	return homography;
 }
 
 void PlanarObjectTracker::track(cv::Mat& image) {
@@ -201,29 +151,11 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 	imageArray.reserve(mObjectPoints.rows*2);
 	cv::projectPoints(mObjectPoints, mRVec, mTVec, mIntrinsicMatrix,
 			mDistCoeffs, candidateImagePoints, cv::noArray(), 0);
-	//cv::Mat templatePatch(windowSize,windowSize,CV_8UC1);
-	//cv::Mat invH=getInverseHomography();
-
-
-	//ticker.start();
 	cv::Mat warpImage = warpTemplateImage(gray.size());
-	//std::cout << "warping: " << ticker.stop() << std::endl;
-	ticker.start();
 	for (size_t i = 0; i < candidateImagePoints.size(); ++i) {
 		cv::Point srcPoint((int)(candidateImagePoints[i].x + 0.5f),
 				(int)(candidateImagePoints[i].y + 0.5f));
 		cv::Point dstPoint;
-		
-		//bool success=getTemplatePatch(&templatePatch,invH,srcPoint);
-		//if(!success){
-		//	continue;
-		//}
-		//cv::Rect targetRect = getImageWindow(gray, srcPoint.x, srcPoint.y,
-		//	searchRange);
-		//cv::Mat targetPatch = gray(targetRect);
-		//float score=match(templatePatch,targetPatch,srcPoint,&dstPoint);
-		
-		//cv::circle(image, srcPoint, 3, CV_RGB(255, 0, 0), 1, CV_AA, 0);
 		float score = match(warpImage, srcPoint, gray, &dstPoint);
 		if (score > 0.6f) {
 			//update rotation and translation
@@ -240,23 +172,16 @@ void PlanarObjectTracker::track(cv::Mat& image) {
 					0);
 		}
 	}
-	std::cout << objectArray.size() / 3 << std::endl;
-	std::cout << "matching: " << ticker.stop() << std::endl;
-	ticker.start();
 	if (objectArray.size() > 120) {
 		cv::Mat objectPoints(objectArray, false);
 		objectPoints = objectPoints.reshape(3, (int)objectArray.size() / 3);
 		cv::Mat imagePoints(imageArray, false);
 		imagePoints = imagePoints.reshape(2, (int)imageArray.size() / 2);
-		std::cout << "matched points: " << objectPoints.rows << std::endl;
-		//cv::solvePnP(objectPoints, imagePoints, mIntrinsicMatrix, mDistCoeffs,
-		//		mRVec, mTVec, true, cv::ITERATIVE);	// use the initial guess.
 		solveGaussNewton(objectPoints,imagePoints,mIntrinsicMatrix,mDistCoeffs,mRVec,mTVec);
 		mOnTrack = true;
 	} else {
 		mOnTrack = false;
 	}
-	std::cout << "pnp: " << ticker.stop() << std::endl;
 }
 
 bool PlanarObjectTracker::getTemplatePatch(cv::Mat* pTemplatePatch, const cv::Mat& invH, const cv::Point& point){
@@ -361,9 +286,17 @@ cv::Mat PlanarObjectTracker::warpTemplateImage(const cv::Size& size) {
 						mTemplateImageCorners[i].y));
 	}
 	std::vector<cv::Point2f> dst = getProjectedCorners();
+	// compute projected area for the image pyramid.
+	mProjectedArea=cv::contourArea(dst);
 	cv::Mat h = cv::getPerspectiveTransform(src, dst);
 	cv::Mat warpImage;
-	cv::warpPerspective(mTemplateImage, warpImage, h, size);
+	//cv::warpPerspective(mTemplateImage, warpImage, h, size);
+	// use pyramid here
+	cv::Mat srcPyramid=selectPyramidImage();
+	double s=(double)mTemplateImage.cols/srcPyramid.cols;
+	double sArray[]={s,0,s-1,0,s,s-1,0,0,1};
+	cv::Mat sMat(3,3,CV_64FC1,sArray);
+	cv::warpPerspective(srcPyramid,warpImage,h*sMat,size);
 	return warpImage;
 }
 
@@ -510,7 +443,6 @@ double PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const 
 			double dy=imagePtr[1]-v;
 			double err_sq = dx*dx+dy*dy;
 			double w = huber_weight(err_sq);
-			//double w=1.0f;
 			error+= w*err_sq;
 			double eArray[2]={dx,dy};
 			cv::Mat EMat(2,1,CV_64FC1,eArray);
@@ -521,7 +453,6 @@ double PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const 
 			A+=JTMat * JMat * w;
 			b+=JTMat * EMat * w;
 		}
-		//std::cout<<"Error: "<<sqrt(error/objectPoints.rows)<<std::endl;
 		double updateVArray[6];
 		cv::Mat updateVec(6,1,CV_64FC1,updateVArray);
 		cv::solve(A,b,updateVec,cv::DECOMP_CHOLESKY);//cholesky is used to solve the equation.
@@ -535,4 +466,30 @@ double PlanarObjectTracker::solveGaussNewton(const cv::Mat& objectPoints, const 
 	cv::Rodrigues(RMat,rvec);
 	memcpy(tvec.data,currentTransform.t,3*sizeof(double));
 	return sqrt(error/objectPoints.rows);
+}
+
+void PlanarObjectTracker::buildPyramid(std::vector<cv::Mat>* pPyramid, const cv::Mat& image, int k){
+	pPyramid->push_back(image);
+	double scale=0.5f;
+	cv::Mat temp=image;
+	for(int i=0;i<k;++i){
+		cv::Mat dst;
+		cv::resize(temp,dst,cv::Size(),scale,scale,cv::INTER_LINEAR);
+		pPyramid->push_back(dst);
+		temp=dst;
+	}
+}
+
+cv::Mat PlanarObjectTracker::selectPyramidImage(){
+	double ratio=mProjectedArea/mTemplateArea;
+	if(ratio<=0.0f){
+		return cv::Mat();
+	}
+	int index = 0;
+	while (index + 1 < (int)mPyramid.size() && ratio < 0.5f) {
+		++index;
+		ratio *= 4.0;
+	}
+	//std::cout<<"Pyramid level: "<<index<<std::endl;
+	return mPyramid[index];
 }
