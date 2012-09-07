@@ -1069,13 +1069,14 @@ void Tester::testSolvePnP(){
 		if(tracker.status()){
 			tracker.drawProjectedCorners(frame);
 		}
-
+			
 		//cv::Mat rvec=tracker.getRotationVec();
 		//cv::Mat tvec=tracker.getTranslationVec();
 		//std::cout<<rvec<<std::endl;
 		//std::cout<<tvec<<std::endl;
 		if(tracker.status()){
 			warpImage=tracker.warpTemplateImage(frame.size());
+			//cv::imshow("render",tracker.selectPyramidImage());
 			cv::imshow("render",warpImage);
 		}else{
 			cv::imshow("render",cv::Mat::zeros(frame.size(),CV_8UC1));

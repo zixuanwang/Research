@@ -52,6 +52,8 @@ public:
 	float zncc(const cv::Mat& image, const cv::Mat& templateImage,
 			cv::Point* pMaxPoint);
 	double solveGaussNewton(const cv::Mat& objectPoints, const cv::Mat& imagePoints, const cv::Mat& cameraMatrix, const cv::Mat& distCoeffs, cv::Mat& rvec, cv::Mat& tvec);
+	void buildPyramid(std::vector<cv::Mat>* pPyramid, const cv::Mat& image, int k);
+	cv::Mat selectPyramidImage();
 private:
 	cv::Mat mObjectPoints;
 	cv::Mat mIntrinsicMatrix;
@@ -72,5 +74,8 @@ private:
 	bool mDebugMode;
 	static const int windowSize;
 	static const int searchRange;
+	std::vector<cv::Mat> mPyramid;
+	double mProjectedArea;
+	double mTemplateArea;
 };
 
