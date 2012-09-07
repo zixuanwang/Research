@@ -1,0 +1,79 @@
+1	Greek,greek
+2	Vietnamese,vietnamese
+3	Chinese,chinese
+4	Vegan,vegan;Chinese,chinese
+5	French,french
+6	Mediterranean,mediterranean;Turkish,turkish;Caterers,catering
+7	Sushi Bars,sushi;Japanese,japanese;Caterers,catering
+8	Chinese,chinese
+9	Italian,italian
+10	Mexican,mexican
+11	Brazilian,brazilian;Steakhouses,steak
+12	Cuban,cuban
+13	Italian,italian
+14	Chinese,chinese
+15	Italian,italian
+16	American (New),newamerican;Gluten-Free,gluten_free;Vegetarian,vegetarian
+17	Indian,indpak
+18	Indian,indpak;Pakistani,pakistani
+19	American (New),newamerican;Breakfast & Brunch,breakfast_brunch
+20	Caribbean,caribbean
+21	Chinese,chinese
+22	Szechuan,szechuan
+23	Chinese,chinese;Caterers,catering
+24	Chinese,chinese
+25	Chinese,chinese
+26	Chinese,chinese
+27	Chinese,chinese
+28	Chinese,chinese;Burmese,burmese
+29	Chinese,chinese
+30	Chinese,chinese;Asian Fusion,asianfusion;Gluten-Free,gluten_free
+31	Chinese,chinese
+32	Dim Sum,dimsum
+33	Chinese,chinese
+34	Chinese,chinese
+35	Chinese,chinese
+36	Chinese,chinese
+37	Korean,korean
+38	Korean,korean
+39	Korean,korean;Vietnamese,vietnamese;Sandwiches,sandwiches
+40	Korean,korean
+41	Korean,korean
+42	Korean,korean
+43	Korean,korean;Food Stands,foodstands
+44	Italian,italian
+45	Italian,italian
+46	Italian,italian
+47	Italian,italian;Wine Bars,wine_bars;Mediterranean,mediterranean
+48	Italian,italian
+49	Italian,italian;Gluten-Free,gluten_free;Wine Bars,wine_bars
+50	Italian,italian;Food,food
+51	Italian,italian
+52	Italian,italian;Greek,greek;Pizza,pizza;Mediterranean,mediterranean
+53	French,french;American (New),newamerican;Italian,italian
+54	Italian,italian
+55	Italian,italian;Breakfast & Brunch,breakfast_brunch;Coffee & Tea,coffee
+56	Italian,italian;Breakfast & Brunch,breakfast_brunch
+57	Italian,italian;Pizza,pizza
+58	Italian,italian
+59	Italian,italian
+60	Cafes,cafes;French,french;Breakfast & Brunch,breakfast_brunch
+61	French,french;Wine Bars,wine_bars
+62	French,french;Creperies,creperies
+63	French,french
+64	French,french
+65	French,french;Breakfast & Brunch,breakfast_brunch;Bakeries,bakeries
+66	French,french;Bakeries,bakeries;Creperies,creperies
+67	French,french;Burgers,burgers;Delis,delis
+68	Thai,thai
+69	Asian Fusion,asianfusion;Singaporean,singaporean
+70	Thai,thai;Vietnamese,vietnamese
+71	Japanese,japanese;Sushi Bars,sushi
+72	Steakhouses,steak
+74	Chinese,chinese
+95	Szechuan,szechuan
+98	Japanese,japanese;Sushi Bars,sushi
+107	Pizza,pizza
+120	Latin American,latin;Tapas Bars,tapas;Mexican,mexican
+123	Caribbean,caribbean
+124	Mediterranean,mediterranean;Middle Eastern,mideastern

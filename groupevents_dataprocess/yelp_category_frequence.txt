@@ -1,0 +1,58 @@
+steakhouses	2
+indpak	2
+mexican	4
+chinese	38
+american (new)	3
+sushi	3
+mediterranean	8
+japanese	6
+delis	2
+food stands	1
+latin american	1
+singaporean	2
+newamerican	3
+foodstands	1
+sushi bars	3
+coffee & tea	1
+burgers	2
+caribbean	4
+vietnamese	6
+asian fusion	2
+caterers	3
+asianfusion	2
+tapas bars	1
+indian	2
+dimsum	1
+wine bars	3
+brazilian	2
+dim sum	1
+korean	14
+pakistani	2
+sandwiches	2
+tapas	1
+coffee	1
+latin	1
+food	2
+gluten-free	3
+french	20
+catering	3
+breakfast & brunch	5
+gluten_free	3
+vegan	2
+thai	4
+bakeries	4
+cuban	2
+creperies	4
+middle eastern	1
+wine_bars	3
+vegetarian	2
+turkish	2
+greek	4
+burmese	2
+szechuan	4
+mideastern	1
+pizza	6
+cafes	2
+steak	2
+breakfast_brunch	5
+italian	38
