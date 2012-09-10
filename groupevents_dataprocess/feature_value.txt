@@ -1,0 +1,53 @@
+take-out:yes
+take-out:no
+wi-fi:no
+wi-fi:free
+wheelchair accessible:yes
+alcohol:full bar
+alcohol:beer & wine only
+alcohol:no
+caters:no
+caters:yes
+noise level:average
+noise level:quiet
+noise level:loud
+noise level:very loud
+parking:street
+parking:garage
+parking:private lot
+parking:valet
+good for:dinner
+good for:late night
+good for:lunch
+good for:brunch
+good for:breakfast
+good for:dessert
+attire:dressy
+attire:casual
+delivery:no
+delivery:yes
+has tv:no
+has tv:yes
+outdoor seating:no
+outdoor seating:yes
+takes reservations:yes
+takes reservations:no
+ambience:classy
+ambience:upscale
+ambience:casual
+ambience:trendy
+ambience:romantic
+ambience:intimate
+ambience:divey
+waiter service:yes
+waiter service:no
+accepts credit cards:yes
+accepts credit cards:no
+good for kids:no
+good for kids:yes
+good for groups:yes
+good for groups:no
+price range:$$$
+price range:$$
+price range:$
+price range:$$$$

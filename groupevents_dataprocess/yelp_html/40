@@ -1,0 +1,4685 @@
+<!DOCTYPE HTML>
+
+<!--[if lt IE 7 ]> <html xmlns:fb="http://www.facebook.com/2008/fbml" class="ie6 ie ltie9 ltie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html xmlns:fb="http://www.facebook.com/2008/fbml" class="ie7 ie ltie9 ltie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html xmlns:fb="http://www.facebook.com/2008/fbml" class="ie8 ie ltie9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html xmlns:fb="http://www.facebook.com/2008/fbml" class="ie9 ie no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html xmlns:fb="http://www.facebook.com/2008/fbml" class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+		
+					<link rel="alternate" hreflang="en-be" href="http://en.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="fr-fr" href="http://www.yelp.fr/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="fi-fi" href="http://fi.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="fr-ch" href="http://fr.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="it-it" href="http://www.yelp.it/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="nl-be" href="http://nl.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="nl-nl" href="http://www.yelp.nl/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-us" href="http://www.yelp.com/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="fr-be" href="http://fr.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="de-ch" href="http://de.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-au" href="http://www.yelp.com.au/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="de-at" href="http://www.yelp.at/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="es-es" href="http://www.yelp.es/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-gb" href="http://www.yelp.co.uk/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-ca" href="http://www.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-ch" href="http://en.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="da-dk" href="http://www.yelp.dk/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="en-ie" href="http://www.yelp.ie/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="de-de" href="http://www.yelp.de/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="sv-fi" href="http://sv.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="fr-ca" href="http://fr.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="sv-se" href="http://www.yelp.se/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="it-ch" href="http://it.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+			<link rel="alternate" hreflang="nb-no" href="http://www.yelp.no/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+
+
+<script type="text/javascript">
+			var initialVisibilityState = document.webkitVisibilityState;
+
+				yPerfTimings = [];
+
+					window.yelp = window.yelp || {};
+					yelp.performance = {};
+					yelp.performance.timings = {};
+
+						yelp.performance.timings.headStartTimestamp = (new Date()).getTime();
+
+				window._gaq = window._gaq || [];
+	_gaq.push(
+		['_setAccount', "UA-30501-1"],
+		['_setDomainName', "yelp.com"],
+		['_setCustomVar', 1, "User Status", "anonymous", 3],
+
+		['_setCustomVar', 5, 'content_country', "US", 3],
+
+			["_trackPageview"]
+,
+		['_trackPageLoadTime']);
+
+	_gaq.push(
+		['www._setAccount', "UA-30501-24"],
+		['www._setDomainName', "yelp.com"],
+		['www._setCustomVar', 1, "User Status", "anonymous", 3],
+
+		['www._setCustomVar', 5, 'content_country', "US", 3],
+
+			["www._trackPageview"]
+,
+		['www._trackPageLoadTime']);
+
+		_gaq.push(
+			['domainTracker._setAccount', "UA-30501-10"],
+			['domainTracker._setDomainName', "yelp.com"],
+
+			['domainTracker._setCustomVar', 5, 'content_country', "US", 3],
+
+				["domainTracker._trackPageview"]
+,
+			['domainTracker._trackPageLoadTime']);
+
+
+			(function(H){H.className=H.className.replace(/\bno-js\b/,'js');})(document.documentElement);
+
+
+</script>
+					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<meta http-equiv="Content-Language" content="en">
+			<meta name="description" content="22 Reviews of Some Kind of Place Internatl Cuisine &#34;I've walked by this place so many times every time I go to work, and I never had the chance to try it until recently. This place is often packed and frequented by many people, so I was very…">
+			<meta name="keywords" content="Some Kind of Place Internatl Cuisine, Reviews, Recommendations, 855 El Camino Real Ste 85, Palo Alto, CA">
+			<meta http-equiv="imagetoolbar" content="no">
+
+			
+	<!--[if IE 9 ]>
+
+		<link rel="shortcut icon" type="image/ico" href="http://s3-media4.ak.yelpcdn.com/assets/2/www/img/1273e7149fc0/ico/favicon_multi.ico" />
+		<meta name="application-name" content="Yelp" />
+		<meta name="msapplication-starturl" content="http://www.yelp.com/" />
+		<meta name="msapplication-navbutton-color" content="#c41200" />
+		<meta name="msapplication-window" content="width=1024;height=768" />
+		<meta name="msapplication-tooltip" content="Go to Yelp.com" />
+
+		<meta name="msapplication-task" content="name=Find Reviews; action-uri=/; icon-uri=http://s3-media2.ak.yelpcdn.com/assets/2/www/img/193bf655051c/ico/favicon.ico">
+
+		<meta name="msapplication-task" content="name=Hot New Businesses; action-uri=/openings; icon-uri=http://s3-media2.ak.yelpcdn.com/assets/2/www/img/193bf655051c/ico/favicon.ico">
+
+		<meta name="msapplication-task" content="name=Yelp Deals; action-uri=/search?find_desc=deals; icon-uri=http://s3-media2.ak.yelpcdn.com/assets/2/www/img/193bf655051c/ico/favicon.ico">
+	<![endif]-->
+
+		<meta property="og:url" content="http://www.yelp.com/biz/id5WQI_fo1V24wuf2olAeg">
+		<meta property="og:longitude" content="-122.1585402">
+		<meta property="og:type" content="restaurant">
+		<meta property="og:description" content="">
+		<meta property="og:latitude" content="37.4382353">
+		<meta property="og:title" content="Some Kind of Place Internatl Cuisine">
+		<meta property="fb:app_id" content="97534753161">
+		<meta property="og:image" content="http://s3-media3.ak.yelpcdn.com/bphoto/CpN1RaX--B_VyAdQAjLhVg/m.jpg">
+
+		
+			<title>Some Kind of Place Internatl Cuisine - Palo Alto, CA</title>
+
+
+<script type="text/javascript">
+					yelp.performance.timings.headCSSStartTimestamp = (new Date()).getTime();
+
+
+</script>
+						<link rel="stylesheet" type="text/css" href="http://s3-media4.ak.yelpcdn.com/assets/2/www/css/e6f84fb81c18/www-pkg-en_US.min.css">
+		<link rel="stylesheet" type="text/css" media="all" href="http://s3-media1.ak.yelpcdn.com/assets/2/www/css/9c9510bcabcc/biz_details-pkg-en_US.min.css">
+	<link rel="stylesheet" type="text/css" media="print" href="http://s3-media1.ak.yelpcdn.com/assets/2/www/css/504b07197103/biz_print.min.css">
+	
+
+<script type="text/javascript">
+					yelp.performance.timings.headCSSEndTimestamp = (new Date()).getTime();
+
+
+</script>
+				
+				
+<script type="text/javascript">
+					yelp.performance.timings.headJSStartTimestamp = (new Date()).getTime();
+
+</script>
+		
+
+<script type="text/javascript">
+										
+	window.Yelp = window.Yelp || {};
+
+	var imagesHostUrl = "http://media1.ak.yelpcdn.com" + '/';
+
+	Yelp.unique_request_id = "e9801a260fc3bd13";
+	Yelp.cookie_domain = ".yelp.com";
+
+	window.yelp = window.yelp || {};
+	window.yelp.config = window.yelp.config || {};
+	window.yelp.biz_domain = "biz.yelp.com";
+	window.yelp.img_serial = "20120626";
+	window.yelp.js_serial = "20120626";
+
+	yelp.lang = yelp.lang || {};
+	yelp.lang.locales = ["en_US"];
+	yelp.lang.languages = ["en"];
+
+
+
+
+					yelp.config = {"cdn_origin_yelp": 1, "uid": null, "classLoggerLevel": "error", "url_scheme": "http", "isFBAsyncSSL": false, "enabledSitRepChannels": {"frontend_performance": true}, "fbuid": null, "isLoggedIn": false, "isReadOnlyMode": false, "isSitRepEnabled": true, "isFBICEnabled": true, "comscore": {"c15": "", "c3": "", "c2": 7130511, "c1": 2, "c6": "", "c5": "", "c4": ""}, "isClientErrorsEnabled": false, "isReviewLanguageDetectionEnabled": true, "cdn_origin_s3": 2, "bizownerSiteURL": "https://biz.yelp.com/", "showSpellChecker": true, "mobileUA": false, "uniqueRequestID": "e9801a260fc3bd13", "fbappid": 97534753161, "servletName": "biz_details", "url": {"maputil": "http://s3-media4.ak.yelpcdn.com/assets/2/www/js/73b81cba6702/maputil.min.js", "categoryYelpChooser": "http://s3-media1.ak.yelpcdn.com/assets/2/www/js/107f2e47dd65/category_yelp_chooser.min.js", "xsChannel": "https://s3-media4.ak.yelpcdn.com/assets/2/www/js/230a1eb16252/yelp/util/secure_channel-async.min.js", "captcha": "https://www.google.com/recaptcha/api/js/recaptcha_ajax.js", "dragdrop": "http://s3-media1.ak.yelpcdn.com/assets/2/www/js/ab8ca71c0b6b/vendor/prototype/dragdrop.min.js", "effects": "http://s3-media4.ak.yelpcdn.com/assets/2/www/js/e28ca1f9af10/prototype_effects-pkg.min.js"}, "cdn_shards": 4, "hideFBSyncFloater": null, "cdn_static_hostname_pattern": "s3-media%s.ak.yelpcdn.com", "cdn_origin": 2, "recaptchaPublicKey": "6Lc2978SAAAAADHkLB3mdFpNLLfBP5CYnqlR0gz6", "bingMapsKey": "AvoTBU5YW57X2zdsJlJstIBzH6emsqH64BeuUs_smf7Vcw8QPLG9mM1U3Y6Oz2rT"};
+
+						yelp.util = {};
+						yelp.util.SitRepParams = {"clientIP": "74.95.195.228", "datacenter": "365", "action": "default", "uniqueRequestID": "e9801a260fc3bd13", "isLoggedIn": false, "yuv_record": "Wwz9gdo-3_2M5VOG1WnaW0U4BnkZmvK-WKFwtPpL9VWrwBxIeFFsz-bDHysEv2HMRoEqCt7FBv-riJfI-pWg_gmwBxjvIRtB", "renderMode": 1, "site": "main", "serverStartTime": 1347044867781};
+						yelp.util.SitRepParams['initialVisibilityState'] = initialVisibilityState;
+
+
+</script>
+		
+					
+<script type="text/javascript">
+					yelp.performance.timings.headJSMainLibrariesStartTimestamp = (new Date()).getTime();
+
+</script>
+		
+					<script src="http://s3-media4.ak.yelpcdn.com/assets/2/www/js/1a956c84c6d7/www-pkg-en_US.min.js" type="text/javascript"></script>
+
+					
+<script type="text/javascript">
+					yelp.performance.timings.headJSMainLibrariesEndTimestamp = (new Date()).getTime();
+
+</script>
+		
+
+			<script type="text/javascript">yelp.init.wrapper("yelp.init.base.header", {"countryNameList": ["australia", "austria", "belgium", "canada", "denmark", "finland", "france", "germany", "ireland", "italy", "norway", "spain", "sweden", "switzerland", "netherlands", "uk", "usa"], "showHoodsList": false, "locationSuggestServiceEnabled": true, "searchSuggestEnabled": true});</script>
+
+
+
+
+<script type="text/javascript">
+		yelp.config.simpleLightboxSignupPitch = false;
+
+
+</script>
+		
+			
+
+<script type="text/javascript">
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+
+
+		googletag.cmd.push(function() {
+			googletag.pubads().collapseEmptyDivs();
+
+
+					googletag.pubads().setTargeting("attrtakeou", "yes");
+					googletag.pubads().setTargeting("attrrating", "3.0");
+					googletag.pubads().setTargeting("attroutdor", "yes");
+					googletag.pubads().setTargeting("attrambian", []);
+					googletag.pubads().setTargeting("attrgrupok", "no");
+					googletag.pubads().setTargeting("attrreserv", "no");
+					googletag.pubads().setTargeting("scategory2", ["korean"]);
+					googletag.pubads().setTargeting("scategory", ["korean"]);
+					googletag.pubads().setTargeting("attrparkin", ["private"]);
+					googletag.pubads().setTargeting("attrdelivr", "no");
+					googletag.pubads().setTargeting("attrprice", "1");
+					googletag.pubads().setTargeting("category", ["restaurant"]);
+					googletag.pubads().setTargeting("city", "Palo Alto");
+					googletag.pubads().setTargeting("attrsmeals", []);
+					googletag.pubads().setTargeting("attrcater", "no");
+					googletag.pubads().setTargeting("attrcredit", "no");
+					googletag.pubads().setTargeting("attrkidsok", "yes");
+					googletag.pubads().setTargeting("country", "us");
+					googletag.pubads().setTargeting("section", "bizprofile");
+					googletag.pubads().setTargeting("zipcode", "94301");
+					googletag.pubads().setTargeting("dma_code", "807");
+					googletag.pubads().setTargeting("sk", "no");
+					googletag.pubads().setTargeting("signed_in", "no");
+					googletag.pubads().setTargeting("mode", "live");
+					googletag.pubads().setTargeting("attraccess", "yes");
+					googletag.pubads().setTargeting("attrhastv", "no");
+					googletag.pubads().setTargeting("attrwaiter", "no");
+
+			googletag.enableServices();
+
+		});
+
+
+</script>
+		
+
+<script type="text/javascript">
+								(function() {
+				var gads = document.createElement('script');
+				gads.async = true;
+				gads.type = 'text/javascript';
+				var useSSL = 'https:' == document.location.protocol;
+				gads.src = (useSSL ? 'https:' : 'http:') + "//www.googletagservices.com/tag/js/gpt.js";
+				var node = document.getElementsByTagName('script')[0];
+				node.parentNode.insertBefore(gads, node);
+			})();
+
+
+</script>
+		
+
+
+<script type="text/javascript">
+									yelp.performance.timings.headJSEndTimestamp = (new Date()).getTime();
+
+
+</script>
+		
+		<link rel="shortcut icon" href="http://s3-media2.ak.yelpcdn.com/assets/2/www/img/193bf655051c/ico/favicon.ico">
+
+
+
+<script type="text/javascript">
+						yelp.performance.timings.headEndTimestamp = (new Date()).getTime();
+
+					yelp.util.SitRep.init();
+
+
+</script>
+		
+
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch" title="Yelp" />
+
+			<meta name="relativepagescore" content="623484"/>
+	</head>
+
+
+	<body id="yelp_main_body" class="us logged-out">
+
+<script type="text/javascript">
+					yelp.util.SitRep.measureInternal("frontend_performance", "body:start");
+
+
+</script>
+		
+			<div id="fb-root"></div>
+					<fb:connect-bar autorefresh="true" onNotDisplay="yelp.hub.publish('ext.FB.bluebar', false);" onClose="yelp.ui.blueBarToggle(false); yelp.hub.publish('ext.FB.bluebar', false);" onDisplay="yelp.ui.blueBarToggle(true); yelp.hub.publish('ext.FB.bluebar', true);"></fb:connect-bar>
+
+			<script type="text/javascript">yelp.init.wrapper("yelp.util.JSTrack.init", null);</script>
+
+
+
+		<div id="wrap" class="lang-en">
+
+
+			
+<ul class="offscreen">
+	<li>
+		<a href="#header_find_form" rel="nofollow">Skip to Search Form</a>
+	</li>
+	<li>
+		<a href="#nav-container" rel="nofollow">Skip to Navigation</a>
+	</li>
+	<li>
+		<a href="#page-content" rel="nofollow">Skip to Page Content</a>
+	</li>
+</ul>
+
+<!-- google_ad_section_start(weight=ignore) -->
+	<ul id="header-account">
+		<li class="language-selector clearfix">
+			
+	
+	<div id="header-language-selector-wrap" class="drop-menu-origin language-selector-wrap ieSucks">
+		<a href="/language" id="header-language-selector-anchor" class="drop-menu-link language-selector-anchor ieSucks">
+			<span  class="i-wrap i-dropdown-arrow-wrap i-wrap-r"><i  class="i i-dropdown-arrow"></i> English</span>
+		</a>
+		<div id="header-language-selector-menu" class="drop-menu language-selector-menu">
+				<ul>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.dk/biz/some-kind-of-place-internatl-cuisine-palo-alto">Dansk (Danmark)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.de/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Deutschland)</a>
+							</li>
+							<li>
+								<a href="http://de.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Schweiz)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.at/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Österreich)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.com.au/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Australia)</a>
+							</li>
+							<li>
+								<a href="http://en.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Belgium)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Canada)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.ie/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Republic of Ireland)</a>
+							</li>
+							<li>
+								<a href="http://en.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Switzerland)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.co.uk/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (United Kingdom)</a>
+							</li>
+							<li class="language-selector-selection">English (United States)</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.es/biz/some-kind-of-place-internatl-cuisine-palo-alto">Español (España)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://fr.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Belgique)</a>
+							</li>
+							<li>
+								<a href="http://fr.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Canada)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.fr/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (France)</a>
+							</li>
+							<li>
+								<a href="http://fr.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Suisse)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.it/biz/some-kind-of-place-internatl-cuisine-palo-alto">Italiano (Italia)</a>
+							</li>
+							<li>
+								<a href="http://it.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Italiano (Svizzera)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://nl.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">Nederlands (België)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.nl/biz/some-kind-of-place-internatl-cuisine-palo-alto">Nederlands (Nederland)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.no/biz/some-kind-of-place-internatl-cuisine-palo-alto">Norsk (Norge)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://fi.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">Suomi (Suomi)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items last">
+							<li>
+								<a href="http://sv.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">Svenska (Finland)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.se/biz/some-kind-of-place-internatl-cuisine-palo-alto">Svenska (Sverige)</a>
+							</li>
+				</ul>
+			</li>
+	</ul>
+
+		</div>
+	</div>
+
+		</li>
+
+
+			<li class="login"><a class="header-link" href="/login?return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto">Log In</a></li>
+			<li class="account"><a class="header-link" href="/signup" id="Zprofile">Sign Up for Yelp</a></li>
+
+			<li id="fb-notice" class="drop-menu-origin" style="display: none;">
+				<img width="20" height="20" id="fb-notice-pic" src="http://s3-media1.ak.yelpcdn.com/assets/2/www/img/325472601571/p.gif" class="header-user-photo">
+				<div class="fb-menu">
+					<a href="#" id="fb-notice-options-link" class="header-link drop-menu-link">
+						<span  class="i-wrap i-dropdown-arrow-wrap i-wrap-r"><i  class="i i-dropdown-arrow"></i> <span id="fb-user-name"></span></span>
+					</a>
+					<ul id="fb-notice-options" class="reset-header drop-menu">
+						<li style="color: #444; font-weight: bold;">
+							Yelp is using Facebook to personalize your experience.
+						</li>
+						<li>
+							<a href="/static?p=fb_yelp">What is this?</a>
+						</li>
+						<li>
+							Not you?<br>
+							<a href="#" id="fb-logout-link">Log out of Facebook</a>
+						</li>
+						<li>
+							Don't want to be connected?<br>
+							<a href="/static?p=fb_yelp">How to turn this off</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+	</ul>
+	<div id="mastHead">
+			<div id="logo-wrap">
+			<div id="logo"><a href="/">Yelp</a></div>
+	</div>
+
+
+		<form method="get" action="/search" name="header_find_form" id="header_find_form">
+			<p id="search_for">
+				<label for="find_desc">Search for <span>(e.g. taco, cheap dinner, Max's)</span></label>
+				<input maxlength="64" name="find_desc" tabindex="1" size="20" id="find_desc" autocomplete="off" value="">
+			</p>
+			
+			
+
+
+			<p id="search_near" class="clearfix">
+					<label for="dropperText_Mast">Near <em>(Address, City, State or Zip)</em></label>
+				<input maxlength="64" name="find_loc" tabindex="2" id="dropperText_Mast" size="14" value="">
+				<input type="hidden" name="ns" value="1">
+			</p>
+			<span class="ybtn"><button id="header-search-submit" tabindex="3" type="submit" value="submit" class="btn-r-l"><span>Search</span></button></span>
+		</form>
+
+		<ul id="nav-container">
+			<li id="welcome">
+				<a href="/">Welcome</a>
+			</li>
+			<li id="about-me">					<a href="/signup?return_url=%2Fuser_details" id="Zabout_me">			About Me</a></li>
+			<li id="write-review">				<a href="/writeareview" id="Zwrite_a_review">Write a Review</a>
+			</li>
+			<li id="find-review">
+				<a href="/find" class="tabon">Find Reviews</a>
+			</li>
+			<li id="find-friends">					<a href="/signup?return_url=%2Ffind_friends%2F" id="Zfind_friends">				Find Friends</a>
+			</li>
+			<li id="messaging">					<a href="/signup?return_url=%2Fmail" id="Zmail">				Messaging</a>
+			</li>
+			<li id="talk">
+				<a href="/talk">Talk</a>
+			</li>
+
+		</ul>
+		<ul id="secondary-nav">
+			<li>
+				<a href="/member_search" id="member-search">Member Search</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="print-masthead">
+		<img src="http://s3-media2.ak.yelpcdn.com/assets/2/www/img/b7e9d647188d/gfx/header_print.gif" class="print-bkg-img" alt="Yelp">
+	</div>
+
+
+		<script type="text/javascript">yelp.init.wrapper("yelp.util.analytics.GA.trackNavClicks", null);</script>
+
+<!-- google_ad_section_end -->
+
+
+			<div id="super-container">
+				<span id="page-content" class="offscreen">&nbsp;</span>
+
+	
+
+
+
+
+	<div class="googlead-sponsor-wrapper" id="yelp_us_biz_profile_915x35-wrapper">
+		<div class="google-ads googlead-sponsor-container">
+
+			<div class="google-ads-block googlead-sponsor inline-block" id="yelp_us_biz_profile_915x35">
+
+
+<script type="text/javascript">
+						document.getElementById("yelp_us_biz_profile_915x35" + '-wrapper').style.display = 'none';
+
+					googletag.cmd.push(function() {
+
+
+						var slot = googletag.defineSlot(
+							"/1014943/yelp_us/biz_profile/915x35",
+							[[915, 35], [988, 50]], "yelp_us_biz_profile_915x35"
+						);
+						slot.addService(googletag.pubads());
+
+							var orig = slot.renderEnded;
+							slot.renderEnded = function() {
+								if (document.getElementById("yelp_us_biz_profile_915x35").style.display !== 'none') {
+									document.getElementById("yelp_us_biz_profile_915x35" + '-wrapper').style.display = 'block';
+								}
+								return orig.apply(this, arguments);
+							};
+
+
+
+
+						googletag.display("yelp_us_biz_profile_915x35");
+					});
+
+
+</script>
+					</div> 
+
+		</div> 
+	</div> 
+
+
+				<div id="alert-container">
+
+
+
+				</div>
+				
+				
+
+
+
+
+<div class="container ">
+
+<div class="clearfix layout-block layout-e">
+<div class="column column-alpha " id="main">
+				<div itemscope itemtype="http://schema.org/LocalBusiness">
+					<div id="bizBox">
+							<div id="bizInfoBody" class="ieSucks">
+		<div class="wrap">
+			<div id="bizInfoHeader">
+				<h1 itemprop="name">Some Kind of Place Internatl Cuisine </h1>
+					<div id="bizRating">
+						<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+							<span class="review-count"><span itemprop="reviewCount">22</span> reviews</span>
+								<a href="#" id="rating_graph">Rating Details</a>
+						</div>
+					</div>
+			</div>
+
+			<div id="bizInfoContent">
+						<p id="bizCategories">
+			<span>Category:</span>
+
+									<span  class="hidden"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+			<a href="/c/palo-alto-ca-us/restaurants" itemprop="url"><span itemprop="title">Restaurants</span></a>
+						<span  itemprop="child"  itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+			<a href="/c/palo-alto-ca-us/korean" itemprop="url"><span itemprop="title">Korean</span></a>
+		</span>
+
+		</span>
+
+
+
+			<span id="cat_display">				<a href="/c/palo-alto-ca-us/korean">
+	Korean</a> </span>
+
+								&nbsp;<a href="/biz_attribute?biz_id=id5WQI_fo1V24wuf2olAeg" id="edit_cat_link" onclick="new Yelp.categoryPickerPopup(this, 'id5WQI_fo1V24wuf2olAeg'); return false;" class="smallest">[Edit]</a>
+		</p>
+
+					<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+		<span itemprop="streetAddress">855 El Camino Real Ste 85</span><br><span itemprop="addressLocality">Palo Alto</span>, <span itemprop="addressRegion">CA</span> <span itemprop="postalCode">94301</span><br>
+			
+	</address>
+
+		<span id="bizPhone" itemprop="telephone">(650) 321-4730</span>
+
+
+
+
+						
+					
+						 
+					
+			</div>
+		</div>
+
+				<meta itemprop="image" content="//s3-media3.ak.yelpcdn.com/bphoto/CpN1RaX--B_VyAdQAjLhVg/m.jpg">
+		<div id="bizPhotos">
+
+				
+
+<div class="photo-box biz-photo-box pb-ms">
+		<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?select=CpN1RaX--B_VyAdQAjLhVg">
+			<img class="photo-img" alt="outside seating" height="100" src="http://s3-media2.ak.yelpcdn.com/bphoto/CpN1RaX--B_VyAdQAjLhVg/ms.jpg" width="100">
+		</a>
+</div>
+
+
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr>
+								<td><div style="margin-top:5px;margin-right:5px;">
+
+<div class="photo-box biz-photo-box pb-xss">
+		<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?select=7oSsihwCoaA0-DS3hw-vWg">
+			<img class="photo-img" alt="Town &amp; Country Village" height="20" src="http://s3-media2.ak.yelpcdn.com/bphoto/7oSsihwCoaA0-DS3hw-vWg/xss.jpg" width="20">
+		</a>
+</div>
+</div></td>
+								<td><div style="margin-top:5px;margin-right:5px;">
+
+<div class="photo-box biz-photo-box pb-xss">
+		<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?select=BIrmvMEli2e5W4b5AEeJSQ">
+			<img class="photo-img" alt="Some Kind of Place Internatl Cuisine, Palo Alto, CA" height="20" src="http://s3-media1.ak.yelpcdn.com/bphoto/BIrmvMEli2e5W4b5AEeJSQ/xss.jpg" width="20">
+		</a>
+</div>
+</div></td>
+								<td><div style="margin-top:5px;margin-right:5px;">
+
+<div class="photo-box biz-photo-box pb-xss">
+		<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?select=kHnc2J2SOyWg7vxCoCTG_A">
+			<img class="photo-img" alt="kalbi meal" height="20" src="http://s3-media3.ak.yelpcdn.com/bphoto/kHnc2J2SOyWg7vxCoCTG_A/xss.jpg" width="20">
+		</a>
+</div>
+</div></td>
+								<td><div style="margin-top:5px;margin-right:5px;">
+
+<div class="photo-box biz-photo-box pb-xss">
+		<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?select=LE9-qFSAH_SuYyAlrpPc0Q">
+			<img class="photo-img" alt="Menu - August 2007" height="20" src="http://s3-media1.ak.yelpcdn.com/bphoto/LE9-qFSAH_SuYyAlrpPc0Q/xss.jpg" width="20">
+		</a>
+</div>
+</div></td>
+						</tr>
+					</table>
+			<a href="/biz_user_photos/id5WQI_fo1V24wuf2olAeg/upload" class="add-biz-photo">Add Photos</a>
+		</div>
+
+	</div>
+
+			
+
+
+			<div id="bizAdditionalInfo" class="clearfix">
+					<dl class="col0">
+								
+					<dt class="attr-RestaurantsPriceRange2">Price Range:</dt>
+			<dd class="attr-RestaurantsPriceRange2"><span itemprop="priceRange">
+			<span id="price_tip" class="pseudoLink" title="		Price range is the approximate cost per person for a meal including one drink, tax, and tip.&lt;br&gt;&lt;br&gt;We're going for averages here, folks.&lt;br&gt;&lt;br&gt;$ = Cheap, Under $10&lt;br&gt;$$ = Moderate, $11 - $30&lt;br&gt;$$$ = Spendy, $31 - $60&lt;br&gt;$$$$ = Splurge, Above $61">$</span>
+	</span><br></dd>
+
+								
+					<dt class="attr-BusinessAcceptsCreditCards">Accepts Credit Cards:</dt>
+			<dd class="attr-BusinessAcceptsCreditCards">No<br></dd>
+
+								
+					<dt class="attr-BusinessParking">Parking:</dt>
+			<dd class="attr-BusinessParking">Private Lot<br></dd>
+
+								
+					<dt class="attr-RestaurantsAttire">Attire:</dt>
+			<dd class="attr-RestaurantsAttire">Casual<br></dd>
+
+								
+					<dt class="attr-RestaurantsGoodForGroups">Good for Groups:</dt>
+			<dd class="attr-RestaurantsGoodForGroups">No<br></dd>
+
+								
+					<dt class="attr-GoodForKids">Good for Kids:</dt>
+			<dd class="attr-GoodForKids">Yes<br></dd>
+
+								
+					<dt class="attr-RestaurantsReservations">Takes Reservations:</dt>
+			<dd class="attr-RestaurantsReservations">No<br></dd>
+
+					</dl>
+					<dl class="col1">
+								
+					<dt class="attr-RestaurantsDelivery">Delivery:</dt>
+			<dd class="attr-RestaurantsDelivery">No<br></dd>
+
+								
+					<dt class="attr-RestaurantsTakeOut">Take-out:</dt>
+			<dd class="attr-RestaurantsTakeOut">Yes<br></dd>
+
+								
+					<dt class="attr-RestaurantsTableService">Waiter Service:</dt>
+			<dd class="attr-RestaurantsTableService">No<br></dd>
+
+								
+					<dt class="attr-OutdoorSeating">Outdoor Seating:</dt>
+			<dd class="attr-OutdoorSeating">Yes<br></dd>
+
+								
+					<dt class="attr-WiFi">Wi-Fi:</dt>
+			<dd class="attr-WiFi">No<br></dd>
+
+								
+		
+								
+					<dt class="attr-Alcohol">Alcohol:</dt>
+			<dd class="attr-Alcohol">No<br></dd>
+
+					</dl>
+					<dl class="col2">
+								
+					<dt class="attr-NoiseLevel">Noise Level:</dt>
+			<dd class="attr-NoiseLevel">Average<br></dd>
+
+								
+		
+								
+					<dt class="attr-HasTV">Has TV:</dt>
+			<dd class="attr-HasTV">No<br></dd>
+
+								
+					<dt class="attr-Caters">Caters:</dt>
+			<dd class="attr-Caters">No<br></dd>
+
+								
+					<dt class="attr-WheelchairAccessible">Wheelchair Accessible:</dt>
+			<dd class="attr-WheelchairAccessible">Yes<br></dd>
+
+					</dl>
+		</div>
+
+			<div id="firstToReviewBox" class="clearfix">
+		<div id="firstToReviewLabel"><a href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:CSLfEzE30kvQ1iCY3BLT4A">First to Review</a></div>
+			
+
+
+
+	<div class="photo-box pb-xss" >
+			<a href="http://www.yelp.com/user_details?userid=zT0PuDsIV-S7M-W_NaX9vw">
+					<img class="photo-img" alt="Photo of Nick B." src="http://s3-media4.ak.yelpcdn.com/photo/YQkZMIYdXgXeAJE-fWohWw/xss.jpg" height="20" width="20">
+			</a>
+	</div>
+ <a href="/user_details?userid=zT0PuDsIV-S7M-W_NaX9vw" id="user_name">Nick B.</a>
+	</div>
+
+	<div class="clearfix" id="bizOwner">
+		<p>
+			<a href="/biz_attribute?biz_id=id5WQI_fo1V24wuf2olAeg" id="bizUpdate" class="i-wrap i-blue-edit-pencil-wrap"><i  class="i i-blue-edit-pencil"></i> Edit Business Info</a>
+				<a id="bizClaim" href="https://biz.yelp.com/signup/id5WQI_fo1V24wuf2olAeg?return_url=http%3A%2F%2Fwww.yelp.com%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto">Work Here? Unlock This Business Page</a>
+		</p>
+	</div>
+
+							
+	<div id="bizActions" class="clearfix">
+		<a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto" id="bizShare" class="ybtn btn-b-s"><span><span class="ybtn-icon send-to-friend"></span>Send to Friend</span></a>
+		<a href="/signup?return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto%23popup%3Abookmark" id="bizBookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!" class="ybtn btn-b-s"><span><span class="ybtn-icon bookmark"></span>Bookmark</span></a>
+			<a href="http://www.yelp.com/send2phone?biz_id=id5WQI_fo1V24wuf2olAeg" id="send2phone" class="ybtn btn-b-s"><span><span class="ybtn-icon send-to-phone"></span>Send to Phone</span></a>
+
+			<a href="/writeareview/biz/id5WQI_fo1V24wuf2olAeg?return_url=%2Fbiz%2Fid5WQI_fo1V24wuf2olAeg" id="bizWriteReview" class="ybtn btn-y-s"><span><span class="ybtn-icon write-a-review"></span>Write a Review</span></a>
+	</div>
+
+
+							
+<div id="adsense" class="biz-ad-block">
+
+<script type="text/javascript">
+	google_ad_client = "ca-pub-1554273207255362";
+	google_hints = "korean, palo alto, california, korean barbeque";
+	/* 468x60_banner */
+	google_ad_type = 'text';
+	google_max_num_ads = 2;
+	google_ad_output = 'js';
+	google_feedback = 'on';
+	google_language = "en";
+	google_ad_channel = "7129511946";
+
+
+</script>
+		<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript"></script>
+</div>
+
+					</div>
+
+								<div id="bizReviews">
+
+		<div id="bizReviewsHeader" class="clearfix">
+			<div id="review-count-search">
+					<h2 id="total_reviews">						22 reviews for Some Kind of Place Internatl Cuisine
+					</h2>
+			</div>
+
+				<form id="review_search_form" method="get" action="/biz/some-kind-of-place-internatl-cuisine-palo-alto">
+					<label for="review-search-query">Reviews Matching:</label>
+					<div id="review-search-query-wrap">
+						<input id="review-search-query" type="text" name="q" value="">
+						<span class="ybtn"><button type="submit" value="submit" class="btn-y-s"><span>Search Reviews</span></button></span>
+					</div>
+
+				</form>
+		</div>
+
+
+
+				<div id="review_sort_section" class="ieSucks">Sort by:
+					
+						<span title=" Yelp Sort attempts to show reviews that help consumers make informed decisions. The order is determined by recency, user voting, and other review quality factors. This method is applied to all businesses, sponsors or not." class="i-wrap i-sort-descend-wrap i-wrap-r selected whatsthis"><i  class="i i-sort-descend"></i> Yelp Sort</span>
+			 | 
+				<a href="/biz/some-kind-of-place-internatl-cuisine-palo-alto?rpp=40&amp;sort_by=date_desc">Date</a>
+			 | 
+				<a href="/biz/some-kind-of-place-internatl-cuisine-palo-alto?rpp=40&amp;sort_by=rating_desc">Rating</a>
+			 | 
+							<a href="/biz/some-kind-of-place-internatl-cuisine-palo-alto?rpp=40&amp;sort_by=elites_desc">Elites'</a>
+			| <span id="facebook-friends-sort" class="disabled">Facebook Friends'</span>
+	</div>
+
+
+		<div id="bizReviewsContent">
+			<div id="bizReviewsInner">
+
+					<div id="reviews-fb-friends" style="display:none;" class="ieSucks review-container">
+		<h3 class="reviews-header ieSucks">Facebook Friends</h3>
+		<ul>
+		</ul>
+	</div>
+
+	<div id="reviews-highlighted" class="review-container"></div>
+
+	<div id="reviews-following" style="display:none;" class="review-container">
+		<h3 class="reviews-header ieSucks">From <a href="/user_details_following">Reviewers You're Following</a></h3>
+		<ul>
+		</ul>
+	</div>
+
+	<div id="reviews-friends" style="display:none;" class="review-container">
+		<h3 class="reviews-header ieSucks">
+				Reviews from Your Friends
+		</h3>
+		<ul>
+		</ul>
+	</div>
+
+
+	<div id="reviews-other" class="review-container">
+				<h3 class="reviews-header ieSucks">
+		22 reviews in English 
+	</h3>
+
+			<ul>
+					
+
+
+	<li id="review_86vHHF3eQaYh0pRQLRzLuw" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Cathy C.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=P6zpT_1VHl7lpzUlrq2Btw">
+					<img class="photo-img" alt="Photo of Cathy C." src="http://s3-media4.ak.yelpcdn.com/photo/ryPZ6iVgkzAE9hErrgfFQw/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+			<li class="is-elite">
+				<a class="miniOrange" href="http://www.yelp.com/elite" title="User is Elite">Elite '12</a>
+			</li>
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 37 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 210 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=P6zpT_1VHl7lpzUlrq2Btw">Cathy C.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Sunnyvale, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2012-05-09">
+						<span class="date smaller">5/9/2012</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I've walked by this place so many times every time I go to work, and I never had the chance to try it until recently. This place is often packed and frequented by many people, so I was very excited when I finally got to try it the other day.<br><br>Not sure how long this place has been around, but it's now a Korean BBQ restaurant, rather than an "international cuisine" restaurant. They have a variety of protein/vegetables to pick from and you're allowed to get it with either rice, fried noodles, or chapchae. I ordered the bulgogi beef with chapchae and broccoli.<br><br>The food wasn't as good as I thought considering how popular they are. The beef was dry and hard, but the chapchae and broccoli were decent. Not sure if the food is worth the price they charge you for though...I think I'd rather eat at Asian Box right across the street for about the same price!<br><br>P.S. cash only!</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_86vHHF3eQaYh0pRQLRzLuw">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>(1)</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FP6zpT_1VHl7lpzUlrq2Btw%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=86vHHF3eQaYh0pRQLRzLuw" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;86vHHF3eQaYh0pRQLRzLuw&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:86vHHF3eQaYh0pRQLRzLuw">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_tPnKHBtvcojIPgZlglcZHQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Gina W.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=Vzb34gKWAJ6awhchXQI77A">
+					<img class="photo-img" alt="Photo of Gina W." src="http://s3-media4.ak.yelpcdn.com/photo/VS0eyobscEgoH4TQJEhbGg/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 7 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 17 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=Vzb34gKWAJ6awhchXQI77A">Gina W.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Los Altos, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2012-02-18">
+						<span class="date smaller">2/18/2012</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I like Some Kind of Place in Town &amp; Country whenever I'm looking to get fast take- out food!<br><br>I love the selection of food.  They have great meats,noodles and veggies.  I usually order the lean beef, chow mein, and pot stickers.  They do not skimp on proportion size either.<br><br>Not a great place for dining by any means.  There are a few tables outside and that is it.  It's really catered toward carry out for lunch.  <br><br>I don't mind the fact that they use the microwave here.  The food is cooked they just want to make sure it is warm when they serve it.   It is a buffet-style eatery.  They do not use the microwave to actually cook the food.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_tPnKHBtvcojIPgZlglcZHQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>(1)</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FVzb34gKWAJ6awhchXQI77A%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=tPnKHBtvcojIPgZlglcZHQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;tPnKHBtvcojIPgZlglcZHQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:tPnKHBtvcojIPgZlglcZHQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_7Ky_euTYHWqxvhWe-Ksmbg" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Johnny S.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=XMFnLHvR4fLeL37se6vtnQ">
+					<img class="photo-img" alt="Photo of Johnny S." src="http://s3-media2.ak.yelpcdn.com/photo/TepyFq6jcnmke7op4wWiLg/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 17 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 207 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=XMFnLHvR4fLeL37se6vtnQ">Johnny S.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Palo Alto, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2012-04-01">
+						<span class="date smaller">4/1/2012</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I really liked this place! The chicken was really yummy. The owners were also very nice. The price of the food was also very reasonable.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_7Ky_euTYHWqxvhWe-Ksmbg">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FXMFnLHvR4fLeL37se6vtnQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=7Ky_euTYHWqxvhWe-Ksmbg" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;7Ky_euTYHWqxvhWe-Ksmbg&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:7Ky_euTYHWqxvhWe-Ksmbg">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_tmv7JFlSWhwVS33isxFnXQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Bianca C.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=oYrD51tsMhVHtqCOOJo6og">
+					<img class="photo-img" alt="Photo of Bianca C." src="http://s3-media1.ak.yelpcdn.com/photo/o5rLKy88NnImwB8cygh0mQ/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 9 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 37 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=oYrD51tsMhVHtqCOOJo6og">Bianca C.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Francisco, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2009-09-18">
+						<span class="date smaller">9/18/2009</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I love this place, its food is a hangover cure for me. My ex-boyfriend and I used to go to here so often that now, years later, the owners still know my face and order (fried rice and half stuffed tofu, half kimchi-- they always give me extra vegetables because they know I'm vegetarian) and still know to put chopsticks in my bag!<br><br>The first time I ever came here, I raised an eyebrow at their dubious practice of microwaving styrofoam containers and the fact that they're cash-only, but the food is consistent with its homemade yumminess, and there's nothing they do to the food that isn't done in my house. (Besides, they've never proven that nuking styrofoam causes cancer...)</p> 
+					<div class="extra-actions clearfix">
+									<p class="userLists">
+			<span  class="i-wrap i-list-wrap"><i  class="i i-list"></i> Listed in:</span>
+				<a href="/list/palo-alto-standbys-palo-alto" title="My go-to places for lunch and dinner on Stanford campus, University Avenue, and California Avenue (and a little ways down El">Palo Alto Standbys</a>
+		</p>
+
+
+								<div class="rateReview clearfix" id="ufc_tmv7JFlSWhwVS33isxFnXQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>(1)</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FoYrD51tsMhVHtqCOOJo6og%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=tmv7JFlSWhwVS33isxFnXQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;tmv7JFlSWhwVS33isxFnXQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:tmv7JFlSWhwVS33isxFnXQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_gyrAPh4tZL5ZZmu_u42RBw" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Josh K.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=Lb37hatAjI3fgHEh2lMNEw">
+					<img class="photo-img" alt="Photo of Josh K." src="http://s3-media1.ak.yelpcdn.com/photo/_Qoks3W6fO52oyoKQWdWgQ/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+			<li class="is-elite">
+				<a class="miniOrange" href="http://www.yelp.com/elite" title="User is Elite">Elite '12</a>
+			</li>
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 118 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 658 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=Lb37hatAjI3fgHEh2lMNEw">Josh K.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Manhattan, NY</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_1" title="1.0 star rating">
+			<img alt="1.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="1.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2009-10-24">
+						<span class="date smaller">10/24/2009</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">How much worse can it get?<br><br>I remember coming here when I was a kid - they have been around for quite a while. But perhaps I didn't know what good Korean was before, and now I do (thanks to the lovely Angeline P.)<br><br>My first mistake was coming here on a school day. Yup, that's right, this place is a favorite for Paly students. Three jocks at the table next to ours were basically talking about getting suspended for joyriding in a stolen car. It brought back memories I'm usually not fond of reliving.<br><br>Second of all, we got two lunch plates, and I think we got kalbi and bulgogi, with a side of japchae and other vegetables. And a coke to share. And how much was it?<br><br>$19.<br><br>For food that was put into a microwave.<br><br>I don't care if I got the fanciest thing on the hot tray, if you're going to nuke it and give it back to me it should be no more than $5 apiece.<br><br>I was literally beside myself and I thought that he had charged me for more than two lunch plates. But nope.<br><br>For better or for worse, I'm not the kind of guy who is going to shout at a little Korean man (full disclosure: I am a tall Chinese man) about his shoddy restaurant and walk out, so I begrudgingly paid and swore to myself never, ever, ever, to come back here.<br><br>Especially not on a school day at lunchtime.<br><br>And any redeeming value the food has doesn't matter, because I was so turned off by this place. Good riddance and I hope they go away.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_gyrAPh4tZL5ZZmu_u42RBw">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FLb37hatAjI3fgHEh2lMNEw%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=gyrAPh4tZL5ZZmu_u42RBw" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;gyrAPh4tZL5ZZmu_u42RBw&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:gyrAPh4tZL5ZZmu_u42RBw">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_VNarbtcZv8TCK1GRCyQMnQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Jim C.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=6mMk9hO_RAbdGMEGeg3oWQ">
+					<img class="photo-img" alt="Photo of Jim C." src="http://s3-media4.ak.yelpcdn.com/photo/lfFIFKmq-h5T-5DdRaW3wQ/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 171 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 1267 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=6mMk9hO_RAbdGMEGeg3oWQ">Jim C.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Redwood City, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2007-10-07">
+						<span class="date smaller">10/7/2007</span>
+
+								<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?userid=6mMk9hO_RAbdGMEGeg3oWQ" class="i-wrap i-camera-wrap badge photo-count"><i  class="i i-camera"></i> 4 photos</a>
+
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">Okay place for Korean takeout when you want it - been here forever, at least 10 years if I recall correctly. There's a decent selection of Korean dishes and the prices are very reasonable ($7-9 for a dish with 2 side items). The kalbi was surprisingly flavorful (altho I had low expectations) but I only got 2 strips (was expecting at least 3), jap chae was pleasing, and broccoli to be expected. <br><br>I came here around 6pm on a weekday night and only downside is that they close at 7 or 8pm so they didn't cook anything to order. You pick from everything that's already cooked and sitting in the display - feels like you are choosing from leftovers. Some of the pickings did look dried out like the bbq chicken and kalbi.<br>  <br>The place itself is small and clean in a random corner of the Palo Alto Town and Country strip mall. The Asian guy who looked like the owner was extremely nice and polite.<br><br>Bottom line: Good place to know when you have to have a Korean quick fix that's fast and cheap (but don't expect great Korean food). I'd suggest coming during lunch when the food is probably fresher and not in the evening towards closing time.  If it's kalbi or BBQ chicken you really want, drop by some Hawaiian BBQ place like L&amp;L and you'll get it made to order, fresher, and much more food.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_VNarbtcZv8TCK1GRCyQMnQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2F6mMk9hO_RAbdGMEGeg3oWQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=VNarbtcZv8TCK1GRCyQMnQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;VNarbtcZv8TCK1GRCyQMnQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:VNarbtcZv8TCK1GRCyQMnQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_gvcV4FLxiEQ42sU2uJ1mqQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Joyce L.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=zejhY7mSVWETy51MUpLJ1g">
+					<img class="photo-img" alt="Photo of Joyce L." src="http://s3-media3.ak.yelpcdn.com/photo/Z0uGyYotR3fGYfAH7hqkQw/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 58 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 244 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=zejhY7mSVWETy51MUpLJ1g">Joyce L.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Francisco, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2007-01-12">
+						<span class="date smaller">1/12/2007</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I was a little skeptical the first time I came across this place, but now I love it!  It's a little unbearing to me that they always have to microwave your food (to warm it up), but I'm over it - I think it's good Korean BBQ take-out; gives me my lunchtime fix when I need it!  Also, I recommend the special - the Bi Bam Bab - or something like that...lots of yummy vegetables, a little bit of beef, and a freshly fried egg.  Hits the spot!  The owners seem really nice, too, so it seems like a cool family-run spot.</p> 
+					<div class="extra-actions clearfix">
+									<p class="userLists">
+			<span  class="i-wrap i-list-wrap"><i  class="i i-list"></i> Listed in:</span>
+				<a href="/list/dining-about-town-and-country-village-palo-alto" title="My rotation of lunch spots in a Palo Alto strip mall...">Dining About Town (and Country…</a>
+		</p>
+
+
+								<div class="rateReview clearfix" id="ufc_gvcV4FLxiEQ42sU2uJ1mqQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(3)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>(1)</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FzejhY7mSVWETy51MUpLJ1g%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=gvcV4FLxiEQ42sU2uJ1mqQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;gvcV4FLxiEQ42sU2uJ1mqQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:gvcV4FLxiEQ42sU2uJ1mqQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_JeHkrxnsxFQ0t5j-Ef4Pew" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Keiko S.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=6qlkQhQFpuX7WXboTv9-dA">
+					<img class="photo-img" alt="Photo of Keiko S." src="http://s3-media3.ak.yelpcdn.com/photo/d8QRT_PQmWxSXSR0LryOzA/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+			<li class="is-elite">
+				<a class="miniOrange" href="http://www.yelp.com/elite" title="User is Elite">Elite '12</a>
+			</li>
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 413 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 946 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=6qlkQhQFpuX7WXboTv9-dA">Keiko S.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Mateo, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2006-08-04">
+						<span class="date smaller">8/4/2006</span>
+
+								<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?userid=6qlkQhQFpuX7WXboTv9-dA" class="i-wrap i-camera-wrap badge photo-count"><i  class="i i-camera"></i> 2 photos</a>
+
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">A fast-food type of korean restaurant that's hidden inside the Town &amp; Country Village in Palo Alto. It's a convenient place to grab a decent lunch without having to spend your whole lunch hour at a sit-down restaurant. There are several tables outside, but most people choose to carry out (and probably head back to their cubes/offices). You get to choose up to three ready-made entrees (bbq beef, chicken, fish, tofu, veggies, etc...) with either rice or clear noodles for approx. $6 per plate. My favorites are the marinated fish and bbq chicken. The rice is a bit too mushy for me, though.</p> 
+					<div class="extra-actions clearfix">
+									<p class="userLists">
+			<span  class="i-wrap i-list-wrap"><i  class="i i-list"></i> Listed in:</span>
+				<a href="/list/korea-in-the-bay-area-sunnyvale" title="From the best to the worst">Korea in the Bay Area</a>, 	<a href="/list/kimchi-craving-cures-niles" title="Wherever we go, wherever we move to...we have to have good kimchi!">Kimchi craving cures</a>
+		</p>
+
+
+								<div class="rateReview clearfix" id="ufc_JeHkrxnsxFQ0t5j-Ef4Pew">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>(1)</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2F6qlkQhQFpuX7WXboTv9-dA%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=JeHkrxnsxFQ0t5j-Ef4Pew" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;JeHkrxnsxFQ0t5j-Ef4Pew&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:JeHkrxnsxFQ0t5j-Ef4Pew">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_fT7waMHohlTpB5quWenEqA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Ann R.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=J-erJ2CePQTeFiFFWjmowQ">
+					<img class="photo-img" alt="Photo of Ann R." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 10 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 29 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=J-erJ2CePQTeFiFFWjmowQ">Ann R.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Bay Area</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_1" title="1.0 star rating">
+			<img alt="1.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="1.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2009-07-11">
+						<span class="date smaller">7/11/2009</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">Do NOT eat here. I wanted to grab a quick lunch while shopping at Town &amp; Country. The lady put the food in a styrofoam container and nuked it in the microwave, after she asked me if it was for here or to go. When I realized they do not accept credit cards, I told her I couldn't pay because I had no cash or check - sorry. So what does she do?<br><br>SHE PUTS THE FOOD BACK. <br><br>Yes, the food she had just microwaved went back to the counter for the next schmuck to order the ribs. So beware - the food you get may have been reconstituted.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_fT7waMHohlTpB5quWenEqA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FJ-erJ2CePQTeFiFFWjmowQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=fT7waMHohlTpB5quWenEqA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;fT7waMHohlTpB5quWenEqA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:fT7waMHohlTpB5quWenEqA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_PQokOFSKSWbdBd_YTLxslA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Steven E.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=GdSINiYrAqYLAv0RIG-moQ">
+					<img class="photo-img" alt="Photo of Steven E." src="http://s3-media4.ak.yelpcdn.com/photo/p541hxnJhByrnUnw6Yeh1Q/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 10 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 68 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=GdSINiYrAqYLAv0RIG-moQ">Steven E.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Mateo, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2008-08-11">
+						<span class="date smaller">8/11/2008</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">This really is "Some Kind of Place"! Good, fast, friendly Korean eatery. Although others may disagree on the price of the food, I think the value is great for what you get. They're very generous with the servings. Nice to eat there outside when the weather is nice!</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_PQokOFSKSWbdBd_YTLxslA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FGdSINiYrAqYLAv0RIG-moQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=PQokOFSKSWbdBd_YTLxslA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;PQokOFSKSWbdBd_YTLxslA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:PQokOFSKSWbdBd_YTLxslA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_uCTK8UORqClQjuXPSZ-jCQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Jimmy C.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=H3tPoj8yqmhZfkiol8F1yQ">
+					<img class="photo-img" alt="Photo of Jimmy C." src="http://s3-media1.ak.yelpcdn.com/photo/LDuByKFXTaXUwvL2EOWJ6A/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 8 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 144 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=H3tPoj8yqmhZfkiol8F1yQ">Jimmy C.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Palo Alto, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_1" title="1.0 star rating">
+			<img alt="1.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="1.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2008-08-17">
+						<span class="date smaller">8/17/2008</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">WTF. How does this place have a 4 star rating? Do people like paying high prices for small portions of uninspired, microwaved food that's been sitting behind their counter for who knows how long? Oh, and they microwave your food in foam containers.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_uCTK8UORqClQjuXPSZ-jCQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FH3tPoj8yqmhZfkiol8F1yQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=uCTK8UORqClQjuXPSZ-jCQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;uCTK8UORqClQjuXPSZ-jCQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:uCTK8UORqClQjuXPSZ-jCQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_CSLfEzE30kvQ1iCY3BLT4A" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Nick B.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=zT0PuDsIV-S7M-W_NaX9vw">
+					<img class="photo-img" alt="Photo of Nick B." src="http://s3-media4.ak.yelpcdn.com/photo/YQkZMIYdXgXeAJE-fWohWw/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 43 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 102 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=zT0PuDsIV-S7M-W_NaX9vw">Nick B.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Francisco, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2005-09-09">
+						<span class="date smaller">9/9/2005</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">The worst thing I can say about this place is that I no longer live close enough to get a chance to go here very often.  Some Kind of Place is a small but good Korean barbeque restaurant, which mostly caters to the take-out crowd, although there's some tables setup outside and maybe one inside (as I said, it's small).  I'd recommend the hot pepper chicken, and the baked fish is also usually really good, but the real treat, especially if you live for spicy food, is the great hot sauce they have which you can put on whatever you order.  I haven't found it anywhere else, even at Asian/Korean stores.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_CSLfEzE30kvQ1iCY3BLT4A">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FzT0PuDsIV-S7M-W_NaX9vw%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=CSLfEzE30kvQ1iCY3BLT4A" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;CSLfEzE30kvQ1iCY3BLT4A&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:CSLfEzE30kvQ1iCY3BLT4A">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_nh-P2OGhp-U6sBufCfc0lg" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Deb N.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=fdwVdy6TuY1kjYeEPMZKVw">
+					<img class="photo-img" alt="Photo of Deb N." src="http://s3-media2.ak.yelpcdn.com/photo/RFCD7TeyCvD2jJ0RCJu7bw/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 304 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 1497 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=fdwVdy6TuY1kjYeEPMZKVw">Deb N.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Palo Alto, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_2" title="2.0 star rating">
+			<img alt="2.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="2.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2009-09-12">
+						<span class="date smaller">9/12/2009</span>
+
+								<a href="/biz_photos/id5WQI_fo1V24wuf2olAeg?userid=fdwVdy6TuY1kjYeEPMZKVw" class="i-wrap i-camera-wrap badge photo-count"><i  class="i i-camera"></i> 2 photos</a>
+
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">It is sort of like fast food korean.  The meats look like it has been sitting for a while and I went at 5pm for dinner.  The kimchee is sold seperately, they don't give it for free.  MEal was just so so, there are so many more excellent korean places in Santa Clara on El Camino near Lawrence.  Would rather drive down there.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_nh-P2OGhp-U6sBufCfc0lg">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FfdwVdy6TuY1kjYeEPMZKVw%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=nh-P2OGhp-U6sBufCfc0lg" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;nh-P2OGhp-U6sBufCfc0lg&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:nh-P2OGhp-U6sBufCfc0lg">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_7tbTER82nCGAyTqFqmeAKA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Kelun Z.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=_8vr-aO_A6PVVTlK1UJVyQ">
+					<img class="photo-img" alt="Photo of Kelun Z." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 3 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 3 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=_8vr-aO_A6PVVTlK1UJVyQ">Kelun Z.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Francisco, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_2" title="2.0 star rating">
+			<img alt="2.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="2.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2012-02-09">
+						<span class="date smaller">2/9/2012</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I overlook the microwaved food (now the containers are paper-based, not styrofoam, so I guess that's an improvement). I overlook the generally bland flavor because sometimes I just crave chap chae. I overlook the lunch-time crowds which the owners cannot control. What I cannot abide and the reason that I will not go back to this place is the terrible, downright mean service. The man is fine and sometimes kind and smiles. The woman who usually mans the counter has consistently been mean to me over the years of occasional visits. Today, I asked about what I thought was an extra charge. Turns out I was wrong and forgot about a bottle of water that I purchases, but she was  so mean about this and reminded me that she did not charge me for a third vegetable in my "vegetarian meal" selection, which normally comes with only two vegetables. Are you serious and pointing out a measly third tiny helping of bean sprouts like it's some hugely generous sacrifice? I am a nice person. I am pleasant to people. Usually I don't even ask about over-charges, but I paid $9 for chap chae and three small scoops of vegetables, so I was wondering what's up. Anyway, I felt strongly enough about this experience to write a Yelp review, which I also rarely do. The food is so not worth the heartburn of dealing with the customer service or, even, the cost of the food. Good bye.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_7tbTER82nCGAyTqFqmeAKA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2F_8vr-aO_A6PVVTlK1UJVyQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=7tbTER82nCGAyTqFqmeAKA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;7tbTER82nCGAyTqFqmeAKA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:7tbTER82nCGAyTqFqmeAKA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_wSBZiTMlsnjURopPJ102qw" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Candace L.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=RxaqMFylRmftGzihOQTmfg">
+					<img class="photo-img" alt="Photo of Candace L." src="http://s3-media4.ak.yelpcdn.com/photo/VNVT-3WPqu7fQVMgrY22hg/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 14 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 75 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=RxaqMFylRmftGzihOQTmfg">Candace L.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Mountain View, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2008-02-21">
+						<span class="date smaller">2/21/2008</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">Minus 1 b/c they don't take card. But it's quick and easy. The owners are sweet and don't mind when I come in ordering 6 combos for my entire office. And I like that it's kind of a hole in the wall place and unless you know it's there, you'll never see it. The food is good, especially for less than $8 a meal.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_wSBZiTMlsnjURopPJ102qw">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FRxaqMFylRmftGzihOQTmfg%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=wSBZiTMlsnjURopPJ102qw" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;wSBZiTMlsnjURopPJ102qw&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:wSBZiTMlsnjURopPJ102qw">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_eq7uD7FF4-94oQB7cTQlJA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Phil L.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=JRZpXHdrLzmExhqWXumwvQ">
+					<img class="photo-img" alt="Photo of Phil L." src="http://s3-media4.ak.yelpcdn.com/photo/ju5VqZWpJZ-5F55njHje_A/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 27 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 15 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=JRZpXHdrLzmExhqWXumwvQ">Phil L.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">San Francisco, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2006-06-27">
+						<span class="date smaller">6/27/2006</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">This place was an godsend in my undergrad days of stale cafeteria food and overpriced downtown trend spots... I'm so glad they've survived the dotcom shakeout!</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_eq7uD7FF4-94oQB7cTQlJA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FJRZpXHdrLzmExhqWXumwvQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=eq7uD7FF4-94oQB7cTQlJA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;eq7uD7FF4-94oQB7cTQlJA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:eq7uD7FF4-94oQB7cTQlJA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_ODVgZMb63TgUSro9TrCfJQ" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">JJ Y.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=UbINNBpXMk17E11a5ZP9Cw">
+					<img class="photo-img" alt="Photo of JJ Y." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 0 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 3 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=UbINNBpXMk17E11a5ZP9Cw">JJ Y.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Hamilton, NJ</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_1" title="1.0 star rating">
+			<img alt="1.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="1.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2009-08-01">
+						<span class="date smaller">8/1/2009</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">Really, (borrowing the words of another reviewer) do NOT eat here. Not really knowing what kind of food they serve (yes, they say it's korean, but I'm quite sure it's not), I made an unfortunate decision to grab a quick meal from here. The food is terrible and, like other reviewers have said, it's almost like eating someone's leftovers. Their food is stored at room temperature: I know this since I was able to snatch the food before they put it in the microwave oven. The tofu thing, which looked really nice, tasted like it came out of a trash can. And a few hours afterwards, my stomach is not doing that great. I'm not sure how they can survive with such terrible food at such an expensive location!<br><br>I usually promote korean restaurants as long as they do something right, but this place does absolutely no justice to korean food. Avoid at all cost.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_ODVgZMb63TgUSro9TrCfJQ">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FUbINNBpXMk17E11a5ZP9Cw%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=ODVgZMb63TgUSro9TrCfJQ" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;ODVgZMb63TgUSro9TrCfJQ&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:ODVgZMb63TgUSro9TrCfJQ">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_0yBE8pLdD_1Z-7_d7MyvrA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Bingsu B.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=YUXZsOz_Pl__mwlLs4B1xg">
+					<img class="photo-img" alt="Photo of Bingsu B." src="http://s3-media3.ak.yelpcdn.com/photo/zFI-NI9l-EhYN69S7w8zhw/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 0 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 38 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=YUXZsOz_Pl__mwlLs4B1xg">Bingsu B.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Menlo Park, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2007-01-12">
+						<span class="date smaller">1/12/2007</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">One of my favorite memories is when I was in college taking Korean class.  When the school year ended, our instructor took us to this restaurant, a group of 8 or 10 of us.  The food is great, reasonably priced and the folks that run it are really nice.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_0yBE8pLdD_1Z-7_d7MyvrA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FYUXZsOz_Pl__mwlLs4B1xg%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=0yBE8pLdD_1Z-7_d7MyvrA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;0yBE8pLdD_1Z-7_d7MyvrA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:0yBE8pLdD_1Z-7_d7MyvrA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_3HmYeYd31lV6NijXJJJDtA" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Superduperpooperscooper T.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=vg1J5bnQlpGGlT0XRfXqIQ">
+					<img class="photo-img" alt="Photo of Superduperpooperscooper T." src="http://s3-media2.ak.yelpcdn.com/photo/huAlqUUm2KiorLlcnMpwlA/ss.jpg" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 11 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 219 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=vg1J5bnQlpGGlT0XRfXqIQ">…</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="4.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2007-07-02">
+						<span class="date smaller">7/2/2007</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">hot sauce!!</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_3HmYeYd31lV6NijXJJJDtA">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>(1)</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2Fvg1J5bnQlpGGlT0XRfXqIQ%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=3HmYeYd31lV6NijXJJJDtA" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;3HmYeYd31lV6NijXJJJDtA&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:3HmYeYd31lV6NijXJJJDtA">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_T2v21tevF8gQfDFncPupZg" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Nikki B.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=G9WHiBv1iND2Sb0yBYDz2g">
+					<img class="photo-img" alt="Photo of Nikki B." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 1 <span class="offscreen">friend</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 68 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=G9WHiBv1iND2Sb0yBYDz2g">Nikki B.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Newark, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_2" title="2.0 star rating">
+			<img alt="2.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="2.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2008-09-05">
+						<span class="date smaller">9/5/2008</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">If you like mystery meat BBQed to perfection, you'll like this place! I don't, so I went back the second time to try their non meat selection. The food wasn't bad-noodles, and two kinds of vegetables. However, I was shocked to pay $9.50!! And I didn't even get a drink-just noodles and two vegetable sides...</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_T2v21tevF8gQfDFncPupZg">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2FG9WHiBv1iND2Sb0yBYDz2g%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=T2v21tevF8gQfDFncPupZg" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;T2v21tevF8gQfDFncPupZg&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:T2v21tevF8gQfDFncPupZg">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_7bbGgDIBiuDR8jRlLcHXXw" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">NY G.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=-bNMzX94I-k8EqSdlIOs2Q">
+					<img class="photo-img" alt="Photo of NY G." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 0 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 1 <span class="offscreen">review</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=-bNMzX94I-k8EqSdlIOs2Q">NY G.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Palo Alto, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_1" title="1.0 star rating">
+			<img alt="1.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="1.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2007-10-18">
+						<span class="date smaller">10/18/2007</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">I decided to stop by after reading the positive reviews.  I had rice, spicy pork and kimchi.  The owners are really nice.  But c'mon!  The rice had butter or margarine in it which is not what I wanted for my Korean food.  The pork was alright, not spicy enough and nothing to write home about.  The kimchi! the kimchi!  It's awful!  It's sweet and not spicy!  I've never had sweet kimchi before.  For the price, I can get other takeouts nearby.  Pretty disappointed since I really wanted to like the place as other reviewers suggested.  Unfortunately I've had much better mom-and-pop Korean food in NY for better price.  Sorry.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_7bbGgDIBiuDR8jRlLcHXXw">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2F-bNMzX94I-k8EqSdlIOs2Q%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=7bbGgDIBiuDR8jRlLcHXXw" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;7bbGgDIBiuDR8jRlLcHXXw&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:7bbGgDIBiuDR8jRlLcHXXw">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+					
+
+
+	<li id="review_0Arin8W7PoEXuHJ3tfTkSw" class="review clearfix  externalReview" itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+		<h4 class="offscreen">Review from <span itemprop="author">Alex H.</span></h4>
+
+<div class="clearfix media-block media-block-no-margin">
+<div class="media-avatar reviewer-details">
+					<div class="user-passport">
+		
+
+
+
+	<div class="photo-box pb-ss" >
+			<a href="http://www.yelp.com/user_details?userid=28EP65ZNv6Gh5WZ-mE4bRg">
+					<img class="photo-img" alt="Photo of Alex H." src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" height="40" width="40">
+			</a>
+	</div>
+
+		<ul class="user-stats">
+		<li class="friend-count miniOrange"><span  class="i-wrap i-friend-count-wrap"><i  class="i i-friend-count"></i> 2 <span class="offscreen">friends</span></span></li>
+		<li class="review-count miniOrange"><span  class="i-wrap i-review-count-wrap"><i  class="i i-review-count"></i> 52 <span class="offscreen">reviews</span></span></li>
+	</ul>
+
+
+		<ul class="user-passport-info ieSucks">
+				<li class="user-name">
+						<a href="http://www.yelp.com/user_details?userid=28EP65ZNv6Gh5WZ-mE4bRg">Alex H.</a>
+				</li>
+		</ul>
+</div>
+
+					<p class="reviewer_info">Stanford, CA</p>
+
+</div><div class="media-story">
+					<div class="rating-meta clearfix">
+						<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+							
+		<div class="rating">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+		<meta itemprop="ratingValue" content="3.0">
+	</div>
+
+						</div>
+						<meta itemprop="datePublished" content="2008-06-27">
+						<span class="date smaller">6/27/2008</span>
+
+						
+
+
+
+						
+
+						 
+					</div>
+
+							<p class="review_comment ieSucks" itemprop="description">too expensive. almost $10 for two little pieces of short ribs is, in all honesty, a really bad deal. the portions are heartier and cheaper if you get chicken.</p> 
+					<div class="extra-actions clearfix">
+							
+
+								<div class="rateReview clearfix" id="ufc_0Arin8W7PoEXuHJ3tfTkSw">
+				<p class="review-intro review-message">Was this review &hellip;?</p>
+				<ul>
+					<li class="useful ufc-btn">
+						<a href="#" rel="useful"><span>Useful</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="funny ufc-btn">
+						<a href="#" rel="funny"><span>Funny</span></a>
+						<span>&nbsp;</span>
+					</li>
+					<li class="cool ufc-btn">
+						<a href="#" rel="cool"><span>Cool</span></a>
+						<span>&nbsp;</span>
+					</li>
+				</ul>
+					</div>
+
+
+
+							<ul class="externalReviewActions">
+			<li class="add-review-comment">			<a class="add-owner-comment" href="https://biz.yelp.com/login/add_owner_comment?biz_id=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fr2r%2Fid5WQI_fo1V24wuf2olAeg%2Fcomment%2F28EP65ZNv6Gh5WZ-mE4bRg%2Fcompose">
+				Add owner comment
+			</a>
+</li>
+		<li>	<a href="/signup" rel="some-kind-of-place-internatl-cuisine-palo-alto" class="bookmark" title="Something catch your eye?<br>Bookmark this business to build your own list of fun ideas to check out later!">Bookmark</a>&nbsp;&nbsp;
+</li>
+		<li><a href="/biz_share?bizid=id5WQI_fo1V24wuf2olAeg&amp;return_url=%2Fbiz%2Fsome-kind-of-place-internatl-cuisine-palo-alto&amp;reviewid=0Arin8W7PoEXuHJ3tfTkSw" class="sendToFriend" onclick="yelp.ui.widget.SendToFriends.open(this, &#34;id5WQI_fo1V24wuf2olAeg&#34;, &#34;0Arin8W7PoEXuHJ3tfTkSw&#34;, null);return false">Send to a Friend</a></li>
+		<li><a class="linkToThis" href="/biz/some-kind-of-place-internatl-cuisine-palo-alto#hrid:0Arin8W7PoEXuHJ3tfTkSw">Link to This Review</a></li>
+	</ul>
+
+					</div>
+
+					
+
+</div>
+</div>
+	</li>
+
+			</ul>
+	</div>
+
+
+					
+
+			</div>
+		</div>
+
+			<div id="paginationControls" class="pagination_controls clearfix">
+					<div id="rpp-count">
+				(<a id="filtered-reviews-link" href="#" rel="nofollow">3 Filtered</a>)
+
+			&nbsp;
+	</div>
+
+
+
+						<table border="0" cellpadding="0" cellpading="0" class="" width="" >
+		<tr>
+		</tr>
+	</table>
+
+
+						<a href="/writeareview/biz/id5WQI_fo1V24wuf2olAeg?return_url=%2Fbiz%2Fid5WQI_fo1V24wuf2olAeg" id="write-a-review-btn" class="ybtn btn-r-l"><span>Write a Review</span></a>
+			</div>
+
+	</div>
+
+				</div>
+
+</div>
+<div class="column column-beta " id="side">
+				
+		<div id="bizNearby">
+			<div id="mapdiv">
+				<a href="/map/some-kind-of-place-internatl-cuisine-palo-alto">
+
+					<img id="static_map" src="http://maps.google.com/maps/api/staticmap?center=37.438235%2C-122.158540&amp;language=en&amp;zoom=15&amp;markers=shadow%3Atrue%7Cicon%3Ahttp%3A%2F%2Fd1lf0h1wlh3cdl.cloudfront.net%2Fimg%2Fbiz_details_map_marker.png%7C37.438235%2C-122.158540&amp;client=gme-yelp&amp;sensor=false&amp;size=298x245&amp;signature=VHHPeU36Lr06Rm3WqCUCgBJbc8Q=" alt="Map of Business">
+				</a>
+				<i id="zoom_in" class="i i-zoom-in"></i>
+				<i id="zoom_out" class="i i-zoom-out"></i>
+			</div>
+
+
+				<div id="mapLink">
+							<a href="/map/some-kind-of-place-internatl-cuisine-palo-alto">View Larger Map/Directions</a>
+				</div>
+
+
+				<div id="nearby-biz-nav" class="module">
+						<div class="header">
+							<h3>Browse Nearby:</h3>
+						</div>
+						<div class="content">
+							<ul>
+											<li><a href="/search?places=&amp;cflt=restaurants&amp;l=b%3Asome-kind-of-place-internatl-cuisine-palo-alto&amp;find_desc=">Restaurants</a> | </li>
+											<li><a href="/search?places=&amp;cflt=nightlife&amp;l=b%3Asome-kind-of-place-internatl-cuisine-palo-alto&amp;find_desc=">Nightlife</a> | </li>
+											<li><a href="/search?places=&amp;cflt=shopping&amp;l=b%3Asome-kind-of-place-internatl-cuisine-palo-alto&amp;find_desc=">Shopping</a> | </li>
+										 <li><a href="http://www.rottentomatoes.com/movie_times/94301">Movies</a> | </li>
+								<li><a href="/search?l=b%3Asome-kind-of-place-internatl-cuisine-palo-alto&amp;find_desc=">All</a></li>
+							</ul>
+						</div>
+				</div>
+		</div>
+
+
+						<div id="other-deals" class="module clearfix">
+		<div class="header">
+			<h3>Deals Nearby</h3>
+		</div>
+		<ul>
+			<li class="clearfix media-block">
+<div class="media-avatar">
+				
+
+
+		
+
+
+	<div class="deal-photo pb-60s photo-box">
+			<a href="/deals/caffe-riace-palo-alto-3?large_photo=1">
+				<img class="photo-img" alt="$10 for $20 Deal" height="60" src="http://s3-media4.ak.yelpcdn.com/dphoto/EY5ZYJ6MP0-K2Zi7X25bww/60s.jpg" width="60">
+			</a>
+	</div>
+
+
+</div><div class="media-story">
+				<a href="/deals/caffe-riace-palo-alto-3?large_photo=1">$10 for $20 Deal</a>
+				<div>Caffe Riace</div>
+				<div class="location">Palo Alto, CA</div>
+
+</div>
+</li><li class="clearfix media-block">
+<div class="media-avatar">
+				
+
+
+		
+
+
+	<div class="deal-photo pb-60s photo-box">
+			<a href="/deals/bistro-maxine-palo-alto?large_photo=1">
+				<img class="photo-img" alt="$7.50 for $15 Worth of Food & Drink" height="60" src="http://s3-media4.ak.yelpcdn.com/dphoto/FldeNmMhT0UZLNBjcdFuCA/60s.jpg" width="60">
+			</a>
+	</div>
+
+
+</div><div class="media-story">
+				<a href="/deals/bistro-maxine-palo-alto?large_photo=1">$7.50 for $15 Worth of Food &amp; Drink</a>
+				<div>Bistro Maxine</div>
+				<div class="location">Palo Alto, CA</div>
+
+</div>
+</li>
+		</ul>
+	</div>
+
+
+
+						<div id="bizSimilarBox" class="module">
+			<div class="header">
+				<h3>People Who Viewed This Also Viewed...</h3>
+			</div>
+			<ul>
+					
+<li class="clearfix media-block">
+<div class="media-avatar">
+			
+
+<div class="photo-box biz-photo-box pb-60s">
+		<a href="/biz/bulgogi-bbq-palo-alto">
+			<img class="photo-img" alt="" height="60" src="http://s3-media4.ak.yelpcdn.com/bphoto/SXXNqQKonHoV8h004k8oag/60s.jpg" width="60">
+		</a>
+</div>
+
+
+</div><div class="media-story">
+
+			<a href="/biz/bulgogi-bbq-palo-alto" id="bizreclink1">Bulgogi BBQ</a>
+			<div class="biz_rating">
+					
+		<div class="rating-small">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+	</div>
+
+				<em class="smaller">&nbsp;1 review</em>
+			</div>
+				<p>Palo Alto, CA</p>
+
+</div>
+</li>
+					
+<li class="clearfix media-block">
+<div class="media-avatar">
+			
+
+<div class="photo-box biz-photo-box pb-60s">
+		<a href="/biz/korean-bbq-palo-alto">
+			<img class="photo-img" alt="" height="60" src="http://s3-media1.ak.yelpcdn.com/bphoto/CFWFyNt33kbuOOHOltM_PQ/60s.jpg" width="60">
+		</a>
+</div>
+
+
+</div><div class="media-story">
+
+			<a href="/biz/korean-bbq-palo-alto" id="bizreclink2">Korean BBQ</a>
+			<div class="biz_rating">
+					
+		<div class="rating-small">
+		<i class="star-img stars_3" title="3.0 star rating">
+			<img alt="3.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+	</div>
+
+				<em class="smaller">&nbsp;20 reviews</em>
+			</div>
+				<div class="snippet">
+					"Totally fresh fast Korean Food  Restaurant tucked away."
+				</div>
+
+</div>
+</li>
+					
+<li class="clearfix media-block">
+<div class="media-avatar">
+			
+
+<div class="photo-box biz-photo-box pb-60s">
+		<a href="/biz/su-dam-korean-cuisine-los-altos-3">
+			<img class="photo-img" alt="" height="60" src="http://s3-media1.ak.yelpcdn.com/bphoto/zxNr-8uQnhYgkcK3UfCs6A/60s.jpg" width="60">
+		</a>
+</div>
+
+
+</div><div class="media-story">
+
+			<a href="/biz/su-dam-korean-cuisine-los-altos-3" id="bizreclink3">Su-Dam Korean Cuisine</a>
+			<div class="biz_rating">
+					
+		<div class="rating-small">
+		<i class="star-img stars_3_half" title="3.5 star rating">
+			<img alt="3.5 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+	</div>
+
+				<em class="smaller">&nbsp;46 reviews</em>
+			</div>
+				<div class="snippet">
+					"...and price is comparable to other Korean tofu houses."
+				</div>
+
+</div>
+</li>
+					
+<li class="clearfix media-block">
+<div class="media-avatar">
+			
+
+<div class="photo-box biz-photo-box pb-60s">
+		<a href="/biz/asian-box-palo-alto">
+			<img class="photo-img" alt="" height="60" src="http://s3-media2.ak.yelpcdn.com/bphoto/ppiwBuJZLhGwauYl_1oyyg/60s.jpg" width="60">
+		</a>
+</div>
+
+
+</div><div class="media-story">
+
+			<a href="/biz/asian-box-palo-alto" id="bizreclink4">Asian Box</a>
+			<div class="biz_rating">
+					
+		<div class="rating-small">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+	</div>
+
+				<em class="smaller">&nbsp;122 reviews</em>
+			</div>
+				<div class="snippet">
+					"The crispy shallots and pickled veggies are my faves."
+				</div>
+
+</div>
+</li>
+					
+<li class="clearfix media-block">
+<div class="media-avatar">
+			
+
+<div class="photo-box biz-photo-box pb-60s">
+		<a href="/biz/so-gong-dong-tofu-house-palo-alto">
+			<img class="photo-img" alt="" height="60" src="http://s3-media1.ak.yelpcdn.com/bphoto/p2056JwCkoQvurrG-XFlyA/60s.jpg" width="60">
+		</a>
+</div>
+
+
+</div><div class="media-story">
+
+			<a href="/biz/so-gong-dong-tofu-house-palo-alto" id="bizreclink5">So Gong Dong Tofu House</a>
+			<div class="biz_rating">
+					
+		<div class="rating-small">
+		<i class="star-img stars_4" title="4.0 star rating">
+			<img alt="4.0 star rating" class="offscreen" height="20" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/9490cf38f4e4/ico/stars/stars_map_h.png" width="1400">
+		</i>
+	</div>
+
+				<em class="smaller">&nbsp;587 reviews</em>
+			</div>
+				<div class="snippet">
+					"And the purple rice that comes with it is sooo good."
+				</div>
+
+</div>
+</li>
+			</ul>
+		</div>
+
+				
+
+							<div class="module">
+			<div class="header">
+				<h3>People Viewed This After Searching For...</h3>
+			</div>
+			<div class="content">
+				<ul class="sidebar-text-list">
+						<li>	<a href="http://www.yelp.com/search?find_desc=Korean+Barbeque&amp;find_loc=Palo+Alto%2C+CA">Korean Barbeque Palo Alto</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+					
+
+
+
+
+	<div class="googlead-sky-wrapper" id="yelp_us_biz_profile_160x600-wrapper">
+		<div class="google-ads googlead-sky-container">
+
+			<div class="google-ads-block googlead-sky" id="yelp_us_biz_profile_160x600">
+
+
+<script type="text/javascript">
+						document.getElementById("yelp_us_biz_profile_160x600" + '-wrapper').style.display = 'none';
+
+					googletag.cmd.push(function() {
+
+
+						var slot = googletag.defineSlot(
+							"/1014943/yelp_us/biz_profile/160x600",
+							[[160, 600], [300, 250]], "yelp_us_biz_profile_160x600"
+						);
+						slot.addService(googletag.pubads());
+
+							var orig = slot.renderEnded;
+							slot.renderEnded = function() {
+								if (document.getElementById("yelp_us_biz_profile_160x600").style.display !== 'none') {
+									document.getElementById("yelp_us_biz_profile_160x600" + '-wrapper').style.display = 'block';
+								}
+								return orig.apply(this, arguments);
+							};
+
+
+
+
+						googletag.display("yelp_us_biz_profile_160x600");
+					});
+
+
+</script>
+					</div> 
+
+		</div> 
+	</div> 
+
+
+
+</div>
+</div>
+
+
+</div>		<script src="http://s3-media3.ak.yelpcdn.com/assets/2/www/js/7103441858c1/swfobject.min.js" type="text/javascript"></script>
+
+		<script src="http://s3-media4.ak.yelpcdn.com/assets/2/www/js/e28ca1f9af10/prototype_effects-pkg.min.js" type="text/javascript"></script>
+
+		<script src="http://s3-media1.ak.yelpcdn.com/assets/2/www/js/ab8ca71c0b6b/vendor/prototype/dragdrop.min.js" type="text/javascript"></script>
+		<script src="http://s3-media3.ak.yelpcdn.com/assets/2/www/js/81626f39608f/speller/spellChecker.min.js" type="text/javascript"></script>
+
+
+
+		<script type="text/javascript">yelp.init.wrapper("yelp.init.bizDetails.captcha", null);</script>
+
+
+
+
+
+		<script src="http://s3-media2.ak.yelpcdn.com/assets/2/www/js/2a22e705223a/chart_functions.min.js" type="text/javascript"></script>
+
+
+		<script type="text/javascript">yelp.init.wrapper("yelp.init.base.requireJS", {"scripts": [["https://www.google.com/recaptcha/api/js/recaptcha_ajax.js", "recaptcha"]]});</script>
+
+
+
+	<script type="text/javascript">yelp.init.wrapper("yelp.init.bizDetails.page", {"isPayingBusiness": false, "hasReviews": true, "smsAllowedInCountry": true, "biz_details_map": "google", "serviceAreaPoints": null, "dateFormat": "mm/dd/yyyy", "hasDemographics": true, "hasReviewSummaries": false, "gmapsUrl": "http://maps.google.com/maps?client=gme-yelp\u0026sensor=false\u0026hl=en\u0026file=api\u0026v=2", "bmapsUrl": "http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?mkt=en\u0026v=7.0", "hasVideo": false, "isAccurateForMap": true, "showBookLog": false, "bizId": "id5WQI_fo1V24wuf2olAeg", "fromDealEmail": false, "deferROModeScanLinks": true, "bizSafe": {"rating": 3.0, "phone": "(650) 321-4730", "formatted_city": "Palo Alto, CA", "biz_announcement": "", "formatted_city_name": "Palo Alto", "formatted_address": ["855 El Camino Real Ste 85", "Palo Alto, CA 94301"], "id": "id5WQI_fo1V24wuf2olAeg", "city": "Palo Alto", "review_count": 22, "accurate_for_map": true, "zip": "94301", "state": "CA", "latitude": 37.438235300000002, "cross_streets": "", "cross_streets_miniprefix": "", "address1": "855 El Camino Real Ste 85", "address2": "", "address3": "", "photos": [{"caption": "Town \u0026 Country Village", "id": "7oSsihwCoaA0-DS3hw-vWg", "is_primary": false}, {"caption": "", "id": "BIrmvMEli2e5W4b5AEeJSQ", "is_primary": true}, {"caption": "kalbi meal", "id": "kHnc2J2SOyWg7vxCoCTG_A", "is_primary": false}, {"caption": "Menu - August 2007", "id": "LE9-qFSAH_SuYyAlrpPc0Q", "is_primary": false}], "formatted_address_brief": ["855 El Camino Real Ste 85", "Palo Alto, CA 94301"], "name": "Some Kind of Place Internatl Cuisine", "neighborhoods": "", "category_yelp_ids": ["H5ICgfQ7VdvD_-ISpZ6ZZQ"], "url": "/biz/some-kind-of-place-internatl-cuisine-palo-alto", "country": "US", "longitude": -122.1585402}, "slides": null, "hasPriceRange": true, "showOtherAds": true, "dealOfferId": null, "bizMoviesCount": 0, "hasAboutThisBiz": false, "atbSnippetLength": 45, "selectedReviewId": null, "graphUrls": {"trend": "//media1.ak.yelpcdn.com/biz_details_graphs/static/20120626/trend/id5WQI_fo1V24wuf2olAeg/en_US/s", "dist": "//media1.ak.yelpcdn.com/biz_details_graphs/static/20120626/dist/id5WQI_fo1V24wuf2olAeg/en_US/s"}, "apiDomain": "api.yelp.com"});</script>
+
+
+
+	<script type="text/javascript">yelp.init.wrapper("yelp.pages.makeYelpAdTooltip", null);</script>
+
+
+		<script type="text/javascript">yelp.init.wrapper("yelp.pages.www.biz_details.drawSignupInterstitial", {"pitchTemplate": "restaurants", "fromDealReferrer": false});</script>
+
+
+
+
+	<script type="text/javascript">yelp.init.wrapper("yelp.init.bizDetails.BOYFooterInit", "id5WQI_fo1V24wuf2olAeg");</script>
+
+
+
+
+	
+
+			</div>
+
+
+			<!-- google_ad_section_start(weight=ignore) -->
+<!-- <a href="/biz/outlook-autumn-market-fundamental-catwalk-flimsy-roost-legibility-individualism-grocer-predestination-3">yelp</a> -->
+<div id="footer">
+	<div id="footer-menu-wrap" class="clearfix">
+		<div class="footer-menu clearfix first">
+			<h4>About</h4>
+			<ul>
+				<li>
+					<a href="/about">About Yelp</a>
+				</li>
+				<li>
+					<a href="http://officialblog.yelp.com">Yelp Blog</a>
+				</li>
+				<li>
+					<a href="http://www.yelp-press.com/">Press</a>
+				</li>
+				<li>
+					<a href="http://www.yelp-ir.com/">Investor Relations</a>
+				</li>
+				<li>
+					<a href="/static?p=tos&amp;country=US">Terms of Service</a>
+				</li>
+				<li>
+					<a href="/static?p=privacy&amp;country=US">Privacy Policy</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-menu clearfix">
+			<h4>Help</h4>
+			<ul>
+				<li>
+					<a href="/faq">FAQ</a>
+				</li>
+				<li>
+					<a href="/advertise">Advertise</a>
+				</li>
+				<li>
+					<a href="/guidelines">Content Guidelines</a>
+				</li>
+				<li>
+					<a href="/contact">Contact Yelp</a>
+				</li>
+					<li>
+						<a href="https://biz.yelp.com/support">Business Support</a>
+					</li>
+				<li>
+					<a href="http://www.yelp.com/developers">Developers</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-menu clearfix">
+			<h4>More</h4>
+			<ul>
+				<li>
+					<a href="/careers?country=US">Careers</a>
+				</li>
+				<li>
+						<a href="/yelpmobile">Yelp Mobile</a>
+				</li>
+					<li>
+						<a href="/weekly">The Weekly Yelp</a>
+					</li>
+					<li>
+						<a href="/store">Yelp Apparel</a>
+					</li>
+				<li>
+					<a href="/rss">RSS</a>
+				</li>
+					<li>
+						<a href="/topsearches">Top Searches</a>
+					</li>
+			</ul>
+		</div>
+
+		<div id="countries-menu" class="footer-menu clearfix">
+			<h4>Countries</h4>
+				<ul>
+						<li>
+							<a href="http://www.yelp.com.au/">Australia</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.at/">Austria</a>
+						</li>
+						<li>
+							<a href="http://fr.yelp.be/">Belgium</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.ca/">Canada</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.dk/">Denmark</a>
+						</li>
+						<li>
+							<a href="http://fi.yelp.fi/">Finland</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.fr/">France</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.de/">Germany</a>
+						</li>
+				</ul>
+				<ul>
+						<li>
+							<a href="http://www.yelp.ie/">Ireland</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.it/">Italy</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.no/">Norway</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.es/">Spain</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.se/">Sweden</a>
+						</li>
+						<li>
+							<a href="http://de.yelp.ch/">Switzerland</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.nl/">The Netherlands</a>
+						</li>
+						<li>
+							<a href="http://www.yelp.co.uk/">United Kingdom</a>
+						</li>
+				</ul>
+		</div>
+
+		<div class="footer-menu last clearfix">
+			<h4>Language</h4>
+			<ul>
+				<li>
+					
+	
+	<div id="footer-language-selector-wrap" class="drop-menu-origin language-selector-wrap ieSucks">
+		<a href="/language" id="footer-language-selector-anchor" class="drop-menu-link language-selector-anchor ieSucks">
+			<span  class="i-wrap i-dropdown-arrow-wrap i-wrap-r"><i  class="i i-dropdown-arrow"></i> English</span>
+		</a>
+		<div id="footer-language-selector-menu" class="drop-menu language-selector-menu">
+				<ul>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.dk/biz/some-kind-of-place-internatl-cuisine-palo-alto">Dansk (Danmark)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.de/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Deutschland)</a>
+							</li>
+							<li>
+								<a href="http://de.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Schweiz)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.at/biz/some-kind-of-place-internatl-cuisine-palo-alto">Deutsch (Österreich)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.com.au/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Australia)</a>
+							</li>
+							<li>
+								<a href="http://en.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Belgium)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Canada)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.ie/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Republic of Ireland)</a>
+							</li>
+							<li>
+								<a href="http://en.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (Switzerland)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.co.uk/biz/some-kind-of-place-internatl-cuisine-palo-alto">English (United Kingdom)</a>
+							</li>
+							<li class="language-selector-selection">English (United States)</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.es/biz/some-kind-of-place-internatl-cuisine-palo-alto">Español (España)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://fr.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Belgique)</a>
+							</li>
+							<li>
+								<a href="http://fr.yelp.ca/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Canada)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.fr/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (France)</a>
+							</li>
+							<li>
+								<a href="http://fr.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Français (Suisse)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.it/biz/some-kind-of-place-internatl-cuisine-palo-alto">Italiano (Italia)</a>
+							</li>
+							<li>
+								<a href="http://it.yelp.ch/biz/some-kind-of-place-internatl-cuisine-palo-alto">Italiano (Svizzera)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://nl.yelp.be/biz/some-kind-of-place-internatl-cuisine-palo-alto">Nederlands (België)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.nl/biz/some-kind-of-place-internatl-cuisine-palo-alto">Nederlands (Nederland)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://www.yelp.no/biz/some-kind-of-place-internatl-cuisine-palo-alto">Norsk (Norge)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items">
+							<li>
+								<a href="http://fi.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">Suomi (Suomi)</a>
+							</li>
+				</ul>
+			</li>
+			<li>
+				<ul class="language-items last">
+							<li>
+								<a href="http://sv.yelp.fi/biz/some-kind-of-place-internatl-cuisine-palo-alto">Svenska (Finland)</a>
+							</li>
+							<li>
+								<a href="http://www.yelp.se/biz/some-kind-of-place-internatl-cuisine-palo-alto">Svenska (Sverige)</a>
+							</li>
+				</ul>
+			</li>
+	</ul>
+
+		</div>
+	</div>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+
+				<ul id="a-z-biz-list" class="footer-list ieSucks">
+						<li class="first">Palo Alto Business Listings</li>
+							<li><a href="/sm/palo-alto-ca-us/num">#</a></li>
+							<li><a href="/sm/palo-alto-ca-us/a">A</a></li>
+							<li><a href="/sm/palo-alto-ca-us/b">B</a></li>
+							<li><a href="/sm/palo-alto-ca-us/c">C</a></li>
+							<li><a href="/sm/palo-alto-ca-us/d">D</a></li>
+							<li><a href="/sm/palo-alto-ca-us/e">E</a></li>
+							<li><a href="/sm/palo-alto-ca-us/f">F</a></li>
+							<li><a href="/sm/palo-alto-ca-us/g">G</a></li>
+							<li><a href="/sm/palo-alto-ca-us/h">H</a></li>
+							<li><a href="/sm/palo-alto-ca-us/i">I</a></li>
+							<li><a href="/sm/palo-alto-ca-us/j">J</a></li>
+							<li><a href="/sm/palo-alto-ca-us/k">K</a></li>
+							<li><a href="/sm/palo-alto-ca-us/l">L</a></li>
+							<li><a href="/sm/palo-alto-ca-us/m">M</a></li>
+							<li><a href="/sm/palo-alto-ca-us/n">N</a></li>
+							<li><a href="/sm/palo-alto-ca-us/o">O</a></li>
+							<li><a href="/sm/palo-alto-ca-us/p">P</a></li>
+							<li><a href="/sm/palo-alto-ca-us/q">Q</a></li>
+							<li><a href="/sm/palo-alto-ca-us/r">R</a></li>
+							<li><a href="/sm/palo-alto-ca-us/s">S</a></li>
+							<li><a href="/sm/palo-alto-ca-us/t">T</a></li>
+							<li><a href="/sm/palo-alto-ca-us/u">U</a></li>
+							<li><a href="/sm/palo-alto-ca-us/v">V</a></li>
+							<li><a href="/sm/palo-alto-ca-us/w">W</a></li>
+							<li><a href="/sm/palo-alto-ca-us/x">X</a></li>
+							<li><a href="/sm/palo-alto-ca-us/y">Y</a></li>
+							<li><a href="/sm/palo-alto-ca-us/z">Z</a></li>
+						<li>| <a href="/sm/palo-alto-ca-us-added">Newly Added</a></li>
+
+						<li>| <a href="/archived_topics/Palo-Alto-CA">Talk Archive</a></li>
+				</ul>
+
+
+			<ul class="directory footer-list">
+				<li class="first"><strong>Site Map</strong></li>
+					<li> | <a href="/atlanta">Atlanta</a></li>
+					<li> | <a href="/austin">Austin</a></li>
+					<li> | <a href="/boston">Boston</a></li>
+					<li> | <a href="/chicago">Chicago</a></li>
+					<li> | <a href="/dallas">Dallas</a></li>
+					<li> | <a href="/denver">Denver</a></li>
+					<li> | <a href="/detroit">Detroit</a></li>
+					<li> | <a href="/honolulu">Honolulu</a></li>
+					<li> | <a href="/houston">Houston</a></li>
+					<li> | <a href="/la">Los Angeles</a></li>
+					<li> | <a href="/miami">Miami</a></li>
+					<li> | <a href="/minneapolis">Minneapolis</a></li>
+					<li> | <a href="/nyc">New York</a></li>
+					<li> | <a href="/philadelphia">Philadelphia</a></li>
+					<li> | <a href="/portland">Portland</a></li>
+					<li> | <a href="/sacramento">Sacramento</a></li>
+					<li> | <a href="/san-diego">San Diego</a></li>
+					<li> | <a href="/sf">San Francisco</a></li>
+					<li> | <a href="/san-jose">San Jose</a></li>
+					<li> | <a href="/seattle">Seattle</a></li>
+					<li> | <a href="/dc">Washington, DC</a></li>
+					<li> | <a href="/locations">More Cities</a></li>
+			</ul>
+	
+
+	<p class="copyright">
+			Copyright &copy; 2004-2012 Yelp Inc. Yelp logo and related marks are registered trademarks of Yelp. All rights reserved.
+	</p>
+
+</div>
+<!-- google_ad_section_end -->
+
+			<div style="display: none;" id="page-popups">
+			
+<form action="https://www.yelp.com/deals/subscribe" id="signup-pitch-step-1" method="POST">
+<input type="hidden" class="csrftok" name="csrftok" value="32c89ee1a48f59615b05f66004f1effd64fc7d41c2e0fe76d15d522e19e1388b">
+	<ul>
+		<li>
+			<label for="signup-pitch-email">Email Address</label>
+			<small>Step 1 of 2</small>
+			<input type="text" class="input-text" name="email" id="signup-pitch-email">
+		</li>
+
+		<li>
+			<label for="signup-pitch-zip">Zip Code</label>
+			<input type="text" class="input-text" name="zip" id="signup-pitch-zip">
+		</li>
+
+		<li class="last">
+			<input type="image" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/172808b11d2c/mktg/signup_pitchs/form-submit.gif" id="signup-pitch-step-1-submit">
+		</li>
+	</ul>
+
+</form>
+<form action="https://www.yelp.com/signup/ajax" id="fb-finish-account-body" method="POST">
+<input type="hidden" class="csrftok" name="csrftok" value="b0ad4a54b89f59f365ad329e108d86c354fce63e0d367f72d35b7c0c4d513c7b">
+		<div class="fb-info clearfix">
+			<div class="avatar"></div>
+			<div class="content">
+				<p>
+					Hey <span class="first-name"></span>, you can use Facebook to make <strong>signing up for Yelp even faster</strong>.
+					<a href="#" class="ypop-hide show-email-signup"><input type="checkbox" checked> Yes, use Facebook to sign up</a>
+				</p>
+			</div>
+		</div>
+
+			<div class="ypop-banner">
+		<strong>Already have an account?</strong>
+		<a href="#" class="ybtn btn-y-s ypop-hide show-login"><span>Log In Now</span></a>
+	</div>
+
+
+		<ol>
+			<li>
+				<label for="signup-email">Email Address</label>
+				<input id="signup-email" name="email" class="input-text">
+			</li>
+
+			<li>
+				<label for="finish-account-password">Password</label>
+				<input id="finish-account-password" autocomplete="off" type="password" name="password" class="input-text">
+			</li>
+
+			<li>
+				<label for="finish-account-zipcode">Zip Code</label>
+				<input id="finish-account-zipcode" name="zip">
+			</li>
+
+			<li>
+				<label id="signup-birthdate-label">Birthdate 	<span class="formNote">(Optional)</span>
+</label>
+				
+
+		<select name="birthdate_m">
+			<option value="">---</option>
+			<option value="1">Jan</option>
+			<option value="2">Feb</option>
+			<option value="3">Mar</option>
+			<option value="4">Apr</option>
+			<option value="5">May</option>
+			<option value="6">Jun</option>
+			<option value="7">Jul</option>
+			<option value="8">Aug</option>
+			<option value="9">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11">Nov</option>
+			<option value="12">Dec</option>
+	</select>
+ 	<select name="birthdate_d">
+			<option value="">---</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+	</select>
+ 	<select name="birthdate_y">
+			<option value="">---</option>
+			<option value="2012">2012</option>
+			<option value="2011">2011</option>
+			<option value="2010">2010</option>
+			<option value="2009">2009</option>
+			<option value="2008">2008</option>
+			<option value="2007">2007</option>
+			<option value="2006">2006</option>
+			<option value="2005">2005</option>
+			<option value="2004">2004</option>
+			<option value="2003">2003</option>
+			<option value="2002">2002</option>
+			<option value="2001">2001</option>
+			<option value="2000">2000</option>
+			<option value="1999">1999</option>
+			<option value="1998">1998</option>
+			<option value="1997">1997</option>
+			<option value="1996">1996</option>
+			<option value="1995">1995</option>
+			<option value="1994">1994</option>
+			<option value="1993">1993</option>
+			<option value="1992">1992</option>
+			<option value="1991">1991</option>
+			<option value="1990">1990</option>
+			<option value="1989">1989</option>
+			<option value="1988">1988</option>
+			<option value="1987">1987</option>
+			<option value="1986">1986</option>
+			<option value="1985">1985</option>
+			<option value="1984">1984</option>
+			<option value="1983">1983</option>
+			<option value="1982">1982</option>
+			<option value="1981">1981</option>
+			<option value="1980">1980</option>
+			<option value="1979">1979</option>
+			<option value="1978">1978</option>
+			<option value="1977">1977</option>
+			<option value="1976">1976</option>
+			<option value="1975">1975</option>
+			<option value="1974">1974</option>
+			<option value="1973">1973</option>
+			<option value="1972">1972</option>
+			<option value="1971">1971</option>
+			<option value="1970">1970</option>
+			<option value="1969">1969</option>
+			<option value="1968">1968</option>
+			<option value="1967">1967</option>
+			<option value="1966">1966</option>
+			<option value="1965">1965</option>
+			<option value="1964">1964</option>
+			<option value="1963">1963</option>
+			<option value="1962">1962</option>
+			<option value="1961">1961</option>
+			<option value="1960">1960</option>
+			<option value="1959">1959</option>
+			<option value="1958">1958</option>
+			<option value="1957">1957</option>
+			<option value="1956">1956</option>
+			<option value="1955">1955</option>
+			<option value="1954">1954</option>
+			<option value="1953">1953</option>
+			<option value="1952">1952</option>
+			<option value="1951">1951</option>
+			<option value="1950">1950</option>
+			<option value="1949">1949</option>
+			<option value="1948">1948</option>
+			<option value="1947">1947</option>
+			<option value="1946">1946</option>
+			<option value="1945">1945</option>
+			<option value="1944">1944</option>
+			<option value="1943">1943</option>
+			<option value="1942">1942</option>
+			<option value="1941">1941</option>
+			<option value="1940">1940</option>
+			<option value="1939">1939</option>
+			<option value="1938">1938</option>
+			<option value="1937">1937</option>
+			<option value="1936">1936</option>
+			<option value="1935">1935</option>
+			<option value="1934">1934</option>
+			<option value="1933">1933</option>
+			<option value="1932">1932</option>
+			<option value="1931">1931</option>
+			<option value="1930">1930</option>
+			<option value="1929">1929</option>
+			<option value="1928">1928</option>
+			<option value="1927">1927</option>
+			<option value="1926">1926</option>
+			<option value="1925">1925</option>
+			<option value="1924">1924</option>
+			<option value="1923">1923</option>
+			<option value="1922">1922</option>
+			<option value="1921">1921</option>
+			<option value="1920">1920</option>
+			<option value="1919">1919</option>
+			<option value="1918">1918</option>
+			<option value="1917">1917</option>
+			<option value="1916">1916</option>
+			<option value="1915">1915</option>
+			<option value="1914">1914</option>
+			<option value="1913">1913</option>
+			<option value="1912">1912</option>
+			<option value="1911">1911</option>
+			<option value="1910">1910</option>
+			<option value="1909">1909</option>
+			<option value="1908">1908</option>
+			<option value="1907">1907</option>
+			<option value="1906">1906</option>
+			<option value="1905">1905</option>
+			<option value="1904">1904</option>
+			<option value="1903">1903</option>
+			<option value="1902">1902</option>
+			<option value="1901">1901</option>
+	</select>
+
+
+			</li>
+
+			<li>
+					<label for="finish-account-other-country">		Country
+</label>
+	<div class="js-hidden">
+		<p class="country-container" >	<select id="finish-account-other-country"   name="other_country"  >
+		<option value="AU">Australia</option>
+		<option value="AT">Austria</option>
+		<option value="BE">Belgium</option>
+		<option value="CA">Canada</option>
+		<option value="DK">Denmark</option>
+		<option value="FI">Finland</option>
+		<option value="FR">France</option>
+		<option value="DE">Germany</option>
+		<option value="IE">Ireland</option>
+		<option value="IT">Italy</option>
+		<option value="NO">Norway</option>
+		<option value="ES">Spain</option>
+		<option value="SE">Sweden</option>
+		<option value="CH">Switzerland</option>
+		<option value="NL">The Netherlands</option>
+		<option value="GB">United Kingdom</option>
+		<option value="US" selected="selected">United States</option>
+	</select>
+</p>
+	</div>
+	<p class="change-country">
+		<span>United States</span>
+		<a href="#">Change</a>
+	</p>
+
+			</li>
+
+			<li class="last">
+					<p class="tos-agreement">By clicking the button below, you agree to the Yelp <a href="/static?p=tos" onclick="window.open(this.href,'toswindow');return false">Terms of Service</a> and <a href="/static?p=privacy" onclick="window.open(this.href,'privacywindow');return false">Privacy Policy</a>.</p>
+
+			</li>
+		</ol>
+
+			<div class="footer-buttons clearfix">
+		<p>
+			<a href="#" class="ypop-cancel ypop-fade">Cancel</a>
+			<span class="ybtn"><button type="submit" value="submit" class="btn-r-l"><span>Sign Up</span></button></span>
+		</p>
+	</div>
+
+
+		<input type="hidden" name="skip_confirm_password" value="1">
+		<input type="hidden" name="get_data_from_fb" value="1">
+		<input type="hidden" name="signup_source" value="RESTAURANT_CATEGORY_SIGNUP">
+
+</form>
+
+<form action="https://www.yelp.com/signup/ajax" id="create-account-body" method="POST">
+<input type="hidden" class="csrftok" name="csrftok" value="b0ad4a54b89f59f365ad329e108d86c354fce63e0d367f72d35b7c0c4d513c7b">
+		<p class="fb-info">
+			<a href="#" class="i-wrap i-facebook-wrap ypop-hide back-to-fb"><i  class="i i-facebook"></i> Use Facebook to sign up faster!</a>
+		</p>
+
+			<div class="ypop-banner">
+		<strong>Already have an account?</strong>
+		<a href="#" class="ybtn btn-y-s ypop-hide show-login"><span>Log In Now</span></a>
+	</div>
+
+
+		<ol>
+			<li>
+				<label for="signup-first-name">First Name</label>
+				<input id="signup-first-name" name="first_name" class="input-text">
+			</li>
+
+			<li>
+				<label for="signup-last-name">Last Name</label>
+				<input id="signup-last-name" name="last_name" class="input-text">
+			</li>
+
+			<li class="signup-email-wrap">
+				<label for="signup-email">Email Address</label>
+				<input id="signup-email" name="email" class="input-text">
+			</li>
+
+			<li>
+				<label for="signup-password">Password</label>
+				<input id="signup-password" autocomplete="off" type="password" name="password" class="input-text">
+			</li>
+
+			<li class="signup-city-wrap" style="display:none;">
+				<label for="signup-city">		City / Town:
+</label>
+				<input id="signup-city" type="text" class="input-text" name="city" >
+			</li>
+
+			<li class="signup-zipcode-wrap" >
+				<label for="signup-zipcode">Zip Code</label>
+				<input id="signup-zipcode" name="zip" class= "input-text">
+			</li>
+
+			<li>
+				<label id="signup-birthdate-label">Birthdate 	<span class="formNote">(Optional)</span>
+</label>
+				
+
+		<select name="birthdate_m">
+			<option value="">---</option>
+			<option value="1">Jan</option>
+			<option value="2">Feb</option>
+			<option value="3">Mar</option>
+			<option value="4">Apr</option>
+			<option value="5">May</option>
+			<option value="6">Jun</option>
+			<option value="7">Jul</option>
+			<option value="8">Aug</option>
+			<option value="9">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11">Nov</option>
+			<option value="12">Dec</option>
+	</select>
+ 	<select name="birthdate_d">
+			<option value="">---</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+	</select>
+ 	<select name="birthdate_y">
+			<option value="">---</option>
+			<option value="2012">2012</option>
+			<option value="2011">2011</option>
+			<option value="2010">2010</option>
+			<option value="2009">2009</option>
+			<option value="2008">2008</option>
+			<option value="2007">2007</option>
+			<option value="2006">2006</option>
+			<option value="2005">2005</option>
+			<option value="2004">2004</option>
+			<option value="2003">2003</option>
+			<option value="2002">2002</option>
+			<option value="2001">2001</option>
+			<option value="2000">2000</option>
+			<option value="1999">1999</option>
+			<option value="1998">1998</option>
+			<option value="1997">1997</option>
+			<option value="1996">1996</option>
+			<option value="1995">1995</option>
+			<option value="1994">1994</option>
+			<option value="1993">1993</option>
+			<option value="1992">1992</option>
+			<option value="1991">1991</option>
+			<option value="1990">1990</option>
+			<option value="1989">1989</option>
+			<option value="1988">1988</option>
+			<option value="1987">1987</option>
+			<option value="1986">1986</option>
+			<option value="1985">1985</option>
+			<option value="1984">1984</option>
+			<option value="1983">1983</option>
+			<option value="1982">1982</option>
+			<option value="1981">1981</option>
+			<option value="1980">1980</option>
+			<option value="1979">1979</option>
+			<option value="1978">1978</option>
+			<option value="1977">1977</option>
+			<option value="1976">1976</option>
+			<option value="1975">1975</option>
+			<option value="1974">1974</option>
+			<option value="1973">1973</option>
+			<option value="1972">1972</option>
+			<option value="1971">1971</option>
+			<option value="1970">1970</option>
+			<option value="1969">1969</option>
+			<option value="1968">1968</option>
+			<option value="1967">1967</option>
+			<option value="1966">1966</option>
+			<option value="1965">1965</option>
+			<option value="1964">1964</option>
+			<option value="1963">1963</option>
+			<option value="1962">1962</option>
+			<option value="1961">1961</option>
+			<option value="1960">1960</option>
+			<option value="1959">1959</option>
+			<option value="1958">1958</option>
+			<option value="1957">1957</option>
+			<option value="1956">1956</option>
+			<option value="1955">1955</option>
+			<option value="1954">1954</option>
+			<option value="1953">1953</option>
+			<option value="1952">1952</option>
+			<option value="1951">1951</option>
+			<option value="1950">1950</option>
+			<option value="1949">1949</option>
+			<option value="1948">1948</option>
+			<option value="1947">1947</option>
+			<option value="1946">1946</option>
+			<option value="1945">1945</option>
+			<option value="1944">1944</option>
+			<option value="1943">1943</option>
+			<option value="1942">1942</option>
+			<option value="1941">1941</option>
+			<option value="1940">1940</option>
+			<option value="1939">1939</option>
+			<option value="1938">1938</option>
+			<option value="1937">1937</option>
+			<option value="1936">1936</option>
+			<option value="1935">1935</option>
+			<option value="1934">1934</option>
+			<option value="1933">1933</option>
+			<option value="1932">1932</option>
+			<option value="1931">1931</option>
+			<option value="1930">1930</option>
+			<option value="1929">1929</option>
+			<option value="1928">1928</option>
+			<option value="1927">1927</option>
+			<option value="1926">1926</option>
+			<option value="1925">1925</option>
+			<option value="1924">1924</option>
+			<option value="1923">1923</option>
+			<option value="1922">1922</option>
+			<option value="1921">1921</option>
+			<option value="1920">1920</option>
+			<option value="1919">1919</option>
+			<option value="1918">1918</option>
+			<option value="1917">1917</option>
+			<option value="1916">1916</option>
+			<option value="1915">1915</option>
+			<option value="1914">1914</option>
+			<option value="1913">1913</option>
+			<option value="1912">1912</option>
+			<option value="1911">1911</option>
+			<option value="1910">1910</option>
+			<option value="1909">1909</option>
+			<option value="1908">1908</option>
+			<option value="1907">1907</option>
+			<option value="1906">1906</option>
+			<option value="1905">1905</option>
+			<option value="1904">1904</option>
+			<option value="1903">1903</option>
+			<option value="1902">1902</option>
+			<option value="1901">1901</option>
+	</select>
+
+
+			</li>
+
+			<li class="signup-gender-wrap">
+				<fieldset class="radio">
+					<legend id="signup-gender-label">Gender 	<span class="formNote">(Optional)</span>
+</legend>
+
+					<input type="radio" id="signup-gender-male" name="gender" value="m">
+					<label for="signup-gender-male">Male</label>
+
+					<input type="radio" id="signup-gender-female" name="gender" value="f">
+					<label for="signup-gender-female">Female</label>
+				</fieldset>
+			</li>
+
+			<li class="signup-country-wrap">
+					<label for="signup-other-country">		Country
+</label>
+	<div class="js-hidden">
+		<p class="country-container" >	<select id="signup-other-country"   name="other_country"  >
+		<option value="AU">Australia</option>
+		<option value="AT">Austria</option>
+		<option value="BE">Belgium</option>
+		<option value="CA">Canada</option>
+		<option value="DK">Denmark</option>
+		<option value="FI">Finland</option>
+		<option value="FR">France</option>
+		<option value="DE">Germany</option>
+		<option value="IE">Ireland</option>
+		<option value="IT">Italy</option>
+		<option value="NO">Norway</option>
+		<option value="ES">Spain</option>
+		<option value="SE">Sweden</option>
+		<option value="CH">Switzerland</option>
+		<option value="NL">The Netherlands</option>
+		<option value="GB">United Kingdom</option>
+		<option value="US" selected="selected">United States</option>
+	</select>
+</p>
+	</div>
+	<p class="change-country">
+		<span>United States</span>
+		<a href="#">Change</a>
+	</p>
+
+			</li>
+
+			<li class="last">
+					<p class="tos-agreement">By clicking the button below, you agree to the Yelp <a href="/static?p=tos" onclick="window.open(this.href,'toswindow');return false">Terms of Service</a> and <a href="/static?p=privacy" onclick="window.open(this.href,'privacywindow');return false">Privacy Policy</a>.</p>
+
+			</li>
+		</ol>
+
+			<div class="footer-buttons clearfix">
+		<p>
+			<a href="#" class="ypop-cancel ypop-fade">Cancel</a>
+			<span class="ybtn"><button type="submit" value="submit" class="btn-r-l"><span>Sign Up</span></button></span>
+		</p>
+	</div>
+
+
+		<input type="hidden" name="signup_source" value="RESTAURANT_CATEGORY_SIGNUP">
+		<input type="hidden" name="skip_confirm_password" value="1">
+
+</form>
+
+<form action="https://www.yelp.com/login/ajax" id="log-in-body" method="POST">
+<input type="hidden" class="csrftok" name="csrftok" value="daa29b1783d2eb8bebeb65ebf3b4aef930d613725b62b9900110838dde08099b">
+		<div class="ypop-banner">
+			<strong>No account yet?</strong>
+			<a  class="ybtn btn-y-s ypop-hide show-create-account"><span>Create an Account</span></a>
+		</div>
+
+		<ol>
+			<li>
+				<label for="log-in-email">Email</label>
+				<input id="log-in-email" name="email">
+			</li>
+
+			<li>
+				<label for="log-in-password">Password</label>
+				<input id="log-in-password" name="password" autocomplete="off" type="password">
+			</li>
+		</ol>
+
+			<div class="footer-buttons clearfix">
+		<p>
+			<a href="#" class="ypop-cancel ypop-fade">Cancel</a>
+			<span class="ybtn"><button type="submit" value="submit" class="btn-r-l"><span>Log In</span></button></span>
+		</p>
+	</div>
+
+
+
+</form>
+		<div id="facebook-photo-import-signup" class="clearfix">
+		<h2>Add a Profile Picture</h2>
+		<p>More people will read your reviews and you will be one step closer to the Yelp Elite Squad if you have a profile picture.</p>
+		<div id="photo-form" class="cleafix">
+			<div id="fb-photo-container">
+				<img alt="user photo" src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/07ecbaa39caf/gfx/blank_user_medium.gif">
+				<div id="fb-loader-container">
+				</div>
+			</div>
+			<div id="fb-action-container">
+				<div><a href="#" id="fb-import-photo" style="margin-bottom:5px;" class="fbconnect_login_button FBConnectButton FBConnectButton_Large"><span class="FBConnectButton_Text">Import Facebook Photo</span></a></div>
+					<div id="fb-no-flash" style="display: none">You don't have Flash installed, Facebook Connect requires the latest version of Flash</div>
+
+			</div>
+		</div>
+
+<script type="text/javascript">
+								var fbConnector = new yelp.ext.FBConnectMechatron({
+				'serviceID': 16,
+				'fbConnectRegisterURL': "/facebook_connect/register",
+				'fbConnectImportUserInfoURL': "/user_photos/import",
+				'fromSignup': false
+			});
+			yelp.page.set('fbPhotoConnector', fbConnector);
+
+			fbConnector.nextURL = "/import_photo_fb/next";
+			fbConnector.signupTrackURL = "/track_metric/7?signup_source=RESTAURANT_CATEGORY_SIGNUP";
+			fbConnector.importPhotoClickTrackURL = "/track_metric/12?signup_source=RESTAURANT_CATEGORY_SIGNUP";
+			fbConnector.sharingPermissionGivenTrackURL = "/track_metric/13?signup_source=RESTAURANT_CATEGORY_SIGNUP";
+
+			yelp.event.domLoaded(function() {
+				$('fb-loader-container').hide();
+				$('fb-import-photo').observe('click', function(e) {
+					fbConnector.importFBPhoto('fb-photo-container', 'fb-action-container', 'fb-loader-container');
+				});
+				var swfObject = window.SWFObject ? new SWFObject() : null;
+				if (swfObject === null || swfObject.installedVer.major == 0) {
+					$("fb-no-flash").show();
+				}
+			});
+
+
+</script>
+			</div>
+
+
+
+<script type="text/javascript">
+							yelp.async.Script.load("http://s3-media2.ak.yelpcdn.com/assets/2/www/js/2ef2fdd68b00/yelp/ui/widget/signup-async.min.js");
+		yelp.hub.subscribeOnce('yelp.ui.widget.signup', function() {
+			yelp.ui.widget.signup.initPopups({"container": "signup-pitch-flow", "redirectOnCancel": null, "hideCloseX": false, "signupSource": "RESTAURANT_CATEGORY_SIGNUP", "draggable": true, "createAccountTitle": "Create a free account"});
+		});
+
+
+</script>
+
+
+			</div>
+		</div> 
+
+
+				
+<script type="text/javascript">
+					yelp.util.SitRep.measureInternal("frontend_performance", 'body:footer:js:start');
+
+</script>
+		
+			
+
+				<script type="text/javascript">yelp.init.wrapper("yelp.init.base.widgets", {"initPopAddFriend": false, "deferROModeScanLinks": true, "initImageLoader": false, "initPopPM": false, "isReadOnly": false, "isLoggedIn": false, "initPopCompliments": false, "initPopBookmarkSignup": true});</script>
+
+
+
+<script type="text/javascript">
+
+
+</script>
+		
+		
+<script type="text/javascript">
+								(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = "http://www.google-analytics.com/ga.js";
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+
+</script>
+		
+			
+
+		
+<script type="text/javascript">
+							(function loadSpice(){
+			var img = new Image();
+			if (!document.webkitHidden) {
+				img.src = ['/sp', 'ice?', 'r=', "e9801a260fc3bd13", '&pagevis', '=0'].join('');
+			} else {
+				var spiced = false;
+				document.addEventListener('webkitvisibilitychange', function(){
+					if (document.webkitHidden || spiced) {
+						return;
+					}
+					spiced = true;
+					img.src = ['/s','pice', '?r=', "e9801a260fc3bd13", '&', 'pagevis=1'].join('');
+				});
+			}
+		})();
+
+
+</script>
+
+
+		
+<script type="text/javascript">
+		if (window.top !== window.self)
+		{
+			document.write('<img src=' + "http://www.yelp.com/iframeping?request_from=None" + ' alt="">')
+		}
+
+
+</script>
+
+
+			
+<script type="text/javascript">
+								yelp.async.Script.load((document.location.protocol == 'https:' ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js', function() {
+					if (window.COMSCORE && window.COMSCORE['beacon']) {
+		window.COMSCORE['beacon']({"c15": "", "c3": "", "c2": 7130511, "c1": 2, "c6": "", "c5": "", "c4": ""});
+	}
+
+			});
+
+
+</script>
+		
+			<noscript>
+		<img src="http://b.scorecardresearch.com/p?cj=1&amp;c15=&amp;c3=&amp;c2=7130511&amp;c1=2&amp;c6=&amp;c5=&amp;c4=">
+	</noscript>
+
+
+
+		
+<script type="text/javascript">
+								(function () {
+				var d = new Image(1, 1);
+				d.onerror = d.onload = function () {
+					d.onerror = d.onload = null;
+				};
+				d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-804377h&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+			})();
+
+
+</script>
+				<noscript>
+				<img src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-804377h&amp;cg=0&amp;cc=1&amp;ts=noscript" width="1" height="1" alt="">
+		</noscript>
+
+
+			<script type="text/javascript">yelp.init.wrapper("yelp.init.base.requireJS", {"scripts": [["//connect.facebook.net/en_US/all.js", "vendor.fb.joey"], ["http://s3-media3.ak.yelpcdn.com/assets/2/www/js/44ebc70f2079/yelp/ui/widget/fb/fb-async.min.js", "yelp.ui.widget.fb.fb-async"]]});</script>
+
+			
+<script type="text/javascript">
+					yelp.hub.publish('dom.body.end', new Date());
+
+</script>
+		
+
+			
+<script type="text/javascript">
+					yelp.util.SitRep.measureInternal("frontend_performance", 'body:footer:js:end');
+
+</script>
+		
+
+<script type="text/javascript">
+				yelp.config.csrf = {"UFC": "13eb9715416e7a67a027394047b0aaecdd225e449f45113ef77cb0a891a87dd8", "FacebookJSONP": "3444c08ed6212dbb168841b3f6e43162111a84ee235a49b2fc98d7783ad72123"};
+
+
+</script>
+		
+
+<script type="text/javascript">
+					yelp.util.SitRep.measureInternal("frontend_performance", 'body:end');
+
+
+</script>
+			</body>
+</html>

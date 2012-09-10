@@ -1,0 +1,41 @@
+take-out
+wi-fi
+wheelchair accessible
+alcohol:full bar
+alcohol:beer & wine only
+alcohol:no
+caters
+noise level:average
+noise level:quiet
+noise level:loud
+noise level:very loud
+parking:street
+parking:garage
+parking:private lot
+parking:valet
+good for:dinner
+good for:late night
+good for:lunch
+good for:brunch
+good for:breakfast
+good for:dessert
+attire
+delivery
+has tv
+outdoor seating
+takes reservations
+ambience:classy
+ambience:upscale
+ambience:casual
+ambience:trendy
+ambience:romantic
+ambience:intimate
+ambience:divey
+waiter service
+accepts credit cards
+good for kids
+good for groups
+price range:$$$
+price range:$$
+price range:$
+price range:$$$$
