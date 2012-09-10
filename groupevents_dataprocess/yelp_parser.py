@@ -1,9 +1,10 @@
-#from myevents.models import * 
-#from globalHeader import *
+from myevents.models import *
+from myevents.views import *
+from globalHeader import *
 import datetime
 import random
 import math
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 import urllib
 import unicodedata
 import os
@@ -164,15 +165,15 @@ def bz_feature_list(bz_folder,bzfile,outfile):
 				i += 1	
 
 def place_feature_matrix(bz_folder):
+	data_dir = '/home/jane/workspace/Research/groupevents_dataprocess/'
 	place_files = os.listdir(bz_folder)					
-	row_of = open('row_name.txt','w')
-	feature_f = open('feature_dict.txt','r')
-	feature_of = open('feature_matrix.txt','w')
+	row_of = open(data_dir+'row_name.txt','w')
+	feature_f = open(data_dir+'feature_dict.txt','r')
+	feature_of = open(data_dir+'feature_matrix.txt','w')
 	features = {}
 	for line in feature_f:
-			features.append(line.strip())
-			terms = line.strip.split('=')
-			features[terms[0].strip()] =	terms[1].strip()
+		terms = line.strip().split('=')
+		features[terms[0].strip()] =	terms[1].strip()
 						
 	feature_num = 41
 	for place in place_files:
@@ -180,22 +181,21 @@ def place_feature_matrix(bz_folder):
 		row_of.write(place.strip()+'\n')
 		print place.strip()
 		score = yelp.objects.get(id=place.strip()).rating
-		f_feature_v = [0]*42
+		print score
+		f_feature_v = [0.0]*42
 		for line in f:
 			l = line.lower().strip()
 			if features.has_key(l):
 				print l
-				pos = fetures[l].split(':')
+				pos = features[l].split(':')
 				print pos[0], pos[1]
-				f_feature_v[pos[0]] = pos[1]
-		f_feature_v[42] = score
-		feature_of.write(','.join(f_feature_v)+'\n')	
+				f_feature_v[int(pos[0])] = float(pos[1])
+		f_feature_v[41] = float(score)
+		feature_of.write(','.join(str(x) for x in f_feature_v)+'\n')
 	
 			
-				
 
-
-bz_feature_list('yelp_bz_info','bzinfo_requence.txt','feature_dict.txt')
+#bz_feature_list('yelp_bz_info','bzinfo_requence.txt','feature_dict.txt')
 #get_bz_info_frequence('yelp_bz_info')					
 #parse_bussiness_info('yelp_html','yelp_bz_info')
 #parse_one_bussiness_info('yelp_html/1')
