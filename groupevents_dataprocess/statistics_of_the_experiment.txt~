@@ -59,3 +59,4 @@ select pos.user_id, pos.cnt/neg.cnt as ratio  from (select user_id, count(*) as 
 
 //select information of an item.
 select id,url from myevents_yelp where id in (select distinct pickid from myevents_choice)
+select id,categories from myevents_yelp where id in (select distinct pickid from myevents_choice)
