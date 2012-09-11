@@ -60,3 +60,6 @@ select pos.user_id, pos.cnt/neg.cnt as ratio  from (select user_id, count(*) as 
 //select information of an item.
 select id,url from myevents_yelp where id in (select distinct pickid from myevents_choice)
 select id,categories from myevents_yelp where id in (select distinct pickid from myevents_choice)
+
+//X and Y for each user, combining with feature vector to complete the input for logistic regression
+select user_id, pickid,vote,date into outfile 'instance_per_user.txt' from myevents_poll,myevents_choice where myevents_choice.id = myevents_poll.choice_id ;
