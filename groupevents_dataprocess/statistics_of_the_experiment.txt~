@@ -63,3 +63,6 @@ select id,categories from myevents_yelp where id in (select distinct pickid from
 
 //X and Y for each user, combining with feature vector to complete the input for logistic regression
 select user_id, pickid,vote,date into outfile 'instance_per_user.txt' from myevents_poll,myevents_choice where myevents_choice.id = myevents_poll.choice_id ;
+
+select user_id, pickid,vote,date into outfile 'instance_per_user.txt' from myevents_poll,myevents_choice,myevents_user where myevents_user.id = myevents_poll.user_id and myevents_user.is_registered=1 and myevents_user.is_active=1 and myevents_choice.id = myevents_poll.choice_id order by user_id;
+
