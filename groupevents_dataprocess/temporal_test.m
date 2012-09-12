@@ -7,7 +7,9 @@ for i = 1:numel(files)
      
     rows = size(data,1); 
     cols = size(data,2);
-    X = data(:,1:cols-1);
+    % try use non-user features
+    n_item_feature = 42;
+    X = data(:,1:n_item_feature);
     Y = data(:,cols);
     
     %remove feature columns that all values are the same 
