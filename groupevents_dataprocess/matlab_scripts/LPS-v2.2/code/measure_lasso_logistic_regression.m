@@ -45,6 +45,7 @@ function [train_acc,test_acc] = measure_lasso_logistic_regression(data)
     end
     
 	b_rows  = size(beta,1); % n+1 feature weight 
+    
 	acc= zeros(length(times),1);
     for k=1:length(times)
     	%fprintf(1,'lambda=%6.2e solution has %6d nonzeros. It required %5d iterations and %7.2f seconds\n', ...
