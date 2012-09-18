@@ -1,0 +1,42 @@
+% cross validation for each method. 
+%
+% JINYUN 9/17/2012
+% 
+% requires the number of folders, input data: M*(N+1)  M row instances, N
+% features, the last column is Y +1/-1
+%
+
+function [avg_train_acc,avg_test_acc,B_best] = CrossValidation_logits(n_folder, data, method_name)
+    avg_train_acc=0;
+    avg_test_acc = 0;
+    rows = size(data,1);
+    
+    % store all test acc value, get the best one and return the weight
+    % vector
+    test_accs = zeros(n_folder,1);
+    
+    %
+    
+    if strcmp(method_name,'pca')
+        data_input = PCA_reduce(20, data);
+    else
+        data_input = data;
+    end
+    for k = 1:n_folder 
+        shuffledata = data_input(randperm(rows),:);    
+        % split 80% - 20%
+        if strcmp(method_name,'logit') || strcmp(method_name,'pca')
+            [train_acc,test_acc,B1] = measure_logistic_regression(shuffledata);
+	   elseif strcmp(method_name,'lassoglm')
+			[train_acc, test_acc,B1] = measure_lassoglm(shuffledata);
+			else
+           		 fprintf('got %s, wrong method type! \n',method_name);
+        end
+        test_accs(k)=test_acc;
+        
+        avg_test_acc = avg_test_acc+ test_acc;
+        avg_train_acc = avg_train_acc + train_acc;
+    end
+    avg_train_acc = avg_train_acc/n_folder;
+    avg_test_acc = avg_test_acc/n_folder;
+end

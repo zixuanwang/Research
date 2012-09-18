@@ -1,4 +1,4 @@
-function [train_acc,test_acc] = measure_logistic_regression(data)
+function [train_acc,test_acc,B1] = measure_logistic_regression(data)
     rows = size(data,1);
     cols = size(data,2);
     train_rows = round(0.8*rows);
