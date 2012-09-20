@@ -6,7 +6,7 @@
 %       predict vote(user,item)
 %   group_vote(i) = sum(vote(user,item))    
 % rank group_vote 
-% caculate nDCG(ground_truth, group_vote)
+% measure whether the most voted item is correctly found. 
 
 all_events = load('../recommendation_input/event_item_vote.txt');
 all_groups = load('../recommendation_input/event_user.txt');
@@ -22,12 +22,18 @@ weight_userid = load('../recommendation_input/weight_userid.dat');
 % the max id of user
 n_users = 31;
 active_users = load('../recommendation_input/active_user_id.txt');
-
+n_matched=0;
+n_events = 0;
 for i=1:280 
-    a_event = all_events(all_events(:,1)==i,:)
-    the_group = all_groups(all_groups(:,1)==i,:)
-    users = the_group(:,2)
-    items = a_event(:,2)
+    a_event = all_events(all_events(:,1)==i,:);
+    if isempty(a_event)
+        continue;
+    end
+    n_events = n_events +1;
+    
+    the_group = all_groups(all_groups(:,1)==i,:);
+    users = the_group(:,2);
+    items = a_event(:,2);
     n_items = length(items);
     n_groupsize = length(users);
     
@@ -64,7 +70,12 @@ for i=1:280
         pred_neg_votes(k) = sum(pred<0.5);
     end
     
-    % compute nDCG of pos vote prediction 
-   
+    % compute nDCG of pos vote prediction
+    pos_matched = is_maximum_matched(pred_pos_votes,pos_votes);
+    n_matched =n_matched+pos_matched;
+
 end
+fprintf(' out of %d event, number of maximum matches: %d\n',n_events,n_matched);
+
+
 
