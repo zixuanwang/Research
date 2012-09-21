@@ -16,7 +16,7 @@ item_features = load('../recommendation_input/place_bzinfo_feature_matrix.txt');
 item_features_ids = load('../recommendation_input/place_feature_row_id.txt');
 
 % one column is a weight vector for a user
-all_weights = dlmread('../recommendation_input/weight_vector.dat');
+% all_weights = dlmread('../recommendation_input/weight_vector.dat');
 item_weights = dlmread('../recommendation_input/weight_itemonly.dat');
 weight_userid = load('../recommendation_input/weight_userid.dat');
 
@@ -43,24 +43,23 @@ for i=1:280
     pred_pos_votes = zeros(n_items,1);
     pred_neg_votes = zeros(n_items,1);
     for k=1:n_items
-        ind = find( item_features_ids==items(k)); 
+        ind = find(item_features_ids==items(k)); 
         item_feature = item_features(ind,:);
         item_matrix = repmat(item_feature, n_groupsize,1);
-      
-        % build the vector for user presence features
-        full_user_feature = zeros(n_users,1);
-        full_user_feature(users) = 1; 
-        user_feature = full_user_feature(active_users);
-        user_matrix = repmat(user_feature', n_groupsize,1);
-        is_admin = the_group(:,3);
+		%% build the vector for user presence features
+        % full_user_feature = zeros(n_users,1);
+        % full_user_feature(users) = 1; 
+        % user_feature = full_user_feature(active_users);
+        % user_matrix = repmat(user_feature', n_groupsize,1);
+        % is_admin = the_group(:,3);
         
-        % x : m*n  where m is the size of the group, n is the size of the
-        % feature, one row is the feature for one user
-        x = [item_matrix, user_matrix, is_admin];
-        
+        %% x : m*n  where m is the size of the group, n is the size of the
+        %% feature, one row is the feature for one user
+        % x = [item_matrix, user_matrix, is_admin];
+        x = item_matrix; 
         % user weight vector
         [ismem index] = ismember(users,weight_userid);
-        theta = all_weights(:,index);
+        theta = item_weights(:,index);
         
         pred = zeros(n_groupsize,1);
         for u=1:n_groupsize
@@ -74,9 +73,5 @@ for i=1:280
     % compute nDCG of pos vote prediction
     pos_matched = is_maximum_matched(pred_pos_votes,pos_votes);
     n_matched =n_matched+pos_matched;
-
 end
 fprintf(' out of %d event, number of maximum matches: %d\n',n_events,n_matched);
-
-
-

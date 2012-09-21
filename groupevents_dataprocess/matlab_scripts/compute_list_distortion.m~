@@ -1,0 +1,44 @@
+%
+% 9/20/2012 
+% IF correclty identified the most voted item. 
+% However, more than one items can be voted by equal number
+% MAX is not a single value
+%
+
+function pre = compute_topk_precision(v, true_v,k)
+    pre = 0;
+    
+    % vs: value, vi value's orignal position 
+    [vs, vi] = sort(v,'descend');
+    
+    [tvs, tvi] = sort(true_v,'descend');
+    
+    % get the top k items 
+    top_k = vi(1:k);
+    
+    % how many items in top k position are relevant: they are indeed top k
+    % in the top k true ranking, the position of top k items doesnt matter 
+    top_t_k= tvi(1:k);
+    
+    pre = nnz(top_k==top_t_k); 
+    
+    for j=1:k
+        % if one of the top k is not in the top k of true ranking. 
+        % calculate the distance. 
+        
+        pre = pre + tvi(tvs==vs(j)) - j 
+    end
+    
+    max_val = vs(1);
+    % get indexs of maximum values if more than one maximum
+    max_idxs = vi(vs==max_val);
+    
+    % get the maximum value 
+    max_t_val = tvs(1);
+    max_tidxs = tvi(tvs==max_t_val);
+    
+    if nnz(ismember(max_idxs, max_tidxs))>0
+        matched =1;
+    end
+
+end

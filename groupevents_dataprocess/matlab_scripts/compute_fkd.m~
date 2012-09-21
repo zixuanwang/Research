@@ -1,0 +1,15 @@
+function score = compute_fkd(pred, k,d)
+    dp_output = zeros(threshold,d);
+    for j = 1:d
+        dp_output(1,j) = prod(1-pred(1:j));
+    end
+    for j = 2:threshold
+        for u = 1:d
+            if u<j 
+                dp_output(j,u)=1;
+            else
+                dp_output(j,u) = pred(u) * dp_output(j-1,u-1) + (1-pred(u))*dp_output(j-1,u);
+            end
+        end
+    end
+end
