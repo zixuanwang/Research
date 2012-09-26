@@ -1,0 +1,105 @@
+{% extends "myevents/auth_base.html" %}
+{% load static %}
+{% block title %} Welcome {% endblock %}
+{% block extrastyle %}
+		<style type="text/css">
+			.ftwraper{
+				background:  #000; /*#000;*/
+				position:fixed;
+				bottom:0;
+				left:0; 
+				width:100%;
+				padding:10px,0;
+				text-align:center;
+			}
+		img {
+    		 width:100%; /* %100%; */
+    		height:auto; /*auto;*/
+		}
+		</style>
+{% endblock %}
+{% block morescript %}
+   <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{%static "js/bootstrap-carousel.js"%}"></script> 
+    <!--<script type="text/javascript" src="js/bootstrap-carousel.js"></script>-->
+   	<script>
+		function validateEmail()
+		{
+			var x=document.forms["indexForm"]["user_email"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+ 				alert("Not a valid e-mail address");
+  				return false;
+ 			 }
+		}
+		
+		$(document).ready(function() {
+		    $('.carousel').carousel({
+    			interval: 6000
+   			 });
+		});
+		
+	</script>
+{% endblock %}
+
+{% block content%} 
+	<!-- Hello Unit
+	================================================== -->
+     <header class="jumbotron subhead">
+    <div class="container">
+    <h2> Welcome! Use myGroupEvents to manage events.</h2>
+    </div>
+     </header>
+<div class="container">	
+ 
+    <div class="hero-unit">
+	<div class="row">
+	<div class="span6 offset2">
+	<h1>Log In</h1>	
+    {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+   {% endif %}
+    <form class="well form-inline" name="loginForm" action = '/myevents/loginUser/' method = "post" onsubmit="return validateEmail();">
+    {% csrf_token %}
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Email address</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-envelope"></i></span>
+              <input lass="input-xlarge" id="user_email" name="user_email" type="text" autofocus required>
+            </div>
+          </div>
+        </div>
+    	
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+              <input lass="input-xlarge"  type="password" id="user_passwd" name="user_passwd" type="text"  required>
+            </div>
+          </div>
+        </div>
+    	<button type="submit" class="btn-primary btn-large" value="login">Login</button>
+    </form>
+</div>
+</div>
+</div>
+	
+    <br>
+    <br>
+	<!-- Footer
+    ================================================== -->
+	<footer class="footer  ftwraper">
+        <!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+        <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+	</footer>
+
+</div> <!-- /container -->	 
+   
+{% endblock%}
+

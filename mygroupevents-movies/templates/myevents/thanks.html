@@ -1,0 +1,36 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %} Thanks! {% endblock %}
+
+
+{% block extrastyle %}
+ <style type="text/css">
+ </style>
+{% endblock%}
+
+{% block content%}
+
+<div class="container">	
+ 
+ <div class="hero-unit">
+      <div class="alert alert-success">
+     <h2>  Thanks for using MyGroupEvents</h2>
+	<br>
+	<p> An email has been sent to  <strong> {{email}} </strong> </p>
+	<p> Please <strong> organize your event</strong> through the link in the email</p>
+     </div>
+ </div>
+ 
+ <br>
+ <br>
+ 	<!-- Footer
+    ================================================== -->
+	<footer class="footer  ftwraper">
+        <!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+        <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+	</footer>
+</div>
+</body>
+ 
+{% endblock%}
+

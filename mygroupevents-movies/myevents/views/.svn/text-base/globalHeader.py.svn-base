@@ -1,0 +1,22 @@
+# Create your views here.
+from django.shortcuts import get_object_or_404, render_to_response
+from django.template import Context, loader,RequestContext
+from django.http import HttpResponse,HttpResponseRedirect
+from myEvents.models import * 
+from myEvents.forms  import IndexForm,AdminForm,VoteForm
+from django.forms.fields import ChoiceField,MultipleChoiceField
+
+from django.core.mail import EmailMessage
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
+import MySQLdb as mdb
+import sys
+import uuid
+
+def enum(**enums):
+    return type('Enum', (), enums)
+def make_uuid():
+    return str(uuid.uuid4().hex)
+
+EVENT_STATUS = enum(INIT=0,VOTING=1,TERMINATED=2)
+VOTE_STATUS = enum(NO=0,YES=1,DONTKNOW=2)

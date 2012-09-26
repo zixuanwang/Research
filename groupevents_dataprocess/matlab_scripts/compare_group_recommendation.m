@@ -7,6 +7,11 @@
 %   group_vote(i) = sum(vote(user,item))    
 % rank group_vote 
 % measure whether the most voted item is correctly found. 
+%
+% feature_type: item_only, item_user
+% method: dynamic, aggregate
+% measure: top1, top_k,top_half
+
 function n_matched = compare_group_recommendation(feature_type,method,measure,measure_size)
     all_events = load('../recommendation_input/event_item_vote.txt');
     all_groups = load('../recommendation_input/event_user.txt');
@@ -67,16 +72,16 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
             elseif strcmp(feature_type,'item_only')
                 x = item_matrix;
             end
+                 
+            % user weight vectoer
+           [ismem index] = ismember(users,weight_userid);
+           theta = weight_user(:,index);
         
-            % user weight vector
-            [ismem index] = ismember(users,weight_userid);
-            theta = weight_user(:,index);
-        
-            % prediction 
-            pred = zeros(n_groupsize,1);
-            for u=1:n_groupsize
-                pred(u) = Logistic(theta(1,u) + x(u,:)*theta(2:end,u));  
-            end
+           % prediction
+           pred = zeros(n_groupsize,1);
+           for u=1:n_groupsize
+               pred(u) = Logistic(theta(1,u) + x(u,:)*theta(2:end,u));  
+           end
         
             if strcmp(method, 'dynamic')
                 d = length(pred);

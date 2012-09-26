@@ -1,0 +1,71 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %}Review{% endblock %}
+{% block morescript %}
+<script>
+		$(document).ready(function(){
+		 $("#submitReview").click(function() {
+		 		var values = {};
+				$.each($('#reviewForm').serializeArray(), function(i, field) {
+    			values[field.name] = field.value;
+				});
+     			$.ajax({
+						type: "POST",
+						url:  "../submitReview/",
+						data:  values,
+						cache: false,
+						success: function(data)
+						{    	 	 
+							if (data.success==true)
+							$("#reviewForm").hide();
+							$('#message').html('<div class="alert alert-success"> <h1 align="center"> Thanks! We recieved your review. </h1> </div>')
+				 		}
+				});
+				return false;
+  			});
+    	});
+    	</script>
+{% endblock %}
+
+
+{% block content%}
+<div class="container">	
+
+<div class="row-fluid" >
+    <form class="form-horizontal"  name="ReviewForm" action = '/myevents/submitReview/' method = "post" id="reviewForm">
+    	{%csrf_token%}
+    	<fieldset>
+    	<legend>Thanks for leaving comments for us! We will read it carefully and keep improving our site</legend>   
+    	<div class="control-group">
+            <label class="control-label" for="review_text"> Comment</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="review_text" rows="3" name='review'></textarea>
+               <p class="help-block">It can't be empty</p>
+            </div>
+    	</div>
+    	<div class="control-group">
+            <label class="control-label" for="reviewer">Name</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="reviewer" name='reviewer'>
+            </div>
+    	</div>
+    	<div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitReview">Save</button>
+            <button class="btn">Cancel</button>
+          </div>
+    	</fieldset>
+    </form>
+</div>
+ 
+ <div class="row-fluid" id="message">
+ <div>
+ 
+<!-- Footer
+    ================================================== -->
+<footer class="footer ftwraper">
+<!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+     <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+</footer>
+</div>
+{% endblock%}
+

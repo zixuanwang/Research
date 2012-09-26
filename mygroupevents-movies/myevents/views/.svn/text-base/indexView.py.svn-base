@@ -1,0 +1,74 @@
+# Create your views here.
+from django.shortcuts import get_object_or_404, render_to_response
+from django.template import Context, loader,RequestContext
+from django.http import HttpResponse,HttpResponseRedirect
+from myEvents.models import * 
+from myEvents.forms  import IndexForm,AdminForm,VoteForm
+from django.forms.fields import ChoiceField,MultipleChoiceField
+
+from django.core.mail import EmailMessage
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
+import MySQLdb as mdb
+import sys
+import uuid
+import datetime
+
+def enum(**enums):
+    return type('Enum', (), enums)
+def make_uuid():
+    return str(uuid.uuid4().hex)
+
+EVENT_STATUS = enum(INIT=0,VOTING=1,TERMINATED=2)
+VOTE_STATUS = enum(NO=0,YES=1,DONTKNOW=2)
+
+def getNamebyEmail(email):
+    parts = email.strip().split('@')
+    return parts[0]
+
+def home(request):
+    return render_to_response('myEvents/home.html',{},context_instance=RequestContext(request))
+
+def index(request):
+    return render_to_response('myEvents/index.html',{},context_instance=RequestContext(request))
+
+# update tables according to the input of indexForm   
+def initialize(user_email,event_name):
+    #update user table
+    try:
+        u = User.objects.get(email=user_email) 
+    except User.DoesNotExist:
+        u_hash = make_uuid()    
+        name = getNamebyEmail(user_email)
+        u = User.objects.create(email=user_email,uhash=u_hash,name=name)
+    #update event table
+    e_hash = make_uuid();
+    eventDate = datetime.datetime.now()
+    voteDate = datetime.datetime.now()
+    e = Event.objects.create(name=event_name,ehash=e_hash,eventDate=eventDate,voteDate=voteDate,status=EVENT_STATUS.INIT)
+    #url_in= "http://192.168.50.201:8888/myEvents/"+e_hash+"/"+u_hash+"/admin/"  
+    url = "http://74.95.195.230:8889/myEvents/" + e.ehash + "/" + u.uhash + "/admin/" 
+    #update event_user 
+    eu = Event_User.objects.create(event=e, user=u, role="admin",url=url)
+    return url
+
+def createEvent(request):
+    if request.method == "POST":
+        form = IndexForm(request.POST)
+        if form.is_valid():
+            user_email = form.cleaned_data['user_email']
+            event_name = form.cleaned_data['event_name']
+            url = initialize(user_email,event_name)
+            adminMail(url,event_name,user_email)
+            return render_to_response('myEvents/thanks.html',{'email':user_email},context_instance=RequestContext(request))
+    else:
+        form = IndexForm()
+
+    return render_to_response('myEvents/index.html',{'form':form},context_instance=RequestContext(request))
+
+def adminMail(url,event_name,send_to):
+    subject = "Invitation to manage your event! "
+    message = "You have just registered a new event using myEvents called " +event_name + " ! Please Click on below URL to manage it:  \n"+url +\
+                "\n\n Attention! If you are in Comcast network, please replace the IP to 192.168.50.201:8888\n"
+    email = EmailMessage(subject,message,to=[send_to])
+    email.send()

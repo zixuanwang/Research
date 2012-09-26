@@ -1,0 +1,87 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %} Thanks {% endblock %}
+{% block extrastyle %}
+<style type="text/css">
+p.friends{ width: 200px;
+ 	 word-wrap: break-word;}
+	.wordwrap{
+	max-width:300px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+    }
+	</style>
+ {% endblock %}
+
+{% block content%}
+<div class="container">	
+<div class="row-fluid"  >
+		<h2> Your event <font color='#08c'>{{event.name}} </font>  was created successfully. </h2>
+		<p>Your friends will receive an email directing them to a page where they choose among options you have selected.  </p>
+</div>
+<br/>
+
+<div class="row-fluid" id="event-detail" >
+	<div class="row-fluid">
+   	 	<p>
+		  This event is 
+	 	  {%if event.detail%}
+	 	  about <u> {{event.detail}} </u> 
+	 	  {% endif %} 
+	 		at <u>  {{event.eventDate}}  </u>
+	 		{%if event.eventTime%}   
+	 		<u> 	{{event.eventTime}}</u>
+	 		{%endif%}	
+	 	</p>
+	 		<p class="wordwrap">	with <u> {{event.inviter}}, {{event.friends}} </u> 	</p>
+	 	  <p>	{% if event.location%} 
+   			 near <u> {{event.location}} </u>
+    		{%endif%}
+	 	</p>
+    </div>
+	
+	<br/>
+ 
+	<div class="row-fluid">
+    	<div class="span4">Your selected options are</div>
+		 
+		<table id="show_choice_list" class="table table-striped">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Notes</th>	
+				</tr>
+				</thead>
+				<tbody>
+				{%for c in choices%}
+				 <tr>
+				 <td>{{c.name}}</td><td>{{c.location}}</td>
+				 <td>
+						{%if c.image%}
+								<img src="{{c.image}}">
+						{%endif%}
+						{{c.notes}}</td>
+				 </tr>	
+				{%endfor%}
+				</tbody>
+		</table>
+    </div>
+    
+    <div class="row-fluid">
+		<p class="alert alert-success">You can now  <a href="../attender/">go and vote</a> for your favorite places as a part of the group. </p>
+     </div>
+ </div>
+<!-- Footer
+    ================================================== -->
+<footer class="footer ftwraper">
+<!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+     <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+</footer>
+</div>
+{% endblock%}
+

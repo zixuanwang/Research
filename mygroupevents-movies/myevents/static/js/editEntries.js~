@@ -1,0 +1,123 @@
+$(
+function()
+{
+<!-- when mouse moves over the list item, display possible operations like "edit", "drop" -->
+$("div.singleLizt").live("mouseover",function()
+{
+  <!-- change the background -->
+$(this).css("background-color","#eaeaea");
+//also show the lizt options
+      <!-- make the operation panel visible -->
+$(this).children(".liztOption").css("display","block");
+}
+).live("mouseout",function()
+{
+  <!-- change it back-->
+$(this).css("background-color","#f7f7f7");
+<!-- hide the operation panel -->
+$(this).children(".liztOption").css("display","none");
+}
+);
+ 
+<!--- when user click the "add List" link. clear the fields and pop up the editing interface -->
+$("a#addLizt").live("click",function()
+{
+//show the list form
+var liztForm = $("div#liztForm");
+liztForm.children("input#liztName").val("");
+liztForm.children("input#liztId").val(-1);
+liztForm.children("select#liztPrivacyLevel").val(0);
+liztForm.children("input#liztTag").val("");
+liztForm.children("input#addLiztSubmit").val("Add");
+liztForm.css("display","block");
+//
+}
+);
+
+<!-- when user submit the form fields, send this to server through ajax and render the response -->
+$("input#addLiztSubmit").live("click",function()
+{
+var liztForm = $("div#liztForm");
+var liztName = $("input#liztName").val();
+var liztTag = $("input#liztTag").val();
+var liztId = $("input#liztId").val();
+var liztPrivacyLevel = $("select#liztPrivacyLevel").val();
+//get the list add action url
+var actionUrl = $("input#addLiztActionUrl").val();
+var statusBar = $("div#statusBar");
+// alert(liztId + " " + liztName + " " + liztTag + " " + actionUrl + " ");
+ <!-- here is the trick, ajax communication -->
+$.post(
+actionUrl,
+{
+"id" : liztId,
+"name" : liztName,
+"tag" : liztTag,
+"privacyLevel": liztPrivacyLevel
+},
+function(data,textStatus)
+{
+if(textStatus == "success")
+{
+///scroll up the div
+liztForm.css("display","none");
+///display the response at status bar
+statusBar.html(data);
+}
+}
+);
+}
+);
+
+$("a.liztEdit").live("click",function()
+{
+///decode the lizt id
+var idStr = $(this).attr("id");
+var idParts = idStr.split("_");
+var operation = idParts[0];
+var id = idParts[1];
+var editUrl = $("input#liztEditActionUrl").val();
+var dropUrl = $("input#liztDropActionUrl").val();
+///we need to change the content of
+var editDiv = $("div#liztEdit");
+var statusBar = $("div#statusBar");
+if( operation == "liztEdit")
+{
+///communicate with the server and initialize the lizt edit ui
+$.post(
+editUrl,
+{
+"id":id
+},
+function(data,textStatus)
+{
+if(textStatus == "success")
+{
+///replace the edit div with the an edit form
+editDiv.html(data);
+editDiv.children().css("display","block");
+}
+}
+);
+}
+else if(operation == "liztDrop")
+{
+///simply drop the lizt and display the response message from server
+$.post(
+dropUrl,
+{
+"id":id
+},
+function(data, textStatus)
+{
+if(textStatus == "success")
+{
+statusBar.html(data);
+}
+}
+);
+}
+}
+);
+}
+);

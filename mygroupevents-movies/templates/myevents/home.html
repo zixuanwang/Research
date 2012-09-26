@@ -1,0 +1,108 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %} Welcome to MyEvents {% endblock %}
+{% block morescript %}
+	<script>
+		function validateEmail()
+		{
+			var x=document.forms["indexForm"]["user_email"].value;
+			//alert(x)
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+ 				alert("Not a valid e-mail address");
+  				return false;
+ 			 }
+		}
+	</script>
+{% endblock%}
+{% block header%}
+	<div id="wrap">
+	<header id="mainheader">
+	
+	<div id="top">
+	<h1 id="sitename">MyEvents: organize group events</h1>
+	</div>
+	
+	<nav id="mainnav">
+		<ul>
+			<li class="current"><a href="#">Home</a></li>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Signup</a></li>
+			<li><a href="#">Guest</a></li>
+		</ul>
+		<div class="righticons"><img src="{%static "images/feedicon.png"%}" width="19" height="22" alt="feed"></div>
+	</nav>
+
+	<div id="homeheader">
+	<section id="slider">
+		<div class="container">
+			<ul class="slides">
+    			<li>
+      			<div class="mainimg"> <img src="{%static "images/welcome.gif"%}" width="200" height="240"  alt="slide one"></div>
+      			<h2>Howdy!</h2>
+      			<p>Wanna create an event? just provide your email address and the event name. We will send an email to your mailbox and allow you to manage your event. </p>
+    			</li>
+    		</ul>
+    	</div>  
+    </section>
+	</div>
+</header>
+{% endblock%}
+
+{% block content%}
+
+<section id="grayblock">
+<div class="getquote">
+	<h3>Start the Process!</h3>
+	<form name = "indexForm" action = '/myevents/createEvent/' method = "post" onsubmit="return validateEmail();"> 
+		{% csrf_token %}
+		<div class="eml">
+			<label for="id_user_email"> Email </label>
+			<input id= "id_user_email" type="text" name="user_email" max_length="100"/>
+			
+		</div>
+		<div class="eml">
+			<label for="id_event_name"> Event </label>
+			<input id= "id_event_name" type="text" name="event_name" max_length="100"/>
+		</div>
+		<div class="btn">
+  			<input type="image" src="{%static "images/submitbtn.gif"%}" name="submit" tabindex="2" alt="submit">
+  		</div>
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="getquote">
+	<h3> Register: Become a member! </h3>
+	<form name = "registerForm" action = '/myevents/register/' method = "post" onsubmit="return validateEmail();"> 
+		{% csrf_token %}
+		<div class="eml">
+			<label for="id_user_email"> Email </label>
+			<input id= "id_user_email" type="text" name="user_email" max_length="100"/>
+		</div>
+		<br>
+		<br>
+		<div class="btn">
+  			<input type="image" src="{%static "images/submitbtn.gif"%}" name="Register" tabindex="2" alt="register">
+  		</div>
+	</form>
+	<div class="clear"></div>
+</div>
+</section>
+</div> <!---end for warp-->
+
+<div id="footerwrap">
+<footer id="pagefooter">
+<div class="clear"></div>
+<section id="credits">
+<p class="sitecredit">2012 &copy; <a href="http://www.cs.rutgers.edu/~jinyuny">Jinyun Yan</a> | <a href="http://www.thlab.net/~paloalto/"> Technicolor Research Lab, Palo Alto</a>|  All Rights Reserved</p>
+<p class="designcredit">
+<!--Do not remove the credits - required by Creative Commons License-->  
+<a href="http://www.cssheaven.org" title="Free CSS Templates and HTML5 designs">Website Template by CSSHeaven.org</a>
+<!--Do Not remove the credits--></p>
+</section>
+</footer>
+</div>
+{% endblock%}
+

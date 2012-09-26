@@ -1,0 +1,271 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% load place_extra %}
+{% block title %} Thanks {% endblock %}
+ 
+{% block extrastyle %}
+<style type="text/css">
+.wordwrap{
+	max-width:940px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+}
+</style>
+{% endblock %}
+
+{% block content%}
+<!--hidden variables-->
+<p id='ehash' style="display:none;">{{event.ehash}}</p>
+<p id='uhash' style="display:none;">{{uhash}}</p> 
+<p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
+<div class="container"> 	
+	{%if event.status ==  "3" %}
+	<div class="row-fluid">  	
+		<h2> Greetings  &#8204; {{myname}}!</h2>
+
+			<h3> Thanks for your participation. The event  &#8204;<font color='#08c'> {{event.name}} </font> is now closed. </h3>
+	 		<hr/>
+			<p>
+				It is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} 
+				on <u>  {{event.eventDate}}  </u> 
+				{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
+			</p>
+			<p> organized by &#8204;<font color='#08c'> {{event.inviter}} </font> </p>
+			<p class="wordwrap">accompany with {{event.friends}} </p>
+			<p>{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
+	</div> 
+	<div class="row-fluid">
+		<div class="alert alert-success"> 
+			<p> The event is closed at {{closeDate}} </p>
+ 			<p> The final choice is {{event.finalChoice}}</p>
+ 		</div>
+	</div>
+	
+<br/>
+<div class="row-fluid" id ="poll">
+ 	<h3> Details: choices and the selections </h3>
+ 	<div class="row-fluid" id="candidates" >
+		<table id="myTable" class="table table-bordered"> 
+		<thead> 
+		<tr> <!--<th>Option (name, location, rating, review count) </th> -->
+			<th>Options</th>
+    		<th>Votes</th>  
+    		<th>Details</th> 
+		</tr> 
+		</thead> 
+		<tbody>
+		{% for choice in choices %}
+		<tr> 
+    		<td id="choice_id_{{choice.id}}"> 
+    			{%if choice.url%}
+    				<a target="_blank" href="{{choice.url}}" >
+    				{{choice.name}} 
+    				</a>
+    			{%else%}
+    				{{choice.name}}
+    			{%endif%}
+    		  
+    			{% if choice.location %} 
+    				<span class="badge">,   </span> {{choice.location}}
+    			{%endif%} 
+    			{%if choice.notes%}
+    				<span class="badge">,  </span> 
+	    			{%if choice.image%}
+   	 				<img src="{{choice.image}}"> 
+    				{%endif%} 
+    				{{choice.notes}}
+				{%endif%}
+			</td> 
+    		<td> 
+    			<div> <i class="icon-search icon-thumbs-up"></i> {{posvotes|dictKey:choice.id}} Likes </div>
+    			<div> <i class="icon-search icon-thumbs-down"></i> {{negvotes|dictKey:choice.id}} Dislikes </div>
+			</td> 
+    		<td> 
+    			<button value="{{choice.id}}"  class="btn btn-info viewstats"><i class="icon-search icon-eye-open"></i> Peak </button> 	
+    			<div class="stats" id="stats_{{choice.id}}" value="{{choice.id}}">  </div>
+    		</td> 
+		</tr> 
+		{% endfor %}
+	</tbody> 
+	</table> 
+	</div>
+</div> <!--end of poll--> 
+<!----============show comments================-->  		 
+<div class="accordion" id="comments_accordion">
+	<div class="accordion-group">
+		<div class="accordion-heading"> 
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#comments_accordion" href="#comments"  id="getcomments">
+					<span class="add-on"><i class="icon-comment"></i></span> Comments
+            </a>
+		</div>
+		<div id="comments" class="accordion-body collapse in">
+			<div class="accordion-inner">
+				<div id='flash'></div>
+				<ul id="show_comment_list" class="nav nav-pills nav-stacked"></ul>
+			</div>
+		</div>
+	 </div>
+ </div>		 
+<br>
+{%else%} 
+	<div class="container">
+		<h2> Greetings  &#8204; {{myname}}!</h2> <p> This event is not closed yet! Please Check the <a href='../attender'>ongoing status</a></p> 
+	</div>>
+{%endif%}
+	<!-- Footer
+================================================== -->
+<footer class="footer ftwraper">
+<!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+     <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+</footer>
+</div> <!--end of container-->
+  
+
+{% endblock %}
+{% block morescript %}
+	<script type="text/javascript" src=" {%static "js/bootstrap-popover.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/bootstrap-tooltip.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/bootstrap-button.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/bootstrap-transition.js"%}"></script>
+	<script type="text/javascript" src=" {%static "js/bootstrap-modal.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/jquery.bootstrap.confirm.popover.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/bootbox.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/spin.js"%}"></script> 
+	<script type="text/javascript" src=" {%static "js/bootstrap-collapse.js"%}"></script>	 
+
+	<script>
+		jQuery.fn.get_pos_votes = function() {
+			var id=$(this).attr("value");
+			//console.debug(id)
+			var dataString = 'choice_id='+ id;
+			$.ajax
+				({
+				type: "GET",
+				url:  "../getPosVote/",
+				data: dataString,
+				cache: false,
+				success: function(data)
+				{
+				//console.debug("pos vote="+data.cnt)
+				$('#pos_vote_count_'+id).html(data.cnt);
+				//$(this).html(data.cnt);
+				} });
+		};
+		
+		jQuery.fn.get_neg_votes = function() {
+			var id=$(this).attr("value");
+			//console.debug(id)
+			var dataString = {'choice_id': id};
+			$.ajax
+			({
+				type: "GET",
+				url:  "../getNegVote/",
+				data: dataString,
+				cache: false,
+				success: function(data)
+				{
+				//console.debug("neg_vote="+data.cnt)
+				$('#neg_vote_count_'+id).html(data.cnt);
+				//$(this).html(data.cnt);
+				} 
+			});
+		};
+		jQuery.fn.show_my_votes = function(data) {
+			var result = jQuery.parseJSON(data);
+        		var ilike = result.likes
+        		var idislike = result.dislikes
+        		if(ilike !="")
+        			$("#ilike").html("<p>I LIKE : "+ilike +"</p>");
+        		if (idislike !="")
+        			$("#idislike").html("<p> I DISLIKE : "+idislike+"</p>");
+		};
+  
+	$(document).ready(function(){
+		$(".viewstats").live("click",function(event){
+			event.preventDefault();      
+			var id=$(this).attr("value");
+			//console.debug("choice_id =  "+id)
+			var dataString = {"choice_id": id};
+			
+			$("#stats_"+id).slideDown("fast").html("Loading....");
+			$.ajax
+			({
+				type: "GET",
+				url:  "../getVoteStats/",
+				data: dataString,
+				cache: false,
+				success: function(response)
+				{
+					var like = response.likes
+					var dislike = response.dislikes;
+					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td>'+ like+'</td> </tr><tr><td> Disliked by</td> <td>'+dislike+'</td></tr></table>'
+					$("#stats_"+id).html(output);
+				} 
+			 
+			});
+		});
+  	});
+ 
+  		$(document).ready(function(){
+		$(".close").live("click",function(){
+    		 var id=$(this).attr("value");
+    		 //console.debug("id is: "+id)
+    		 $("#stats_"+id).slideUp("fast");
+		});
+	});
+	$(document).ready(function() {
+		$.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+		setInterval(function() {
+		$("#getmyvotes").load("../getMyVotes/", function(data) {
+       		$(this).show_my_votes(data);
+   		})},100000);
+	});
+		
+ 
+	function startspin(){
+		var opts = {
+  			lines: 13, // The number of lines to draw
+  			length: 25, // The length of each line
+  			width: 16, // The line thickness
+  			radius: 20, // The radius of the inner circle
+  			rotate: 30, // The rotation offset
+  			color: '#000', // #rgb or #rrggbb
+  			speed: 1.2, // Rounds per second
+  			trail: 66, // Afterglow percentage
+  			shadow: false, // Whether to render a shadow
+  			hwaccel: false, // Whether to use hardware acceleration
+  			className: 'spinner', // The CSS class to assign to the spinner
+  			zIndex: 2e9, // The z-index (defaults to 2000000000)
+  			top: 'auto', // Top position relative to parent in px
+  			left: 'auto' // Left position relative to parent in px
+			};
+			var target = document.getElementById('foo');
+			var spinner = new Spinner(opts).spin(target);
+			return spinner;
+		}
+		 
+		 $(document).ready(function(){
+     			$.ajax({
+				type: "GET",
+				url:  "../getAllComments/",
+				data:  {},
+				cache: false,
+				success: function(data)
+				{    	 	
+				// chrome doesn't take for each... 
+				//for each(var comm in data){
+					for (var c in data){
+						var comm = data[c];
+						//console.debug(comm);
+						var html = '<li><blockquote><p>'+ comm.say + ' </p><small>  '+ comm.name + ' at ' + comm.date +'</small></blockquote></li>';
+				 		$('#show_comment_list').append(html); 
+				 	}
+				}
+			});
+    	});
+</script>
+{% endblock%}

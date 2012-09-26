@@ -7,7 +7,12 @@
 %   group_vote(i) = sum(vote(user,item))    
 % rank group_vote 
 % measure whether the most voted item is correctly found. 
-function n_matched = compare_group_recommendation(feature_type,method,measure,measure_size)
+%
+% feature_type: item_only, item_user
+% method: dynamic, aggregate
+% measure: top1, top_k,top_half
+% compare: full, selected
+function n_matched = compare_group_recommendation(feature_type,method,compare,measure,measure_size)
     all_events = load('../recommendation_input/event_item_vote.txt');
     all_groups = load('../recommendation_input/event_user.txt');
 
@@ -67,16 +72,20 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
             elseif strcmp(feature_type,'item_only')
                 x = item_matrix;
             end
+ 
+           [ismem index] = ismember(users,weight_userid);
+           theta = weight_user(:,index);
         
+           % prediction, r_u(x) =  
+          pred = zeros(n_groupsize,1);
+                for u=1:n_groupsize
+                    pred(u) = Logistic(theta(1,u) + x(u,:)*theta(2:end,u));  
+                end
+            
+          
             % user weight vector
-            [ismem index] = ismember(users,weight_userid);
-            theta = weight_user(:,index);
-        
-            % prediction 
-            pred = zeros(n_groupsize,1);
-            for u=1:n_groupsize
-                pred(u) = Logistic(theta(1,u) + x(u,:)*theta(2:end,u));  
-            end
+
+            
         
             if strcmp(method, 'dynamic')
                 d = length(pred);
@@ -101,7 +110,7 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         elseif strcmp(measure, 'top_half')
             pos_matched = compute_topk_precision(pred_pos_votes,pos_votes, round(length(pos_votes)/2));  
         elseif strcmp(measure, 'top_k')
-            
+            pos_matched = compute_topk_precision(pred_pos_votes,pos_votes, measure_size);  
         else
                 fprint('wrong type of measurement');
                 exit(-1);
@@ -113,5 +122,7 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         fprintf(' out of %d event, average value of top 1 precision: %f\n',n_events,n_matched/n_events);
     elseif strcmp(measure, 'top_half')
         fprintf('out of %d event, average value of top half precisions: %f\n', n_events,n_matched/n_events);
+    elseif strcmp(measure,'top_k')
+       fprintf('out of %d event, average value of top %d precisions: %f\n', n_events,measure_size,n_matched/n_events);
     end
 end

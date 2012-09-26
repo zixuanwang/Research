@@ -1,0 +1,152 @@
+{% extends "myevents/base.html" %}
+{% load static %}
+{% block title %} Sign Up{% endblock %}
+{% block extrastyle %}
+		<style type="text/css">
+			.ftwraper{
+				background:  #000; /*#000;*/
+				position:fixed;
+				bottom:0;
+				left:0; 
+				width:100%;
+				padding:10px,0;
+				text-align:center;
+			}
+		img {
+    		 width:100%; /* %100%; */
+    		height:auto; /*auto;*/
+		}
+		</style>
+{% endblock %}
+{% block morescript %}
+   <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{%static "js/bootstrap-carousel.js"%}"></script> 
+   	<script>
+		function validateForm()
+		{
+			var x=document.forms["signupForm"]["user_email"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+ 				alert("Not a valid e-mail address");
+  				return false;
+ 			 }
+ 			 
+ 			var y = $('#user_passwd').value;
+ 			var z = $('#user_confirm_passwd').value;
+ 			if(y!=z) 
+ 			{
+ 				alert("Password doesn't match!");
+ 				$('#user_confirm_passwd').focus();
+ 				return false;
+ 			}   
+ 			return true;
+		}
+		
+	</script>
+{% endblock %}
+
+{% block content%} 
+	<!-- Hello Unit
+	================================================== -->
+<div class="container">	
+    <div class="hero-unit">
+    	
+    <div class="row">
+	<div class="span6 offset2">
+	<br>
+      
+  {% if form.errors %}
+  <p class="errors">Please correct the errors below: {{ form.non_field_errors }}</p>
+  {% endif %}
+
+  <h1>Create an account</h1>
+  
+  <form method="post" action="" class="well form-inline" onsubmit="return validateForm();">
+	{% csrf_token %}
+     <div class="control-group">
+          <label class="control-label" for="inputIcon">User Name</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user"></i></span>
+              {% if form.username.errors %}
+      		  <p class="errors">{{ form.username.errors.as_text }}</p>
+      		  {% endif %}
+              <input lass="input-xlarge" id="username" name="username" type="text"  autofocus required>
+              <span> the name displays on your profile.</span>
+            </div>
+          </div>
+        </div>
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Email address</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-envelope"></i></span>
+               {% if form.email.errors %}
+        		<p class="errors">{{ form.email.errors.as_text }}</p>
+      			{% endif %}
+              <input lass="input-xlarge" id="email" name="email" type="text"  autofocus required>
+               <span> must be valid. No spam from us, promise.</span>
+            </div>
+          </div>
+        </div>
+    	
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+               {% if form.password1.errors %}
+        <p class="errors">{{ form.password1.errors.as_text }}</p>
+      {% endif %}
+              <input lass="input-xlarge" type="password" id="password1" name="password1"  type="text"  required>
+               <span> at least 6 characters.</span>
+            </div>
+          </div>
+        </div>
+        
+    	 <div class="control-group">
+          <label class="control-label" for="inputIcon">Confirm Password</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-key"></i></span>
+                  {% if form.password2.errors %}
+        <p class="errors">{{ form.password2.errors.as_text }}</p>
+      {% endif %}
+                <input lass="input-xlarge"  type="password" id="password2" name="password2"  type="text"  required>
+                <span> must match the above password.</span>
+            </div>
+          </div>
+        </div>
+    	<button type="submit" class="btn-primary btn-large ">Submit</button>
+
+</form>
+</div>
+</div>
+</div>
+	
+    <br>
+    <br>
+	<!-- Footer
+    ================================================== -->
+	<footer class="footer  ftwraper">
+        <!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+        <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+	</footer>
+
+</div> <!-- /container -->	 
+   
+{% endblock%}
+
+
+
+
+
+
+
+
+
+
