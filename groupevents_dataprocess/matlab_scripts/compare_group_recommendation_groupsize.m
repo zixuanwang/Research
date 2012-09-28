@@ -13,7 +13,7 @@
 % method: dynamic, aggregate
 % measure: top1, top_k,top_half
 
-function n_matched = compare_group_recommendation(feature_type,method,measure,measure_size)
+function n_matched = compare_group_recommendation_groupsize(feature_type,method,measure,measure_size,group_size)
     all_events = load('../recommendation_input/event_item_vote.txt');
     all_groups = load('../recommendation_input/event_user.txt');
 
@@ -28,7 +28,7 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         weight_user= load('../recommendation_input/weight_vector.dat');
     else
         fprintf('wrong feature type');
-        exit(-1);
+        exit(0);
     end
     weight_userid = load('../recommendation_input/weight_userid.dat');
     
@@ -42,13 +42,16 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         if isempty(a_event)
             continue;
         end
-        n_events = n_events +1;
-    
         the_group = all_groups(all_groups(:,1)==i,:);
         users = the_group(:,2);
+        n_groupsize = length(users);
+        if n_groupsize ~= group_size
+            continue;
+        end
+        n_events = n_events +1;
+        
         item_ids = a_event(:,2);
         n_items = length(item_ids);
-        n_groupsize = length(users);
     
         pos_votes = a_event(:,3);
         neg_votes = a_event(:,4);
@@ -93,13 +96,11 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
                 pred_neg_votes(k) = fkd;
                 pred_pos_votes(k) = 1- fkd;
             elseif strcmp(method,'aggregate')
-                % expected value of n votes. E(Number of users will vote
-                % positively to the item) = E(\sum r_u)=\sum E(r_u) = p_u
-                pred_pos_votes(k) = sum(pred);
-                pred_neg_votes(k) = sum(pred);
+                pred_pos_votes(k) = sum(pred>=0.5);
+                pred_neg_votes(k) = sum(pred<0.5);
             else
                 fprintf('wrong method!');
-                exit(-1);
+                exit(0);
             end
         end
   
@@ -111,8 +112,8 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         elseif strcmp(measure, 'top_k')
             pos_matched = is_topk_matched(pred_pos_votes,item_ids,pos_votes,item_ids, measure_size);  
         else
-                fprint('wrong type of measurement');
-                exit(-1);
+                fprintf('wrong type of measurement');
+                exit(0);
         end
     
         n_matched =n_matched+pos_matched;
