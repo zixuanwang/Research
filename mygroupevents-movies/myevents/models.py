@@ -41,18 +41,69 @@ class event(models.Model):
 	pub_date = models.DateTimeField(auto_now_add=True)
 
 class theater(models.Model):
-	tmsid = models.CharField(max_length=25)
+	theatreId = models.CharField(max_length=25)
+	name = models.TextField()
+	address_street1 = models.TextField()
+	address_city = models.TextField()
+	address_state = models.TextField()
+	address_postalCode = models.CharField(max_length=25)
+	telephone = models.CharField(max_length=25)
+	screenCount = models.IntegerField()
+	longitude = models.CharField(max_length=255)
+	latitude = models.CharField(max_length=255)
+	active =  models.IntegerField()
+	url = models.TextField(null=True) 
 
 class schedule(models.Model):
 	theater = models.ForeignKey(theater)
 	movie = models.ForeignKey(movie)
 	show_date = models.DateTimeField(editable=True)
-	show_time = models.DateTimeField(editable=True)
-	is_active = models.IntegerField()
-
+	show_time = models.TimeField(editable=True)
+	barg = models.IntegerField()
+	
 class movie(models.Model):
 	tmsid = models.CharField(max_length=255)
+	title_full = models.CharField(max_length=255)
+	# exists more than one red, pick the first one, or concatenate by symbol
+	title_red = models.CharField(max_length=255)
+	desc_500 = models.TextField()
+	desc_250 = models.TextField()
+	desc_100 = models.TextField()
+	desc_60 = models.TextField()
+	progType = models.CharField(max_length=255)
+	# use , connect if more than one genre
+	genre = models.CharField(max_length=255)
+	qualityRating = models.FloatField()
+	pictureFormat = models.CharField(max_length=255)
+	releases = models.CharField(max_length=255)
+	productionCompanies = models.CharField(max_length=255)
+	country = models.CharField(max_length=25)
+	# use symbol to concatenate distributor names if more than one. 
+	distributors = models.CharField(max_length=255)
 
+class celebrity(models.Model)
+	firstname = models.CharField(max_length=255)
+	lastname = models.CharField(max_length=255)
+
+class movie_cast(models.Model):
+	movie = models.ForeignKey(movie)
+	celebrity = models.ForeignKey(celebrity)
+	role = models.CharField(max_length=255)
+	char_firstname = 	models.CharField(max_length=255)
+	char_lastname = models.CharField(max_length=255)
+
+class movie_award(models.Model):
+	movie = models.ForeignKey(movie)
+	award_name = models.CharField(max_length=255)
+	category = models.CharField(max_length=255)
+	recipient = models.CharField(max_length=255)
+	year = models.CharField(max_length=255)
+	
+class movie_rating(models.Model):
+	movie = models.ForeignKey(movie)
+	area = models.CharField(max_length=255)
+	code = models.CharField(max_length=255)
+	
 class manual(models.Model):
 	name = models.TextField()
 	location = models.TextField()
