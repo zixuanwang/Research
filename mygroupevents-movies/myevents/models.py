@@ -1,8 +1,10 @@
+##
+## initial update for movie 9/27/2012
+## Jinyun
+##
 
 from django.db import models
  
-# Create your models here.
-# create index user_email on myevents_user(email);
 class user(models.Model):
 	uhash = models.CharField(max_length=36)
 	name = models.CharField(max_length=255)
@@ -30,8 +32,6 @@ class event(models.Model):
 	detail = models.TextField(null=True)
 	status = models.CharField(max_length=255)
 	location = models.TextField(null=True)
-	#zipcode = models.CharField(max_length=255, null=True)
-	#city = models.CharField(max_length=255, null=True)
 	inviter = models.CharField(max_length=255, null=True)
 	friends = models.TextField(null=True)
 	finalChoice = models.TextField(null=True)
@@ -54,13 +54,6 @@ class theater(models.Model):
 	active =  models.IntegerField()
 	url = models.TextField(null=True) 
 
-class schedule(models.Model):
-	theater = models.ForeignKey(theater)
-	movie = models.ForeignKey(movie)
-	show_date = models.DateTimeField(editable=True)
-	show_time = models.TimeField(editable=True)
-	barg = models.IntegerField()
-	
 class movie(models.Model):
 	tmsid = models.CharField(max_length=255)
 	title_full = models.CharField(max_length=255)
@@ -81,7 +74,18 @@ class movie(models.Model):
 	# use symbol to concatenate distributor names if more than one. 
 	distributors = models.CharField(max_length=255)
 
-class celebrity(models.Model)
+class program(models.Model):
+	movie = models.ForeignKey(movie)
+	theater = models.ForeignKey(theater)
+	date = models.CharField(max_length = 1024)
+
+# separate program and schedule for the sake of choice and query_result
+class schedule(models.Model):
+	program = models.ForeignKey(program)
+	showtime = models.CharField(max_length=1024)
+	barg = models.IntegerField()
+	
+class celebrity(models.Model):
 	firstname = models.CharField(max_length=255)
 	lastname = models.CharField(max_length=255)
 
@@ -103,98 +107,35 @@ class movie_rating(models.Model):
 	movie = models.ForeignKey(movie)
 	area = models.CharField(max_length=255)
 	code = models.CharField(max_length=255)
-	
-class manual(models.Model):
-	name = models.TextField()
-	location = models.TextField()
-	notes = models.TextField(null=True)
-	image = models.TextField(null=True)
-	addby = models.ForeignKey(user)
 
-# the returned results of yelp search! 
-# create INDEX yelp_id ON myevents_yelp(yid(256))
-class yelp(models.Model):
-	yid = models.CharField(max_length=1024,null=True)
-	name = models.CharField(max_length=1024)
-	image_url = models.TextField(null=True)
-	url = models.TextField(null=True)
-	mobile_url = models.TextField(null=True)
-	phone = models.TextField(null=True)
-	display_phone= models.TextField(null=True)
-	review_count = models.IntegerField(null=True)
-	categories = models.TextField(null=True)
-	rating = models.TextField(null=True)
-	rating_img_url = models.TextField(null=True)
-	rating_img_url_small = models.TextField(null=True)
-	rating_img_url_large = models.TextField(null=True)
-	snippet_text = models.TextField(null=True)
-	snippet_image_url = models.TextField(null=True)
-#	location = models.TextField(null=True)
-	location_coordinate_latitude = models.TextField(null=True)
-	location_coordinate_longitude = models.TextField(null=True)
-	location_address = models.TextField(null=True)
-	location_display_address = models.TextField(null=True)
-	location_city= models.TextField(null=True)
-	location_state_code = models.TextField(null=True)
-	location_postal_code = models.TextField(null=True)
-	location_country_code = models.TextField(null=True)
-	location_cross_streets = models.TextField(null=True)
-	location_neighborhoods = models.TextField(null=True)
-	location_geo_accuracy = models.TextField(null=True)
-	#location = models.TextField()
-	##phone = models.TextField(null=True)
-	##notes = phone
-	#notes = models.TextField(null=True)
-	#rating = models.IntegerField(null=True)
-	#where = models.TextField()
-	#query = models.TextField()
-	#what = models.TextField()
-	#longtitude = models.CharField(max_length=1024,null=True)
-	#latitude = models.CharField(max_length=1024,null=True)
-	#url = models.TextField()
-	pub_date = models.DateTimeField(auto_now_add=True)
-	
-class item(models.Model):
-	#this foreign_id is for yelp id, or manual id, or id from any other data source. 
-	foreign_id = models.IntegerField()
-	name = models.CharField(max_length=1024)
-	location = models.TextField()
-	notes = models.TextField(null=True)
-	image = models.TextField(null=True)
-	url = models.TextField(null=True)
-	#where item is from. yelp or manual.
-	ftype = models.IntegerField()   
-
-#create index choice_pickid on myevents_choice(pickid);
-class choice(models.Model):
-	#here uses item id.
-	pickid = models.IntegerField()
-	pickby = models.ForeignKey(user)
-	cnt = models.IntegerField()
-	pub_date = models.DateTimeField(auto_now_add=True)
-	
 class search_query(models.Model):
-	term = models.TextField()
-	location = models.TextField()
+	theater_name = models.TextField()
+	movie_name = models.TextField()
+	zipcode = models.CharField(max_length=100)
+	date = models.CharField(max_length=100)
 	search_by = models.ForeignKey(user)
 	search_for = models.ForeignKey(event)
 	pub_date = models.DateTimeField( auto_now_add=True)
 
+# result is program. by default has all valid time 
+# either set time invalid in schedule 
+# or add schedule into choice only if the showtime is valid
 class search_result(models.Model):
-	query = models.ForeignKey(search_query)
-	yelp_result = models.ForeignKey(yelp)	
+	search_query = models.ForeignKey(search_query)
+	program = models.ForeignKey(program)
 
-#todo 9-2-2012: need pub_date. to display events by date and time
 class event_user(models.Model):
 	event = models.ForeignKey(event)
 	user = models.ForeignKey(user)
 	role = models.CharField(max_length=100)
+	join_date = models.DateTimeField(auto_now=True, auto_now_add=True)
 
-class event_choice(models.Model):
+# in the next confirmation page
+# need to delete some schedules if admin decides so
+class choice(models.Model):
 	event = models.ForeignKey(event)
-	choice = models.ForeignKey(choice)
-#	#addedby = models.ForeignKey(user)
-#	pick_from = models.IntegerField()
+	schedule = models.ForeignKey(schedule)
+	pickby = models.ForeignKey(user)
 	pub_date = models.DateTimeField(auto_now=True, auto_now_add=True)
 
 class poll(models.Model):
@@ -204,7 +145,7 @@ class poll(models.Model):
 	vote = models.IntegerField()
 	date = models.DateTimeField(auto_now=True, auto_now_add=True)
 
-#record all clicks of a user made to a choice for an event 
+# record all clicks of a user made to a choice for an event 
 class pollClick(models.Model):
 	event = models.ForeignKey(event)
 	choice = models.ForeignKey(choice)
