@@ -1,5 +1,4 @@
-% 9/20/2012 JINYUN
-% 9/26/2012 update
+% 10/1/2012 Jinyun
 % for each event: predict the ranking of the items
 % 
 % for item in the event:
@@ -12,8 +11,9 @@
 % feature_type: item_only, item_user
 % method: dynamic, aggregate
 % measure: top1, top_k,top_half
+% measure whether exists one item which is voted by half of the group.
 
-function n_matched = compare_group_recommendation_groupsize(feature_type,method,measure,measure_size,group_size)
+function n_matched = measure_half_consesus_groupsize(feature_type,method, group_size)
     all_events = load('../recommendation_input/event_item_vote.txt');
     all_groups = load('../recommendation_input/event_user.txt');
 
@@ -34,6 +34,7 @@ function n_matched = compare_group_recommendation_groupsize(feature_type,method,
     
     % the max id of user
     n_users = 31;
+    n_halfaggreed_event = 0;
     active_users = load('../recommendation_input/active_user_id.txt');
     n_matched=0;
     n_events = 0;
@@ -103,25 +104,29 @@ function n_matched = compare_group_recommendation_groupsize(feature_type,method,
                 exit(0);
             end
         end
-  
-        if strcmp(measure,'top1')
-            % compute  of pos vote prediction
-            pos_matched = is_topk_matched(pred_pos_votes,item_ids,pos_votes,item_ids,1);  
-        elseif strcmp(measure, 'top_half')
-            pos_matched = is_topk_matched(pred_pos_votes,item_ids,pos_votes,item_ids, round(length(pos_votes)/2));  
-        elseif strcmp(measure, 'top_k')
-            pos_matched = is_topk_matched(pred_pos_votes,item_ids,pos_votes,item_ids, measure_size);  
-        else
-                fprintf('wrong type of measurement');
-                exit(0);
+        
+        
+                
+        % whether the event has one item which is voted by half people.
+        half_size = round(n_groupsize/2); 
+        % if voted people is smaller than half of the group, skip this one.
+        if length(pos_votes)<half_size
+            fprintf(' event  %d, voted smaller than half group size\n',i)
+            continue
         end
-        n_matched =n_matched+pos_matched;
+        
+        % if exists one item which is voted by at least half members.
+        p = pos_votes>half_size;
+        if isempty(p)
+            fprintf(' event  %d, no item has voted by at half group\n',i)
+            continue
+        else
+            n_halfaggreed_event = n_halfaggreed_event +1;
+            pos_matched = is_half_agreed(pred_pos_votes,item_ids,pos_votes,item_ids,half_size);
+            n_matched =n_matched+pos_matched;
+        end
+   
     end
-    if strcmp(measure,'top1')
-        fprintf(' out of %d event, average value of top 1 precision: %f\n',n_events,n_matched/n_events);
-    elseif strcmp(measure, 'top_half')
-        fprintf('out of %d event, average value of top half precisions: %f\n', n_events,n_matched/n_events);
-    elseif strcmp(measure,'top_k')
-       fprintf('out of %d event, average value of top %d precisions: %f\n', n_events,measure_size,n_matched/n_events);
-    end
+   
+    fprintf(' out of %d event, average value of top 1 precision: %f\n',n_halfaggreed_event,n_matched/n_halfaggreed_event);
 end
