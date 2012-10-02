@@ -55,7 +55,7 @@ function n_matched = compare_group_recommendation(feature_type,method,measure,me
         pred_pos_votes = zeros(n_items,1);
         pred_neg_votes = zeros(n_items,1);
        
-        % user weight vectoer
+        % user weight vector
         [ismem index] = ismember(users,weight_userid);
         theta = weight_user(:,index);
         
