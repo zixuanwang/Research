@@ -104,16 +104,11 @@ function n_matched = measure_half_consesus(feature_type,method)
         end
         
         % whether the event has one item which is voted by half people.
-        half_size = round(n_groupsize/2); 
-        % if voted people is smaller than half of the group, skip this one.
-        if length(pos_votes)<half_size
-            fprintf(' event  %d, voted smaller than half group size\n',i)
-            continue
-        end
+        half_size = round(n_groupsize/2);
         
         % if exists one item which is voted by at least half members.
-        p = pos_votes>half_size;
-        if isempty(p)
+        p = pos_votes>=half_size;
+        if nnz(p)==0
             fprintf(' event  %d, no item has voted by at half group\n',i)
             continue
         else

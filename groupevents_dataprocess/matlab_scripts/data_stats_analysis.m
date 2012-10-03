@@ -66,4 +66,29 @@ end
     xlabel('ratio of maximal positive votes to group size')
     
     
+
+    % plot cdf of accuracy.
+
+	acc = load('../logit_lastevent_accuracy.txt');
+    h1=figure();set(h1,'PaperSize',[6 4]);set(h1,'PaperPosition',[0 0 6 4]);
+    ax1 =subplot(1,1,1);
+    set(ax1,'FontSize',20)
+    h = cdfplot(acc(:,2));
+    set(h,'linewidth',2)
+    ylabel('F(x)')
+    xlabel('x= accuracy on test data')
+    hold on 
+	itemonly = load('../serialized_logit_itemonly_accuracy.txt');
+	B = sortrows(itemonly,1);
+	
+	h2 = cdfplot(B(:,3))
+	set(h2,'linewidth',2, 'marker','o','color','r')
+	hold off
+	itemuser = load('../serialized_logit_itemuser_accuracy.txt');
+	C = sortrows(itemuser,1);
+	hold on 
+	h3 = cdfplot(C(:,3))
+	set(h3,'linewidth',2, 'marker','*','color','black')
+	legend('itemonly+last event','itemonly','item+user')
  
+

@@ -2,12 +2,10 @@
 f = open('active_user_id.txt')
 userDict = {}
 i = 1
-
 for line in f:
 	uid = line.strip()
 	userDict[uid] = i
 	i += 1
-
 f.close()
 
 itemDict = {}
@@ -107,13 +105,78 @@ def seralizeEvent3():
 		else:
 			print '%s does not exist!!'%eid
 		if itemDict.has_key(iid):
-			realiid = eventDict[iid]
+			realiid = itemDict[iid]
 		else:
 			print 'item %s does not exist!!'%iid
 
 		of.write(str(realeid)+'\t'+str(realiid)+'\n')
 
-seralizeEvent2()
+
+def seralizeVote():
+	# eid, uid, iid, vote, datetime
+	f = open('../full_instance_per_user.txt','r')
+
+	of = open('allserialized_full_instance_per_user.txt','w')
+	for line in f:
+		terms = line.strip().split('\t')
+		eid = terms[0]
+		uid = terms[1]
+		iid = terms[2]
+		vote = terms[3]
+		datetime = terms[4]
+
+		if eventDict.has_key(eid):
+			realeid = eventDict[eid]
+			if itemDict.has_key(iid):
+				realiid = itemDict[iid]
+				if userDict.has_key(uid):
+					realuid = userDict[uid]
+					of.write(str(realeid)+'\t'+str(realuid)+'\t'+str(realiid)+'\t'+vote+'\t'+datetime+'\n')
+				else:
+					print 'the  user %s does not exist!! '%uid
+
+			else:
+				print 'the item %s does not exist!!'%iid
+		else:
+			print 'event %s does not exist!!'%eid
+
+def seralizeAccuracy():
+	f = open('../logit_itemonly_accuracy.txt','r')
+	of = open('../serialized_logit_itemonly_accuracy.txt','w')
+	for line in f:
+		terms = line.strip().split('\t')
+		print terms
+		uid = terms[0]
+		train = terms[1]
+		test = terms[2]
+		if userDict.has_key(uid):
+			realuid = userDict[uid]
+			of.write(str(realuid)+'\t'+train+'\t'+test+'\n')
+		else:
+			print 'the user %s does not exist ?'%uid
+	f.close()
+	of.close()
+
+def seralizeAccuracy2():
+	f = open('../logit_itemuser_accuracy.txt','r')
+	of = open('../serialized_logit_itemuser_accuracy.txt','w')
+	for line in f:
+		terms = line.strip().split('\t')
+		print terms
+		uid = terms[0]
+		train = terms[1]
+		test = terms[2]
+		if userDict.has_key(uid):
+			realuid = userDict[uid]
+			of.write(str(realuid)+'\t'+train+'\t'+test+'\n')
+		else:
+			print 'the user %s does not exist ?'%uid
+	f.close()
+	of.close()
+
+
+seralizeAccuracy2()
+#seralizeVote()
 #seralizeEvent3()
 
 #seralizeUser()

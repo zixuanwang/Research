@@ -51,13 +51,27 @@ function n_matched = measure_half_consesus_groupsize(feature_type,method, group_
         end
         n_events = n_events +1;
         
+
+        
         item_ids = a_event(:,2);
         n_items = length(item_ids);
     
         pos_votes = a_event(:,3);
         neg_votes = a_event(:,4);
         pred_pos_votes = zeros(n_items,1);
-        pred_neg_votes = zeros(n_items,1);
+        pred_neg_votes = zeros(n_items,1);        
+        
+        % whether the event has one item which is voted by half people.
+        half_size = round(n_groupsize/2);
+        
+        % if exists one item which is voted by at least half members.
+        p = pos_votes>=half_size;
+        if nnz(p)==0
+            fprintf(' event  %d, no item has voted by at half group\n',i)
+            continue;
+        end
+        
+        
        
         % user weight vectoer
         [ismem index] = ismember(users,weight_userid);
@@ -105,27 +119,11 @@ function n_matched = measure_half_consesus_groupsize(feature_type,method, group_
             end
         end
         
-        
-                
-        % whether the event has one item which is voted by half people.
-        half_size = round(n_groupsize/2); 
-        % if voted people is smaller than half of the group, skip this one.
-        if length(pos_votes)<half_size
-            fprintf(' event  %d, voted smaller than half group size\n',i)
-            continue
-        end
-        
-        % if exists one item which is voted by at least half members.
-        p = pos_votes>half_size;
-        if isempty(p)
-            fprintf(' event  %d, no item has voted by at half group\n',i)
-            continue
-        else
-            n_halfaggreed_event = n_halfaggreed_event +1;
-            pos_matched = is_half_agreed(pred_pos_votes,item_ids,pos_votes,item_ids,half_size);
-            n_matched =n_matched+pos_matched;
-        end
-   
+        % measure half agreement
+         n_halfaggreed_event = n_halfaggreed_event +1;
+         pos_matched = is_half_agreed(pred_pos_votes,item_ids,pos_votes,item_ids,half_size);
+         n_matched =n_matched+pos_matched;
+     
     end
    
     fprintf(' out of %d event, average value of top 1 precision: %f\n',n_halfaggreed_event,n_matched/n_halfaggreed_event);

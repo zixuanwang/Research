@@ -1,4 +1,4 @@
-function [train_precision,train_recall,train_acc,test_precision,test_recall, test_acc,B1] = measure_lassoglm(data,threshold)
+function [train_precision,train_recall,train_acc,test_precision,test_recall, test_acc,B1] = measure_lassoglm_pthreshold(data,threshold)
     rows = size(data,1);    
     cols = size(data,2);
     train_rows = round(0.8*rows);
@@ -9,10 +9,11 @@ function [train_precision,train_recall,train_acc,test_precision,test_recall, tes
 
     %lassglm only take 1 or 0
     train_y(train_y==-1)=0;
-    % CV: set cross validation folder(because we need to split train and test randomly, here only take 2 cv)
-	[B FitInfo] = lassoglm(train_x,train_y,'binomial','NumLambda',25,'CV',2);
+    % CV: set cross validation folder(because we need to split train and test randomly, here only take5 cv)
+	[B FitInfo] = lassoglm(train_x,train_y,'binomial','NumLambda',25,'CV',5);
+   
     % minimum deviance plus one standrad deviation point
-	indx = FitInfo.Index1SE;
+	indx = FitInfo.Index1SE;	 
 	B0 = B(:,indx);
 	% const
 	cnst = FitInfo.Intercept(indx);
@@ -20,24 +21,28 @@ function [train_precision,train_recall,train_acc,test_precision,test_recall, tes
 	B1 = [cnst;B0];
 
 	% measure accuary 
-   	preds = glmval(B1,train_x,'logit');
+	preds = glmval(B1,train_x,'logit');
 	preds(preds>=threshold) = 1;
 	preds(preds<threshold) = 0;
-    
+   
     train_tp = nnz(preds==1&preds==train_y);
     train_tn = nnz(preds==0&preds==train_y);
     train_fp = nnz(preds==1&preds~=train_y);
     train_fn = nnz(preds==0&preds~=train_y);
     %train_precision = train_tp/(train_tp+train_fp);
-    train_precision = train_tp/nnz(preds==1);
+    train_precision = train_tp/nnz(==1);
     train_recall = train_tp/(train_tp+train_fn);
     
     train_acc = (train_tp+train_tn)/(train_tp+train_tn+train_fp+train_fn);
-  
+    %train_tn = nnz(preds==0&preds==train_y)/nnz(preds==0);
+    %train_fp = nnz(preds==1&preds~=train_y)/nnz(preds==1);
+    %train_fn = nnz(preds==0&preds~=train_y)/nnz(preds==0);
+    
+	%train_acc = nnz(preds==train_y)/size(train_y,1);
+	
 	% predict on test set 
 	test_pred = glmval(B1, test_x, 'logit');
-    
-    test_pred(test_pred>=threshold) = 1;
+	test_pred(test_pred>=threshold) = 1;
 	test_pred(test_pred<threshold) = 0;
     test_y(test_y==-1)=0;
 	%test_acc = nnz(test_pred==test_y)/size(test_y,1);
@@ -49,6 +54,4 @@ function [train_precision,train_recall,train_acc,test_precision,test_recall, tes
     test_precision = test_tp/(test_tp+test_fp);
     test_recall = test_tp/(test_tp+test_fn);
     test_acc = (test_tp+test_tn)/(test_tp+test_tn+test_fp+test_fn);
-    
-    
 end	

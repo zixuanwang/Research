@@ -1,0 +1,33 @@
+% 10/2/2012
+% consider the past event. with final choice
+
+function [avg_train_acc,avg_test_acc] = logistic_regression_past_event(threshold)
+    
+    avg_train_precision = 0;
+    avg_train_recall = 0;
+   
+    avg_test_precision = 0;
+    avg_test_recall = 0;
+    avg_train_acc=0;
+    avg_test_acc=0;
+    
+    n_users =19;
+    for uid =1:n_users
+
+        filename = strcat('../user_instance_pastevent/', int2str(uid));
+        data = load(filename);
+    
+        [train_precision,train_recall,train_acc,test_precision,test_recall, test_acc,B1] = measure_lassoglm_pthreshold(data,threshold)
+        fprintf('############# user %i ',uid)
+        fprintf('train_tp: %i, train_tn: %i, train_fp: %i, trian_fn:%i , train_acc: %i\n',train_tp,train_tn,train_fp,train_fn,train_acc);
+        fprintf('test_tp: %i, test_tn: %i, test_fp: %i, test_fn:%i , test_acc: %i\n',test_tp,test_tn,test_fp,test_fn,test_acc);
+    
+        avg_train_precision =avg_train_precision + train_precision;
+        avg_train_recall =avg_train_recall + train_recall;
+        avg_test_precision =avg_test_precision + test_precision;
+        avg_test_recall =avg_test_recall + test_recall;
+       
+    end
+    avg_train_acc = avg_train_acc + train_acc;
+    avg_test_acc = avg_test_acc + test_acc;
+end
