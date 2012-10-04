@@ -46,7 +46,7 @@ for i = 1:numel(files)
     %[avg_train_acc, avg_test_acc,B_best]= CrossValidation_logits(10,data,'logit');
     
     [train_tpr,train_fpr,train_acc,test_tpr,test_fpr, test_acc,B1] = measure_lassoglm_pthreshold(data,threshold);
-    fprintf('############# user %s \n',files(i).name)
+    fprintf('############# user %i \n',files(i).name)
     fprintf(' train_tpr: %.4f, train_fpr:%.4f, train_acc: %.4f\n',train_tpr,train_fpr,train_acc);
     fprintf('test_tpr: %.4f, test_fpr: %.4f, test_acc: %.4f\n',test_tpr,test_fpr,test_acc);
     
@@ -61,10 +61,6 @@ for i = 1:numel(files)
     uid = uid+1;
 end
 
-
-C = [uids';allB];
-D = sortrows(C');
-dlmwrite('theta_itemuser.dat',D(:,2:end)');
 
   
   
