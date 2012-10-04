@@ -11,7 +11,7 @@
 
     filename = strcat('../user_instance_pastevent/', int2str(uid));
     data_input = load(filename);
-    
+    fprintf('####uid: %i\n',uid);
     rows = size(data_input,1);    
     cols = size(data_input,2);
     % randomize data
@@ -26,7 +26,7 @@
     train_y(train_y==-1)=0;
     % CV: set cross validation folder(because we need to split train and test randomly, here only take5 cv)
 	[B FitInfo] = lassoglm(train_x,train_y,'binomial','NumLambda',25,'CV',5);
-   
+    
     % minimum deviance plus one standrad deviation point
 	indx = FitInfo.Index1SE;	 
 	B0 = B(:,indx);
