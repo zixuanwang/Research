@@ -39,6 +39,6 @@ function [avg_train_acc,avg_test_acc] = logistic_regression_past_event( )
         test_accs(uid) = test_acc;
         allB(:,uid) = B1;
     end
-   fprintf('avg_train_acc: %.4f, avg_test_acc: %.4f\n',avg_train_acc/n_users,avg_test_acc/n_users)
+   fprintf('avg_train_acc: %.4f, avg_test_acc: %.4f\n',avg_train_acc/n_users,avg_test_acc/n_users);
     
 end
