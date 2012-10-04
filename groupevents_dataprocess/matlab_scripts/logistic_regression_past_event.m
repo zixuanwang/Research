@@ -1,8 +1,8 @@
 % 10/2/2012
 % consider the past event. with final choice
 
-function [avg_train_acc,avg_test_acc] = logistic_regression_past_event(threshold)
-    
+function [avg_train_acc,avg_test_acc] = logistic_regression_past_event( )
+    threshold = 0.5;
     n_users =19;
     train_tprs = zeros(n_users,1);
     train_fprs = zeros(n_users,1);
@@ -12,7 +12,8 @@ function [avg_train_acc,avg_test_acc] = logistic_regression_past_event(threshold
 
     avg_train_acc=0;
     avg_test_acc=0;
-    
+    feature_size = 85;
+    allB = zeros(feature_size,n_users);
     train_accs =zeros(n_users,1);
     test_accs = zeros(n_users,1);
     for uid =1:n_users
@@ -36,6 +37,7 @@ function [avg_train_acc,avg_test_acc] = logistic_regression_past_event(threshold
        
         train_accs(uid) = train_acc;
         test_accs(uid) = test_acc;
+        allB(:,uid) = B1;
     end
    fprintf('avg_train_acc: %.4f, avg_test_acc: %.4f\n',avg_train_acc/n_users,avg_test_acc/n_users)
     
