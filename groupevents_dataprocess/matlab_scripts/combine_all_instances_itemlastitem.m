@@ -35,7 +35,6 @@
 	% fit weight vector
 	B1 = [cnst;B0];
 
-	 
 	preds = glmval(B1,train_x,'logit');
     train_preds =[train_preds;preds];
     train_ys=[train_ys;train_y];

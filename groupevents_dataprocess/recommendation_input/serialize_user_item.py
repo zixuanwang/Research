@@ -175,7 +175,34 @@ def seralizeAccuracy2():
 	of.close()
 
 
-seralizeAccuracy2()
+def serializeFullInstance():
+	f = open('../matlab_scripts/output/full_instance_orderby_user_withexistingvote_count.txt','r')
+	of = open('../matlab_scripts/output/serialize_fullinstance_byuser_withexistingvote_count.txt','w')
+	for line in f:
+		print line
+		terms = line.strip().split(',')
+		eid = terms[0]
+		iid = terms[1]
+		uid = terms[2]
+		vote = terms[3]
+		poscnt = terms[4]
+		negcnt = terms[5]
+		if eventDict.has_key(eid):
+			seid = str(eventDict[eid])
+			if itemDict.has_key(iid):
+				siid = str(itemDict[iid])
+				if userDict.has_key(uid):
+					suid = str(userDict[uid])
+					of.write(seid+'\t'+siid+'\t'+suid+'\t'+vote+'\t'+poscnt+'\t'+negcnt+'\n')
+				else:
+					print '%s user does not exist'%uid
+			else:
+				print '%s item does not exist!'%iid
+		else:
+			print '%s event is not valid!'%eid 
+			
+serializeFullInstance()
+#seralizeAccuracy2()
 #seralizeVote()
 #seralizeEvent3()
 
