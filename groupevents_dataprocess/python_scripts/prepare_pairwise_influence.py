@@ -1,20 +1,33 @@
 import unicodedata
+from numpy  import *
 import MySQLdb
 db = MySQLdb.connect(host='localhost',user='root',passwd='fighting123',db='groupevents_exp')
 c = db.cursor()
 
-
-
-
-
 n_user = 19
-query = 'select p1.event_id, p1.pickid, p1.vote, p2.vote from(select event_id, pickid, vote, date from serialize_poll as p, myevents_choice as  c where p.choice_id = c.id and p.user_id= '+uid+ ') p1, (select event_id,pickid,vote, date from serialize_poll as p, myevents_choice as c where p.choice_id = c.id and p.user_id ='+vid+')p2 where p1.event_id = p2.event_id and p1.pickid = p2.pickid and p1.date < p2.date'
 
-A = []
+A = zeros((n_user,n_user))
 
 for i in range(n_user):
 	uid = i+1; 
-	A(i) = [0] * n_user;
+	for j in range(n_user):
+		vid = j+1
+		if vid!=uid:
+			query = 'select p1.event_id, p1.item_id, p1.vote, p2.vote from(select event_id, item_id, vote, unixdate from serialize_poll as p where p.user_id= '+str(uid)+ ') p1, (select event_id, item_id,vote, unixdate from serialize_poll as p where p.user_id ='+str(vid)+')p2 where p1.event_id = p2.event_id and p1.item_id = p2.item_id  and p1.vote = p2.vote and p1.unixdate < p2.unixdate'
+			print query
+			c.execute(query)
+			rows = c.fetchall()
+			A[i][j]=len(rows)
+c.close()
+
+of = open('pairwise_influence_value.txt','w')
+for i in range(n_user):
+	print A[i] 
+	thisline = ','.join(str(x) for x in A[i])
+	of.write(thisline+'\n')
+
+of.close()
+
 
 
 
