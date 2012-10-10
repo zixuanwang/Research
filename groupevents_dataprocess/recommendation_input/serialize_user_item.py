@@ -200,8 +200,65 @@ def serializeFullInstance():
 				print '%s item does not exist!'%iid
 		else:
 			print '%s event is not valid!'%eid 
-			
-serializeFullInstance()
+
+
+def serializeFirstVote():
+	f = open('../first_vote_eid_iid_uid_vote.txt','r')
+	of = open('../serialize_firstvote_eid_iid_uid_vote.txt','w')
+	for line in f:
+		terms = line.strip().split('\t')
+		eid = terms[0]
+		iid = terms[1]
+		uid = terms[2]
+		vote = terms[3]
+		
+		if eventDict.has_key(eid):
+			realeid = eventDict[eid]
+			if itemDict.has_key(iid):
+				realiid = itemDict[iid]
+				if userDict.has_key(uid):
+					realuid = userDict[uid]
+					of.write(str(realeid)+'\t'+str(realiid)+'\t'+str(realuid)+'\t'+vote+'\n')
+				else:
+					print 'The user id %s doesnot exist'%uid
+			else:
+				print 'The item id %s does not exist'%iid
+		else:
+			print 'the event id %s does not exist'%eid
+	f.close()
+	of.close()
+
+def serializeUnixDate():
+	f = open('../eid_iid_uid_vote_dateunix.txt','r')
+	of = open('serialize_eid_iid_uid_vote_dateunix.txt','w')
+	for line in f:
+		terms = line.strip().split('\t')
+		eid = terms[0]
+		iid = terms[1]
+		uid = terms[2]
+		vote = terms[3]
+		date = terms[4]
+		
+		if eventDict.has_key(eid):
+			realeid = eventDict[eid]
+			if itemDict.has_key(iid):
+				realiid = itemDict[iid]
+				if userDict.has_key(uid):
+					realuid = userDict[uid]
+					of.write(str(realeid)+'\t'+str(realiid)+'\t'+str(realuid)+'\t'+vote+'\t'+date+'\n')
+				else:
+					print 'The user id %s doesnot exist'%uid
+			else:
+				print 'The item id %s does not exist'%iid
+		else:
+			print 'the event id %s does not exist'%eid
+	f.close()
+	of.close()
+
+
+serializeUnixDate()
+#serializeFirstVote()
+#serializeFullInstance()
 #seralizeAccuracy2()
 #seralizeVote()
 #seralizeEvent3()

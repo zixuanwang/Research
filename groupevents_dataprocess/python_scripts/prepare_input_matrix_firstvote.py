@@ -1,12 +1,12 @@
 data_folder = './'
-instance_folder= 'user_instance_existingvote/'
-of = open('../user_instance_existingvote/uid_itemfeature_poscnt_negcnt_vote.txt','w')
+instance_folder= 'user_instance_firstvote/'
+of = open('../user_instance_firstvote/uid_itemfeature_vote.txt','w')
 feature_f = open('../recommendation_input/place_bzinfo_feature_matrix.txt','r')
 features = feature_f.readlines()
 	
 feature_f.close()
 
-instance_f = open('../matlab_scripts/output/serialize_fullinstance_byuser_withexistingvote_count.txt','r')
+instance_f = open('../serialize_firstvote_eid_iid_uid_vote.txt','r')
 for line in instance_f:
 	terms = line.strip().split('\t')
 	print terms
@@ -14,11 +14,9 @@ for line in instance_f:
 	iid = terms[1]
 	uid = terms[2]
 	vote = terms[3]
-	poscnt = terms[4]
-	negcnt = terms[5]
 	item_feature = features[int(iid)-1].strip()
 	print item_feature
-	of.write(uid+','+item_feature+','+poscnt+','+negcnt+','+vote+'\n')
+	of.write(uid+','+item_feature+','+vote+'\n')
 
 instance_f.close()
 of.close()

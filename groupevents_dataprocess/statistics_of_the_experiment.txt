@@ -74,4 +74,9 @@ select event_id,user_id, role from myevents_event_user where user_id not in (sel
  select event_id, item_id, sum(If (vote=1,1,0)) AS pos_vote, sum(If( vote=-1,1,0)) AS neg_vote, count(*) AS total_vote into outfile 'event_item_vote.txt'  from (select event_id, user_id, c.pickid as item_id, vote from myevents_poll p, myevents_choice c where p.choice_id = c.id and p.event_id<281)T group by event_id,item_id;
 
 
+//get e,u,i,vote such that each user vote item independently, in another words, he is the first person voted the item. 
+select pickid, event_id, user_id, vote, date from myevents_poll as p, myevents_choice as c where p.choice_id = c.id group by pickid,event_id order by pickid, date
+
+
+mysqlimport -h localhost -u root -p  groupevents_exp  serialize_poll
 
