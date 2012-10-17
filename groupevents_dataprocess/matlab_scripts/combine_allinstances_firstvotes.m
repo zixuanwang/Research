@@ -14,6 +14,8 @@ train_tprs = zeros(n_users,1);
 train_fprs = zeros(n_users,1);
 test_tprs = zeros(n_users,1);
 test_fprs = zeros(n_users,1);
+% every user has one column for theta
+allB = zeros(n_features+1,n_users);
 
 threshold=0.5;
 datasize_limit = 10;
@@ -52,6 +54,7 @@ for i=1:n_users
 	cnst = FitInfo.Intercept(indx);
 	% fit weight vector
 	B1 = [cnst;B0];
+    allB(:,i) = B1;
 
 	preds = glmval(B1,train_x,'logit');
     train_preds =[train_preds;preds];
@@ -91,19 +94,20 @@ for i=1:n_users
     test_fprs(i) = test_fpr;
     test_acc = (test_tp+test_tn)/(test_tp+test_tn+test_fp+test_fn);
     test_accs(i) = test_acc;
-     
 end
 
-train = [train_tprs, train_fprs, train_accs];
-test = [test_tprs,test_fprs,test_accs'];
-dlmwrite('output/firstvote_train_tprs_fprs_accs.txt',train);
-dlmwrite('output/firstvote_test_tprs_fprs_accs.txt',test);
-T = [train_preds,train_ys];
-TT = sortrows(T,1);
-dlmwrite('output/firstvote_train_predtrue_sorted.txt',TT);
-TT = sortrows([test_preds,test_ys],1);
-dlmwrite('output/firstvote_test_predtrue_sorted.txt',TT);
+dlmwrite('output/theta_firstvote.txt',allB);
 
-useful_train = train(train(:,3)>0,:)
-useful_test = test(test(:,3)>0, :); 
-useful_test = useful_test(1:end-1,:);
+%train = [train_tprs, train_fprs, train_accs];
+%test = [test_tprs,test_fprs,test_accs'];
+%dlmwrite('output/firstvote_train_tprs_fprs_accs.txt',train);
+%dlmwrite('output/firstvote_test_tprs_fprs_accs.txt',test);
+%T = [train_preds,train_ys];
+%TT = sortrows(T,1);
+%dlmwrite('output/firstvote_train_predtrue_sorted.txt',TT);
+%TT = sortrows([test_preds,test_ys],1);
+%dlmwrite('output/firstvote_test_predtrue_sorted.txt',TT);
+
+%useful_train = train(train(:,3)>0,:)
+%useful_test = test(test(:,3)>0, :); 
+%useful_test = useful_test(1:end-1,:);

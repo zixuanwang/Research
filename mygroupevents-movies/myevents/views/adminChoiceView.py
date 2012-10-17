@@ -10,6 +10,7 @@ from django.utils import simplejson
 from django.core import serializers
 import urllib2 
 import unicodedata
+import MySQLdb
 
 def adminChoice(request, ehash):
 	if 'user_id' not in request.session:
@@ -29,8 +30,10 @@ def adminChoice(request, ehash):
                     started = False
             
                 has_recommendation = False
-                if isValidForRecommendation(e.detail,e.location):
+                if isValidForRecommendation(e.eventDate,e.location):
                     has_recommendation = True
+                    
+                print has_recommendation
                 data = {'event':e, 'user':u,'uhash':u.uhash, 'started':started,'has_recommendation':has_recommendation}
                 return render_to_response('myevents/adminChoice.html', data, context_instance=RequestContext(request))
             except event.DoesNotExist:
@@ -143,6 +146,8 @@ def getMyPastChoices(request, ehash, uhash):
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
     
+    
+
 def search_yelp(category,query,location,query_id):
     url_params={}
     if type(query) is unicode:
@@ -324,9 +329,50 @@ def build_baseline_reclist(user_rate):
     sorted_items = sort_items_by_score(item_score_dict)
     return sorted_items
 
-# work in july 19. 
+# for attender add more choices
 # baseline recommendation algorithm
 def getBaseRecommendation2(request,ehash,uhash):
+    if request.method == 'GET':
+        e = event.objects.get(ehash=ehash)
+        query_date = str(e.eventDate)
+        query_zipcode = e.location
+
+        conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+        cursor = conn.cursor()
+        if query_date and query_zipcode:
+            query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes  from  myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+query_zipcode+'" and s.date = "'+query_date+'"'
+            print query
+            cursor.execute(query)
+                
+            rs = cursor.fetchall()
+            print rs
+            cursor.close()
+            conn.close()
+            ys = {}
+            i=0
+            for row in rs:
+                print row[0],row[1],row[2]
+                address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
+                y = {}
+                y['schedule_id'] = row[0]
+                y['movie_title'] = row[1] 
+                y['theatre_name'] = row[2]
+                y['theatre_address'] = address
+                y['theatre_url'] = row[7]
+                y['showtimes'] = row[8]
+                ys[str(i)]=y
+                i+=1
+                
+            #seralized_dict = simplejson.dumps(ys, default=lambda a: "[%s,%s]" % (a, a))
+            data = simplejson.dumps(ys)
+            #data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
+            return HttpResponse(data, mimetype='application/json')
+        else:
+            return render_to_response('myevents/error.html',{"message":"the zipcode and query date should not be empty"}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('myevents/error.html', {"message":"the request is not a GET"}, context_instance=RequestContext(request))
+
+def getBaseRecommendation0(request,ehash,uhash):
     #print ehash,uhash
     if request.method == 'GET':
         u = user.objects.get(uhash=uhash)
@@ -380,60 +426,142 @@ def getBaseRecommendation2(request,ehash,uhash):
     else:
         return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
 
+
+def getSearchChoices2(request,ehash,uhash):
+    #print ehash,uhash
+    if request.method == 'POST':
+        e = event.objects.get(ehash=ehash)
+        mv_title = request.POST.get('mv_title', '')
+        th_name = request.POST.get('th_name','')
+        zipcode = request.POST.get('zipcode','')
+        query_date = str(e.eventDate)
+        conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+        
+        cursor = conn.cursor()
+        if th_name and mv_title :
+            query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and m.title like "%'+mv_title+'%" and t.name like "%' +th_name+'%"' 
+        else:
+            if mv_title: 
+                query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and m.title like "%'+mv_title+'%"' 
+            if th_name:
+                query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and t.name like "%' +th_name+'%"' 
+            
+        print query
+        cursor.execute(query)
+        rs = cursor.fetchall()
+        print rs
+        cursor.close()
+        conn.close()
+        ys = {}
+        i=0
+        for row in rs:
+            print row[0],row[1],row[2]
+            address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
+            y = {}
+            y['schedule_id'] = row[0]
+            y['movie_title'] = row[1] 
+            y['theatre_name'] = row[2]
+            y['theatre_address'] = address
+            y['theatre_url'] = row[7]
+            y['showtimes'] = row[8]
+            ys[str(i)]=y
+            i+=1
+                
+        data = simplejson.dumps(ys)
+        return HttpResponse(data, mimetype='application/json')
+    else:
+        return render_to_response('myevents/error.html', {"message":"the request is not a POST"}, context_instance=RequestContext(request))
+
+
+def getSearchChoices(request,ehash,uhash=None):
+    #print ehash,uhash
+	if request.method == 'POST':
+		e = event.objects.get(ehash=ehash)
+		mv_title = request.POST.get('mv_title', '')
+		th_name = request.POST.get('th_name','')
+		zipcode = request.POST.get('zipcode','')
+		query_date = str(e.eventDate)
+		conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+		
+		cursor = conn.cursor()
+		if th_name and mv_title :
+			query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and m.title like "%'+mv_title+'%" and t.name like "%' +th_name+'%"' 
+		else:
+			if mv_title: 
+				query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and m.title like "%'+mv_title+'%"' 
+			if th_name:
+				query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and t.name like "%' +th_name+'%"' 
+			
+		print query
+		cursor.execute(query)
+		rs = cursor.fetchall()
+		print rs
+		cursor.close()
+		conn.close()
+		ys = {}
+		i=0
+		for row in rs:
+			print row[0],row[1],row[2]
+			address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
+			y = {}
+			y['schedule_id'] = row[0]
+			y['movie_title'] = row[1] 
+			y['theatre_name'] = row[2]
+			y['theatre_address'] = address
+			y['theatre_url'] = row[7]
+			y['showtimes'] = row[8]
+			ys[str(i)]=y
+			i+=1
+				
+			#seralized_dict = simplejson.dumps(ys, default=lambda a: "[%s,%s]" % (a, a))
+		data = simplejson.dumps(ys)
+			#data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
+		return HttpResponse(data, mimetype='application/json')
+	else:
+		return render_to_response('myevents/error.html', {"message":"the request is not a POST"}, context_instance=RequestContext(request))
+
+
 def getBaseRecommendation(request,ehash,uhash=None):
     #print ehash,uhash
-    if request.method == 'GET':
-        if uhash is None:
-            uid = request.session['user_id']
-            u = user.objects.get(id=uid)
-        else:
-            u = user.objects.get(uhash=uhash)
-        e = event.objects.get(ehash=ehash)
-        data = {}
-        # select all users of this event 
-        eu = event_user.objects.filter(event_id=e.id)
-        if eu:
-            user_rate = {}
-            for row in eu:
-                uid = row.user_id
-                # for this user, select past positive ratings, build the dictionary of item:rating
-                iu = poll.objects.filter(user_id=uid)
-                if iu:  #user has voted before.
-                    user_rate[uid] = {}     #build the rating list for the user
-                    for i in iu:
-                        cid = i.choice_id 
-                        rating = get_baseline_rating(uid,cid)
-                        # get the item id according to choice id.
-                        item_id = None
-                        try:
-                            item_id = choice.objects.get(id=cid).pickid
-                        except choice.DoesNotExist:
-                            print 'can not find the choice??'
-                        if (rating!=None) and item_id:
-                            user_rate[uid][item_id] = rating
-            if user_rate:
-                sorted_items =[]
-                sorted_items = build_baseline_reclist(user_rate) 
-                ys = []                                                                                       
-                item_count = 0 
-                for i in sorted_items:
-                    if item_count > 10:   # only recommend top 10 items
-                        break
-                    try:
-                        item_instance = item.objects.get(id = i)
-                        ys.append(item_instance)
-                        item_count += 1
-                    except item.DoesNotExist:
-                        print 'can not find the past item ??'
-                data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
-            else:  #if nobody has rated before
-                q = search_query.objects.create(term=e.detail,location=e.location, search_by_id = u.id, search_for_id=e.id)
-                data = search_yelp('restaurants','restaurants',e.location,q.id)
-            return HttpResponse(data, mimetype='application/json')
-        else:  # no users in the event
-            return render_to_response('myevents/error.html', {"message":" failed to identify your friends"}, context_instance=RequestContext(request))
-    else:
-        return render_to_response('myevents/error.html', {"message":"the request is not a get"}, context_instance=RequestContext(request))
+	if request.method == 'GET':
+		e = event.objects.get(ehash=ehash)
+		query_date = str(e.eventDate)
+		query_zipcode = e.location
+
+		conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+		cursor = conn.cursor()
+		if query_date and query_zipcode:
+			query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes  from  myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+query_zipcode+'" and s.date = "'+query_date+'"'
+			print query
+			cursor.execute(query)
+				
+			rs = cursor.fetchall()
+			print rs
+			cursor.close()
+			conn.close()
+			ys = {}
+			i=0
+			for row in rs:
+				print row[0],row[1],row[2]
+				address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
+				y = {}
+				y['schedule_id'] = row[0]
+				y['movie_title'] = row[1] 
+				y['theatre_name'] = row[2]
+				y['theatre_address'] = address
+				y['theatre_url'] = row[7]
+				y['showtimes'] = row[8]
+				ys[str(i)]=y
+				i+=1
+				
+			#seralized_dict = simplejson.dumps(ys, default=lambda a: "[%s,%s]" % (a, a))
+			data = simplejson.dumps(ys)
+			#data = serializers.serialize('json', ys, indent=2, use_natural_keys=True) 
+			return HttpResponse(data, mimetype='application/json')
+		else:
+			return render_to_response('myevents/error.html',{"message":"the zipcode and query date should not be empty"}, context_instance=RequestContext(request))
+	else:
+		return render_to_response('myevents/error.html', {"message":"the request is not a GET"}, context_instance=RequestContext(request))
 
 #select from search results
 def getMyYelpSearchChoices(request,ehash):
@@ -485,56 +613,77 @@ def getMyYelpSearchChoices2(request,ehash,uhash):
     
 # use item rather than different types
 def editEventChoice(request, ehash,uhash=None):
-    if request.method == "POST":
-        admin_choices = request.POST.getlist('admin_choice_ids')
-        try: 
-            choice_objs = []
-            e = event.objects.get(ehash=ehash)
-            if uhash is None:
-                uid = request.session['user_id']
-                if uid is None:
-                    return render_to_response('myevents/error.html', {"message":"invalid user"}, context_instance=RequestContext(request))      
-                else:
-                    inviter = user.objects.get(id=uid)
-            else:
-                inviter = user.objects.get(uhash=uhash)
-            for cid in admin_choices:
-                try:
-                    c = choice.objects.get(pickid=cid,pickby_id=inviter.id)
-                    c.cnt+=1
-                    c.save()
-                except choice.DoesNotExist:
-                    c = choice.objects.create(pickid=cid, pickby_id=inviter.id,cnt=1) 
-                try: # here is for wrong operation. shouldn't happen if not because of testing
-                    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
-                except:
-                    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
-                item_obj = item.objects.get(id=cid)
-                choice_objs.append(item_obj)
-                    
+	if request.method == "POST":
+ 		admin_choices = request.POST.getlist('admin_choice_ids')
+ 		try: 
+ 			choice_objs = {}
+ 			e = event.objects.get(ehash=ehash)
+ 			if uhash is None:
+ 				uid = request.session['user_id']
+ 				if uid is None:
+ 					return render_to_response('myevents/error.html', {"message":"invalid user"}, context_instance=RequestContext(request))      
+ 				else:
+ 					inviter = user.objects.get(id=uid)
+ 			else:
+ 				inviter = user.objects.get(uhash=uhash)
+            
+ 			i=0
+ 			for cid in admin_choices:
+				try:
+					s = schedule.objects.get(id=cid)
+				except schedule.DoesNotExist:
+					return render_to_response('myevents/error.html', {"message":"invalid schedule"}, context_instance=RequestContext(request))      
+                
+			 	try:
+					c = choice.objects.get(event_id=e.id,schedule_id=cid,pickby_id=inviter.id)
+					c.cnt+=1
+					c.save()
+				except choice.DoesNotExist:
+					c = choice.objects.create(event_id= e.id,schedule_id=cid, pickby_id=inviter.id,cnt=1) 
+                #try: # here is for wrong operation. shouldn't happen if not because of testing
+                #    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
+                #except:
+                #    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
+                #item_obj = item.objects.get(id=cid)
+				y={}
+				t = theatre.objects.get(thid = s.thid)
+				y['movie_title'] = movie.objects.get(mov_id=s.mov_id).title 
+				y['theatre_name'] = t.name
+				y['theatre_address'] = t.street+' '+t.city+' '+t.state+' '+t.postcode
+				y['theatre_url'] = t.url
+				y['showtimes'] = s.showtimes
+				choice_objs[str(i)]=y
+				i+=1
+				
+			#seralized_dict = simplejson.dumps(ys, default=lambda a: "[%s,%s]" % (a, a))
+			        
             ### send a mail to inviter too, since he is the attender as well
-            attenderMail(ehash, inviter.uhash, inviter.email, e.name, inviter.email)
+			attenderMail(ehash, inviter.uhash, inviter.email, e.name, inviter.email)
             
             ### get all friends email
-            attenders = e.friends.strip()
-            all_attenders = attenders.split(',')
+			attenders = e.friends.strip()
+			all_attenders = attenders.split(',')
 
             ### send email to each attender 
-            for each_attender in all_attenders:
+			for each_attender in all_attenders:
                 #remove space
-                each_attender = each_attender.strip()    
-                try:
-                    attender = user.objects.get(email=each_attender)
-                    attenderMail(ehash, attender.uhash, inviter.email, e.name, attender.email)
-                except user.DoesNotExist:   #ignore the user which doesn't exist in the db
-                    continue
+				each_attender = each_attender.strip()    
+				try:
+					attender = user.objects.get(email=each_attender)
+					attenderMail(ehash, attender.uhash, inviter.email, e.name, attender.email)
+				except user.DoesNotExist:   #ignore the user which doesn't exist in the db
+					continue
               
-            e.status = EVENT_STATUS.VOTING
-            e.save()
-            data = {'event': e, 'user':inviter,'choices':choice_objs}        
-            return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
-        except event.DoesNotExist or user.DoesNotExist:
-            return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      
+			e.status = EVENT_STATUS.VOTING
+			e.save()
+            
+            # pass back user for indentification
+ 			data = {'event': e, 'user':inviter, 'choices':choice_objs}                                                                                                                                       
+            #data = simplejson.dumps(choice_objs) 
+			print data
+			return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
+		except event.DoesNotExist or user.DoesNotExist:
+			return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      
 
 #attender add more choice. form update
 def addMoreChoice(request,ehash,uhash):
@@ -546,17 +695,11 @@ def addMoreChoice(request,ehash,uhash):
             proposer = user.objects.get(uhash=uhash)
             for cid in attender_choices:
                 try:
-                    c = choice.objects.get(pickid=cid,pickby_id=proposer.id)
+                    c = choice.objects.get(event_id = e.id,schedule_id=cid,pickby_id=proposer.id)
                     c.cnt+=1
                     c.save()
                 except choice.DoesNotExist:
-                    c = choice.objects.create(pickid=cid, pickby_id=proposer.id,cnt=1) 
-                try: #if this choice is already picked for this event.
-                    ec = event_choice.objects.get(event_id= e.id,choice_id=c.id)
-                except:
-                    ec = event_choice.objects.create(event_id=e.id, choice_id=c.id)
-                item_obj = item.objects.get(id=cid)
-                choice_objs.append(item_obj)
+                    c = choice.objects.create(event_id=e.id,schedule_id=cid, pickby_id=proposer.id,cnt=1) 
                     
             ### send a mail to inviter too, since he is the attender as well
             all_attenders = db_get_all_attender_emails(e.id)
@@ -572,7 +715,7 @@ def addMoreChoice(request,ehash,uhash):
                 except user.DoesNotExist:   #ignore the user which doesn't exist in the db
                     continue
 
-            data = {'event': e, 'user':proposer,'choices':choice_objs}        
+            data = {'event': e, 'user':proposer}        
             return render_to_response('myevents/addChoiceSuccess.html', data, context_instance=RequestContext(request))
         except event.DoesNotExist or user.DoesNotExist:
             return render_to_response('myevents/error.html', {"message":"event or user does not exist"}, context_instance=RequestContext(request))      

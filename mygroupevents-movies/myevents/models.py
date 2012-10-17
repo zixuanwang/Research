@@ -40,74 +40,35 @@ class event(models.Model):
 	closeDate =  models.DateTimeField(editable=True)
 	pub_date = models.DateTimeField(auto_now_add=True)
 
-class theater(models.Model):
-	theatreId = models.CharField(max_length=25)
+class theatre(models.Model):
+	thid = models.CharField(max_length=25)
 	name = models.TextField()
-	address_street1 = models.TextField()
-	address_city = models.TextField()
-	address_state = models.TextField()
-	address_postalCode = models.CharField(max_length=25)
+	street = models.TextField()
+	city = models.TextField()
+	state = models.TextField()
+	country = models.TextField()
+	postcode = models.CharField(max_length=25)
 	telephone = models.CharField(max_length=25)
-	screenCount = models.IntegerField()
 	longitude = models.CharField(max_length=255)
 	latitude = models.CharField(max_length=255)
-	active =  models.IntegerField()
 	url = models.TextField(null=True) 
 
 class movie(models.Model):
-	tmsid = models.CharField(max_length=255)
-	title_full = models.CharField(max_length=255)
+	mov_id = models.CharField(max_length=255)
+	title = models.CharField(max_length=255)
 	# exists more than one red, pick the first one, or concatenate by symbol
-	title_red = models.CharField(max_length=255)
-	desc_500 = models.TextField()
-	desc_250 = models.TextField()
-	desc_100 = models.TextField()
-	desc_60 = models.TextField()
-	progType = models.CharField(max_length=255)
+	description = models.TextField()
 	# use , connect if more than one genre
 	genre = models.CharField(max_length=255)
-	qualityRating = models.FloatField()
-	pictureFormat = models.CharField(max_length=255)
-	releases = models.CharField(max_length=255)
-	productionCompanies = models.CharField(max_length=255)
-	country = models.CharField(max_length=25)
-	# use symbol to concatenate distributor names if more than one. 
-	distributors = models.CharField(max_length=255)
+	release_date = models.CharField(max_length=255)
+	img_id = models.CharField(max_length=255)
 
-class program(models.Model):
-	movie = models.ForeignKey(movie)
-	theater = models.ForeignKey(theater)
-	date = models.CharField(max_length = 1024)
-
-# separate program and schedule for the sake of choice and query_result
 class schedule(models.Model):
-	program = models.ForeignKey(program)
-	showtime = models.CharField(max_length=1024)
-	barg = models.IntegerField()
+	mov_id = models.CharField(max_length=1024)
+	thid = models.CharField(max_length = 1024)
+	date = models.CharField(max_length = 1024)
+	showtimes = models.TextField()
 	
-class celebrity(models.Model):
-	firstname = models.CharField(max_length=255)
-	lastname = models.CharField(max_length=255)
-
-class movie_cast(models.Model):
-	movie = models.ForeignKey(movie)
-	celebrity = models.ForeignKey(celebrity)
-	role = models.CharField(max_length=255)
-	char_firstname = 	models.CharField(max_length=255)
-	char_lastname = models.CharField(max_length=255)
-
-class movie_award(models.Model):
-	movie = models.ForeignKey(movie)
-	award_name = models.CharField(max_length=255)
-	category = models.CharField(max_length=255)
-	recipient = models.CharField(max_length=255)
-	year = models.CharField(max_length=255)
-	
-class movie_rating(models.Model):
-	movie = models.ForeignKey(movie)
-	area = models.CharField(max_length=255)
-	code = models.CharField(max_length=255)
-
 class search_query(models.Model):
 	theater_name = models.TextField()
 	movie_name = models.TextField()
@@ -122,7 +83,7 @@ class search_query(models.Model):
 # or add schedule into choice only if the showtime is valid
 class search_result(models.Model):
 	search_query = models.ForeignKey(search_query)
-	program = models.ForeignKey(program)
+	schedule = models.ForeignKey(schedule)
 
 class event_user(models.Model):
 	event = models.ForeignKey(event)
@@ -137,6 +98,7 @@ class choice(models.Model):
 	schedule = models.ForeignKey(schedule)
 	pickby = models.ForeignKey(user)
 	pub_date = models.DateTimeField(auto_now=True, auto_now_add=True)
+	cnt = models.IntegerField()
 
 class poll(models.Model):
 	event = models.ForeignKey(event)

@@ -11,7 +11,7 @@ from django.utils import simplejson
 from django.db.models import Count
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
-import MySQLdb as mdb
+import MySQLdb 
 import sys
 import datetime
 from django.utils.timezone import utc
@@ -33,7 +33,7 @@ def attender(request,ehash,uhash):
             isadmin = True
         else:
             isadmin = False
-        choices = getEventChoices2(ehash)
+        choices = getEventChoices(ehash)
         #print choices
         init_pos_votes = {}
         init_neg_votes = {}
@@ -79,38 +79,29 @@ def getEventChoices(ehash):
     choice_objs =[]
     try:
         e = event.objects.get(ehash=ehash)
-        cs = event_choice.objects.filter(event_id=e.id).distinct().values('choice')
+        cs = choice.objects.filter(event_id=e.id).distinct()
         for cl in cs:
+            print cl.id,cl.schedule_id
             cobj={}
-            cid = cl['choice']
-            cobj['id'] = cid
-            c = choice.objects.get(id=cid)            
-            if int(c.pickfrom) == CHOICE_SOURCE.MANUAL:
-                manual_obj = manual.objects.get(id=c.pickid)#.values('name','location','notes')
-                cobj["name"] = manual_obj.name 
-                cobj['location'] = manual_obj.location
-                cobj['image'] = manual_obj.image   # this is always empty.
-                cobj['notes'] = manual_obj.notes
-                cobj['url'] = ''
+            sid = cl.schedule_id
+            cobj['id'] = cl.id  # id should be choice id, not schedule id 
+            
+            #c = schedule.objects.get(id=cid)            
+            conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+            cursor = conn.cursor()
+            query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes from myevents_schedule s, myevents_theatre t,myevents_movie m where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(sid)
+            cursor.execute(query)
+            rs = cursor.fetchall()
+            print rs
+            cursor.close()
+            conn.close()
+            for row in rs:
+                cobj['movie_title'] = row[0]
+                cobj['theatre_name'] = row[1]
+                cobj['theatre_address'] = row[2]+' '+row[3]+' '+row[4]+' '+row[5]  
+                cobj['showtimes'] = row[6]
                 choice_objs.append(cobj)
-            if int(c.pickfrom) == CHOICE_SOURCE.YELP:
-                yelp_obj = item.objects.get(id=c.pickid)#.values('name','location','notes')
-                cobj["name"] = yelp_obj.name 
-                cobj['location'] = yelp_obj.location
-                cobj['image'] = yelp_obj.image 
-                cobj['notes'] = yelp_obj.notes
-                cobj['url'] = yelp_obj.url
-                choice_objs.append(cobj)
-            if int(c.pickfrom) == CHOICE_SOURCE.REC:
-                yelp_obj = item.objects.get(id=c.pickid)#.values('name','location','notes')
-                cobj["name"] = yelp_obj.name 
-                cobj['location'] = yelp_obj.location
-                cobj['image'] = yelp_obj.image 
-                cobj['notes'] = yelp_obj.notes
-                cobj['url'] = yelp_obj.url
-                choice_objs.append(cobj)
-    
-    except event.DoesNotExist:
+    except event.DoesNotExist, choice.DoesNotExist:
         return choice_objs
         
     return choice_objs
@@ -192,18 +183,30 @@ def getResult(request,ehash,uhash):
     # need to have values to have the group by effect
     rs = poll.objects.filter(event=e.id, vote=1).values('choice').annotate(num_votes=Count('choice')).order_by('-num_votes')
     if rs:  #if it's not empty
+        print rs
         first_rs = rs[0]
-        cid = first_rs['choice']
-        numlikes = first_rs['num_votes']
-        c = choice.objects.get(id=cid)
-        place_detail=""
-        try:
-            bestItem = item.objects.get(id=c.pickid)
-            place_detail = bestItem.name+' , '+bestItem.location+' , '+bestItem.notes
-        except item.DoesNotExist:
-            print 'choice and item are corrupted.'
         
-        json = simplejson.dumps({"place":place_detail,'numlikes':numlikes,'numdislikes':0})
+        cid = first_rs['choice']
+        print cid
+        numlikes = first_rs['num_votes']
+        
+        try:
+            c = choice.objects.get(id=cid)
+        
+            conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+            cursor = conn.cursor()
+            query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes from myevents_schedule s, myevents_theatre t,myevents_movie m \
+                where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(c.schedule_id)
+            cursor.execute(query)
+            rss = cursor.fetchone()
+            print rss
+            place_detail = ', '.join(rss) 
+            cursor.close()
+            conn.close()
+    
+            json = simplejson.dumps({"place":place_detail,'numlikes':numlikes,'numdislikes':0})
+        except choice.DoesNotExist:
+            json = ''
     else:  #if no body vote on likes, this is not used yet
         rs = poll.objects.filter(event=e.id, vote=-1).values('choice').annotate(num_votes=Count('choice')).order_by('-num_votes') 
         if rs:
@@ -211,9 +214,18 @@ def getResult(request,ehash,uhash):
             cid = first_rs['choice']
             numdislikes = first_rs['num_votes']
             c = choice.objects.get(id=cid)
-            dislikePl=""
-            least_bad_item = item.objects.get(id=c.pickid) 
-            dislikePl = least_bad_item.name + ' , '+least_bad_item.location + ' , '+least_bad_item.notes
+
+            conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
+            cursor = conn.cursor()
+            query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes from myevents_schedule s, myevents_theatre t,myevents_movie m where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(c.schedule_id)
+            cursor.execute(query)
+            rss = cursor.fetchone()
+            print rss
+            dislikePl = ','.join(rss[0]) 
+            cursor.close()
+            conn.close()
+
+            #dislikePl = least_bad_item.name + ' , '+least_bad_item.location + ' , '+least_bad_item.notes
             numdislikes = rs[0]['num_votes']
             json = simplejson.dumps({"place":dislikePl,'numlikes':0,'numdislikes':numdislikes})   
         else:
@@ -351,7 +363,7 @@ def fun_prepare_attender_data(eid,uid):
         isadmin = True
     else:
         isadmin = False
-    choices = getEventChoices2(e.ehash)
+    choices = getEventChoices(e.ehash)
                 #print choices
     init_pos_votes = {}
     init_neg_votes = {}
@@ -468,19 +480,18 @@ def fun_prepare_attender_add_chioce_data(eid,uid):
     try:
         e = event.objects.get(id=eid)
         has_recommendation = False
-        if isValidForRecommendation(e.detail,e.location):
+        if isValidForRecommendation(e.eventDate,e.location):
             has_recommendation = True
         u = user.objects.get(id=uid)
         e_u = event_user.objects.get(event_id=e.id, user_id=u.id)
     except event_user.DoesNotExist or event.DoesNotExist or user.DoesNotExist:
         data ={}
         return data
-    
     if e_u.role == 'admin':
         isadmin = True
     else:
         isadmin = False
-    choices = getEventChoices2(e.ehash)
+    choices = getEventChoices(e.ehash)
                 #print choices
     init_pos_votes = {}
     init_neg_votes = {}

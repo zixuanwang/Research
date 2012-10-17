@@ -30,13 +30,13 @@
 			<h3> Thanks for your participation. The event  &#8204;<font color='#08c'> {{event.name}} </font> is now closed. </h3>
 	 		<hr/>
 			<p>
-				It is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} 
+				It is watching movie together </u> 
 				on <u>  {{event.eventDate}}  </u> 
 				{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
 			</p>
 			<p> organized by &#8204;<font color='#08c'> {{event.inviter}} </font> </p>
 			<p class="wordwrap">accompany with {{event.friends}} </p>
-			<p>{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
+			
 	</div> 
 	<div class="row-fluid">
 		<div class="alert alert-success"> 
@@ -50,35 +50,25 @@
  	<div class="row-fluid" id="candidates" >
 		<table id="myTable" class="table table-bordered"> 
 		<thead> 
-		<tr> <!--<th>Option (name, location, rating, review count) </th> -->
-			<th>Options</th>
-    		<th>Votes</th>  
-    		<th>Details</th> 
+			<tr> <!--<th>Option (name, location, rating, review count) </th> -->
+			<th>Movie Title</th>
+			<th>Theatre Name</th>
+			<th>Theatre Address</th>
+			<th>Showtimes</th>
+			<th>Vote</th>  
+			<th>Details</th>
 		</tr> 
 		</thead> 
 		<tbody>
 		{% for choice in choices %}
-		<tr> 
-    		<td id="choice_id_{{choice.id}}"> 
-    			{%if choice.url%}
-    				<a target="_blank" href="{{choice.url}}" >
-    				{{choice.name}} 
-    				</a>
-    			{%else%}
-    				{{choice.name}}
-    			{%endif%}
-    		  
-    			{% if choice.location %} 
-    				&#8204;{{choice.location}}
-    			{%endif%} 
-    			{%if choice.notes%}
-    				&#8204; 
-	    			{%if choice.image%}
-   	 				<img src="{{choice.image}}"> 
-    				{%endif%} 
-    				{{choice.notes}}
-				{%endif%}
+		<tr id="choice_id_{{choice.id}}"> 
+			<td > 
+				{{choice.movie_title}}
 			</td> 
+			<td>{{choice.theatre_name}}</td>
+			<td>{{choice.theatre_address}}</td>
+			<td>{{choice.showtimes}}</td>
+
     		<td> 
     			<div> <i class="icon-search icon-thumbs-up"></i> {{posvotes|dictKey:choice.id}} Likes </div>
     			<div> <i class="icon-search icon-thumbs-down"></i> {{negvotes|dictKey:choice.id}} Dislikes </div>

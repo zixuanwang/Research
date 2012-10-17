@@ -1,0 +1,500 @@
+{% extends "myevents/auth_base.html" %}
+{% load static %}
+{% block title %} Welcome to MyGroupEvents {% endblock %}
+{% block extrastyle %}
+ 	<link type="text/css" href="{%static "css/tagit/reset.css"%}" rel="stylesheet" /> 
+ 	<link type="text/css" href="{%static "css/tagit/jquery-ui.autocomplete.css"%}" rel="stylesheet" />
+<style type="text/css">
+p.friends{ width: 940px;
+ 	 word-wrap: break-word;}
+	.wordwrap{
+	max-width: 940px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+    }
+	</style>
+{% endblock %}
+{% block morescript %}
+<script src="{%static "js/jquery-ui.autocomplete.min.js"%}" type="text/javascript" charset="utf-8"></script>  
+<script src="{%static "js/tag-it.js"%}" type="text/javascript" charset="utf-8"></script>
+<script src="{%static "js/jquery.scrollTo-min.js"%}" type="text/javascript" charset="utf-8"></script>
+<script src="{%static "js/jquery-ui-timepick-addon.js"%}" type="text/javascript" charset="utf-8"></script> 
+<script src="{%static "js/bootstrap-tab.js"%}" type="text/javascript" charset="utf-8"></script> 
+<script src="{%static "js/spin.js"%}" type="text/javascript" charset="utf-8"></script> 
+<script type="text/javascript" src=" {%static "js/bootstrap-modal.js"%}"></script> 
+<script src="{%static "js/bootstrap-alert.js"%}" type="text/javascript" charset="utf-8"></script> 
+<script>
+$(function() {
+	$("#add_manual_choice").click(function()
+	{
+		var name =  $("#choice_name").val();
+		if (name==' ')
+		{
+			alert('Name is required.');
+			return false;
+		}
+		var location = $("#choice_location").val();
+		var notes = $("#choice_note").val();
+		//insert into db
+		$.ajax
+		({
+			type: "POST",
+			url:  "../addManualChoice/",
+			data: {'name':name,"location":location,"notes":notes,csrfmiddlewaretoken:'{{csrf_token}}'},
+			cache: false,
+			success: function(response)
+			{
+				var id = response.choice_id;
+				//console.debug(id);
+				//console.debug(notes);
+				var html = '<tr id="show_choice_id_'+id+'"><td>'+name+'</td><td>'+location+'</td><td>'+notes+'</td><td><span class="label label-info remove_choice" id="manual">remove</span></td></tr>';
+				$("#show_choice_list > tbody").append(html);
+				//$("#hidden_manual_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_yelp_choice_id_'+ id+'" name="manual_choice_ids" />');
+			    $("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_admin_choice_id_'+id+'" name="admin_choice_ids" />');
+			
+			} 
+		}); 	
+	});
+	});
+		
+	$(function() 
+	{
+		$(".remove_choice").live('click',function()
+		{
+			var source_from = $(this).attr('id');
+			//console.debug(source_from);
+			var id = $(this).closest('tr').attr('id');
+			//console.debug(id);
+				
+			$(this).parent().parent().remove(); 
+			var intids = id.split('_');
+			var lastid = intids[intids.length-1]
+			//console.debug(lastid);
+			$("#hidden_admin_choice_id_"+lastid).remove();
+ 
+			return false;
+		});
+	});
+		
+	$(document).ready(function() 
+	{
+		$("#flash").show();
+		$("#flash").fadeIn(400).html('Loading...');
+ 		$.ajax(
+ 		{
+			type: "GET",
+			url:  "../getBaseRecommendation/",
+			data: {},
+			cache: false,
+			success: function(response)
+			{ 			
+				$("#flash").hide();
+
+				for (var o in response){
+					var obj = response[o];
+					console.debug(obj);
+					var id = obj.schedule_id;
+					var movie_title= obj.movie_title;
+					var theatre_name = obj.theatre_name;
+					var theatre_address = obj.theatre_address;
+					var theatre_url = obj.theatre_url;
+					var showtimes = obj.showtimes;
+		
+					var html = '<tr id="rec_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
+					console.debug(html);
+		 		 	$("#show_rec_choice_list >tbody").append(html);
+     			}
+     		}						 
+ 		});		 
+	});
+		
+	$(function() 
+	{
+		$("#add_rec_choice").live('click',function()
+		{
+			var id = $(this).closest('tr').attr('id');
+			//console.debug(id);
+			var intids = id.split('_');
+			var lastid = intids[intids.length-1];
+			//console.debug(lastid);
+			
+			var model = $(this).closest('tr').attr('name');
+			//console.debug('model== '+model);
+			
+			var $thisrow = $(this).parent().parent();				 
+			var name = $thisrow.children('#name').text();
+			var url = $thisrow.children('#name').children('#url').attr("href");	 
+			var location=$thisrow.children('#location').text();
+			var notes=$thisrow.children('#notes').text();
+			var rating_image = $thisrow.children('#notes').children('img').attr('src');
+			 
+			var html = '<tr id="rec_choice_id_'+id+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>&nbsp;'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
+     		 
+     		// remove it or not, this is a question
+     		$thisrow.remove(); 
+     		$("#show_choice_list >tbody").append(html);
+     		$("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_admin_choice_id_'+lastid+'" name="admin_choice_ids" />');
+     		
+		});
+	});
+		
+ 
+	  
+	$(document).ready(function() 
+	{
+		$('.myfriend').live('click',function(){
+			var fname = $(this).text();
+			$(this).remove();
+			add_friend_choice(fname); 
+		});
+	});
+		
+	function validateForm()
+	{
+		var x = document.getElementsByName('admin_choice_ids');
+		 
+		if (x.length==0 )
+		{
+			alert(" Please provide at least one choice")
+			return false;
+		}
+		//avoid double submit
+		$("#finish").attr('disabled', 'disabled');
+		var opts = {
+  		lines: 13, // The number of lines to draw
+  		length: 20, // The length of each line
+  		width: 10, // The line thickness
+  		radius: 20, // The radius of the inner circle
+  		rotate: 30, // The rotation offset
+  		color: '#000', // #rgb or #rrggbb
+  		speed: 1.2, // Rounds per second
+  		trail: 66, // Afterglow percentage
+  		shadow: false, // Whether to render a shadow
+  		hwaccel: false, // Whether to use hardware acceleration
+  		className: 'spinner', // The CSS class to assign to the spinner
+  		zIndex: 2e9, // The z-index (defaults to 2000000000)
+  		top: 'auto', // Top position relative to parent in px
+  		left: 'auto' // Left position relative to parent in px
+		};
+		var target = document.getElementById('foo');
+		var spinner = new Spinner(opts).spin(target);
+	}
+
+	$(document).ready(function() 
+	{
+		$('#search_mv').live('click',function()
+		{
+			var mv_name = $('#search_movie').val();
+			var th_name = $('#search_theatre').val();
+			var location = $('#search_location').val();
+
+			if (location.length==0)
+			{
+				alert("please provide the zipcode ");
+				return false;
+			}
+			
+			//remove the previous result.
+			$("#show_search_choice_list >tbody").html('');
+			$("#search_error").html('');
+			
+			//indicating loading
+			$("#search_flash").show();
+			$("#search_flash").fadeIn(400).html('Loading...');
+			
+			$.ajax(
+			{
+				type: "POST",
+				url: "../getSearchChoices/",
+ 				data: {'movie':mv_name,"theatre":th_name,"zipcode":location,csrfmiddlewaretoken:'{{csrf_token}}'},
+				cache: false,
+				success: function(data) 
+				{
+					$("#search_flash").hide();
+					if (data.length==0)
+					{
+						//$("#show_search_choice_list >tbody").html('');
+						$("#search_error").html("<p>Sorry, no results are found. Try modifying your query?</p>");
+					}
+					else
+					{
+						//$("#search_error").html('');
+						$("#show_search_choice_list >tbody").html('');
+						//for each (var obj in data)
+						for (var o in data)
+						{
+							var obj = response[o];
+							console.debug(obj);
+							var id = obj.schedule_id;
+							var movie_title= obj.movie_title;
+							var theatre_name = obj.theatre_name;
+							var theatre_address = obj.theatre_address;
+							if isEmpty(obj.theatre_url)
+								var theatre_url = '#';
+							else{
+								var theatre_url = obj.theatre_url;
+							}
+							var showtimes = obj.showtimes;
+							var html = '<tr id="search_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
+						console.debug(html);
+		 		 		$("#show_search_choice_list >tbody").append(html);
+     				}	
+   				}
+			}
+		});
+		});
+	});
+ 
+ 	$(function() 
+ 	{
+		$(".add_search_choice").live('click',function()
+		{
+			var id = $(this).closest('tr').attr('id');
+			//console.debug(id);
+				
+			var intids = id.split('_');
+			var lastid = intids[intids.length-1]
+			//console.debug(lastid);
+				
+			var model = $(this).closest('tr').attr('name');
+			//console.debug('model== '+model);
+			var $thisrow = $(this).parent().parent();
+				 
+			var name = $thisrow.children('#name').text();
+			var url = $thisrow.children('#name').children('#url').attr("href");
+				 
+			var location=$thisrow.children('#location').text();
+			var notes=$thisrow.children('#notes').text();
+			var rating_image = $thisrow.children('#notes').children('img').attr('src');
+			var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
+     		 
+     		// remove it or not, this is a question
+     		$thisrow.remove(); 
+     		$("#show_choice_list >tbody").append(html);
+     		$("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_admin_choice_id_'+lastid+'" name="admin_choice_ids" />');
+ 
+		});
+	});
+	
+	$(document).ready(function() 
+	{
+		//var efriends = $('#showfriends').val();
+		$('#showfriends').live('click',function(){
+			var efriends = $('#myfriends').text();
+			console.log(efriends);		
+			 
+			var friends = efriends.split(',');
+			var oneLine=8;
+			var findx=0;
+			var num =friends.length;
+		 
+			console.log(num)
+			if(num>oneLine)
+			{
+				console.log('more than 8');
+				while(findx<=num){
+					var friendInALine=""
+					if (findx+oneLine > num)
+					{friendInALine= friends.slice(findx, num).join(); }
+					else
+						{friendInALine= friends.slice(findx, findx+oneLine).join();}
+					findx+=oneLine;
+					console.log(friendInALine);
+					$('#friendslist').append('<p class="wordwrap">'+friendInALine+'</p>')
+				} 
+			}
+			else{
+				$('#friendslist').html('<p class="wordwrap">'+efriends+'</p>');
+			} 
+		});
+		
+	});
+	
+</script>	
+{% endblock%}
+
+{% block content%}
+<!-- hidden values--> 
+<p id='myfriends' style="display:none;"> {{ event.friends }}</p> 
+
+ <header class="jumbotron subhead">
+  <div class="container">
+ {% if user.is_authenticated %}  
+  <h1>Welcome, {{ user.name }}. </h1>
+<h3> Organize your event  <font color='#08c'>{{event.name}} </font> </h3>
+{% else %}
+  <p>Welcome, Please <a href='../login/'>log in</a> to view this page.</p>
+{% endif %}
+</div>
+</header>
+
+<div class="container">
+	
+	{%if started  %} 
+	     <div class="alert">
+	     	<br>
+   		 	<strong>The event is already started! </strong>  
+   		 	<h3> Wanna <a href = "../attender/">Check its status</a> ?  </h3>
+    	</div>
+	{%else%}
+	<div id="event_details">
+		<p>
+	 	  This event is
+	 	  {%if event.detail%}
+	 	  about <u>{{event.detail}}</u> together
+	 		{% endif %} 
+	 		on <u>{{event.eventDate}}</u>
+	 		{%if event.eventTime%}  
+	 		<u>{{event.eventTime}}</u>
+	 		{%endif%}	
+	 	</p>
+	 		<p class="wordwrap">with  {{event.inviter}} , {{event.friends}} </p>
+	 	    <p>	{% if event.location%} 
+   			 near <u> {{event.location}} </u>
+    		{%endif%}
+	 	</p>
+	<p><a class="btn btn-primary" href='../adminDetail/'> BACK TO EDIT EVENT DETAILS </a> </p>
+ 	</div>
+ 	
+ 	<hr/>
+  	<div class="row-fluid  show-grid">
+		<h3>PICK OPTIONS </h3>
+		<p ><span class="add-on"><i class="icon-list-alt"></i></span> Now give your friends multiple options to select from. 
+		Pick some of our suggestions below or search for some on your own.</p>	
+			 <!--show selected choices-->
+		
+		<div class="hero-unit">
+			<h3>Your selections so far</h3>
+			<table id="show_choice_list" class="table table-striped table-bordered table-condensed">
+			<!--<thead>
+				<tr>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Note (rating, review count)</th>	
+					<th style="display:none;"> Operation</th>	
+				</tr>
+			</thead>  -->
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div> <!-- end of row-->
+			 
+	<div class="accordion" id="accordion2">
+		
+		{%if has_recommendation%}
+		<div class="accordion-group">
+		<div class="accordion-heading ">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#place_rec">
+                  Suggestions for your group
+                </a>
+		</div>
+		<div id="place_rec" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                	<div id='flash'></div>
+                		<div id="show_rec_list" > 			
+					<table id="show_rec_choice_list" class="table table-striped">
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
+		{%endif%}
+		
+		<div class="accordion-group">		
+		<div class="accordion-heading alert-success">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#search_choice">
+			Search for more 
+			</a>
+		</div>
+		
+		<div id="search_choice" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<div class="well form-inline">
+    				<label>Movie Title </label>&nbsp; <input type="text" class="input-large" id="search_movie" placeholder="Movie Title"> 
+				&nbsp; 
+					<label>Theatre Name </label>&nbsp; <input type="text" class="input-large" id="search_theatre" placeholder="Theatre Name"> 
+				&nbsp; 
+    				<label>ZipCode </label>&nbsp; <input type="text" class="input-large" id="search_location" placeholder= "{{event.location}}" value="{{event.location}}">&nbsp; 
+    				<button type="submit" class="btn" id="search_mv">Search</button>
+    			</div>
+	
+			<div id='search_result'>
+				<div id="search_flash">  </div>
+					<div id="search_error"> </div>
+					<table id="show_search_choice_list" class="table table-striped">
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div> <!-- end of the calss accordion-inner -->
+              </div> <!-- end of the id search_choice -->
+            </div> <!-- end of the class accordion-group-->
+		
+
+            <div class="accordion-group">
+              <div class="accordion-heading alert-info">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#manual_choice">
+                  Enter options manually
+                </a>
+              </div>
+              <div id="manual_choice" class="accordion-body collapse">
+                <div class="accordion-inner">
+			<!--manually type a choice -->
+			<input type="text" class="input-large" id="choice_name" placeholder="Name" autofocus required>
+			<input type="text" class="input-large" id="choice_location" placeholder="Location">
+			<input type="text" class="input-large" id="choice_note" placeholder="Notes">
+			{% csrf_token %}
+			<span class="label label-info" id="add_manual_choice">add</span>
+			<!-- <button type="submit" class="btn" id="add_choice">add</button> -->              
+		</div>
+              </div>
+            </div>
+          </div>	 
+ 
+ 	
+ 		<div id="foo">  
+ 
+		</div>  
+		
+		<br/>
+		<form class="well" name="AdminChoiceForm" action = '../editEventChoice/' method = "post" onsubmit="return validateForm(); ">
+			<div id="hidden_manual_choice_list"  class="row-fluid  show-grid">
+			</div>
+			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">
+			</div>
+			<div id="hidden_rec_choice_list"  class="row-fluid  show-grid">
+			<div id="hidden_admin_choice_list"  class="row-fluid  show-grid">
+			</div>
+			{% csrf_token %}
+			<p> <span class="add-on"><i class="icon-leaf"></i></span>Alright, let's email your friends about this event, and let them decide which option is best! 
+			<button type="submit" class="btn-primary" id="finish" > GO</button>
+			</p>
+		</form> 
+		 
+ 	</div><!-- End choices tab -->
+ 
+{%endif%} 
+
+<br>
+<br>
+<!-- Footer
+    ================================================== -->
+<footer class="footer ftwraper">
+<!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+<p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+</footer>
+
+</div> <!-- /container -->	 
+{% endblock%}
+

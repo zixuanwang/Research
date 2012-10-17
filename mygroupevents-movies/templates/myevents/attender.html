@@ -44,11 +44,10 @@
 					<h3> You are invited to the event &#8204;<font color='#08c'> {{event.name}} </font></h3>	
 				{%endif%}
 				<p>
-					This event is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} on <u>  {{event.eventDate}}  </u> 
+					This movie event is {%if event.detail%} about <u> {{event.detail}} together </u>  {% endif %} on <u>  {{event.eventDate}}  </u> 
 					{%if event.eventTime%}  <u> {{event.eventTime}}</u> {%endif%}	
 				</p>
 				<p class="wordwrap">with  {{event.inviter|wordwrap:80}},{{event.friends}} </p>
-				<p>{% if event.location%} near <u> {{event.location}} </u> {%endif%} </p>
 			</div> 
 		<hr/>
 	 
@@ -58,30 +57,26 @@
 					<table id="myTable" class="table table-bordered"> 
 					<thead> 
 					<tr> <!--<th>Option (name, location, rating, review count) </th> -->
-						<th>Options</th>
+						<th>Movie Title</th>
+						<th>Theatre Name</th>
+						<th>Theatre Address</th>
+						<th>Showtimes</th>
 		    			<th>Vote</th>  
-		    			<th>Details</th> 
+		    			<th>Details</th>
 					</tr> 
 					</thead> 
 					<tbody>
 					{% for choice in choices %}
-						<tr> 
-			    			<td id="choice_id_{{choice.id}}"> 
-			    			{%if choice.url%}
-			    				<a target="_blank" href="{{choice.url}}" > {{choice.name}} </a>
-			    			{%else%}
-			    				{{choice.name}}
-			    			{%endif%}
-			    			{% if choice.location %} 
-			    				&#8204; {{choice.location}}
-			    			{%endif%} 
-			    			{%if choice.notes%}
-			    				&#8204; {%if choice.image%}<img src="{{choice.image}}"> {%endif%} {{choice.notes}}
-							{%endif%}
+						<tr id="choice_id_{{choice.id}}"> 
+			    		<td > 
+			    				{{choice.movie_title}}
 						</td> 
+						<td>{{choice.theatre_name}}</td>
+						<td>{{choice.theatre_address}}</td>
+						<td>{{choice.showtimes}}</td>
 			    		<td> 
-			 				<div class="btn-group" data-toggle="buttons-radio">
-			   			{% csrf_token %}
+							<div class="btn-group" data-toggle="buttons-radio">
+			   				{% csrf_token %}
 							<button value="{{choice.id}}"  class="btn btn-success like"> <i class="icon-search icon-thumbs-up"></i>  
 								<span class="pos_vote_count" id="pos_vote_count_{{choice.id}}" value="{{choice.id}}"> {{posvotes|dictKey:choice.id}} </span> Like 
 							</button> 
@@ -159,7 +154,8 @@
 		 			<div class="alert alert-success" id="terminationEmail" style="display:none;">
 		 				<p class="emailMSG"> Ladies and Gentlemen,</h2> 
 		 				<p class="emailMSG"> Thanks for your participation. We have made our decision for the event {{event.name}}.</p>  
-		  				<p class="emailMSG"> We have agreed on <input type="text" id="finalChoice"/> </p>
+		  				<p class="emailMSG"> We have agreed on <!--<input type="textarea" rows='2' id="finalChoice"/> -->
+		  				<textarea class="input-xlarge" id="finalChoice" rows="3" name='finalChoice'></textarea></p>
 					  	{%csrf_token%}
 					  	<button class="btn btn-primary emailMSG" id="sendoutFinalResult" data-loading-text="sending emails...">
 					  		<i class="icon-search icon-envelope"></i> SEND EMAIL 
@@ -414,8 +410,8 @@
 				$('#finalChoice').val(place);				 
   				$('#terminationEmail').css('display','block');
 			} 
-		}); 	 	
-               }
+			}); 	 	
+              }
              
             });
 		 });

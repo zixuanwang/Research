@@ -28,47 +28,15 @@ p.friends{ width: 940px;
 <script type="text/javascript" src=" {%static "js/bootstrap-modal.js"%}"></script> 
 <script src="{%static "js/bootstrap-alert.js"%}" type="text/javascript" charset="utf-8"></script> 
 <script>
-$(function() {
-	$("#add_manual_choice").click(function()
-	{
-		var name =  $("#choice_name").val();
-		if (name==' ')
-		{
-			alert('Name is required.');
-			return false;
-		}
-		var location = $("#choice_location").val();
-		var notes = $("#choice_note").val();
-		//insert into db
-		$.ajax
-		({
-			type: "POST",
-			url:  "../addManualChoice/",
-			data: {'name':name,"location":location,"notes":notes,csrfmiddlewaretoken:'{{csrf_token}}'},
-			cache: false,
-			success: function(response)
-			{
-				var id = response.choice_id;
-				//console.debug(id);
-				//console.debug(notes);
-				var html = '<tr id="show_choice_id_'+id+'"><td>'+name+'</td><td>'+location+'</td><td>'+notes+'</td><td><span class="label label-info remove_choice" id="manual">remove</span></td></tr>';
-				$("#show_choice_list > tbody").append(html);
-				//$("#hidden_manual_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_yelp_choice_id_'+ id+'" name="manual_choice_ids" />');
-			    $("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +id + '" id="hidden_admin_choice_id_'+id+'" name="admin_choice_ids" />');
-			
-			} 
-		}); 	
-	});
-	});
-		
-	$(function() 
+
+$(function() 
 	{
 		$(".remove_choice").live('click',function()
 		{
 			var source_from = $(this).attr('id');
-			//console.debug(source_from);
+			console.debug(source_from);
 			var id = $(this).closest('tr').attr('id');
-			//console.debug(id);
+			console.debug(id);
 				
 			$(this).parent().parent().remove(); 
 			var intids = id.split('_');
@@ -82,34 +50,42 @@ $(function() {
 		
 	$(document).ready(function() 
 	{
-		//console.debug('Poll From Yelp');
 		$("#flash").show();
 		$("#flash").fadeIn(400).html('Loading...');
  		$.ajax(
  		{
 			type: "GET",
-			//url:  "../getMyYelpChoices/",
 			url:  "../getBaseRecommendation/",
 			data: {},
 			cache: false,
 			success: function(response)
 			{ 			
 				$("#flash").hide();
-				//for each (var obj in response){
-				for (var o in response){
+
+				for (var o in response)
+				{
 					var obj = response[o];
-					var choice = obj.fields;
-					var id = obj.pk;
-					var name = choice.name;
-					var notes = "";
-					if  (obj.model == "myevents.item")
-					{
-						notes= choice.notes ;
-						rating_image = choice.image;
-						url = choice.url;
-						model = "rec"
-						var html = '<tr id="rec_choice_id_'+id+'" name="'+  model +'"><td id="name"><a id="url" target="_blank" href="'+url+'"> '+ name+'</a></td><td id="location">'+choice.location+'</td><td id="notes"><img src='+rating_image+'> &nbsp;'+notes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
+					console.debug(obj);
+					var id = obj.schedule_id;
+					var movie_title= obj.movie_title;
+					var theatre_name = obj.theatre_name;
+					var theatre_address = obj.theatre_address;
+					if (obj.theatre_url){
+						var theatre_url = obj.theatre_url;
+						if (theatre_url.search("http") == -1)
+						{
+							theatre_url = 'http://'+theatre_url;
+						}
 					}
+					else{
+						var theatre_url = '#';
+					}
+					var showtimes = obj.showtimes;
+		
+					var html = '<tr id="rec_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
+					console.debug(html);
 		 		 	$("#show_rec_choice_list >tbody").append(html);
      			}
      		}						 
@@ -122,22 +98,23 @@ $(function() {
 		{
 			var id = $(this).closest('tr').attr('id');
 			//console.debug(id);
+				
 			var intids = id.split('_');
-			var lastid = intids[intids.length-1];
-			//console.debug(lastid);
+			var lastid = intids[intids.length-1]
+			console.debug(lastid);
+				
+			var $thisrow = $(this).parent().parent();
+			var movie_title = $thisrow.children('#movie_title').text();
+			var theatre_name = $thisrow.children('#theatre_name').text();
+			var theatre_url = $thisrow.children('#theatre_name').children('#url').attr("href");	 
+			var showtimes = $thisrow.children('#showtimes').text();
+			var theatre_address = $thisrow.children('#address').text();
 			
-			var model = $(this).closest('tr').attr('name');
-			//console.debug('model== '+model);
-			
-			var $thisrow = $(this).parent().parent();				 
-			var name = $thisrow.children('#name').text();
-			var url = $thisrow.children('#name').children('#url').attr("href");	 
-			var location=$thisrow.children('#location').text();
-			var notes=$thisrow.children('#notes').text();
-			var rating_image = $thisrow.children('#notes').children('img').attr('src');
-			 
-			var html = '<tr id="rec_choice_id_'+id+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>&nbsp;'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
-     		 
+			//var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
+     		var html = '<tr id="rec_choice_id_'+lastid +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info remove_choice" id="rec">delete</span></td></tr>'; 
+
      		// remove it or not, this is a question
      		$thisrow.remove(); 
      		$("#show_choice_list >tbody").append(html);
@@ -146,7 +123,6 @@ $(function() {
 		});
 	});
 		
- 
 	  
 	$(document).ready(function() 
 	{
@@ -190,17 +166,17 @@ $(function() {
 
 	$(document).ready(function() 
 	{
-		$('#search_yelp').live('click',function()
+		$('#search_mv').live('click',function()
 		{
-			var query = $('#search_query').val();
+			var mv_title = $('#search_movie').val();
+			var th_name = $('#search_theatre').val();
 			var location = $('#search_location').val();
 
-			if (query.length==0)
+			if (location.length==0)
 			{
-				alert("please provide the search query, eg: italian");
+				alert("please provide the zipcode ");
 				return false;
 			}
-
 			
 			//remove the previous result.
 			$("#show_search_choice_list >tbody").html('');
@@ -213,13 +189,13 @@ $(function() {
 			$.ajax(
 			{
 				type: "POST",
-				url: "../getMyYelpSearchChoices/",
- 				data: {'query':query,"location":location,csrfmiddlewaretoken:'{{csrf_token}}'},
+				url: "../getSearchChoices/",
+ 				data: {'mv_title':mv_title,"th_name":th_name,"zipcode":location,csrfmiddlewaretoken:'{{csrf_token}}'},
 				cache: false,
-				success: function(data) 
+				success: function(response) 
 				{
 					$("#search_flash").hide();
-					if (data.length==0)
+					if (response.length==0)
 					{
 						//$("#show_search_choice_list >tbody").html('');
 						$("#search_error").html("<p>Sorry, no results are found. Try modifying your query?</p>");
@@ -229,27 +205,37 @@ $(function() {
 						//$("#search_error").html('');
 						$("#show_search_choice_list >tbody").html('');
 						//for each (var obj in data)
-						for (var o in data)
+						for (var o in response)
 						{
-							var obj = data[o];
-							//console.debug(obj);
-							var choice = obj.fields;
-							var id = obj.pk;
-							var name = choice.name;
-							var notes = "";
-							if  (obj.model == "myevents.item")
+							var obj = response[o];
+							console.debug(obj);
+							var id = obj.schedule_id;
+							var movie_title= obj.movie_title;
+							var theatre_name = obj.theatre_name;
+							var theatre_address = obj.theatre_address;
+							if (obj.theatre_url)
 							{
-								notes = choice.notes;
-								rating_image = choice.image;
-								url = choice.url;
-								model = "yelp"
-								var html = '<tr id="search_choice_id_'+id+'" name="'+model+'"><td id="name"><a id="url" target="_blank" href="'+url+'">'+ name+'</a></td><td id="location">'+ choice.location+'</td><td id="notes"><img src='+rating_image+'>&nbsp; '+ notes+'</td><td><span class="label label-info add_search_choice">add</span></td></tr>';						 
+								var theatre_url = obj.theatre_url;
+								if (theatre_url.search("http") == -1)
+								{
+									theatre_url = 'http://'+theatre_url;
+								}
 							}
-							$("#show_search_choice_list >tbody").append(html);
+							else
+							{
+								var theatre_url = '#';
+							}
+							var showtimes = obj.showtimes;
+							
+							var html = '<tr id="search_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
+							console.debug(html);
+		 		 			$("#show_search_choice_list >tbody").append(html);
+     				  }	
    					}
-   				}
-			}
-		});
+				}
+			});
 		});
 	});
  
@@ -262,32 +248,34 @@ $(function() {
 				
 			var intids = id.split('_');
 			var lastid = intids[intids.length-1]
-			//console.debug(lastid);
+			console.debug(lastid);
 				
-			var model = $(this).closest('tr').attr('name');
-			//console.debug('model== '+model);
 			var $thisrow = $(this).parent().parent();
-				 
-			var name = $thisrow.children('#name').text();
-			var url = $thisrow.children('#name').children('#url').attr("href");
-				 
-			var location=$thisrow.children('#location').text();
-			var notes=$thisrow.children('#notes').text();
-			var rating_image = $thisrow.children('#notes').children('img').attr('src');
-			var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
+			var movie_title = $thisrow.children('#movie_title').text();
+			var theatre_name = $thisrow.children('#theatre_name').text();
+			var theatre_url = $thisrow.children('#theatre_name').children('#url').attr("href");	 
+			var showtimes = $thisrow.children('#showtimes').text();
+			var theatre_address = $thisrow.children('#address').text();
+			
+			//var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
      		 
+     		var html = '<tr id="search_choice_id_'+lastid +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
+					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info remove_choice" id="search">delete</span></td></tr>';
+			console.debug(html);
      		// remove it or not, this is a question
      		$thisrow.remove(); 
+     		
      		$("#show_choice_list >tbody").append(html);
      		$("#hidden_admin_choice_list").append('<input type="hidden" style="display:none;" value="' +lastid + '" id="hidden_admin_choice_id_'+lastid+'" name="admin_choice_ids" />');
- 
 		});
 	});
 	
 	$(document).ready(function() 
 	{
 		//var efriends = $('#showfriends').val();
-		$('#showfriends').live('click',function(){
+		$('#showfriends').live('click',function()
+		{
 			var efriends = $('#myfriends').text();
 			console.log(efriends);		
 			 
@@ -311,7 +299,8 @@ $(function() {
 					$('#friendslist').append('<p class="wordwrap">'+friendInALine+'</p>')
 				} 
 			}
-			else{
+			else
+			{
 				$('#friendslist').html('<p class="wordwrap">'+efriends+'</p>');
 			} 
 		});
@@ -374,14 +363,7 @@ $(function() {
 		<div class="hero-unit">
 			<h3>Your selections so far</h3>
 			<table id="show_choice_list" class="table table-striped table-bordered table-condensed">
-			<!--<thead>
-				<tr>
-					<th>Name</th>
-					<th>Location</th>
-					<th>Note (rating, review count)</th>	
-					<th style="display:none;"> Operation</th>	
-				</tr>
-			</thead>  -->
+
 				<tbody>
 				</tbody>
 			</table>
@@ -421,12 +403,12 @@ $(function() {
 		<div id="search_choice" class="accordion-body collapse">
 			<div class="accordion-inner">
 				<div class="well form-inline">
-    				<label>Query (e.g., dimsum, italian) </label>&nbsp; <input type="text" class="input-large" id="search_query" placeholder="Query"> 
+    				<label>Movie Title </label>&nbsp; <input type="text" class="input-large" id="search_movie" placeholder="Movie Title"> 
 				&nbsp; 
-    				<label>Location </label>&nbsp; <input type="text" class="input-large" id="search_location" placeholder= "{{event.location}}" value="{{event.location}}">&nbsp; 
-    					<!--<p class="help-block">94301 or Mountainview CA</p>-->
-    				<button type="submit" class="btn" id="search_yelp">Search</button>
-				<a href="http://www.yelp.com"  target="_blank"><img src="{%static "img/yelp_logo_50x25.png"%}"> </a>
+					<label>Theatre Name </label>&nbsp; <input type="text" class="input-large" id="search_theatre" placeholder="Theatre Name"> 
+				&nbsp; 
+    				<label>ZipCode </label>&nbsp; <input type="text" class="input-large" id="search_location" placeholder= "{{event.location}}" value="{{event.location}}">&nbsp; 
+    				<button type="submit" class="btn" id="search_mv">Search</button>
     			</div>
 	
 			<div id='search_result'>
@@ -441,26 +423,6 @@ $(function() {
               </div> <!-- end of the id search_choice -->
             </div> <!-- end of the class accordion-group-->
 		
-
-            <div class="accordion-group">
-              <div class="accordion-heading alert-info">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#manual_choice">
-                  Enter options manually
-                </a>
-              </div>
-              <div id="manual_choice" class="accordion-body collapse">
-                <div class="accordion-inner">
-			<!--manually type a choice -->
-			<input type="text" class="input-large" id="choice_name" placeholder="Name" autofocus required>
-			<input type="text" class="input-large" id="choice_location" placeholder="Location">
-			<input type="text" class="input-large" id="choice_note" placeholder="Notes">
-			{% csrf_token %}
-			<span class="label label-info" id="add_manual_choice">add</span>
-			<!-- <button type="submit" class="btn" id="add_choice">add</button> -->              
-		</div>
-              </div>
-            </div>
-          </div>	 
  
  	
  		<div id="foo">  
@@ -469,11 +431,6 @@ $(function() {
 		
 		<br/>
 		<form class="well" name="AdminChoiceForm" action = '../editEventChoice/' method = "post" onsubmit="return validateForm(); ">
-			<div id="hidden_manual_choice_list"  class="row-fluid  show-grid">
-			</div>
-			<div id="hidden_yelp_choice_list"  class="row-fluid  show-grid">
-			</div>
-			<div id="hidden_rec_choice_list"  class="row-fluid  show-grid">
 			<div id="hidden_admin_choice_list"  class="row-fluid  show-grid">
 			</div>
 			{% csrf_token %}

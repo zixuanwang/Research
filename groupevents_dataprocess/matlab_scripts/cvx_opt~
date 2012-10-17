@@ -1,0 +1,66 @@
+theta=  dlmread('output/theta_firstvote.txt')
+features = load('../recommendation_input/place_bzinfo_feature_matrix.txt')
+
+user5 = theta(:,5)
+
+preds = glmval(user5,features,'logit');
+
+
+cvx_begin gp
+    variables r1 r2 r3 r4;
+    variables b1 b2 b3 b4 b5;
+    maximize ( r1*r2*r3*r4*b1*b3*b2*b4 )
+    subject to 
+        0<=r1<=1;
+        0<=b1<=1;
+        0<=r2<=1;
+        0<=b2<=1;  
+        0<=r3<=1;
+        0<=b3<=1;  
+        0<=r4<=1;
+        0<=b4<=1;
+        0<=b5<=1;
+        %0<=b6;b6<=1;
+        %0<=b7;b7<=1;
+        %0<=b8;b8<=1;
+        %0<=b9;b9<=1;
+        r1+b4*b3<=1;
+        r2+b1*b4*b2<=1;
+        r3+b2*b5*b4<=1;
+        r4+b2*b4<=1;
+cvx_end
+
+% r:  n_pos_events*1, b: #users *1, neighbor: #events*#users
+% pos_ancestor : n_pos_event * n_user
+% neg_ancestor : n_neg_event * n_user
+% pos_neg_events: (n_events *1) : pos=event =1, neg_event = 0
+% n_pos_event: nnz(pos_neg_events)  
+% n_neg_event: nnz(~pos_neg_events)
+%  
+b(5)=0.5542
+cvx_begin gp
+    varibales r(n_events,1)  b(n_users,1)   
+    maximize prod(r(find(pos_neg_event))) prod( prod(b))
+    subject to
+        0<=r<=1
+        0<=b<=1
+        r + b*pos_accestor <= 1    
+cvx_end 
+
+
+Awall = 40;
+alpha = 1;
+beta = 10;
+Aflr = 10;
+gamma = 1;
+delta = 10;
+cvx_begin gp
+    variables d h w
+    maximize (d*h*w)
+    subject to
+        2*(h*w + h*d) <= Awall ;
+        alpha <= h/w <= beta;
+        w*d <= Aflr ;
+        gamma <= d/w <= delta;
+
+cvx_end

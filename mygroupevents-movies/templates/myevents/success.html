@@ -30,7 +30,7 @@ p.friends{ width: 200px;
    	 	<p>
 		  This event is 
 	 	  {%if event.detail%}
-	 	  about <u> {{event.detail}} </u> 
+	 	  about <u> Movie </u> 
 	 	  {% endif %} 
 	 		at <u>  {{event.eventDate}}  </u>
 	 		{%if event.eventTime%}   
@@ -38,10 +38,6 @@ p.friends{ width: 200px;
 	 		{%endif%}	
 	 	</p>
 	 		<p class="wordwrap">with <u> {{event.inviter}}, {{event.friends}} </u> 	</p>
-	 	  <p>	{% if event.location%} 
-   			 near <u> {{event.location}} </u>
-    		{%endif%}
-	 	</p>
     </div>
 	
 	<br/>
@@ -52,21 +48,20 @@ p.friends{ width: 200px;
 		<table id="show_choice_list" class="table table-striped">
 				<thead>
 				<tr>
-					<th>Name</th>
-					<th>Location</th>
-					<th>Notes</th>	
+					<th>Movie Title</th>
+					<th>Theatre Name</th>
+					<th>Theatre Address</th>
+					<th>Showtimes</th>	
 				</tr>
 				</thead>
 				<tbody>
-				{%for c in choices%}
+				{%for k,c in choices.items%}
 				 <tr>
-				 <td>{{c.name}}</td><td>{{c.location}}</td>
-				 <td>
-						{%if c.image%}
-								<img src="{{c.image}}">
-						{%endif%}
-						{{c.notes}}</td>
-				 </tr>	
+				 <td>{{c.movie_title}}</td>
+				 <td>{{c.theatre_name}}</td>
+				 <td>{{c.theatre_address}}</td>
+				 <td>{{c.showtimes}}</td>
+		
 				{%endfor%}
 				</tbody>
 		</table>

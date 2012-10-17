@@ -38,7 +38,7 @@ EMAIL_HOST_USER = "mygroupevents@gmail.com"
 def adminMail(ehash,uhash,user_name,event_name,send_to):
     subject = "Invitation to manage your event: " + event_name
     #url = "http://www.mygroupevents.us/myevents/" + ehash + "/" + uhash + "/adminDetail/" 
-    url = "http://74.95.195.230:8889/myevents/" + ehash + "/" + uhash + "/adminDetail/" 
+    url = "http://74.95.195.230:8886/myevents/" + ehash + "/" + uhash + "/adminDetail/" 
     #message = "\n You have just registered a new event using myGroupEvents called " +event_name + " ! Please Click on the  URL below to manage it:  \n"+url 
     html_content = render_to_string('myevents/welcomeEmailText.html', {'user_name':user_name,'event_name':event_name,'link':url})
     text_content = strip_tags(html_content) # this strips the html, so people will have the text as well.
@@ -57,7 +57,7 @@ def getNamebyEmail(email):
 def attenderMail(ehash,uhash, inviter,event_name,send_to):
     #generate url , url is not needed in the table, it's just good for 
     #url="http://www.mygroupevents.us/myevents/"+ehash+"/"+uhash+"/attender/"
-    url= "http://74.95.195.230:8889/myevents/"+ehash+"/"+uhash+"/attender/"
+    url= "http://74.95.195.230:8886/myevents/"+ehash+"/"+uhash+"/attender/"
     subject = "The event  "+ event_name +"  is waiting for your decision "
     #url_in= "http://74.95.195.230:8889/myEvents/"+e_hash+"/"+u_hash+"/admin/"
     #message = inviter +" invites you to the event "+ event_name +" and needs your decision \n Please Click on the URL below to view all choices: " +" \n" +url +" \n"
@@ -78,7 +78,7 @@ def attenderMail(ehash,uhash, inviter,event_name,send_to):
     
 def newChoiceNotificationMail(ehash,uhash, proposer,event_name,send_to):
     #url="http://www.mygroupevents.us/myevents/"+ehash+"/"+uhash+"/attender/"
-    url= "http://74.95.195.230:8889/myevents/"+ehash+"/"+uhash+"/attender/"
+    url= "http://74.95.195.230:8886/myevents/"+ehash+"/"+uhash+"/attender/"
     subject = "The event  "+ event_name +"  has new choices"
     html_content = render_to_string('myevents/addChoiceNotificationEmail.html', {'proposer_name':proposer,'event_name':event_name,'link':url})
     
@@ -106,7 +106,7 @@ def finalMessageMail2(ehash,uhash):
         #url_in= "http://192.168.50.201:8888/myEvents/"+e_hash+"/"+u_hash+"/admin/"
         #message = "Ladies and Gentlemen: \n Thanks for your participation. We made our decision for the event " + e.name +". \n  The majority agreed on: " + e.finalChoice +" \n"
         for u  in all_user:
-            link = "http://74.95.195.230:8889/myevents/"+e.ehash+"/"+u.uhash+"/eventSummary/"
+            link = "http://74.95.195.230:8886/myevents/"+e.ehash+"/"+u.uhash+"/eventSummary/"
             html_content = render_to_string('myevents/finalDecisionEmailText.html', {'event':e, 'link':link, 'user':u})
             try:
                 send_email(subject,html_content,EMAIL_HOST_USER,[u.email],fail_silently=False)
@@ -251,21 +251,11 @@ def db_get_all_attender_emails(eid):
     
     return attender_emails 
 
-def isValidForRecommendation(detail,location):
-    yelp_query = {}
-    if detail=="dining out":
-        yelp_query["query"]="restaurant"   
-        yelp_query["category"] = "restaurant"
-    if detail =="drink":
-        yelp_query['query'] = "bar"
-        yelp_query["category"] = "nightlife"
-    if location:
-        yelp_query['location'] = location
- 
-    if yelp_query.has_key('query') and yelp_query.has_key('location'):
-        return yelp_query
-    else:  # must have both
-        return {}    
+def isValidForRecommendation(eventDate,location):
+	if location and eventDate:
+		return True
+	else:
+		return False   
 
 def get_user_by_uid(uid):
     try:

@@ -1,0 +1,82 @@
+{% extends "myevents/auth_base.html" %}
+{% load static %}
+{% block title %} Thanks {% endblock %}
+{% block extrastyle %}
+<style type="text/css">
+p.friends{ width: 200px;
+ 	 word-wrap: break-word;}
+	.wordwrap{
+	max-width:900px;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-break: break-all;  
+    word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+    }
+	</style>
+ {% endblock %}
+
+{% block content%}
+<div class="container">	
+<div class="row-fluid"  >
+		<h2> Your event <font color='#08c'>{{event.name}} </font>  was created successfully. </h2>
+		<p>Your friends will receive an email directing them to a page where they choose among options you have selected.  </p>
+</div>
+<br/>
+
+<div class="row-fluid" id="event-detail" >
+	<div class="row-fluid">
+   	 	<p>
+		  This event is 
+	 	  {%if event.detail%}
+	 	  about <u> Movie </u> 
+	 	  {% endif %} 
+	 		at <u>  {{event.eventDate}}  </u>
+	 		{%if event.eventTime%}   
+	 		<u> 	{{event.eventTime}}</u>
+	 		{%endif%}	
+	 	</p>
+	 		<p class="wordwrap">with <u> {{event.inviter}}, {{event.friends}} </u> 	</p>
+
+    </div>
+	
+	<br/>
+ 
+	<div class="row-fluid">
+    	<div class="span4">Your selected options are</div>
+		 
+		<table id="show_choice_list" class="table table-striped">
+				<thead>
+				<tr>
+					<th>Movie Title</th>
+					<th>Theatre Name</th>
+					<th>Theatre Address</th>
+					<th>Showtimes</th>	
+				</tr>
+				</thead>
+				<tbody>
+				{%for c in choices%}
+				 <tr>
+				 <td>{{c.movie_title}}</td><td>{{c.theatre_name}}</td>
+				 <td>{{c.theatre_address}}</td>
+				 <td>{{c.showtimes}}</td>
+		
+				{%endfor%}
+				</tbody>
+		</table>
+    </div>
+    
+    <div class="row-fluid">
+		<p class="alert alert-success">You can now  <a href="../{{user.uhash}}/attender/">go and vote</a> for your favorite places as a part of the group. </p>
+     </div>
+ </div>
+<!-- Footer
+    ================================================== -->
+<footer class="footer ftwraper">
+<!--<p class="pull-right"><a href="#">Back to top</a></p> -->
+     <p>Designed and built by <a href="http://paloalto.thlab.net/research/recommendations">The Group!</a></p>
+</footer>
+</div>
+{% endblock%}
+
