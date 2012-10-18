@@ -21,7 +21,7 @@ def create_dbtable():
 
 def parse_schedule():
 
-	data = open('../tms_live_data/on_usa_mov_schedules_20121009.xml').read()
+	data = open('../tms_live_data/on_usa_mov_schedules_20121018.xml').read()
 	root = et.fromstring(data)
 	entry_list = []
 	count = 0
@@ -33,7 +33,7 @@ def parse_schedule():
 			date = eve.attrib['date']
 			mov_id = eve.attrib['TMSId']
 			if timings:
-				show_time = ','.join(timings)
+				show_time = ', '.join(timings)
 			else:
 				show_time = 'NULL'
 			print mov_id, thid, date, show_time 
@@ -49,7 +49,7 @@ def parse_schedule():
 
 def parse_theatres():
 
-	data = open('../tms_live_data/on_usa_mov_sources_20121009.xml').read()
+	data = open('../tms_live_data/on_usa_mov_sources_20121018.xml').read()
 	root = et.fromstring(data)
 	
 	tdt = {}
@@ -77,7 +77,7 @@ def parse_theatres():
 	
 def parse_movies():
 
-	data = open('../tms_live_data/on_usa_mov_programs_20121009.xml').read()
+	data = open('../tms_live_data/on_usa_mov_programs_20121018.xml').read()
 	root = et.fromstring(data)
 	count = 0
 	mdt = {}
@@ -126,8 +126,8 @@ def parse_movies():
 if __name__=='__main__':
 
 #	parse_movies()
-	parse_theatres()
-#	parse_schedule()
+#	parse_theatres()
+	parse_schedule()
 
 #	create_dbtable()
 

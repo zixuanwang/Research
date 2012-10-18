@@ -68,6 +68,7 @@ def getEventChoices2(ehash):
                 cobj['image'] = item_obj.image   # this is always empty.
                 cobj['notes'] = item_obj.notes
                 cobj['url'] = item_obj.url
+
                 choice_objs.append(cobj)
     except event.DoesNotExist:
         return choice_objs        
@@ -89,7 +90,8 @@ def getEventChoices(ehash):
             #c = schedule.objects.get(id=cid)            
             conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
             cursor = conn.cursor()
-            query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes from myevents_schedule s, myevents_theatre t,myevents_movie m where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(sid)
+            query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes,t.url,m.img_id, t.fthid from myevents_schedule s, myevents_theatre t,myevents_movie m where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(sid)
+             
             cursor.execute(query)
             rs = cursor.fetchall()
             print rs
@@ -100,6 +102,12 @@ def getEventChoices(ehash):
                 cobj['theatre_name'] = row[1]
                 cobj['theatre_address'] = row[2]+' '+row[3]+' '+row[4]+' '+row[5]  
                 cobj['showtimes'] = row[6]
+                turl = row[7]
+                if 'http:' in turl:
+                    cobj['theatre_url'] = turl
+                else:
+                    cobj['theatre_url'] = 'http://'+turl
+                cobj['fandango_url'] = 'http://www.fandango.com/tms.asp?a=12625&m='+row[8] +'&t='+ row[9]
                 choice_objs.append(cobj)
     except event.DoesNotExist, choice.DoesNotExist:
         return choice_objs

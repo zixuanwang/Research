@@ -40,11 +40,12 @@ cvx_end
 b(5)=0.5542
 cvx_begin gp
     varibales r(n_events,1)  b(n_users,1)   
-    maximize prod(r(find(pos_neg_event))) prod( prod(b))
+    maximize prod(r(find(event_results))) prod(A(find(~event_results),:)*b)
     subject to
         0<=r<=1
         0<=b<=1
-        r + b*pos_accestor <= 1    
+        r + b*pos_accestor <= 1  
+        r(find(event_results))+A(find(event_results),:)*b <=1
 cvx_end 
 
 

@@ -1,12 +1,16 @@
+from numpy import * 
 
-
+## 10/18/2012  this is not used. use matlab script instead. 
 pu = 0.5541
 
 f = open('../recommendation_input/eid_iid_fuid_fvote_user5_user5vote.txt','r')
 
 posDict = {}
 negDict = {}
-
+event_results=[]
+A = {}
+n_events = 0
+n_user = 19 
 
 for line in f:
 	terms = line.strip().split('\t')
@@ -18,6 +22,10 @@ for line in f:
 	vote = terms[5] 
 
 	print terms
+	event_ids[n_events] = 
+	A[n_events] = zeros(n_user)
+	n_events += 1
+
 
 	if int(fvote) == 1:
 		if int(vote) == 1 : 

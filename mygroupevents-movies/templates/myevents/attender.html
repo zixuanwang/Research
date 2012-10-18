@@ -69,24 +69,25 @@
 					{% for choice in choices %}
 						<tr id="choice_id_{{choice.id}}"> 
 			    		<td > 
-			    				{{choice.movie_title}}
+			    			<a href="{{choice.fandango_url}}" target=_blank> {{choice.movie_title}} </a>
 						</td> 
-						<td>{{choice.theatre_name}}</td>
+						<td> <a href="{{choice.theatre_url}}" target=_blank> {{choice.theatre_name}} </a></td>
 						<td>{{choice.theatre_address}}</td>
 						<td>{{choice.showtimes}}</td>
 			    		<td> 
 							<div class="btn-group" data-toggle="buttons-radio">
 			   				{% csrf_token %}
-							<button value="{{choice.id}}"  class="btn btn-success like"> <i class="icon-search icon-thumbs-up"></i>  
+							<button value="{{choice.id}}" class="btn btn-success like"> <i class="icon-search icon-thumbs-up"></i>  
 								<span class="pos_vote_count" id="pos_vote_count_{{choice.id}}" value="{{choice.id}}"> {{posvotes|dictKey:choice.id}} </span> Like 
 							</button> 
 							<button value="{{choice.id}}"  class="btn btn-danger dislike">	<i class="icon-search icon-thumbs-down"></i>  
-								<span class="neg_vote_count" id="neg_vote_count_{{choice.id}}" value="{{choice.id}}">{{negvotes|dictKey:choice.id}}</span>  Dislike 
+								<span class="neg_vote_count" id="neg_vote_count_{{choice.id}}" value="{{choice.id}}">{{negvotes|dictKey:choice.id}}</span> Dislike 
 							</button>				
 							</div>
 						</td> 
 			    		<td> 
-			    			<button value="{{choice.id}}"  class="btn btn-info viewstats"><i class="icon-search icon-eye-open"></i> View </button> 	
+			    			<a value="{{choice.id}}" class="viewstats">View</a>
+			    			<!--<button value="{{choice.id}}"  class="btn btn-info viewstats"><i class="icon-search icon-eye-open"></i> View </button> 	-->
 			    			<div class="stats" id="stats_{{choice.id}}" value="{{choice.id}}">  </div>
 			    		</td> 
 					</tr> 
@@ -101,7 +102,6 @@
 		<div class="row-fluid ">
 			<div class="alert alert-info">
 				<p><strong>Not satisfied at all?</strong> You can <a href="../attenderAddChoice"> add more options</a>, and everybody will receive an email notification of your proposal.</p>	 			
-				 
 			</div>
 	 	</div>	
 	 	<br/>
