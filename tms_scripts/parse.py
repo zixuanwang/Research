@@ -57,6 +57,7 @@ def parse_theatres():
 
 	for eachth in root.findall(".//theatre"):
 		thid = eachth.attrib['theatreId']
+		fthid = eachth.attrib['aaCode']
 		tname = eachth.findall('./name')[0].text.encode('ascii', 'ignore')
 		street = eachth.findall('./address//street1')[0].text.encode('ascii', 'ignore') if eachth.findall('./address//street1') else 'NULL'
 		city = eachth.findall('./address//city')[0].text.encode('ascii', 'ignore') if eachth.findall('./address//city') else 'NULL'
@@ -69,7 +70,7 @@ def parse_theatres():
 		lon = eachth.findall('./longitude')[0].text.encode('ascii', 'ignore') if eachth.findall('./longitude') else 'NULL'
 		print thid, tname, street, city, state, country, zipcode, url, telephone, lat, lon
 	
-		query = 'insert into myevents_theatre(thid, name, street, city, state, country, postcode, url,telephone,longitude,latitude) values(%s, "%s", "%s", "%s", "%s", "%s","%s","%s","%s",%s,%s)'%(thid,tname,street,city,state,country,zipcode,url,telephone,lon,lat,)
+		query = 'insert into myevents_theatre(thid, fthid, name, street, city, state, country, postcode, url,telephone,longitude,latitude) values(%s, "%s", "%s", "%s", "%s", "%s", "%s","%s","%s","%s",%s,%s)'%(thid,fthid,tname,street,city,state,country,zipcode,url,telephone,lon,lat,)
 		print query
 		cursor.execute(query)
 	return
@@ -125,8 +126,8 @@ def parse_movies():
 if __name__=='__main__':
 
 #	parse_movies()
-#	parse_theatres()
-	parse_schedule()
+	parse_theatres()
+#	parse_schedule()
 
 #	create_dbtable()
 

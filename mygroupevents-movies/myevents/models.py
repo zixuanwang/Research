@@ -42,6 +42,7 @@ class event(models.Model):
 
 class theatre(models.Model):
 	thid = models.CharField(max_length=25)
+	fthid = models.CharField(max_length=25)
 	name = models.TextField()
 	street = models.TextField()
 	city = models.TextField()

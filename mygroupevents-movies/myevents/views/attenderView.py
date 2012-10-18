@@ -503,7 +503,7 @@ def fun_prepare_attender_add_chioce_data(eid,uid):
     loc_dt = e.closeDate.astimezone(local_tz)
         
     data = {'choices':choices, 'posvotes':init_pos_votes,'negvotes':init_neg_votes,
-                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash, 'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S'),'has_recommendation':has_recommendation} 
+                'myname':u.name,'event':e, 'isadmin':isadmin,'ehash':e.ehash, 'user':u,'uhash':u.uhash,'closeDate':loc_dt.strftime('%Y-%m-%d %H:%M:%S'),'has_recommendation':has_recommendation} 
     return data
 
 # allow attender to propose choices

@@ -70,6 +70,7 @@ $(function()
 					var movie_title= obj.movie_title;
 					var theatre_name = obj.theatre_name;
 					var theatre_address = obj.theatre_address;
+					var fandango_url = obj.fandango_url;
 					if (obj.theatre_url){
 						var theatre_url = obj.theatre_url;
 						if (theatre_url.search("http") == -1)
@@ -82,7 +83,7 @@ $(function()
 					}
 					var showtimes = obj.showtimes;
 		
-					var html = '<tr id="rec_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+					var html = '<tr id="rec_schedule_id_'+id +'"><td id="movie_title"><a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
 					console.debug(html);
@@ -109,9 +110,10 @@ $(function()
 			var theatre_url = $thisrow.children('#theatre_name').children('#url').attr("href");	 
 			var showtimes = $thisrow.children('#showtimes').text();
 			var theatre_address = $thisrow.children('#address').text();
+			var fandango_url = $thisrow.children('#movie_title').children('#url').attr("href");	 
 			
 			//var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
-     		var html = '<tr id="rec_choice_id_'+lastid +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+     		var html = '<tr id="rec_choice_id_'+lastid +'"><td id="movie_title"> <a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info remove_choice" id="rec">delete</span></td></tr>'; 
 
@@ -213,6 +215,7 @@ $(function()
 							var movie_title= obj.movie_title;
 							var theatre_name = obj.theatre_name;
 							var theatre_address = obj.theatre_address;
+							var fandango_url = obj.fandango_url;
 							if (obj.theatre_url)
 							{
 								var theatre_url = obj.theatre_url;
@@ -227,7 +230,7 @@ $(function()
 							}
 							var showtimes = obj.showtimes;
 							
-							var html = '<tr id="search_schedule_id_'+id +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+							var html = '<tr id="search_schedule_id_'+id +'"><td id="movie_title"> <a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
 							console.debug(html);
@@ -256,10 +259,11 @@ $(function()
 			var theatre_url = $thisrow.children('#theatre_name').children('#url').attr("href");	 
 			var showtimes = $thisrow.children('#showtimes').text();
 			var theatre_address = $thisrow.children('#address').text();
+			var fandango_url = $thisrow.children('#movie_title').children('#url').attr("href");	 
 			
 			//var html = '<tr id="rec_choice_id_'+lastid+'"><td><a target="_blank" href="'+url+'">'+ name+'</a></td><td>'+ location+'</td><td><img src='+rating_image+'>'+ notes+'</td><td><span class="label label-info remove_choice" id="'+ model + '">remove</span></td></tr>';
      		 
-     		var html = '<tr id="search_choice_id_'+lastid +'"><td id="movie_title">'+movie_title+'</td><td id="theatre_name"><a id="url" target="_blank" href="'
+     		var html = '<tr id="search_choice_id_'+lastid +'"><td id="movie_title"> <a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info remove_choice" id="search">delete</span></td></tr>';
 			console.debug(html);
