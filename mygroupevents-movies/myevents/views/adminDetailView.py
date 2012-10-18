@@ -47,7 +47,7 @@ def adminDetail(request,ehash):
                 else:
                     started = False
                 myfriends = getMyFriends(uhash)
-                data = {'event':e, 'user':u, 'uhash':uhash, 'started':started, 'myfriends':','.join(myfriends),'myemail':e.inviter}
+                data = {'event':e, 'user':u, 'uhash':uhash, 'started':started, 'myfriends':myfriends,'myemail':e.inviter}
                 return render_to_response('myevents/adminDetail.html', data, context_instance=RequestContext(request))
             except event.DoesNotExist:
                 data = {'error_msg': 'Event does not exist' }
@@ -94,14 +94,16 @@ def editEventAttrForm(request,ehash):
             #print eventDate
             eventTime = request.POST.get('when_time')
             print 'Event Time is:%s'%eventTime
-            #e3 = request.POST.getlist("item[tags][]")
-            #if len(e3)>=2:
-            #    friendEmails = ','.join(e3)
-            #else:
-            #    friendEmails=e3[0]         
-            friendEmailList = request.POST.get('emails')
+            e3 = request.POST.getlist("item[tags][]")
+            print e3
+            
+            if len(e3)>=2:
+                friendEmails = ','.join(e3)
+            else:
+                friendEmails=e3[0]         
+            #friendEmailList = request.POST.get('emails')
         
-            friendEmails = fun_remove_extra_comma(friendEmailList)
+            #friendEmails = fun_remove_extra_comma(friendEmailList)
             #print friendEmails    
             location = request.POST.get('location')
   

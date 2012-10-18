@@ -67,8 +67,8 @@
 			alert("Date should be in the format of yyyy-mm-dd ! ")
 			return false;
 		}
- 		//var friendEmails = $("#emails").tagit("assignedTags").toString();
-		var friendEmails = $("#emails").val();
+ 		var friendEmails = $("#emails").tagit("assignedTags").toString();
+		//var friendEmails = $("#emails").val();
 		//var friendEmails = document.getElementById("emails").value;
 		 
 		if (friendEmails=="")
@@ -102,11 +102,11 @@
 	
 		return true;
 	}
-	/*	 
+		 
 	function add_friend_choice (value){
 		$("#emails").tagit("createTag", value);
 	};
-	*/
+	
 	$(document).ready(function() {
 		$('.myfriend').live('click',function(){
 			var fname = $(this).text();
@@ -150,7 +150,7 @@
 					<h3> WHEN </h3>
 					<p><span class="add-on"><i class="icon-calendar"></i></span> When do you want to go out? Choose the
 <a  type="text" rel="tooltip" title="yyyy-mm-dd" >date</a> (required), and the <a  type="text" rel="tooltip" title="hh:mm" >time </a>(optional).</p>
-					<input  class="input-large" id="datepicker" type="text" name="when_date" />
+					<input  class="input-large" id="datepicker" type="text" name="when_date" value="{{e.eventDate}}" />
 					<select class='span2' name="when_time">
 						<option value="All Day">All Day</option>
 						<option value="Morning">Morning</option>
@@ -162,15 +162,15 @@
 		<div class="row-fluid  show-grid">
 			<h3> WHO </h3>
 			<p><span class="add-on"><i class="icon-user"></i></span> Who do you want to invite? Provide email addresses delimited by comma. </p>
-			<!--<p> <ul id="emails" name="emails"></ul> -->
- 			<div class="field">
- 				<textarea class="input-xlarge span8" id="emails" rows="2" name="emails"></textarea>
-			</div>
+			<p> <ul id="emails" name="emails"></ul> 
+ 			<!--<div class="field">
+ 				<textarea class="input-xlarge span8" id="emails" rows="2" name="emails" values="myfriends"></textarea>
+			</div>-->
 			{%if myfriends%}
-			  	<p> Consider including {{  myfriends }}
-			  	<!--{%for f in myfriends%}
+			  	<p> Consider including <!--{{  myfriends }}-->
+			  	{%for f in myfriends%}
 			  		<a class="myfriend"> {{f}} </a> 
-			  	{%endfor%}-->
+			  	{%endfor%}
 			  	<p>
 			{%endif%}
 		</div>
@@ -178,7 +178,7 @@
 		<div class="row-fluid  show-grid">
 			<h3> WHERE </h3>
 			<p><span class="add-on"><i class="icon-map-marker"></i></span> In which neighborhood do you want to go out? Enter the zipcode</p>
-			<input type="text" class="input-large" id="location" name="location" placeholder="location"> 
+			<input type="text" class="input-large" id="location" name="location" placeholder="location" value="{{e.location}}"> 
 		</div>
 	
 		 	 

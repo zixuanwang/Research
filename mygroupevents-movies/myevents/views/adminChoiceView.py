@@ -381,12 +381,13 @@ def editEventChoice(request, ehash,uhash=None):
 				#item_obj = item.objects.get(id=cid)
 				y={}
 				t = theatre.objects.get(thid = s.thid)
-				y['movie_title'] = movie.objects.get(mov_id=s.mov_id).title 
+				m = movie.objects.get(mov_id=s.mov_id)
+				y['movie_title'] = m.title 
 				y['theatre_name'] = t.name
 				y['theatre_address'] = t.street+' '+t.city+' '+t.state+' '+t.postcode
 				y['theatre_url'] = t.url
 				y['showtimes'] = s.showtimes
-				y['fandango_url'] = 'http://www.fandango.com/tms.asp?a=12625&m='+s.img_id +'&t='+ t.fthid
+				y['fandango_url'] = 'http://www.fandango.com/tms.asp?a=12625&m='+m.img_id +'&t='+ t.fthid
 				choice_objs[str(i)]=y
 				i+=1
 				
