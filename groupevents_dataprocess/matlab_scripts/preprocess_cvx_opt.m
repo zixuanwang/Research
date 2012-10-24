@@ -8,6 +8,7 @@ A = zeros(n_events,n_users);
 event_results = user5_vote(:,end);
 event_results(event_results==-1)=0;
  
+% compose the ancestor matrix for each (e,i) 
 for i = 1:n_events
     eid = user5_vote(i,1);
     iid = user5_vote(i,2);
@@ -15,6 +16,18 @@ for i = 1:n_events
     uids = this_event(this_event(:,2)==1,1);
     A(i,uids) = 1;
 end
+
+
+% compose X matrix for this user 
+place_feature = load('../recommend_input/place_bzinfo_feature_matrix.txt');
+n_features = 42 ;
+X = zeros(n_features, n_events);  % each column is the feature vector for one (e,i) 
+for i = 1:n_events
+    iid = user5_vote(i,2);
+    X(:,i)= place_feature(iid,:)'; 
+end
+X =[ ones(1,n_events); X];  % add for theata 0 
+
 n_pos_events = nnz(event_results);
 
 % this user's prediction to p_i
@@ -54,12 +67,14 @@ cvx_begin
         log(exp(r) + (1-pu).*exp(Apos*b)) <=0
 cvx_end
 
+%b = dlmread('output/user5_cvxp_result.dat')
 p = 1-exp(b);
 q = (prod(((1-p)*ones(1,n_events)).^(A')))';
-% logistic regression with l1 norm?
+% logistic regression with l1 norm or not?
 lambda = 0.25; 
 cvx_begin
-    variable theta const_b 
-    tmp = [zeros(n_events,1) - event_results.*(X'*theta+const_b)];
-    minimize (sum(logsumexp(tmp')) +lambda*norm(theta,1))
+    variable theta(n_features+1)  
+    %tmp = [zeros(n_events,1) - event_results.*(X'*theta+const_b)];
+    %minimize (sum(logsumexp(tmp')) +lambda*norm(theta,1))
+    minimize (sum( log(1+ exp(X'*theta)))- sum(event_results.*(log(1+exp(X'*theta))-q) )) 
 cvx_end 
