@@ -34,9 +34,9 @@ $(function()
 		$(".remove_choice").live('click',function()
 		{
 			var source_from = $(this).attr('id');
-			console.debug(source_from);
+			//console.debug(source_from);
 			var id = $(this).closest('tr').attr('id');
-			console.debug(id);
+			//console.debug(id);
 				
 			$(this).parent().parent().remove(); 
 			var intids = id.split('_');
@@ -65,7 +65,7 @@ $(function()
 				for (var o in response)
 				{
 					var obj = response[o];
-					console.debug(obj);
+					//console.debug(obj);
 					var id = obj.schedule_id;
 					var movie_title= obj.movie_title;
 					var theatre_name = obj.theatre_name;
@@ -86,7 +86,7 @@ $(function()
 					var html = '<tr id="rec_schedule_id_'+id +'"><td id="movie_title"><a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
-					console.debug(html);
+					//console.debug(html);
 		 		 	$("#show_rec_choice_list >tbody").append(html);
      			}
      		}						 
@@ -102,7 +102,7 @@ $(function()
 				
 			var intids = id.split('_');
 			var lastid = intids[intids.length-1]
-			console.debug(lastid);
+			//console.debug(lastid);
 				
 			var $thisrow = $(this).parent().parent();
 			var movie_title = $thisrow.children('#movie_title').text();
@@ -210,7 +210,7 @@ $(function()
 						for (var o in response)
 						{
 							var obj = response[o];
-							console.debug(obj);
+							//console.debug(obj);
 							var id = obj.schedule_id;
 							var movie_title= obj.movie_title;
 							var theatre_name = obj.theatre_name;
@@ -233,7 +233,7 @@ $(function()
 							var html = '<tr id="search_schedule_id_'+id +'"><td id="movie_title"> <a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info" id="add_rec_choice">add</span></td></tr>';
-							console.debug(html);
+							//console.debug(html);
 		 		 			$("#show_search_choice_list >tbody").append(html);
      				  }	
    					}
@@ -251,7 +251,7 @@ $(function()
 				
 			var intids = id.split('_');
 			var lastid = intids[intids.length-1]
-			console.debug(lastid);
+			//console.debug(lastid);
 				
 			var $thisrow = $(this).parent().parent();
 			var movie_title = $thisrow.children('#movie_title').text();
@@ -266,7 +266,7 @@ $(function()
      		var html = '<tr id="search_choice_id_'+lastid +'"><td id="movie_title"> <a id=url target=_blank href='+fandango_url+'>'+movie_title+'</a></td><td id="theatre_name"><a id="url" target="_blank" href="'
 					+theatre_url+'"> '+ theatre_name+'</a></td><td id="address">'+theatre_address+
 					'</td><td id="showtimes">'+showtimes+'</td><td><span class="label label-info remove_choice" id="search">delete</span></td></tr>';
-			console.debug(html);
+			//console.debug(html);
      		// remove it or not, this is a question
      		$thisrow.remove(); 
      		

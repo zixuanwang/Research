@@ -1,4 +1,5 @@
 # Django settings for myGroups project.
+import os 
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -53,7 +54,7 @@ USE_TZ = True
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = '/home/jane/workspace/Research/mygroupevents-movies/media'
 
-
+VAR_ROOT = '/home/jane/workspace/Research/mygroupevents-movies/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -159,6 +160,15 @@ AUTHENTICATION_BACKENDS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+   	'formatters': {
+    	'verbose': {
+		 	'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+		},
+		'simple': {
+			'format': '%(levelname)s %(message)s'
+		 },
+	 },
+
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
@@ -169,14 +179,26 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+		'log_file':{
+		    'level': 'DEBUG',
+			'class': 'logging.handlers.RotatingFileHandler',
+			'filename': os.path.join(VAR_ROOT, 'log/django.log'),
+			'maxBytes': '16777216', # 16megabytes
+			'formatter': 'verbose'
+		  },																	
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['mail_admins','log_file'],
             'level': 'ERROR',
             'propagate': True,
         },
+	'myevents':{
+		'handlers':['log_file'],
+		'level':'INFO',
+		'propogate':False
+		},
     }
 }
 

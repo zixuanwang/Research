@@ -339,7 +339,8 @@
 					var like = response.likes
 					var dislike = response.dislikes;
 	
-					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td class="wordwrap">'+ like+'</td> </tr><tr><td> Disliked by</td> <td class="wordwrap">'+dislike+'</td></tr></table>'
+					var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td >'+ like+'</td> </tr><tr><td> Disliked by</td> <td>'+dislike+'</td></tr></table>'
+					//var output =  '<div class="stat-details"><a class="close" data-dismiss="stat-details" value="'+id+'">×</a><b>Rating for this item</b><table border="0" width="100%"><tr><td> Liked by  </td><td class="wordwrap">'+ like+'</td> </tr><tr><td> Disliked by</td> <td class="wordwrap">'+dislike+'</td></tr></table>'
 					
 					$("#stats_"+id).html(output);
 				} 

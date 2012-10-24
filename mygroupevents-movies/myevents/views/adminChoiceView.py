@@ -132,11 +132,11 @@ def getBaseRecommendation2(request,ehash,uhash):
 		cursor = conn.cursor()
 		if query_date and query_zipcode:
 			query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes, m.img_id, t.fthid from  myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+query_zipcode+'" and s.date = "'+query_date+'"'
-			print query
+			#print query
 			cursor.execute(query)
 				
 			rs = cursor.fetchall()
-			print rs
+			#print rs
 			cursor.close()
 			conn.close()
 			ys = {}
@@ -151,7 +151,7 @@ def getBaseRecommendation2(request,ehash,uhash):
 							isValid=True
 							break
 				if  isValid:
-					print row[0],row[1],row[2]
+					#print row[0],row[1],row[2]
 					address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
 					y = {}
 					y['schedule_id'] = row[0]
@@ -193,16 +193,16 @@ def getSearchChoices2(request,ehash,uhash):
 			if th_name:
 				query = 'select s.id, m.title, t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes,m.img_id,t.fthid from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and t.name like "%' +th_name+'%"' 
 			
-		print query
+		#print query
 		cursor.execute(query)
 		rs = cursor.fetchall()
-		print rs
+		#print rs
 		cursor.close()
 		conn.close()
 		ys = {}
 		i=0
 		for row in rs:
-			print row[0],row[1],row[2]
+			#print row[0],row[1],row[2]
 			address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
 			isValid = True 
 			if e.eventTime !='All Day':
@@ -250,17 +250,17 @@ def getSearchChoices(request,ehash,uhash=None):
 			if th_name:
 				query = 'select s.id, m.title, t.name, t.street,t.city, t.state, t.postcode, t.url, s.showtimes,m.img_id,t.fthid from myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+zipcode+'" and s.date = "'+query_date+'" and t.name like "%' +th_name+'%"' 
 			
-		print query
+		#print query
 		cursor.execute(query)
 		rs = cursor.fetchall()
-		print rs
+		#print rs
 		cursor.close()
 		conn.close()
 
 		ys = {}
 		i=0
 		for row in rs:
-			print row[0],row[1],row[2]
+			#print row[0],row[1],row[2]
 			address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
 			isValid = True 
 			if e.eventTime != 'All Day':
@@ -295,7 +295,7 @@ def getBaseRecommendation(request,ehash,uhash=None):
 	if request.method == 'GET':
 		e = event.objects.get(ehash=ehash)
 		query_date = str(e.eventDate)
-		query_zipcode = e.location
+		query_zipcode = e.location.strip()
 
 		conn = MySQLdb.connect(host = "localhost",user = "root", passwd = "fighting123", db = "mymovies")
 		cursor = conn.cursor()
@@ -303,16 +303,17 @@ def getBaseRecommendation(request,ehash,uhash=None):
 		if query_date and query_zipcode:
 			query = 'select s.id, m.title,t.name, t.street,t.city,t.state,t.postcode, t.url, s.showtimes, m.img_id, t.fthid  from  myevents_movie m, myevents_theatre t, myevents_schedule s where t.thid = s.thid and s.mov_id = m.mov_id and t.postcode = "'+query_zipcode+'" and s.date = "'+query_date+'"'
 			print query
+
 			cursor.execute(query)
 				
 			rs = cursor.fetchall()
-			print rs
+			#print rs
 			cursor.close()
 			conn.close()
 			ys = {}
 			i=0
 			for row in rs:
-				print row[0],row[1],row[2]
+				#print row[0],row[1],row[2]
 				address = row[3] +' '+ row[4] +' '+row[5]+' '+ row[6] 
 				y = {}
 			   
@@ -332,7 +333,7 @@ def getBaseRecommendation(request,ehash,uhash=None):
 					y['theatre_url'] = row[7]
 					y['showtimes'] = row[8]
 					y['fandango_url'] = 'http://www.fandango.com/tms.asp?a=12625&m='+row[9] +'&t='+ row[10]
-					print y['fandango_url']
+					#print y['fandango_url']
 					ys[str(i)]=y
 					i+=1
 
@@ -416,7 +417,7 @@ def editEventChoice(request, ehash,uhash=None):
 			# pass back user for indentification
 			data = {'event': e, 'user':inviter, 'choices':choice_objs}                                                                                                                                       
 			#data = simplejson.dumps(choice_objs) 
-			print data
+			#print data
 			return render_to_response('myevents/success.html', data, context_instance=RequestContext(request))
 		except event.DoesNotExist or user.DoesNotExist:
 			return render_to_response('myevents/error.html', {"message":"event does not exist"}, context_instance=RequestContext(request))      

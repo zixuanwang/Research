@@ -15,12 +15,51 @@ for i = 1:n_events
     uids = this_event(this_event(:,2)==1,1);
     A(i,uids) = 1;
 end
+n_pos_events = nnz(event_results);
 
+% this user's prediction to p_i
+pu=0.5543*ones(n_events,1);
+
+pos_events = find(event_results);
+neg_events = find(~event_results);
+Apos = A(pos_events,:);
+Aneg = A(neg_events,:);
+
+% does not work
 cvx_begin gp
-    variables r(n_events)  b(n_users)   
-    maximize(prod(r(find(event_results)))*prod(find(A(find(~event_results),:)*b)))
+    variables r(n_pos_events)  b(n_users)   
+    %maximize(prod(r(find(event_results)))*prod(A(find(~event_results),:)*b))
+    maximize(prod(r).*prod(b'.^(sum(Aneg,1))))
     subject to
-        0<=r<=1
-        0<=b<=1
-        r + A(find(event_results),:)*b <=1
+        0<=r<=1;
+        0<=b<=1;
+        %r(find(event_results)) + A(find(event_results),:)*b <=1
+        % b*ones(1,n_pos_events) => 19*53 
+        % Apos' => 19*53
+         r+(1-pu).*(prod((b*ones(1,n_pos_events)).^(Apos')))' <=1;
+        %r' + (1-pu)*prod(1-Apos + Apos.*(b*ones(1,n_pos_events))')<=1
+cvx_end 
+
+
+% works 10/22
+cvx_begin 
+    variables r(n_pos_events) b(n_users)
+    minimize(  - sum(r) - sum( Aneg*b ) )
+    subject to 
+        r<=0
+        b<=0
+		% .^  matrix dimension must agree
+        %log(exp(r)+prod(repmat(exp(b'),[n_pos_events,1]).^Apos))<=0
+        %log(exp(r)+prod(1-Apos + Apos.*(exp(b)*ones(1,n_pos_events))'))<=1
+        log(exp(r) + (1-pu).*exp(Apos*b)) <=0
+cvx_end
+
+p = 1-exp(b);
+q = (prod(((1-p)*ones(1,n_events)).^(A')))';
+% logistic regression with l1 norm?
+lambda = 0.25; 
+cvx_begin
+    variable theta const_b 
+    tmp = [zeros(n_events,1) - event_results.*(X'*theta+const_b)];
+    minimize (sum(logsumexp(tmp')) +lambda*norm(theta,1))
 cvx_end 

@@ -82,7 +82,7 @@ def getEventChoices(ehash):
         e = event.objects.get(ehash=ehash)
         cs = choice.objects.filter(event_id=e.id).distinct()
         for cl in cs:
-            print cl.id,cl.schedule_id
+            #print cl.id,cl.schedule_id
             cobj={}
             sid = cl.schedule_id
             cobj['id'] = cl.id  # id should be choice id, not schedule id 
@@ -94,7 +94,7 @@ def getEventChoices(ehash):
              
             cursor.execute(query)
             rs = cursor.fetchall()
-            print rs
+            #print rs
             cursor.close()
             conn.close()
             for row in rs:
@@ -191,11 +191,11 @@ def getResult(request,ehash,uhash):
     # need to have values to have the group by effect
     rs = poll.objects.filter(event=e.id, vote=1).values('choice').annotate(num_votes=Count('choice')).order_by('-num_votes')
     if rs:  #if it's not empty
-        print rs
+        #print rs
         first_rs = rs[0]
         
         cid = first_rs['choice']
-        print cid
+        #print cid
         numlikes = first_rs['num_votes']
         
         try:
@@ -207,7 +207,7 @@ def getResult(request,ehash,uhash):
                 where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(c.schedule_id)
             cursor.execute(query)
             rss = cursor.fetchone()
-            print rss
+            #print rss
             place_detail = ', '.join(rss) 
             cursor.close()
             conn.close()
@@ -228,7 +228,7 @@ def getResult(request,ehash,uhash):
             query = "select m.title,t.name,t.street,t.city,t.state,t.postcode, s.showtimes from myevents_schedule s, myevents_theatre t,myevents_movie m where s.mov_id = m.mov_id and s.thid=t.thid and s.id="+str(c.schedule_id)
             cursor.execute(query)
             rss = cursor.fetchone()
-            print rss
+            #print rss
             dislikePl = ','.join(rss[0]) 
             cursor.close()
             conn.close()
@@ -372,7 +372,7 @@ def fun_prepare_attender_data(eid,uid):
     else:
         isadmin = False
     choices = getEventChoices(e.ehash)
-                #print choices
+    #print choices
     init_pos_votes = {}
     init_neg_votes = {}
     for c in choices:
@@ -500,7 +500,7 @@ def fun_prepare_attender_add_chioce_data(eid,uid):
     else:
         isadmin = False
     choices = getEventChoices(e.ehash)
-                #print choices
+	#print choices
     init_pos_votes = {}
     init_neg_votes = {}
     for c in choices:

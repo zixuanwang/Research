@@ -21,7 +21,7 @@ def create_dbtable():
 
 def parse_schedule():
 
-	data = open('../tms_live_data/on_usa_mov_schedules_20121018.xml').read()
+	data = open('../tms_live_data/on_usa_mov_schedules_20121020.xml').read()
 	root = et.fromstring(data)
 	entry_list = []
 	count = 0
@@ -38,10 +38,15 @@ def parse_schedule():
 				show_time = 'NULL'
 			print mov_id, thid, date, show_time 
 			#query = 'insert into schedule(mov_id, thid, date, times) values("%s",%s,"%s","%s")'%(mov_id,thid,date,show_time)
-			query = 'insert into myevents_schedule(mov_id, thid, date, showtimes) values("%s",%s,"%s","%s")'%(mov_id,thid,date,show_time)
-			print query
-			cursor.execute(query)
-			count+=1
+			query = 'select * from myevents_theatre where thid=%s'%thid 
+			cursor.execute(query) 
+			rs= cursor.fetchone()
+			print rs
+			if rs is not None:
+				query = 'insert into myevents_schedule(mov_id, thid, date, showtimes) values("%s",%s,"%s","%s")'%(mov_id,thid,date,show_time)
+				print query
+				cursor.execute(query)
+				count+=1
 
 	print "total schedules :: ", count
 	return
@@ -49,7 +54,7 @@ def parse_schedule():
 
 def parse_theatres():
 
-	data = open('../tms_live_data/on_usa_mov_sources_20121018.xml').read()
+	data = open('../tms_live_data/on_usa_mov_sources_20121020.xml').read()
 	root = et.fromstring(data)
 	
 	tdt = {}
@@ -69,15 +74,16 @@ def parse_theatres():
 		lat = eachth.findall('./latitude')[0].text.encode('ascii', 'ignore') if eachth.findall('./latitude') else 'NULL'
 		lon = eachth.findall('./longitude')[0].text.encode('ascii', 'ignore') if eachth.findall('./longitude') else 'NULL'
 		print thid, tname, street, city, state, country, zipcode, url, telephone, lat, lon
-	
-		query = 'insert into myevents_theatre(thid, fthid, name, street, city, state, country, postcode, url,telephone,longitude,latitude) values(%s, "%s", "%s", "%s", "%s", "%s", "%s","%s","%s","%s",%s,%s)'%(thid,fthid,tname,street,city,state,country,zipcode,url,telephone,lon,lat,)
-		print query
-		cursor.execute(query)
+		
+		if city=='Los Angeles' or city=='San Francisco':
+			query = 'insert into myevents_theatre(thid, fthid, name, street, city, state, country, postcode, url,telephone,longitude,latitude) values(%s, "%s", "%s", "%s", "%s", "%s", "%s","%s","%s","%s",%s,%s)'%(thid,fthid,tname,street,city,state,country,zipcode,url,telephone,lon,lat,)
+			print query
+			cursor.execute(query)
 	return
 	
 def parse_movies():
 
-	data = open('../tms_live_data/on_usa_mov_programs_20121018.xml').read()
+	data = open('../tms_live_data/on_usa_mov_programs_20121020.xml').read()
 	root = et.fromstring(data)
 	count = 0
 	mdt = {}
@@ -119,9 +125,7 @@ def parse_movies():
 			count+=1
 	print count
 	print 'Number of rows in database', cursor.rowcount
-	
 	return 
-
 
 if __name__=='__main__':
 

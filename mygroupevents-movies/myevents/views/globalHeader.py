@@ -331,24 +331,29 @@ def isEvening(time_str):
         return False 
 
 def isValidTime(time_category, time_str):
-    if time_category=="All Day":
-        return True
-    
-    terms = time_str.strip().split(':')
-    hour = terms[0]
+	if time_str=="NULL":
+		return False
+	if time_category=="All Day":
+		return True
+    	
+	terms = time_str.strip().split(':')
+	hour = terms[0]
      
-    if time_category=="Morning":
-        if int(hour)>0 and int(hour)<12:
-            return True
-        else:
-            return False  
-    if time_category=="Afternoon":
-        if int(hour)>=12 and int(hour)<18:
-            return True
-        else:
-            return False  
-    if time_category=="Evening":
-        if int(hour)>=17:
-            return True
-        else:
-            return False  
+	if time_category=="Morning":
+		if int(hour)>0 and int(hour)<12:
+			return True
+		else:
+			return False  
+	if time_category=="Afternoon":
+		if int(hour)>=12 and int(hour)<18:
+			return True
+		else:
+			return False  
+	
+	if time_category=="Evening":
+		if int(hour)>=17:
+			return True
+		else:
+			return False
+
+

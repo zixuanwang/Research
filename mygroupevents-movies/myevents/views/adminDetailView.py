@@ -93,9 +93,9 @@ def editEventAttrForm(request,ehash):
             eventDate = request.POST.get('when_date')
             #print eventDate
             eventTime = request.POST.get('when_time')
-            print 'Event Time is:%s'%eventTime
+            #print 'Event Time is:%s'%eventTime
             e3 = request.POST.getlist("item[tags][]")
-            print e3
+            #print e3
             
             if len(e3)>=2:
                 friendEmails = ','.join(e3)
