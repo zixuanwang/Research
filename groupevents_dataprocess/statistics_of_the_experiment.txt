@@ -80,3 +80,4 @@ select pickid, event_id, user_id, vote, date from myevents_poll as p, myevents_c
 
 mysqlimport -h localhost -u root -p  groupevents_exp  serialize_poll
 
+select p1.event_id, p1.item_id, p1.user_id, p1.vote, p2.user_id, p2.vote  into outfile 'eid_iid_fuid_fvote_uid_vote_all.txt' from serialize_poll p1, serialize_poll p2 where p1.event_id = p2.event_id and p1.item_id = p2.item_id and p1.user_id <> p2.user_id and p1.unixdate < p2.unixdate;

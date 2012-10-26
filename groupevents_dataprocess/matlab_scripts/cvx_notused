@@ -1,0 +1,15 @@
+% does not work
+cvx_begin gp
+    variables r(n_events)  b(n_users)  pu(n_events)
+    %maximize(prod(r(find(event_results)))*prod(A(find(~event_results),:)*b))
+    maximize(prod(r).*prod(b'.^(sum(Aneg,1))))
+    subject to
+        0<=r<=1;
+        0<=b<=1;
+        0<=pu<=1;
+        %r(find(event_results)) + A(find(event_results),:)*b <=1
+        % b*ones(1,n_pos_events) => 19*53 
+        % Apos' => 19*53
+         r+(1-pu).*(prod((b*ones(1,n_pos_events)).^(Apos')))' <=1;
+        %r' + (1-pu)*prod(1-Apos + Apos.*(b*ones(1,n_pos_events))')<=1
+cvx_end 
