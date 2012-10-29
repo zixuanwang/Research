@@ -259,7 +259,6 @@ end
     tpr = flipdim(tpr,1);
     aucD = trapz(fpr,tpr);
     
-    
     p = nnz(e(:,2));
     n = sum(~e(:,2));
     tp = cumsum(e(:,2));
@@ -267,5 +266,76 @@ end
     tpr = (p-tp)./p;
     tpr = flipdim(tpr,1);
     aucE = trapz(fpr,tpr);
+
+    % compute AUC and plot cdf for with and without influence 
+    a = dlmread('output/firstvote_test_predtrue_sorted.txt');
+    b= dlmread('output/withinfluence_firstvote_test_predtrue_sorted.dat');
+
+    h1=figure();set(h1,'PaperSize',[6 4]);set(h1,'PaperPosition',[0 0 6 4]);
+    ax1 =subplot(1,1,1);
+    set(ax1,'FontSize',20)
+    set(ax1,'LineWidth',2);
+
+    p = nnz(a(:,2));
+    n = sum(~a(:,2));
+    tp = cumsum(a(:,2));
+    fpr = tp./n;
+    tpr = (p-tp)./p;
+    tpr = flipdim(tpr,1);
+    aucA = trapz(fpr,tpr);
+
+    plot(fpr,tpr,'blue')
     
+    hold on
+
+    p = nnz(b(:,2));
+    n = sum(~b(:,2));
+    tp = cumsum(b(:,2));
+    fpr = tp./n;
+    tpr = (p-tp)./p;
+    tpr = flipdim(tpr,1);
+    aucB = trapz(fpr,tpr);   
+    plot(fpr,tpr,'r'); 
+    xlim([0,1])
+    xlabel('False positive rate')
+    ylabel('True positive rate')
+    legend('item only, first vote only','item only, first vote only+influence')
+    title('ROC curve on test set')
+
+
+% plot with and without influence training set 
+
+    a = dlmread('output/firstvote_train_predtrue_sorted.txt');
+    b= dlmread('output/withinfluence_firstvote_train_predtrue_sorted.dat');
+
+    h1=figure();set(h1,'PaperSize',[6 4]);set(h1,'PaperPosition',[0 0 6 4]);
+    ax1 =subplot(1,1,1);
+    set(ax1,'FontSize',20)
+    set(ax1,'LineWidth',2);
+
+    p = nnz(a(:,2));
+    n = sum(~a(:,2));
+    tp = cumsum(a(:,2));
+    fpr = tp./n;
+    tpr = (p-tp)./p;
+    tpr = flipdim(tpr,1);
+    aucA = trapz(fpr,tpr);
+
+    plot(fpr,tpr,'blue')
+    
+    hold on
+
+    p = nnz(b(:,2));
+    n = sum(~b(:,2));
+    tp = cumsum(b(:,2));
+    fpr = tp./n;
+    tpr = (p-tp)./p;
+    tpr = flipdim(tpr,1);
+    aucB = trapz(fpr,tpr);   
+    plot(fpr,tpr,'r'); 
+    xlim([0,1])
+    xlabel('False positive rate')
+    ylabel('True positive rate')
+    legend('item only, first vote only','item only, first vote only+influence')
+    title('ROC curve on training set')
     

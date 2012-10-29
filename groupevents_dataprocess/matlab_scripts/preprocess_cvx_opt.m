@@ -1,7 +1,8 @@
-data = load('../recommendation_input/eid_iid_fuid_fvote_user5.txt');
+data = load('../recommendation_input/eid_iid_fuid_fvote_user5_user5vote.txt');
 
 % get the unique event item pair ..
-user5_vote = data(unique(data(:,[1,2])),[1,2,end]);
+[val,ia] = unique(data(:,[1,2]));
+user5_vote = data(ia,[1,2,end]);
 n_events = size(user5_vote,1);
 n_users = 19;
 A = zeros(n_events,n_users);
@@ -59,12 +60,9 @@ q = (prod(((1-p)*ones(1,n_events)).^(A')))';
 q(q>=0.5)=1;
 nnz(~xor(q,event_results))
 
-% logistic regression with l1 norm or not?
-lambda = 0.25;
 
-
-
-% logistic regression as parameter
+%%%% NOT work 10/24
+% logistic regression as parameter, solved but not accurate
 epsilon=0.1;
 cvx_begin
     variables theta(n_features+1) qui(n_events) r(n_events) b(n_users) 
