@@ -9,15 +9,19 @@ data = data_all(data_all(:,5)==i,:);
  n_events = size(user_vote,1);  
  n_users = 19;
  A = zeros(n_events,n_users);
-    event_results = user_vote(:,end);
-    event_results(event_results==-1)=0;
-% ancestor matrix
+ event_results = user_vote(:,end);
+ event_results(event_results==-1)=0;
+ n_items = 79;
+ % item event matrix
+ E = zeros(n_events, n_items);
+ %ancestor matrix
   for k = 1:n_events
         eid = user_vote(k,1);
         iid = user_vote(k,2);
         this_event = data((data(:,1)==eid)&(data(:,2)==iid),[3,4]);
         uids = this_event(this_event(:,2)==1,1);
         A(k,uids) = 1;
+        E(k,iid) = 1;
   end
 
 pos_events = find(event_results);
@@ -50,9 +54,11 @@ end
 
 lambda = 0.1;
 cvx_begin
-    variables theta(n_features+1) qui(n_events) r(n_events) b(n_users) 
+    variables theta(n_features+1) qui(n_items) r(n_events) b(n_users) 
     %minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*abs(qui*ones(1,n_events)-repmat(qui',[n_events,1]))) )
     minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_events)-repmat(qui',[n_events,1])).^2) )
+    minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_events)-repmat(qui',[n_events,1])).^2) )
+
     subject to 
         r<=0 
         b<=0
