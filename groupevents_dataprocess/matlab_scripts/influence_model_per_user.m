@@ -20,7 +20,8 @@ function [p,train_q,test_q,train_y,test_y] = influence_model_per_user(uid,data,p
 
     %split into train and test 
     y_idx = randperm(n_events);
-    n_train_events = round(0.8*n_events);
+    % split 8:2, try 9:1 
+    n_train_events = round(0.9*n_events);
     train_idx = y_idx(1:n_train_events);
     test_idx = y_idx(n_train_events+1:end);
 
@@ -49,9 +50,12 @@ function [p,train_q,test_q,train_y,test_y] = influence_model_per_user(uid,data,p
     n_train_events = length(train_idx);
    
     % works 10/22
+    rho=0.1;
     cvx_begin 
         variables r(n_train_events) b(n_users)
-        minimize(  - sum(r(train_pos_events)) - sum( Aneg*b ) )
+        minimize(  - sum(r(train_pos_events)) - sum( Aneg*b )  )
+        % add L1 penalty
+        %minimize(  - sum(r(train_pos_events)) - sum( Aneg*b ) + rho*sum(exp(-1.*b)) )
         subject to 
             r<=0
             b<=0

@@ -77,14 +77,8 @@ cvx_begin
         log(exp(r(pos_events)) + exp(Apos*b+qui(pos_events)))<=0
         % can not perform the operation norm({convex},2)
         % norm(qui + log(1+exp(X'*theta)))<=epsilon
-        qui + log(1+exp(X'*theta)) <=epsilon
+        qui + log(1+exp(X'*theta)) <=epsilon 
 cvx_end 
 
 
-pui = 1 - exp(qui); 
-pj = 1-exp(b);
-
-pred_pui = prod(1-A + A.*(ones(n_events,1)*(1-pj)'),2); 
-%predict accuracy
-pred_acc = nnz(xor(event_results,pred_pui))/length(event_results);
 
