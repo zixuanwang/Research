@@ -14,6 +14,8 @@ data = data_all(data_all(:,5)==i,:);
  n_items = 79;
  % item event matrix
  E = zeros(n_events, n_items);
+ % number of times
+ neg_items = zeros(n_items,1);
  %ancestor matrix
   for k = 1:n_events
         eid = user_vote(k,1);
@@ -22,6 +24,10 @@ data = data_all(data_all(:,5)==i,:);
         uids = this_event(this_event(:,2)==1,1);
         A(k,uids) = 1;
         E(k,iid) = 1;
+        vote = user_vote(k,3);
+        if vote==-1
+            neg_items(iid) = neg_items(iid) + 1;
+        end
   end
 
 pos_events = find(event_results);
@@ -43,9 +49,9 @@ end
 X(:,all(~any(X),1))=[];
 
 % pairwise similarity of items in each event.. 
-W = zeros(n_events,n_events);
-for i =1:n_events
-    for j= 1:n_events
+W = zeros(n_items,n_items);
+for i =1:n_items
+    for j= 1:n_items
         W(i,j) = X(i,:)*X(j,:)';
         weight = norm(X(i,:))*norm(X(j,:));
         W(i,j) = W(i,j)/weight;
@@ -55,15 +61,13 @@ end
 lambda = 0.1;
 cvx_begin
     variables theta(n_features+1) qui(n_items) r(n_events) b(n_users) 
-    %minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*abs(qui*ones(1,n_events)-repmat(qui',[n_events,1]))) )
-    minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_events)-repmat(qui',[n_events,1])).^2) )
-    minimize( -sum(r(pos_events)) - sum(qui(neg_events)) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_events)-repmat(qui',[n_events,1])).^2) )
-
+    %minimize( -sum(r(pos_events)) - sum(qui.*neg_items) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_items)-repmat(qui',[n_items,1])).^2) )
+    minimize( -sum(r(pos_events)) - sum(qui.*neg_items) -sum(Aneg*b) + lambda* trace(W*(qui*ones(1,n_items)-repmat(qui',[n_items,1])).^2) )
     subject to 
-        r<=0 
-        b<=0
-        qui<=0
-        log(exp(r(pos_events)) + exp(Apos*b+qui(pos_events)))<=0
+        r <= 0 
+        b <= 0
+        qui <= 0
+        log(exp(r(pos_events)) + exp(Apos*b+ E(pos_events,:)*qui))<=0
         % can not perform the operation norm({convex},2)
         % norm(qui + log(1+exp(X'*theta)))<=epsilon
         %qui + log(1+exp(X'*theta)) <=epsilon 
@@ -72,6 +76,6 @@ cvx_end
 pui = 1 - exp(qui); 
 pj = 1-exp(b);
 
-pred_pui = prod(1-A + A.*(ones(n_events,1)*(1-pj)'),2); 
+pred_pui = 1- ( (1-E*pui).*prod(1-A + A.*(ones(n_events,1)*(1-pj)'),2)); 
 %predict accuracy
 pred_acc = nnz(xor(event_results,pred_pui))/length(event_results);
