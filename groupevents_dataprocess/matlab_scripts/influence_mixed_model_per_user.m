@@ -1,4 +1,4 @@
-function [p,train_q,test_q,train_y,test_y] = influence_mixed_model_per_user(uid,data,place_feature)
+function [p,pu,train_q,test_q,train_y,test_y] = influence_mixed_model_per_user(uid,data,place_feature)
     % get the unique event item pair ..
     [val,ia,ic] = unique(data(:,[1,2]),'rows');
     user_vote = data(ia,[1,2,end]);
@@ -90,6 +90,6 @@ function [p,train_q,test_q,train_y,test_y] = influence_mixed_model_per_user(uid,
     % predict for the test set 
     test_A = A(test_idx,:);
     n_test_events = length(test_idx);
-    test_q = 1-(1-E(test_idx,:)*pu).*(prod(((1-p)*ones(1,n_test_events)).^(test_A')))';
+    test_q = 1-(1-E(test_idx,:)*pu).* (prod(((1-p)*ones(1,n_test_events)).^(test_A')))';
     test_y = event_results(test_idx);
 end
