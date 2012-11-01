@@ -6,7 +6,7 @@ train_preds = [];
 train_ys=[];
 test_preds = [];
 test_ys=[];
-n_items = 19;
+n_items = 79;
 train_accs = zeros(n_users,1);
 train_tprs = zeros(n_users,1);
 train_fprs = zeros(n_users,1);
@@ -14,7 +14,7 @@ test_tprs = zeros(n_users,1);
 test_fprs = zeros(n_users,1);
 test_accs = zeros(n_users,1);
 learn_pj = zeros(n_users,n_users);
-learn_pui = zeros( n_items,n_users);
+learn_pui = zeros(n_items,n_users);
 for i = 1:19
     data_i = data(data(:,5)==i,:);
     [pj, pui,train_q,test_q, train_y, test_y] = influence_mixed_model_per_user(i,data_i,place_feature);
