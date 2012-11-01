@@ -31,11 +31,7 @@ function [p,pu,train_q,test_q,train_y,test_y] = influence_mixed_model_per_user(u
     test_idx = y_idx(n_train_events+1:end);
 
     % compose X matrix for this user 
-    X = zeros(n_events, n_features);  % each column is the feature vector for one (e,i) 
-    for k = 1:n_events
-        iid = user_vote(k,2);
-        X(k,:)= place_feature(iid,:); 
-    end
+    X = place_feature;
     % remove all zeros features.
     X(:,all(~any(X),1))=[];
 
