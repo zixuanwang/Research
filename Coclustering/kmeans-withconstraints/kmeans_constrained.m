@@ -4,8 +4,6 @@
 % con_cannot: n*n
 % K : number of clusters
 
-
-
 % returns
 % E  - sum of squared distances to nearest mean
 % M  - (k x d) matrix of cluster centers
