@@ -9,7 +9,7 @@
 % M  - (k x d) matrix of cluster centers
 % A  - (n x 1) index of nearest center for each data point
 
-function [A, M, E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
+function [A, M,  E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 	N       = size(X,1);
 	done    = 0;
 	iter    = 0;
@@ -31,9 +31,9 @@ function [A, M, E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 
 	   	for i = 1:N
 	   		% compute the euclidian distance of the point to each center
-	   		dist = sum([(M - repmat(X(i,:),K,1)).^2],1);
+	   		dist = sum([(M - repmat(X(i,:),K,1)).^2],2);
 	   		[val,idx] = min(dist);
-	   		is_violated = violate_constraint( i, idx, A, con_must,con_cannot)
+	   		is_violated = violate_constraint( i, idx, A, con_must,con_cannot);
 	   		if ~is_violated 
 	   			A(i)=idx;
 	   		end
@@ -41,11 +41,11 @@ function [A, M, E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 
 	   	% computer the value of objective function 
 	   	% .. what to do with these not yet labeled instance?? 
-	   	for i=1:K
-	   		index = find(A==i);
-	   		dist= sum([(repmat(M(i,:),length(index),1) -  X(index,:)).^2],1);
-	   		E(iter) = E(iter)+dist;
-	   	end
+	   	%for i=1:K
+	   	%	index = find(A==i);
+	   	%	alldist= sum([(repmat(M(i,:),length(index),1) -  X(index,:)).^2],1);
+	   	%	E(iter) = E(iter)+alldist;
+	   	%end
 
 	   	% recompute the center of each cluster 	
       	if iter < iters;
@@ -66,9 +66,10 @@ function [A, M, E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 	    end
 	    Aold = A;
 	      
-	    fprintf('Iter %d, error %f\n',iter, E(iter));
+	    fprintf('Iter %d, clustered  %d\n',iter, nnz(A));  
+	    %fprintf('Iter %d, error %f\n',iter, E(iter));
 
 	end
-	E = E(1:iter);
+	%E = E(1:iter);
 
 end
