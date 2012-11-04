@@ -76,7 +76,7 @@ for k=1:n_constraints
 	con_cannot(j,i)=1;
 end
 face_GT = load('face_GT.txt');
-GT = face_GT(:,2)
+GT = face_GT(:,2);
 K=12;
 iters=100;
 
