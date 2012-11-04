@@ -3,10 +3,8 @@ N=1000;
 D=2;
 T=100;
 %X = rand(N,D);
-
 % ground truth 
 %GT = zeros(N,1);
-
 %GT(find(X(:,1)<0.5 & X(:,2)<0.5))= 1;
 %GT(find(X(:,1)>=0.5 & X(:,2)<0.5)) = 2;
 %GT(find(X(:,1)<0.5 & X(:,2)>=0.5)) = 3;
@@ -39,7 +37,7 @@ plot(d(:,1),d(:,2),'k.');
 plot(e(:,1),e(:,2),'c.');
 
 % construct con_must and con_cannot 
-n_constraints = 1000;
+n_constraints = 100;
 done=0;
 con_must = zeros(N,N);
 con_cannot = zeros(N,N);
@@ -64,10 +62,46 @@ while(~done)
 	end
 end
 
-K=5;
+% add constraints for face
+X = load('face_feature.txt');
+N = size(X,1);
+con_cannot = zeros(N,N);
+con_must=zeros(N,N);
+face_cannot = load('face_cannot.txt');
+n_constraints = length(face_cannot)
+for k=1:n_constraints
+	i = face_cannot(k,1)+1;
+	j = face_cannot(k,2)+1;
+	con_cannot(i,j)=1;
+	con_cannot(j,i)=1;
+end
+face_GT = load('face_GT.txt');
+GT = face_GT(:,2)
+K=12;
 iters=100;
 
 
+%############################
+
+% add constraints for location
+X = load('location_feature.txt');
+N = size(X,1);
+con_cannot = zeros(N,N);
+con_must=zeros(N,N);
+location_must = load('location_must.txt');
+n_constraints = length(location_must)
+for k=1:n_constraints
+	i = location_must(k,1)+1;
+	j = location_must(k,2)+1;
+	con_must(i,j)=1;
+	con_must(j,i)=1;
+end
+location_GT = load('location_GT.txt');
+GT = location_GT(:,2)
+K=11;
+iters=100;
+
+%################## kmeans constrained ####################
 tic
 [A, M, E] = kmeans_constrained(K,X,con_must, con_cannot,iters);
 toc

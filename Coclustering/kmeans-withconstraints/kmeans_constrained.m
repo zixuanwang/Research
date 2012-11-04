@@ -55,7 +55,7 @@ function [A, M,  E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 	         	if ~isempty(index)  
 	             	M(i,:) = mean(X(index,:));
 	        	 else 
-	            	ind=round(rand*N-1);
+	            	ind=round(rand*N+1);
 	            	M(i,:)=X(ind,:);
 	        	 end   	 
 	        end
