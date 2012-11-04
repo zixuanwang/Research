@@ -1,0 +1,13 @@
+face_gt.txt:
+	filename, ground truth label. The first line means the first data point. Index starts from 0.
+face_feature.txt:
+	feature vector.
+face_cannot.txt
+	data point index, data point index.
+location_gt.txt:
+	filename, ground truth label. The first line means the first data point. Index starts from 0.
+location_feature.txt:
+	feature vector.
+location_must.txt
+	data point index, data point index.
+
