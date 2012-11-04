@@ -9,6 +9,7 @@
 % M  - (k x d) matrix of cluster centers
 % A  - (n x 1) index of nearest center for each data point
 
+
 function [A, M,  E] = kmeans_constrained(K,X,con_must, con_cannot,iters)
 	N       = size(X,1);
 	done    = 0;

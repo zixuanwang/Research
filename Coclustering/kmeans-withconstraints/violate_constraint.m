@@ -4,7 +4,6 @@ function yes = violate_constraint(pointi, clusteri, A, con_must,con_cannot)
 	if length(must_idx)>0
 		if( sum(A(must_idx) - clusteri) >0)
 			yes= 1;
-			 
 		end
 	end
 
