@@ -36,11 +36,11 @@ n_test_events = length(test_event_ids);
 % for event in test_data
 for j=1:n_test_events 
    % get the group subcript. 
-   eid = test_event_ids(j);
-   G = test_data(test_data(1,:)==eid,3);
+   eid = test_event_ids(
+   G = test_data(test_data(1,:)==j,3);
     
    % AVERAGE  
-   avg_pi = mean(learn_qui(:,G),1) ;
+   avg_pi = mean(learn_qui(:,G),1); 
    
    % MAX 
    max_pi = max(learn_qui(:,G),1);
