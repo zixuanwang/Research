@@ -1,0 +1,16 @@
+face:
+133 instances
+23 constraints
+k=12:
+		with constraints:  rand index = 0.0.8076
+		without constraints: rand index = 0.8015
+k=19: with constraints, rand index = 0.8514
+	    without constraints, rand index = 0.8315
+
+location:
+111 instances
+290 constraints
+k=11: with contraints: rand index = 0.8444
+			without constraints: rand index = 0.7381
+k=19: with constraints, randindex = 0.8565
+			without constraints, randindex = 0.8046

@@ -57,10 +57,6 @@ public:
 	static void testLFWA();
 	static void testHalf();
 	static void testVelocity();
-	static void testCalibration();
-	static void testProjection();
-	static void testRemap();
-	static void testSolvePnP();
 	static void testCapture();
 };
 

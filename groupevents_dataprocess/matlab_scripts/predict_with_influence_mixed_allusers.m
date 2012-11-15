@@ -51,22 +51,22 @@ end
 
 
 % fetch column of pj for user i
-dlmwrite('output/cvx_influence_pj_alluser.dat', learn_pj, 'delimiter', '\t');
-dlmwrite('output/cvx_predict_pui_alluser.dat', learn_pui, 'delimiter', '\t');
+dlmwrite('output/cvx_influence_mixed_pj_alluser.dat', learn_pj, 'delimiter', '\t');
+dlmwrite('output/cvx_predict_mixed_pui_alluser.dat', learn_pui, 'delimiter', '\t');
 
 % training prediction results
 a = [train_preds,train_ys];
 aa=sortrows(a,1);
-dlmwrite('output/withinfluence_firstvote_train_predtrue.dat', a, 'delimiter', '\t');
-dlmwrite('output/withinfluence_firstvote_train_predtrue_sorted.dat', aa, 'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_train_predtrue.dat', a, 'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_train_predtrue_sorted.dat', aa, 'delimiter', '\t');
 
 % test prediction results
 b = [test_preds,test_ys];
 bb=sortrows(b,1);
-dlmwrite('output/withinfluence_firstvote_test_predtrue.dat', b, 'delimiter', '\t');
-dlmwrite('output/withinfluence_firstvote_test_predtrue_sorted.dat',bb, 'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_test_predtrue.dat', b, 'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_test_predtrue_sorted.dat',bb, 'delimiter', '\t');
 
 % accuracy across users
-dlmwrite('output/withinfluence_firstvote_train_tpr_fpr_accs.dat',[train_tprs, train_fprs, train_accs],'delimiter', '\t');
-dlmwrite('output/withinfluence_firstvote_test_tpr_fpr_accs.dat',[test_tprs, test_fprs, test_accs],'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_train_tpr_fpr_accs.dat',[train_tprs, train_fprs, train_accs],'delimiter', '\t');
+dlmwrite('output/withinfluence_mixed_test_tpr_fpr_accs.dat',[test_tprs, test_fprs, test_accs],'delimiter', '\t');
 
