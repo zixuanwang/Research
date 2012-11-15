@@ -1,0 +1,35 @@
+data = load('../recommendation_input/eid_iid_fuid_fvote_uid_vote_all.txt');
+learn_pj = dlmread('output/cvx_cv_influence_pj_alluser.dat');
+learn_qui = dlmread('output/cvx_cv_predict_pui_alluser.dat');
+
+n_events = length(unique(data(:,1)));
+
+learn_puis = zeros(n_items,n_users);
+for i = 1:n_users
+    data_i = data(data(:,5)==i,:);
+    qui = learn_qui(:,i);
+    pj = learn_pj(:,i);
+    [val,ia,ic] = unique(data_i(:,[1,2]),'rows');
+    user_vote = data_i(ia,[1,2,end]);
+    n_myevents = size(user_vote,1);  
+    n_users = 19;
+    A = zeros(n_events,n_users);
+    event_results = user_vote(:,end);
+    event_results(event_results==-1)=0;
+   
+    n_items = 79;
+    % item event matrix
+    E = zeros(n_events, n_items);
+    % ancestor matrix
+    for k = 1:n_events
+        eid = user_vote(k,1);
+        iid = user_vote(k,2);
+        this_event = data((data(:,1)==eid)&(data(:,2)==iid),[3,4]);
+        uids = this_event(this_event(:,2)==1,1);
+        A(k,uids) = 1;
+        E(k,iid) = 1;
+    end
+    
+    pui = 1-(1-E*qui).* (prod(((1-pj)*ones(1,n_events)).^(A')))';
+    learn_puis(:,i) = pui;
+end

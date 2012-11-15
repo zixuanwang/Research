@@ -1,0 +1,36 @@
+ERROR 2012-10-30 18:29:47,762 base 32295 -1289774224 Internal Server Error: /myevents/createEvent/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/jane/workspace/Research/mygroupevents-movies/myevents/views/indexView.py", line 109, in createEvent
+    uid = request.session['user_id']
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+KeyError: 'user_id'
+ERROR 2012-10-30 18:29:50,777 base 32295 -1289774224 Internal Server Error: /myevents/createEvent/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/jane/workspace/Research/mygroupevents-movies/myevents/views/indexView.py", line 109, in createEvent
+    uid = request.session['user_id']
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+KeyError: 'user_id'
+ERROR 2012-10-30 18:30:01,063 base 32295 -1289774224 Internal Server Error: /myevents/createEvent/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/jane/workspace/Research/mygroupevents-movies/myevents/views/indexView.py", line 109, in createEvent
+    uid = request.session['user_id']
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+KeyError: 'user_id'
+ERROR 2012-10-30 18:31:03,712 base 32295 -1256203408 Internal Server Error: /myevents/4165c7fde285407b818c9c2b92f40601/adminDetail/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/jane/workspace/Research/mygroupevents-movies/myevents/views/adminDetailView.py", line 38, in adminDetail
+    uid = request.session['user_id']
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+KeyError: 'user_id'

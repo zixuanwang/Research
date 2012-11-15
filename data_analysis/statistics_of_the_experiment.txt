@@ -1,0 +1,83 @@
+//selected choices
+select distinct myevents_choice.pickid from myevents_choice,myevents_event_choice where myevents_event_choice.choice_id = myevents_choice.id
+
+//selected choices method 2
+select distinct pickid from myevents_choice;
+
+//number of times that an item is selected as a choice in one event
+select pickid, count(*) as gcnt from myevents_choice group by pickid ;
+//the average number of selected times for options, that are at least selected once
+select avg(gcnt) from (select count(*) as gcnt from myevents_choice group by pickid having gcnt >1)p;
+//the min = 10
+select min(gcnt) from (select count(*) as gcnt from myevents_choice group by pickid having gcnt >1)p;
+//the max = 19
+select max(gcnt) from (select count(*) as gcnt from myevents_choice group by pickid having gcnt >1)p;
+
+// number of rated times of each option
+select myevents_choice.pickid, count(*) as ecnt from myevents_choice, myevents_poll where myevents_choice.id = myevents_poll.choice_id group by myevents_choice.pickid 
+// exclude the event 281: 57.8026
+select avg(ecnt) from (select myevents_choice.pickid, count(*) as ecnt from myevents_choice, myevents_poll where myevents_choice.id = myevents_poll.choice_id and event_id <281 group by myevents_choice.pickid)p;
+// the average number of rated times = 60.1370, exclude the option only got 2 votes
+select avg(ecnt) from (select myevents_choice.pickid, count(*) as ecnt from myevents_choice, myevents_poll where myevents_choice.id = myevents_poll.choice_id group by myevents_choice.pickid having ecnt>2)p
+//min  = 30, exclude outliers
+select min(ecnt) from (select myevents_choice.pickid, count(*) as ecnt from myevents_choice, myevents_poll where myevents_choice.id = myevents_poll.choice_id group by myevents_choice.pickid having ecnt>3)p
+//max = 90
+select max(ecnt) from (select myevents_choice.pickid, count(*) as ecnt from myevents_choice, myevents_poll where myevents_choice.id = myevents_poll.choice_id group by myevents_choice.pickid having ecnt>3)p
+
+// average number of groups a user is in = average number of events a user is in
+select user_id, count(*) as cnt from myevents_event_user where event_id <281 group  by user_id ; 
+
+// number of votes a user gave 
+select user_id, count(*) from myevents_poll where event_id<281 group  by  user_id ;
+//average number of votes a user gave
+select avg(ucnt) from (select user_id, count(*) as ucnt from myevents_poll where event_id<281 group by  user_id)p ;
+//min
+select min(ucnt) from (select user_id, count(*) as ucnt from myevents_poll where event_id<281 group by  user_id)p ;
+//max
+select max(ucnt) from (select user_id, count(*) as ucnt from myevents_poll where event_id<281 group by  user_id)p ;
+
+//number of votes a place received
+select c.pickid,count(*) as cnt from myevents_choice c, myevents_poll p where p.event_id<281 and p.choice_id = c.id group by c.pickid
+
+//number of postivite votes a place received
+select c.pickid,sum(vote) as cnt from myevents_choice c, myevents_poll p where p.event_id<281 and p.choice_id = c.id and p.vote=1 group by c.pickid order by cnt
+//number of negative votes a place received
+select c.pickid,sum(vote) as cnt from myevents_choice c, myevents_poll p where p.event_id<281 and p.choice_id = c.id and p.vote=-1 group by c.pickid order by cnt
+
+//number of times that a place is selected as final Choice
+select finalChoice,count(*) as cnt from myevents_event where status=3 group by finalChoice order by cnt;
+
+//ratio of pos to neg of places
+select pos.pickid, pos.cnt/abs(neg.cnt) as ratio from(select c.pickid,sum(vote) as cnt from myevents_choice c, myevents_poll p where p.event_id<281 and p.choice_id = c.id and p.vote=1 group by c.pickid) pos, (select c.pickid,sum(vote) as cnt from myevents_choice c, myevents_poll p where p.event_id<281 and p.choice_id = c.id and p.vote=-1 group by c.pickid) neg where pos.pickid = neg.pickid order by ratio;
+
+//number of negative votes a user gave: min=51(), max=207
+select user_id, count(*) as cnt from myevents_poll where vote=1 and event_id<281 group by user_id order by cnt;
+//number of negative votes a user gave: min=3, max=243
+ select user_id, count(*) as cnt from myevents_poll where vote=-1 and event_id<281 group by user_id order by cnt;
+//ratio of pos to neg votes a user gave
+select pos.user_id, pos.cnt/neg.cnt as ratio  from (select user_id, count(*) as cnt from myevents_poll where vote=1 and event_id<281 group by user_id)pos, (select user_id, count(*) as cnt from myevents_poll where vote=-1 and event_id<281 group by user_id) neg where pos.user_id=neg.user_id order by ratio;
+
+//select information of an item.
+select id,url from myevents_yelp where id in (select distinct pickid from myevents_choice)
+select id,categories from myevents_yelp where id in (select distinct pickid from myevents_choice)
+
+//X and Y for each user, combining with feature vector to complete the input for logistic regression
+select user_id, pickid,vote,date into outfile 'instance_per_user.txt' from myevents_poll,myevents_choice where myevents_choice.id = myevents_poll.choice_id ;
+
+select user_id, pickid,vote,date into outfile 'instance_per_user.txt' from myevents_poll,myevents_choice,myevents_user where myevents_user.id = myevents_poll.user_id and myevents_user.is_registered=1 and myevents_user.is_active=1 and myevents_choice.id = myevents_poll.choice_id order by user_id;
+
+
+//get the group information: group, user, role
+select event_id,user_id, role from myevents_event_user where user_id not in (select id from myevents_user where is_active=0 or is_registered = 0);
+
+// get poll information: event(group), item, vote.
+ select event_id, item_id, sum(If (vote=1,1,0)) AS pos_vote, sum(If( vote=-1,1,0)) AS neg_vote, count(*) AS total_vote into outfile 'event_item_vote.txt'  from (select event_id, user_id, c.pickid as item_id, vote from myevents_poll p, myevents_choice c where p.choice_id = c.id and p.event_id<281)T group by event_id,item_id;
+
+
+//get e,u,i,vote such that each user vote item independently, in another words, he is the first person voted the item. 
+select pickid, event_id, user_id, vote, date from myevents_poll as p, myevents_choice as c where p.choice_id = c.id group by pickid,event_id order by pickid, date
+
+
+mysqlimport -h localhost -u root -p  groupevents_exp  serialize_poll
+
+select p1.event_id, p1.item_id, p1.user_id, p1.vote, p2.user_id, p2.vote  into outfile 'eid_iid_fuid_fvote_uid_vote_all.txt' from serialize_poll p1, serialize_poll p2 where p1.event_id = p2.event_id and p1.item_id = p2.item_id and p1.user_id <> p2.user_id and p1.unixdate < p2.unixdate;
