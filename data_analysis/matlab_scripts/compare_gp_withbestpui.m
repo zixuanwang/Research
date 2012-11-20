@@ -43,7 +43,7 @@ max_matches = zeros(n_test_events,1);
 con_matches = zeros(n_test_events,1);
 lcon_matches = zeros(n_test_events,1);
 inf_matches = zeros(n_test_events,1);
-
+n_valid_events = 0;
 % for event in test_data
 for j=1:n_test_events 
    % get the group subcript. 
@@ -69,28 +69,35 @@ for j=1:n_test_events
    % influence 
    inf_pi = inf_consensus(G, learn_qui, learn_pj);
    
-   % groundtruth 
+   % groundtruth  event_id, item_id, pos_vote, neg_vote, total_vote
    items = groundtruth(groundtruth(:,1)==eid,:);
-   
-   % TOP 6 MATCH
-   ids = 1:n_items;
-   avg_top6 = get_topk_ids(avg_pi,ids',6);
-   max_top6 = get_topk_ids(max_pi,ids',6);
-   min_top6 = get_topk_ids(min_pi,ids',6);
-   con_top6 = get_topk_ids(con_pi,ids',6);
-   lcon_top6 = get_topk_ids(lcon_pi,ids',6);
-   
-   % EXIST THE BEST ONE? 
-   K = ceil(size_group/2);
-   voted_byK = items(items(:,3)>=K,2);
-   avg_matches(j) = length(intersect(avg_top6, voted_byK));
-   max_matches(j) = length(intersect(max_top6,voted_byK));
-   min_matches(j) = length(intersect(min_top6,voted_byK));
-   con_matches(j) = length(intersect(con_top6,voted_byK));
-   lcon_matches(j) = length(intersect(lcon_top6,voted_byK));
+   % consider the half top among these 6 items. 
+   n_event_item = size(items,1);
+   if n_event_item <3
+      continue;
+   else
+      n_valid_events = n_valid_events+1;
+      % EXIST THE BEST ONE? 
+      K = ceil(size_group/2);
+      avg_matches(j) = evaluate_existOne(avg_pi, K, items);
+      max_matches(j) = evaluate_existOne(max_pi, K, items);
+      min_matches(j) = evaluate_existOne(min_pi, K, items);
+      con_matches(j) = evaluate_existOne(con_pi, K, items);
+      lcon_matches(j) = evaluate_existOne(lcon_pi, K, items);
+      inf_matches(j) =  evaluate_existOne(inf_pi, K, items);
+   end
 end
-   fprintf('average  hit ratio: %f\n',sum(avg_matches>0)/n_test_events);
-   fprintf('max  hit ratio: %f\n',sum(max_matches>0)/n_test_events);
-   fprintf('min  hit ratio: %f\n',sum(min_matches>0)/n_test_events);
-   fprintf('consensus  hit ratio: %f\n',sum(con_matches>0)/n_test_events);
-   fprintf('k-consensus hit ratio: %f\n',sum(lcon_matches>0)/n_test_events);
+   fprintf('average  hit ratio: %f\n',sum(avg_matches>0)/n_valid_events);
+   fprintf('max  hit ratio: %f\n',sum(max_matches>0)/n_valid_events);
+   fprintf('min  hit ratio: %f\n',sum(min_matches>0)/n_valid_events);
+   fprintf('consensus  hit ratio: %f\n',sum(con_matches>0)/n_valid_events);
+   fprintf('k-consensus hit ratio: %f\n',sum(lcon_matches>0)/n_valid_events);
+   fprintf('influence hit ratio: %f\n',sum(inf_matches>0)/n_valid_events);
+
+   fprintf('average  matches per event: %f\n',sum(avg_matches )/n_valid_events);
+   fprintf('max  matches per event: %f\n',sum(max_matches )/n_valid_events);
+   fprintf('min  matches per event: %f\n',sum(min_matches )/n_valid_events);
+   fprintf('consensus  matches per event: %f\n',sum(con_matches )/n_valid_events);
+   fprintf('k-consensus matches per event: %f\n',sum(lcon_matches )/n_valid_events);
+   fprintf('influence matches per event: %f\n',sum(inf_matches )/n_valid_events);
+

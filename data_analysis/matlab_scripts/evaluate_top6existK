@@ -1,0 +1,10 @@
+% items: item_id, item_pos_vote, item_neg_vote
+% pred_pi: n_items*1
+function matches = evaluate_top6existK(pred_pi, n_items, K, items)
+   item_ids = items(:,2);
+   ids = 1:n_items;
+   top6 = get_topk_ids(pred_pi,ids',6); 
+   voted_byK = items(items(:,3)>=K,2);
+   matches = length(intersect(top6,voted_byK));
+ 
+end
