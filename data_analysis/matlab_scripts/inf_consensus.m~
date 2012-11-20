@@ -1,0 +1,22 @@
+function pi = inf_consensus(G,learn_qui, learn_pj)
+    size_group = length(G);
+    n_items = length(learn_qui);
+    
+    pi =zeros(n_items,1);
+    
+    for i =1:n_items
+        for u =1:size_group
+            uid = G(u)
+            for v = 1:size_group 
+                vid = G(v)
+                if uid == vid 
+                    pvu = learn_qui(i,vid);
+                end
+                else
+                    pvu = learn_pj(vid,uid)*learn_qui(i,vid);
+            end
+            end
+        end
+    end
+
+end

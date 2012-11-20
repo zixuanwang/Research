@@ -1,0 +1,6 @@
+function pi =consensus(M)
+    agg = mean(M,2);
+    size_group = size(M,2);
+    dis = sum((M-repmat(agg, [1,size_group])).^2,2);
+    pi = 0.8*agg + 0.2*(1 - dis./size_group); 
+end

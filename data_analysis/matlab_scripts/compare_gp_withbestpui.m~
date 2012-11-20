@@ -12,7 +12,7 @@
 % rank items, compare with ground truth 
 
 
-%#########################
+%##################################################
 % prepare the data: eid, iid, uid, vote
 data = load('../recommendation_input/serialize_eid_iid_uid_vote_dateunix.txt');
 alldata = data(:,1:4);
@@ -21,37 +21,76 @@ n_samples = length(alldata);
 n_train_samples = round(0.8*n_samples);
 n_test_samples = n_samples-n_train_samples+1;
 test_data=alldata(n_train_samples+1:n_samples,:);
- 
-%test_data = load('recommendation_input/test_gp_data.txt');
-
+%##################################################
 % load parameters
-% n_items * n_users
+%
 learn_pj = dlmread('output/cvx_cv_influence_pj_alluser.dat');
+
+% n_items * n_users
 learn_qui = dlmread('output/cvx_cv_predict_pui_alluser.dat');
+n_items = size(learn_qui,1);
 
-%#########################
+%##################################################
+groundtruth = load('../recommendation_input/allserialized_event_item_vote.txt');
 
+%##################################################
 test_event_ids = unique(test_data(:,1));
 n_test_events = length(test_event_ids);
+
+avg_matches = zeros(n_test_events,1);
+min_matches = zeros(n_test_events,1);
+max_matches = zeros(n_test_events,1);
+con_matches = zeros(n_test_events,1);
+lcon_matches = zeros(n_test_events,1);
+inf_matches = zeros(n_test_events,1);
+
 % for event in test_data
 for j=1:n_test_events 
    % get the group subcript. 
-   eid = test_event_ids(
-   G = test_data(test_data(1,:)==j,3);
-    
+   eid = test_event_ids(j);
+   G = unique(test_data(test_data(:,1)==eid,3));
+   size_group = length(G);
+   
    % AVERAGE  
-   avg_pi = mean(learn_qui(:,G),1); 
-   
+   avg_pi = mean(learn_qui(:,G),2);
+  
    % MAX 
-   max_pi = max(learn_qui(:,G),1);
-   
+   max_pi = max(learn_qui(:,G),[],2);
+
    % MIN 
-   min_pi = min(learn_qui(:,G),1);
+   min_pi = min(learn_qui(:,G),[],2);
    
    % CONsensus 
-   con_pi = consensus(learn_qui,G);
+   con_pi = consensus(learn_qui(:,G));
    
    % l_consensus
-   lcon_pi = l_consensus(learn_qui,G);
+   lcon_pi = l_consensus(learn_qui(:,G));
    
+   % influence 
+   inf_pi = inf_consensus(G, learn_qui, learn_pj);
+   
+   % groundtruth 
+   items = groundtruth(groundtruth(:,1)==eid,:);
+   
+   % TOP 6 MATCH
+   ids = 1:n_items;
+   avg_top6 = get_topk_ids(avg_pi,ids',6);
+   max_top6 = get_topk_ids(max_pi,ids',6);
+   min_top6 = get_topk_ids(min_pi,ids',6);
+   con_top6 = get_topk_ids(con_pi,ids',6);
+   lcon_top6 = get_topk_ids(lcon_pi,ids',6);
+   
+   % EXIST THE BEST ONE? 
+   K = ceil(size_group/2);
+   voted_byK = items(items(:,3)>=K,2);
+   avg_matches(j) = length(intersect(avg_top6, voted_byK));
+   max_matches(j) = length(intersect(max_top6,voted_byK));
+   min_matches(j) = length(intersect(min_top6,voted_byK));
+   con_matches(j) = length(intersect(con_top6,voted_byK));
+   lcon_matches(j) = length(intersect(lcon_top6,voted_byK));
 end
+   fprintf('average  hit ratio: %f\n',sum(avg_matches>0)/n_test_events);
+   fprintf('max  hit ratio: %f\n',sum(max_matches>0)/n_test_events);
+   fprintf('min  hit ratio: %f\n',sum(min_matches>0)/n_test_events);
+   fprintf('consensus  hit ratio: %f\n',sum(con_matches>0)/n_test_events);
+   fprintf('k-consensus hit ratio: %f\n',sum(lcon_matches>0)/n_test_events);

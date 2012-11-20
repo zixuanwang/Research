@@ -1,3 +1,4 @@
+% compute p_ui for one user all items.
 function score = compute_fkd(pred, k,d)
     score = 0;
     dp_output = zeros(k,d);
