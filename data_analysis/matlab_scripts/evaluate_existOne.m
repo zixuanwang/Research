@@ -16,6 +16,6 @@ function matches = evaluate_existOne(pred_pi, K, items)
    top3 = sorted_ids(1:3);
    voted_byK = items(items(:,3)>=K,2);
    exists = intersect(top3,voted_byK);
-   matches = length(exists);
+   matches = length(exists)
  
 end
