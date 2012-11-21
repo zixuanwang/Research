@@ -1,6 +1,6 @@
 
 % 11/15/2012
-
+% updated 11/19/2012
 % first 4 weeks as training 
 % last week as testing
 
@@ -43,6 +43,29 @@ max_matches = zeros(n_test_events,1);
 con_matches = zeros(n_test_events,1);
 lcon_matches = zeros(n_test_events,1);
 inf_matches = zeros(n_test_events,1);
+
+avg_realvotes = zeros(n_test_events,1);
+min_realvotes = zeros(n_test_events,1);
+max_realvotes = zeros(n_test_events,1);
+con_realvotes = zeros(n_test_events,1);
+lcon_realvotes = zeros(n_test_events,1);
+inf_realvotes = zeros(n_test_events,1);
+
+max_avg_realvotes = zeros(n_test_events,1);
+max_min_realvotes = zeros(n_test_events,1);
+max_max_realvotes = zeros(n_test_events,1);
+max_con_realvotes = zeros(n_test_events,1);
+max_lcon_realvotes = zeros(n_test_events,1);
+max_inf_realvotes = zeros(n_test_events,1);
+
+min_avg_realvotes = zeros(n_test_events,1);
+min_min_realvotes = zeros(n_test_events,1);
+min_max_realvotes = zeros(n_test_events,1);
+min_con_realvotes = zeros(n_test_events,1);
+min_lcon_realvotes = zeros(n_test_events,1);
+min_inf_realvotes = zeros(n_test_events,1);
+
+
 n_valid_events = 0;
 % for event in test_data
 for j=1:n_test_events 
@@ -85,6 +108,14 @@ for j=1:n_test_events
       con_matches(j) = evaluate_existOne(con_pi, K, items);
       lcon_matches(j) = evaluate_existOne(lcon_pi, K, items);
       inf_matches(j) =  evaluate_existOne(inf_pi, K, items);
+      
+      [avg_realvotes(j), max_avg_realvotes(j), min_avg_realvotes(j)] = evaluate_RealPosVote(avg_pi, items,size_group);
+      [max_realvotes(j), max_max_realvotes(j), min_max_realvotes(j)] = evaluate_RealPosVote(max_pi, items,size_group);
+      [min_realvotes(j) , max_min_realvotes(j), min_min_realvotes(j)] = evaluate_RealPosVote(min_pi, items,size_group);
+      [con_realvotes(j), max_con_realvotes(j), min_con_realvotes(j)]  = evaluate_RealPosVote(con_pi, items,size_group);
+      [lcon_realvotes(j), max_lcon_realvotes(j), min_lcon_realvotes(j)]  = evaluate_RealPosVote(lcon_pi, items,size_group);
+      [inf_realvotes(j) , max_inf_realvotes(j), min_inf_realvotes(j)]  = evaluate_RealPosVote(inf_pi, items,size_group);
+         
    end
 end
    fprintf('average  hit ratio: %f\n',sum(avg_matches>0)/n_valid_events);
@@ -93,11 +124,45 @@ end
    fprintf('consensus  hit ratio: %f\n',sum(con_matches>0)/n_valid_events);
    fprintf('k-consensus hit ratio: %f\n',sum(lcon_matches>0)/n_valid_events);
    fprintf('influence hit ratio: %f\n',sum(inf_matches>0)/n_valid_events);
-
+  
+   disp('##############################');
    fprintf('average  matches per event: %f\n',sum(avg_matches )/n_valid_events);
    fprintf('max  matches per event: %f\n',sum(max_matches )/n_valid_events);
    fprintf('min  matches per event: %f\n',sum(min_matches )/n_valid_events);
    fprintf('consensus  matches per event: %f\n',sum(con_matches )/n_valid_events);
    fprintf('k-consensus matches per event: %f\n',sum(lcon_matches )/n_valid_events);
    fprintf('influence matches per event: %f\n',sum(inf_matches )/n_valid_events);
-
+  
+   disp('##############################');
+   fprintf('average sum real pos votes: %f\n',sum(avg_realvotes)/n_valid_events);
+   fprintf('max sum real pos votes: %f\n',sum(max_realvotes)/n_valid_events);
+   fprintf('min sum real pos votes: %f\n',sum(min_realvotes)/n_valid_events);
+   fprintf('consensus  sum real pos votes: %f\n',sum(con_realvotes)/n_valid_events);
+   fprintf('k-consensus sum real pos votes: %f\n',sum(lcon_realvotes)/n_valid_events);
+   fprintf('influence sum real pos votes: %f\n',sum(inf_realvotes)/n_valid_events);
+   
+     
+   disp('##############################');
+    fprintf('average sum real pos votes: %f\n',sum(avg_realvotes)/n_valid_events);
+   fprintf('max sum real pos votes: %f\n',sum(max_realvotes)/n_valid_events);
+   fprintf('min sum real pos votes: %f\n',sum(min_realvotes)/n_valid_events);
+   fprintf('consensus  sum real pos votes: %f\n',sum(con_realvotes)/n_valid_events);
+   fprintf('k-consensus sum real pos votes: %f\n',sum(lcon_realvotes)/n_valid_events);
+   fprintf('influence sum real pos votes: %f\n',sum(inf_realvotes)/n_valid_events);
+     
+   disp('##############################');
+   fprintf('average max real pos votes: %f\n',sum(max_avg_realvotes)/n_valid_events);
+   fprintf('max max real pos votes: %f\n',sum(max_max_realvotes)/n_valid_events);
+   fprintf('min max real pos votes: %f\n',sum(max_min_realvotes)/n_valid_events);
+   fprintf('consensus max real pos votes: %f\n',sum(max_con_realvotes)/n_valid_events);
+   fprintf('k-consensus max real pos votes: %f\n',sum(max_lcon_realvotes)/n_valid_events);
+   fprintf('influence max real pos votes: %f\n',sum(max_inf_realvotes)/n_valid_events);
+      
+   disp('##############################');
+   fprintf('average min real pos votes: %f\n',sum(min_avg_realvotes)/n_valid_events);
+   fprintf('max min real pos votes: %f\n',sum(min_max_realvotes)/n_valid_events);
+   fprintf('min min real pos votes: %f\n',sum(min_min_realvotes)/n_valid_events);
+   fprintf('consensus min real pos votes: %f\n',sum(min_con_realvotes)/n_valid_events);
+   fprintf('k-consensus min real pos votes: %f\n',sum(min_lcon_realvotes)/n_valid_events);
+   fprintf('influence min real pos votes: %f\n',sum(min_inf_realvotes)/n_valid_events);
+   
