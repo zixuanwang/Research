@@ -14,7 +14,7 @@ void KnnClassifier::build() {
 	}
 	if (mMat.empty()) {
 		mMat = cv::Mat(mData, false);
-		mMat = mMat.reshape(0, mLabelArray.size());
+		mMat = mMat.reshape(0, (int)mLabelArray.size());
 	}
 	mpIndex.reset(new cv::flann::Index(mMat, cv::flann::KDTreeIndexParams(8)));
 }

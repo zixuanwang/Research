@@ -1,7 +1,7 @@
 #pragma once
-
 #include <opencv2/opencv.hpp>
 #include <set>
+#include <map>
 #include <ctime>
 #include "CascadeDetector.h"
 #include "FaceDescriptor.h"
@@ -11,7 +11,7 @@
 #include "File.h"
 
 // this class wraps routines of doing evaluations.
-// you need to change the cascade path and mode path accordingly.
+// you need to change the cascade path and model path accordingly.
 class Evaluation {
 public:
 	Evaluation(void);
@@ -33,7 +33,9 @@ public:
 			const std::string& outputPath);
 	static void test(const std::vector<std::string>& testArray,
 			const std::string& inputPath);
+	int getLabel(const std::string& strLabel);
 private:
+	std::map<std::string, int> strIntMap;
 	const static std::string cascadeName;
 	const static std::string nestedCascadeName;
 	const static std::string modelPath;

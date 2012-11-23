@@ -42,33 +42,8 @@ Tester::~Tester(void) {
 //	cv::imshow("testWindow",image);
 //	cv::waitKey(0);
 //}
-//
-//void Tester::testFaceFeature(){
-//	std::string imagePath="C:/face.jpg";
-//	cv::Mat image=cv::imread(imagePath,0);
-//	std::vector<cv::Rect> faceArray;
-//	// detect face patches in the image.
-//	FaceDetector::instance()->detect(&faceArray, image);
-//	if (faceArray.size()==1) {
-//		std::vector<cv::Point2f> landmarkArray;
-//		FaceLandmarkDetector::instance()->detect(&landmarkArray,image,faceArray[0]);
-//		// normalize the size of the face patch to be 128*128 pixels
-//		// modify the landmarks accordingly
-//		std::vector<cv::Point2f> normalizedLandmarkArray;
-//		cv::Mat normalizedFace=FaceLandmarkDetector::instance()->normalize(&normalizedLandmarkArray,image,faceArray[0],landmarkArray);
-//		std::vector<cv::Point2f> warpedLandmarkArray;
-//		// warp the face patch to register 4 predefined landmarks (ourter eye corners, mouth corners).
-//		cv::Mat warpedFace=FaceLandmarkDetector::instance()->warp(&warpedLandmarkArray,normalizedFace,normalizedLandmarkArray);
-//		FaceLandmarkDetector::instance()->draw(warpedFace,warpedLandmarkArray);
-//		// compute the face feature.
-//		Sample faceSample=FaceDescriptor::instance()->compute(warpedFace,warpedLandmarkArray);
-//		// show the face sample.
-//		std::string faceSampleString;
-//		faceSample.save(&faceSampleString);
-//		std::cout<<faceSampleString<<std::endl;
-//	}
-//}
-//
+
+
 //void Tester::testSIFTFeature(){
 //	std::string imagePath="C:/test.jpg";
 //	cv::Mat image=cv::imread(imagePath,0);
@@ -859,6 +834,243 @@ void Tester::testVelocity(){
 	outStream.close();
 }
 
+void Tester::testCalibration(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<distCoeffs<<std::endl;
+}
+
+void Tester::testProjection(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	cv::Mat R=cv::Mat::eye(3,3,CV_32FC1);
+	float tArray[3]={0,0,1000};
+	cv::Mat tvec(3,1,CV_32FC1,tArray);
+	cv::Mat rvec;
+	cv::Rodrigues(R,rvec,cv::noArray());
+	float objectArray[4][3]={{0,0,0},{0,600,0},{800,600,0},{800,0,0}};
+	cv::Mat objectPoints(4,3,CV_32FC1,objectArray);
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<imagePoints<<std::endl;
+	Tracker tracker;
+	cv::namedWindow("frame");
+	float yaw=0.0f;
+	float pitch=0.0f;
+	float roll=0.0f;
+	while(true){
+		cv::Mat frame=cv::Mat::zeros(800,800,CV_8UC3);
+		for(int i=0; i<imagePoints.rows;++i){
+			int index1=i%4;
+			int index2=(i+1)%4;
+			float* ptr1=imagePoints.ptr<float>(index1);
+			float* ptr2=imagePoints.ptr<float>(index2);
+			cv::Point2f r1(ptr1[0],ptr1[1]);
+			cv::Point2f r2(ptr2[0],ptr2[1]);
+			cv::line(frame,r1,r2,CV_RGB(255,0,0),1,CV_AA);
+        }
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(0);
+		switch (c)
+		{
+		case 'a':
+			tvec.at<float>(0,0)-=10.0f;
+			break;
+		case 'd':
+			tvec.at<float>(0,0)+=10.0f;
+			break;
+		case 'r':
+			tvec.at<float>(1,0)+=10.0f;
+			break;
+		case 'f':
+			tvec.at<float>(1,0)-=10.0f;
+			break;
+		case 'w':
+			tvec.at<float>(2,0)*=1.1f;
+			break;
+		case 's':
+			tvec.at<float>(2,0)*=0.9f;
+			break;
+		case 'i':
+			yaw+=0.1f;
+			break;
+		case 'j':
+			pitch+=0.1f;
+			break;
+		case 'k':
+			roll+=0.1f;
+			break;
+		}
+		cv::Mat rotation=tracker.buildRotationMatrix(yaw,pitch,roll);
+		cv::Rodrigues(rotation,rvec,cv::noArray());
+		cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	}
+	cv::destroyAllWindows();
+}
+
+void Tester::testRemap(){
+	std::string imageDirectory="c:/users/zixuan/desktop/tmp";
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,imageDirectory);
+	CameraCalibrator calibrator;
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(768,432));
+	cv::Mat cameraMatrix=calibrator.getCameraMatrix();
+	cv::Mat distCoeffs=calibrator.getDistCoeffs();
+	cv::Mat R=cv::Mat::eye(3,3,CV_32FC1);
+	float tArray[3]={0,0,-1000};
+	cv::Mat tvec(3,1,CV_32FC1,tArray);
+	cv::Mat rvec;
+	cv::Rodrigues(R,rvec,cv::noArray());
+	float objectArray[4][3]={{0,0,0},{0,600,0},{800,600,0},{800,0,0}};
+	cv::Mat objectPoints(4,3,CV_32FC1,objectArray);
+	cv::Mat imagePoints;
+	cv::projectPoints(objectPoints,rvec,tvec,cameraMatrix,cv::noArray(),imagePoints,cv::noArray(),0);
+	std::cout<<cameraMatrix<<std::endl;
+	std::cout<<imagePoints<<std::endl;
+	Tracker tracker;
+	cv::namedWindow("frame");
+	float yaw=0.0f;
+	float pitch=0.0f;
+	float roll=0.0f;
+	cv::Mat frame;
+	std::string imagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	cv::Mat src=cv::imread(imagePath,1);
+	cv::flip(src,src,1);
+	while(true){
+		cv::Mat rotation=tracker.buildRotationMatrix(yaw,pitch,roll);
+		cv::Rodrigues(rotation,rvec,cv::noArray());
+		frame=tracker.warpImage(src,rvec,tvec,cameraMatrix);
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(0);
+		switch (c)
+		{
+		case 'a':
+			tvec.at<float>(0,0)-=10.0f;
+			break;
+		case 'd':
+			tvec.at<float>(0,0)+=10.0f;
+			break;
+		case 'r':
+			tvec.at<float>(1,0)+=10.0f;
+			break;
+		case 'f':
+			tvec.at<float>(1,0)-=10.0f;
+			break;
+		case 'w':
+			tvec.at<float>(2,0)*=1.1f;
+			break;
+		case 's':
+			tvec.at<float>(2,0)*=0.9f;
+			break;
+		case 'i':
+			yaw+=0.1f;
+			break;
+		case 'j':
+			pitch+=0.1f;
+			break;
+		case 'k':
+			roll+=0.1f;
+			break;
+		}
+	}
+	cv::destroyAllWindows();
+}
+
+void Tester::testSolvePnP(){
+	std::string dirPath="c:/users/zixuan/desktop/laptop_calibration";
+	//std::string dirPath="c:/users/zixuan/desktop/tablet_calibration";
+	//std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/learning_python4e.jpg";
+	std::string templateImagePath="c:/users/zixuan/dropbox/microsoft/figure/design.jpg";
+	CameraCalibrator calibrator;
+	std::vector<std::string> filelist;
+	File::getFiles(&filelist,dirPath);
+	calibrator.addChessboardPoints(filelist,cv::Size(9,6));
+	calibrator.calibrate(cv::Size(640,480));
+	//std::cout<<calibrator.getCameraMatrix()<<std::endl;
+	//std::cout<<calibrator.getDistCoeffs()<<std::endl;
+	PlanarObjectTracker tracker;
+	tracker.setIntrinsicMatrix(calibrator.getCameraMatrix());
+	tracker.setDistCoeffs(calibrator.getDistCoeffs());
+	tracker.loadTemplate(templateImagePath);
+
+	//// output object patches
+	//cv::Mat templateImage=cv::imread(templateImagePath);
+	//cv::Mat objectPoints=tracker.getObjectPoints();
+	//for(int i=0;i<objectPoints.rows;++i){
+	//	float* ptr=objectPoints.ptr<float>(i);
+	//	cv::Rect patchRect=tracker.getImageWindow(templateImage,ptr[0],ptr[1],8);
+	//	cv::Mat patch=templateImage(patchRect);
+	//	cv::imwrite("c:/users/zixuan/desktop/object_patches/"+boost::lexical_cast<std::string>(i)+".jpg",patch);
+	//}
+
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	cv::Mat gray;
+	cv::namedWindow("frame");
+	cv::namedWindow("render");
+	int frameCounter=0;
+	cv::Mat warpImage;
+	Ticker ticker;
+	while(true){
+		capture>>frame;
+		//cv::cvtColor(frame,gray,CV_BGR2GRAY);
+		//cv::imwrite("c:/users/zixuan/desktop/"+boost::lexical_cast<std::string>(frameCounter++)+".jpg",gray);
+		//cv::Point point;
+		//tracker.zncc(gray,gray,&point);
+		if(!tracker.status()){
+			ticker.start();
+			tracker.initTrack(frame);
+			std::cout<<"initialization takes "<<ticker.stop()<<std::endl;
+		}else{
+			ticker.start();
+			tracker.track(frame);
+			std::cout<<"tracking takes "<<ticker.stop()<<std::endl;
+		}
+		if(tracker.status()){
+			tracker.drawProjectedCorners(frame);
+		}
+			
+		//cv::Mat rvec=tracker.getRotationVec();
+		//cv::Mat tvec=tracker.getTranslationVec();
+		//std::cout<<rvec<<std::endl;
+		//std::cout<<tvec<<std::endl;
+		if(tracker.status()){
+			warpImage=tracker.warpTemplateImage(frame.size());
+			//cv::imshow("render",tracker.selectPyramidImage());
+			cv::imshow("render",warpImage);
+		}else{
+			cv::imshow("render",cv::Mat::zeros(frame.size(),CV_8UC1));
+		}
+		cv::imshow("frame",frame);
+		char c=cv::waitKey(30);
+		switch (c)
+		{
+		case 'd':
+			if(!tracker.getDebugMode()){
+				tracker.enableDebug();
+			}else{
+				tracker.disableDebug();
+			}
+			break;
+		}
+	}
+}
+
 void Tester::testCapture(){
 	cv::VideoCapture capture(0);
 	cv::Mat frame;
@@ -870,4 +1082,245 @@ void Tester::testCapture(){
 		cv::imshow("frame",frame);
 		if(cv::waitKey(30) >= 0) break;
 	}
+}
+
+void Tester::testFace(){
+	std::string cascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
+	std::string nestedCascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
+	CascadeDetector faceDetector;
+	CascadeDetector noseDetector;
+	faceDetector.init(cascadeName);
+	noseDetector.init(nestedCascadeName);
+
+	std::string imageDirectory="C:/Users/zxwang/Desktop/data";
+	std::string imageOutputDirectory="F:/data/image/pubfig_flickr";
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray,imageDirectory,true);
+	for(size_t i=0;i<filenameArray.size();++i){
+		bool faceFound=false;
+		std::string filename=filenameArray[i];
+		cv::Mat image = cv::imread(filename, 0);
+		std::vector<cv::Rect> faceArray;
+		faceDetector.detect(&faceArray, image);
+		if(faceArray.empty()){
+			continue;
+		}
+		for(size_t j=0;j<faceArray.size();++j){
+			std::vector<cv::Rect> noseArray;
+			noseDetector.detect(&noseArray, image(faceArray[j]));
+			if(noseArray.size()==1){
+				faceFound=true;
+				break;
+			}
+		}
+		if(faceFound){
+			// output the face image
+			cv::Mat colorImage=cv::imread(filename);
+			std::string name=File::getFileName(filename);
+			std::string stem=File::getFileStem(filename);
+			std::string folderName=File::getParentDirectory(filename);
+			std::string folderPath=File::getParentDirectoryPath(filename);
+			std::string outDir=imageOutputDirectory+"/"+folderName;
+			boost::filesystem::create_directories(outDir);
+			cv::imwrite(outDir+"/"+name,colorImage);
+			boost::filesystem::copy_file(folderPath+"/"+stem+".json",outDir+"/"+stem+".json");
+			std::cout<<"In "<<filename<<" face is detected."<<std::endl;
+		}
+	}
+}
+
+void Tester::testLocation(){
+	std::string imageDirectory="C:/Users/zxwang/Dropbox/data";
+	std::ofstream outStream("C:/Users/zxwang/Dropbox/data/gt/location_must.txt");
+	RobustMatcher matcher;
+	cv::Ptr<cv::FeatureDetector> pDetector=new cv::OrbFeatureDetector(200);
+	cv::Ptr<cv::DescriptorExtractor> pDescriptor=new cv::OrbDescriptorExtractor();
+	matcher.setFeatureDetector(pDetector);
+	matcher.setDescriptorExtractor(pDescriptor);
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray,imageDirectory);
+	for(size_t i=0;i<filenameArray.size();++i){
+		cv::Mat image1=cv::imread(filenameArray[i],0);
+		if(image1.empty()){
+			continue;
+		}
+		for(size_t j=i+1;j<filenameArray.size();++j){
+			cv::Mat image2=cv::imread(filenameArray[j],0);
+			if(image2.empty()){
+				continue;
+			}
+			std::vector<cv::KeyPoint> keypointArray1;
+			std::vector<cv::KeyPoint> keypointArray2;
+			cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
+			if(!h.empty()){
+				outStream<<File::getFileName(filenameArray[i])<<"\t"<<File::getFileName(filenameArray[j])<<std::endl;
+			}
+		}
+		std::cout<<filenameArray[i]<<std::endl;
+	}
+	outStream.close();
+}
+
+void Tester::testFaceFeature(){
+	std::string cascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
+	std::string nestedCascadeName =
+			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
+	CascadeDetector faceDetector;
+	CascadeDetector noseDetector;
+	faceDetector.init(cascadeName);
+	noseDetector.init(nestedCascadeName);
+	Evaluation eval;
+	FaceLandmarkDetector::instance()->init("C:/Users/zxwang/Dropbox/microsoft/backup/flandmark_model.dat");
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray,"C:/Users/zxwang/Dropbox/www2013/data/pubfig_flickr",true);
+	// output two files
+	std::ofstream gtStream("C:/Users/zxwang/Desktop/face_gt.txt");
+	std::ofstream featureStream("C:/Users/zxwang/Desktop/face_feature.txt");
+	for(size_t i=0;i<filenameArray.size();++i){
+		std::string name=File::getParentDirectory(filenameArray[i]);
+		int label=eval.getLabel(name);
+		Sample sample=eval.extract(faceDetector,noseDetector,filenameArray[i]);
+		if(!sample.empty()){
+			std::string sampleString;
+			sample.save(&sampleString);
+			gtStream<<filenameArray[i]<<","<<label<<std::endl;
+			featureStream<<sampleString<<std::endl;
+		}
+		std::cout<<"Processing "<<filenameArray[i]<<std::endl;
+	}
+	gtStream.close();
+	featureStream.close();
+}
+
+void Tester::testLocationCluster(){
+	std::string dataDirectory="C:/Users/zxwang/Dropbox/www2013/data/pubfig_flickr";
+	std::ifstream inStream("C:/Users/zxwang/Desktop/face_gt.txt");
+	std::ofstream outStream("C:/Users/zxwang/Desktop/location_gt.txt");
+	std::vector<std::string> imageArray;
+	std::string line;
+	int clusterCount = 100;
+	KernelKmeansClusterer kkc(clusterCount,10);
+	srand((unsigned int)time(NULL));
+
+	while(getline(inStream,line)){
+		std::vector<std::string> tokenArray;
+		boost::split(tokenArray, line, boost::is_any_of(","));
+		std::string fileStemPath = File::getFileStemPath(tokenArray[0]);
+		imageArray.push_back(tokenArray[0]);
+		std::string jsonPath = fileStemPath + ".json";
+		boost::property_tree::ptree pt;
+		boost::property_tree::read_json(jsonPath,pt);
+		float longitude=pt.get<float>("photo.location.longitude");
+		float latitude=pt.get<float>("photo.location.latitude");
+		Sample sample(2);
+		sample[0]=longitude;
+		sample[1]=latitude;
+		kkc.addSample(sample);
+	}
+	kkc.initialize();
+	kkc.cluster();
+	std::vector<int> labelArray = kkc.labelArray();
+	for(size_t i=0;i<labelArray.size();++i){
+		outStream<<imageArray[i]<<","<<labelArray[i]<<std::endl;
+	}
+	inStream.close();
+	outStream.close();
+}
+
+void Tester::testLocationFeature(){
+	std::ifstream inStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_gt.txt");
+	std::ofstream outStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_feature.txt");
+	Vocabulary::instance()->load("C:/Users/zxwang/Desktop/voc_1k.dat");
+	std::string line;
+	while(getline(inStream,line)){
+		std::vector<std::string> tokenArray;
+		boost::split(tokenArray, line, boost::is_any_of(","));
+		std::string filename=tokenArray[0];
+		cv::Mat image=cv::imread(filename,0);
+		Sample bowSample=BoWDescriptor::instance()->compute(image);
+		image=cv::imread(filename,1);
+		Sample colorSample=ColorDescriptor::instance()->compute(image);
+		outStream<<bowSample<<","<<colorSample<<std::endl;
+	}
+	inStream.close();
+	outStream.close();
+}
+
+void Tester::testVocabulary(){
+	std::string imageDirectory="C:/Users/zxwang/Dropbox/www2013/data/pubfig_flickr";
+	std::vector<std::string> filenameArray;
+	File::getFiles(&filenameArray, imageDirectory, true);
+	std::vector<float> sampleArray;
+	int sampleCount=0;
+	for(size_t i=0;i<filenameArray.size();++i){
+		std::string ext=File::getFileExtension(filenameArray[i]);
+		if(ext==".jpg"){
+			cv::Mat image=cv::imread(filenameArray[i],0);
+			std::vector<cv::KeyPoint> keypoint;
+			cv::Mat descriptor;
+			BoWDescriptor::instance()->extractDescriptor(&keypoint,&descriptor,image);
+			std::copy(descriptor.ptr<float>(0),descriptor.ptr<float>(0)+descriptor.rows*descriptor.cols,std::back_inserter(sampleArray));
+			sampleCount+=descriptor.rows;
+		}
+	}
+	cv::Mat sampleMat(sampleArray,false);
+	sampleMat=sampleMat.reshape(0,sampleCount);
+	Vocabulary::instance()->build(sampleMat,1000);
+	Vocabulary::instance()->save("C:/Users/zxwang/Desktop/voc_1k.dat");
+}
+
+void Tester::testMustLink(){
+	std::ifstream gtStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_gt.txt");
+	std::string gtLine;
+	std::vector<std::string> filenameArray;
+	while(getline(gtStream,gtLine)){
+		std::vector<std::string> tokenArray;
+		boost::split(tokenArray, gtLine, boost::is_any_of(","));
+		filenameArray.push_back(tokenArray[0]);
+	}
+	std::ofstream outStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_must.txt");
+
+	std::ifstream featureStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_feature.txt");
+	std::string line;
+	KnnClassifier knn;
+	std::vector<Sample> sampleArray;
+	int i=0;
+	while(getline(featureStream,line)){
+		Sample sample;
+		sample.load(line);
+		knn.addSample(sample,i++);
+		sampleArray.push_back(sample);
+	}
+	knn.build();
+	RobustMatcher matcher;
+	for(size_t i=0;i<sampleArray.size();++i){
+		std::vector<int> resultArray=knn.query(sampleArray[i],50);
+		cv::Mat image1=cv::imread(filenameArray[i],0);
+		if(image1.empty()){
+			continue;
+		}
+		for(size_t j=1;j<resultArray.size();++j){
+			cv::Mat image2=cv::imread(filenameArray[resultArray[j]],0);
+			if(image2.empty()){
+				continue;
+			}
+			std::vector<cv::KeyPoint> keypointArray1;
+			std::vector<cv::KeyPoint> keypointArray2;
+			cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
+			if(!h.empty() && keypointArray1.size()>=10){
+				outStream<<i<<","<<resultArray[j]<<std::endl;
+				//std::cout<<keypointArray1.size()<<std::endl;
+				//cv::Mat color1=cv::imread(filenameArray[i]);
+				//cv::Mat color2=cv::imread(filenameArray[resultArray[j]]);
+				//matcher.show(color1,color2,keypointArray1,keypointArray2);
+			}
+			std::cout<<"matching "<<i<<" and "<<resultArray[j]<<std::endl;
+		}
+	}
+	featureStream.close();
+	gtStream.close();
+	outStream.close();
 }

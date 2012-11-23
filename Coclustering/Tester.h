@@ -6,6 +6,14 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/bimap.hpp>
 #include <algorithm>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/dijkstra_shortest_paths.hpp>
+#include <boost/lambda/lambda.hpp>
+#include <boost/array.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+
 #include "KernelKmeansClusterer.h"
 #include "CascadeDetector.h"
 #include "FaceDescriptor.h"
@@ -28,28 +36,12 @@
 #include "Tracker.h"
 #include "PlanarObjectTracker.h"
 #include "Ticker.h"
+#include "Evaluation.h"
 // this class is used for testing functions
 class Tester {
 public:
 	Tester(void);
 	~Tester(void);
-	//static void testKKClusterer();
-	//static void testFaceFeature();
-	//static void testSIFTFeature();
-	//static void testTrain();
-	//static void testFaceAccuracy();
-	//static void testFlandmark();
-	//static void testPCA();
-	//static void testDownloadPubFig();
-	//static void testVocabulary();
-	//static void testLocationFeature();
-	//static void testGroundTruth();
-	//static void testFaceClustering();
-	//static void testLocationClustering();
-	//static void testFlickr();
-	//static void testFlickrFace();
-	//static void testCosegmentation();
-	// each line in the file specifies one people name appears at this location.
 	static void buildLocationBasedClassifier(const std::string& filepath);
 	static void testBaseline();
 	static void testAccuracy(const std::string& locationName);
@@ -57,6 +49,17 @@ public:
 	static void testLFWA();
 	static void testHalf();
 	static void testVelocity();
+	static void testCalibration();
+	static void testProjection();
+	static void testRemap();
+	static void testSolvePnP();
 	static void testCapture();
+	static void testFace();
+	static void testLocation();
+	static void testFaceFeature();
+	static void testLocationCluster();
+	static void testLocationFeature();
+	static void testVocabulary();
+	static void testMustLink();
 };
 

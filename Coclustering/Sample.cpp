@@ -14,6 +14,15 @@ Sample::Sample(const std::vector<float>& vector) {
 Sample::~Sample(void) {
 }
 
+Sample::Sample(const Sample& sample){
+	mVector.assign(sample.getData().begin(),sample.getData().end());
+}
+	
+Sample& Sample::operator=(const Sample& sample){
+	mVector.assign(sample.getData().begin(),sample.getData().end());
+	return *this;
+}
+
 Sample Sample::operator+(const Sample& rhs) const {
 	size_t dimension = size();
 	Sample result(dimension);
@@ -86,7 +95,7 @@ const std::vector<float>& Sample::getData() const {
 	return mVector;
 }
 
-void Sample::save(std::string* pString) {
+void Sample::save(std::string* pString) const {
 	if (empty()) {
 		return;
 	}
@@ -108,4 +117,18 @@ void Sample::load(const std::string& string) {
 	for (size_t i = 0; i < tokenArray.size(); ++i) {
 		mVector.push_back(boost::lexical_cast<float>(tokenArray[i]));
 	}
+}
+
+std::ostream& operator<<(std::ostream& os, const Sample& sample){
+	std::string string;
+	sample.save(&string);
+	os<<string;
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, Sample& sample){
+	std::string string;
+	is>>string;
+	sample.load(string);
+	return is;
 }

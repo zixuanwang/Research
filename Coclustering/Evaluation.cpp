@@ -1,11 +1,11 @@
 #include "Evaluation.h"
 
 const std::string Evaluation::cascadeName =
-		"/home/zixuanwang/Dropbox/microsoft/haarcascade_frontalface_alt2.xml";
+		"C:/Users/zxwang/Dropbox/microsoft/haarcascade_frontalface_alt2.xml";
 const std::string Evaluation::nestedCascadeName =
-		"/home/zixuanwang/Dropbox/microsoft/haarcascade_mcs_nose.xml";
+		"C:/Users/zxwang/Dropbox/microsoft/haarcascade_mcs_nose.xml";
 const std::string Evaluation::modelPath =
-		"/home/zixuanwang/Dropbox/microsoft/flandmark_model.dat";
+		"C:/Users/zxwang/Dropbox/microsoft/flandmark_model.dat";
 
 Evaluation::Evaluation(void) {
 }
@@ -64,6 +64,9 @@ std::vector<std::string> Evaluation::faceFilter(const std::string& directory,
 Sample Evaluation::extract(CascadeDetector& faceDetector,
 		CascadeDetector& noseDetector, const std::string& imagePath) {
 	cv::Mat image = cv::imread(imagePath, 0);
+	if(image.empty()){
+		return Sample(0);
+	}
 	std::vector<cv::Rect> faceArray;
 	faceDetector.detect(&faceArray, image);
 	if (faceArray.size() == 1) {
@@ -137,4 +140,14 @@ void Evaluation::test(const std::vector<std::string>& testArray,
 	}
 	std::cout << " Accuracy: " << correct << "/" << testArray.size() << "\t"
 			<< correct / testArray.size() << std::endl;
+}
+
+int Evaluation::getLabel(const std::string& strLabel){
+	std::map<std::string,int>::iterator iter=strIntMap.find(strLabel);
+	if(iter==strIntMap.end()){
+		int ret=(int)strIntMap.size();
+		strIntMap[strLabel]=ret;
+		return ret;
+	}
+	return iter->second;
 }

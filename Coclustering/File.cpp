@@ -41,3 +41,13 @@ std::string File::getFileStem(const std::string& filepath) {
 	boost::filesystem::path bstFilepath = filepath;
 	return bstFilepath.stem().string();
 }
+
+std::string File::getFileExtension(const std::string& filepath){
+	boost::filesystem::path bstFilepath = filepath;
+	return bstFilepath.extension().string();
+}
+
+std::string File::getFileStemPath(const std::string& filepath){
+	boost::filesystem::path bstFilepath = filepath;
+	return (bstFilepath.parent_path()/bstFilepath.stem()).string();
+}

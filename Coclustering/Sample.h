@@ -8,6 +8,7 @@
 #include <sstream>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
+#include <boost/lambda/lambda.hpp>
 
 // we store both location and face features in this class.
 // each sample is a feature vector in high dimensional space.
@@ -17,6 +18,8 @@ public:
 	Sample(size_t dimension);
 	Sample(const std::vector<float>& vector);
 	virtual ~Sample(void);
+	Sample(const Sample& sample);
+	Sample& operator=(const Sample& sample);
 	Sample operator+(const Sample& rhs) const;
 	Sample operator-(const Sample& rhs) const;
 	void operator*(float scale);
@@ -35,9 +38,12 @@ public:
 	// get the data of the sample.
 	const std::vector<float>& getData() const;
 	// save to string
-	void save(std::string* pString);
+	void save(std::string* pString) const;
 	// load from string
 	void load(const std::string& string);
+	// overloading the input and output streaming
+	friend std::ostream& operator<<(std::ostream& os, const Sample& sample);
+	friend std::istream& operator>>(std::istream& is, Sample& sample);
 protected:
 	std::vector<float> mVector;
 };

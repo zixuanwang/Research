@@ -50,7 +50,7 @@ cv::Mat RobustMatcher::match(const cv::Mat& image1, const cv::Mat& image2,
 	// 4. Remove non-symmetrical matches
 	std::vector<cv::DMatch> symMatches;
 	symmetryTest(matches1, matches2, symMatches);
-	if (symMatches.size() < 4) {
+	if (symMatches.size() < 10) {
 		return cv::Mat();
 	}
 	// 5. Validate matches using RANSAC

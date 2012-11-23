@@ -17,5 +17,9 @@ public:
 	static std::string getFileName(const std::string& filepath);
 	// /usr/bin/foo.txt returns foo
 	static std::string getFileStem(const std::string& filepath);
+	// /usr/bin/foo.txt returns .txt
+	static std::string getFileExtension(const std::string& filepath);
+	// /usr/bin/foo.txt returns /usr/bin/foo
+	static std::string getFileStemPath(const std::string& filepath);
 };
 
