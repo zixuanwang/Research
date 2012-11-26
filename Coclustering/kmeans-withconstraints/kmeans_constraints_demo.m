@@ -77,18 +77,20 @@ for k=1:n_constraints
 end
 face_GT = load('face_GT.txt');
 GT = face_GT(:,2);
-K=12;
+K=100;
 iters=100;
 
 
 %############################
 
 % add constraints for location
-X = load('location_feature.txt');
+%X = load('location_feature.txt');
+X = load('/Users/Jinyun/Dropbox/www2013/data/gt/location_feature.txt');
 N = size(X,1);
 con_cannot = zeros(N,N);
 con_must=zeros(N,N);
-location_must = load('location_must.txt');
+%location_must = load('location_must.txt');
+location_must = load('/Users/Jinyun/Dropbox/www2013/data/gt/location_must.txt');
 n_constraints = length(location_must)
 for k=1:n_constraints
 	i = location_must(k,1)+1;
@@ -96,9 +98,10 @@ for k=1:n_constraints
 	con_must(i,j)=1;
 	con_must(j,i)=1;
 end
-location_GT = load('location_GT.txt');
+
+location_GT = load('/Users/Jinyun/Dropbox/www2013/data/gt/location_GT.txt');
 GT = location_GT(:,2)
-K=11;
+K=100;
 iters=100;
 
 %################## kmeans constrained ####################
