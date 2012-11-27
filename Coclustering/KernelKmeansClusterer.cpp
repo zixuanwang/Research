@@ -2,14 +2,19 @@
 
 KernelKmeansClusterer::KernelKmeansClusterer(int k, int maxIteration) :
 		Clusterer(k), mMaxIteration(maxIteration) {
+	// define the default kernel
+	//boost::shared_ptr<Kernel> pKernel(new LinearKernel(&mSampleArray));
 }
 
 KernelKmeansClusterer::~KernelKmeansClusterer(void) {
 }
 
+void KernelKmeansClusterer::setKernel(const boost::shared_ptr<Kernel>& pKernel){
+	mpKernel=pKernel;
+}
+
 float KernelKmeansClusterer::distanceToCluster(int sampleId,
-		const boost::unordered_set<int>& clusterIdSet,
-		const boost::shared_ptr<Kernel>& pKernel) {
+		const boost::unordered_set<int>& clusterIdSet) {
 	if (clusterIdSet.empty()) {
 		return FLT_MAX;
 	}
@@ -23,15 +28,15 @@ float KernelKmeansClusterer::distanceToCluster(int sampleId,
 			iter != clusterIdSet.end(); ++iter) {
 		float weight = mWeightArray[*iter];
 		weightSum += weight;
-		float kernelResult = (*pKernel)(sampleId, *iter);
+		float kernelResult = (*mpKernel)(sampleId, *iter);
 		kernelSum += weight * kernelResult;
 		for (boost::unordered_set<int>::const_iterator _iter =
 				clusterIdSet.begin(); _iter != clusterIdSet.end(); ++_iter) {
-			float _kernelResult = (*pKernel)(*iter, *_iter);
+			float _kernelResult = (*mpKernel)(*iter, *_iter);
 			kernelPairSum += weight * mWeightArray[*_iter] * _kernelResult;
 		}
 	}
-	float kernelSelf = (*pKernel)(sampleId, sampleId);
+	float kernelSelf = (*mpKernel)(sampleId, sampleId);
 	if (weightSum == 0.0f) {
 		return FLT_MAX;
 	}
@@ -40,8 +45,6 @@ float KernelKmeansClusterer::distanceToCluster(int sampleId,
 }
 
 void KernelKmeansClusterer::cluster() {
-	// define the kernel
-	boost::shared_ptr<Kernel> pKernel(new LinearKernel(&mSampleArray));
 	int sampleCount = (int) mSampleArray.size();
 	// each pair is <clusterLabel, clusterIdSet>
 	boost::unordered_map<int, boost::unordered_set<int> > clusterIdSetMap;
@@ -54,8 +57,7 @@ void KernelKmeansClusterer::cluster() {
 			std::vector<RankItem<int, float> > rankList;
 			rankList.reserve(mK);
 			for (int j = 0; j < mK; ++j) {
-				float distance = distanceToCluster(i, clusterIdSetMap[j],
-						pKernel);
+				float distance = distanceToCluster(i, clusterIdSetMap[j]);
 				RankItem<int, float> item(j, distance);
 				rankList.push_back(item);
 			}
@@ -76,7 +78,7 @@ void KernelKmeansClusterer::cluster() {
 }
 
 void KernelKmeansClusterer::initialize() {
-	srand((unsigned int) time(NULL));
+	//srand((unsigned int) time(NULL));
 	mLabelArray.clear();
 	mLabelArray.reserve(mSampleArray.size());
 	for (size_t i = 0; i < mSampleArray.size(); ++i) {

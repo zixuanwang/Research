@@ -1311,7 +1311,9 @@ void Tester::testMustLink(){
 			std::vector<cv::KeyPoint> keypointArray2;
 			cv::Mat h=matcher.match(image1,image2,&keypointArray1,&keypointArray2);
 			if(!h.empty() && keypointArray1.size()>=10){
-				outStream<<i<<","<<resultArray[j]<<std::endl;
+				if(i!=resultArray[j]){
+					outStream<<i<<","<<resultArray[j]<<std::endl;
+				}
 				//std::cout<<keypointArray1.size()<<std::endl;
 				//cv::Mat color1=cv::imread(filenameArray[i]);
 				//cv::Mat color2=cv::imread(filenameArray[resultArray[j]]);
@@ -1323,4 +1325,153 @@ void Tester::testMustLink(){
 	featureStream.close();
 	gtStream.close();
 	outStream.close();
+}
+
+void Tester::testLocationBaseLine(){
+	// load feature
+//	for(int clusterCount=10;clusterCount<=100;clusterCount+=10){
+	int clusterCount=100;
+		std::ifstream featureStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_feature.txt");
+		std::ifstream mustStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_must.txt");
+		RandIndexComputer ri;
+		ri.loadGroundTruth("C:/Users/zxwang/Dropbox/www2013/data/gt/location_gt.txt");
+		KernelKmeansClusterer kkc(clusterCount,10);
+		std::string line;
+		while(getline(featureStream,line)){
+			Sample sample;
+			featureStream>>sample;
+			sample.normalize();
+			kkc.addSample(sample);
+		}
+		std::vector<Sample>& sampleArray=kkc.sampleArray();
+		//SemiSupervisedKernel* pssk=new SemiSupervisedKernel(&sampleArray);
+		GaussianKernel *pgk=new GaussianKernel(&sampleArray);
+		// add constraints
+		/*while(getline(mustStream,line)){
+			std::vector<std::string> tokenArray;
+			boost::split(tokenArray, line, boost::is_any_of(","));
+			pssk->addMustLink(boost::lexical_cast<int>(tokenArray[0]),boost::lexical_cast<int>(tokenArray[1]));
+		}
+		pssk->processMustLink();
+		boost::shared_ptr<Kernel> pKernel(pssk);*/
+		boost::shared_ptr<Kernel> pKernel(pgk);
+		kkc.setKernel(pKernel);
+		kkc.initialize();
+		kkc.cluster();
+		std::vector<int> label=kkc.labelArray();
+		std::cout<<ri.compute(label)<<std::endl;
+		featureStream.close();
+		mustStream.close();
+	//}
+}
+
+void Tester::testFaceBaseLine(){
+	// load feature
+	for(int clusterCount=10;clusterCount<140;clusterCount+=10){
+		std::ifstream featureStream("C:/Users/zxwang/Dropbox/www2013/data/gt/face_feature.txt");
+		RandIndexComputer ri;
+		ri.loadGroundTruth("C:/Users/zxwang/Dropbox/www2013/data/gt/face_gt.txt");
+		KernelKmeansClusterer kkc(clusterCount,10);
+		std::string line;
+		while(getline(featureStream,line)){
+			Sample sample;
+			featureStream>>sample;
+			sample.normalize();
+			kkc.addSample(sample);
+		}
+		std::vector<Sample>& sampleArray=kkc.sampleArray();
+		LinearKernel* plk=new LinearKernel(&sampleArray);
+		boost::shared_ptr<Kernel> pKernel(plk);
+		kkc.setKernel(pKernel);
+		kkc.initialize();
+		kkc.cluster();
+		std::vector<int> label=kkc.labelArray();
+		std::cout<<ri.compute(label)<<std::endl;
+		featureStream.close();
+	}
+}
+
+void Tester::testCoclustering(){
+	std::ifstream locationFeatureStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_feature.txt");
+	std::ifstream locationMustStream("C:/Users/zxwang/Dropbox/www2013/data/gt/location_must.txt");
+	KernelKmeansClusterer locationKkc(100,10);
+	std::string line;
+	while(getline(locationFeatureStream,line)){
+		Sample sample;
+		locationFeatureStream>>sample;
+		sample.normalize();
+		locationKkc.addSample(sample);
+	}
+	std::vector<Sample>& locationSampleArray=locationKkc.sampleArray();
+	SemiSupervisedKernel* pssk=new SemiSupervisedKernel(&locationSampleArray);
+	//SemiSupervisedKernel ssk(&sampleArray);
+	// add constraints
+	while(getline(locationMustStream,line)){
+		std::vector<std::string> tokenArray;
+		boost::split(tokenArray, line, boost::is_any_of(","));
+		pssk->addMustLink(boost::lexical_cast<int>(tokenArray[0]),boost::lexical_cast<int>(tokenArray[1]));
+	}
+	pssk->processMustLink();
+	boost::shared_ptr<Kernel> pLKernel(pssk);
+	locationKkc.setKernel(pLKernel);
+	locationKkc.initialize();
+	locationKkc.cluster();
+	locationFeatureStream.close();
+	locationMustStream.close();
+
+
+	std::ifstream faceFeatureStream("C:/Users/zxwang/Dropbox/www2013/data/gt/face_feature.txt");
+	RandIndexComputer ri;
+	ri.loadGroundTruth("C:/Users/zxwang/Dropbox/www2013/data/gt/face_gt.txt");
+	KernelKmeansClusterer kkc(132,10);
+	while(getline(faceFeatureStream,line)){
+		Sample sample;
+		faceFeatureStream>>sample;
+		sample.normalize();
+		kkc.addSample(sample);
+	}
+	std::vector<Sample>& faceSampleArray=kkc.sampleArray();
+	LinearKernel* plk=new LinearKernel(&faceSampleArray);
+	boost::shared_ptr<Kernel> pKernel(plk);
+	kkc.setKernel(pKernel);
+	kkc.initialize();
+	kkc.cluster();
+	//std::vector<int> label=kkc.labelArray();
+	//std::cout<<ri.compute(label)<<std::endl;
+	faceFeatureStream.close();
+
+	// process possible links
+	std::vector<int> locationLabel=locationKkc.labelArray();
+	std::vector<int> faceLabel=kkc.labelArray();
+
+	// count the number of people at each location
+	boost::unordered_map<int, boost::unordered_set<int> > locationPeopleMap;
+	boost::unordered_map<int, boost::unordered_set<int> > locationIdMap;
+	for(size_t i=0;i<locationLabel.size();++i){
+		locationPeopleMap[locationLabel[i]].insert(faceLabel[i]);
+		locationIdMap[locationLabel[i]].insert((int)i);
+	}
+	// add possible links
+	SemiSupervisedKernel* pfssk=new SemiSupervisedKernel(&faceSampleArray);
+	for(boost::unordered_map<int, boost::unordered_set<int> >::iterator iter=locationIdMap.begin();iter!=locationIdMap.end();++iter){
+		boost::unordered_set<int>& peopleSet=locationPeopleMap[iter->first];
+		float weight=0.0f;
+		if(!peopleSet.empty()){
+			weight=log(132.0f/(float)peopleSet.size())/log(132.0f);
+		}
+		boost::unordered_set<int>& idSet=iter->second;
+		for(boost::unordered_set<int>::iterator iter1=idSet.begin();iter1!=idSet.end();++iter1){
+			boost::unordered_set<int>::iterator iter2=iter1;
+			++iter2;
+			for(;iter2!=idSet.end();++iter2){
+				pfssk->addPossibleLink(*iter1,*iter2,weight);
+			}
+		}
+	}
+	boost::shared_ptr<Kernel> pFKernel(pfssk);
+	kkc.setKernel(pFKernel);
+	kkc.initialize();
+	kkc.cluster();
+	std::vector<int> label=kkc.labelArray();
+	std::cout<<ri.compute(label)<<std::endl;
 }

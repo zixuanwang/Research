@@ -15,14 +15,16 @@ public:
 	// compute the distance from one sample to the cluster center
 	// the ids of the samples in the cluster are in the clusterIdSet
 	float distanceToCluster(int sampleId,
-			const boost::unordered_set<int>& clusterIdSet,
-			const boost::shared_ptr<Kernel>& pKernel);
+			const boost::unordered_set<int>& clusterIdSet);
 	// run the clustering algorithm
 	void cluster();
 	// initialize the clusters, now using random initialization
 	void initialize();
+	/// set kernel
+	void setKernel(const boost::shared_ptr<Kernel>& pKernel);
 private:
 	// the max number of iterations
 	int mMaxIteration;
+	boost::shared_ptr<Kernel> mpKernel;
 };
 

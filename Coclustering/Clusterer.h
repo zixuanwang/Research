@@ -14,6 +14,7 @@ public:
 	Sample center();
 	Sample sample(size_t index) const;
 	std::vector<int> labelArray() const;
+	std::vector<Sample> sampleArray() const;
 protected:
 	// sample array
 	std::vector<Sample> mSampleArray;

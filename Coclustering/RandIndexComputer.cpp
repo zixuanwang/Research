@@ -10,21 +10,61 @@ RandIndexComputer::~RandIndexComputer(void)
 {
 }
 
+//void RandIndexComputer::loadGroundTruth(const std::string& groundTruthFile) {
+//	std::ifstream inStream;
+//	inStream.open(groundTruthFile.c_str());
+//	if (inStream.good()) {
+//		std::string line;
+//		while (getline(inStream, line)) {
+//			std::vector<std::string> tokenArray;
+//			boost::split(tokenArray, line, boost::is_any_of("\t"));
+//			if(!tokenArray.empty()){
+//				mPatchLabelMap[tokenArray[0]]=tokenArray.back();
+//			}
+//		}
+//		inStream.close();
+//	}
+//}
+
 void RandIndexComputer::loadGroundTruth(const std::string& groundTruthFile) {
 	std::ifstream inStream;
 	inStream.open(groundTruthFile.c_str());
 	if (inStream.good()) {
 		std::string line;
+		int lineCounter=0;
 		while (getline(inStream, line)) {
 			std::vector<std::string> tokenArray;
-			boost::split(tokenArray, line, boost::is_any_of("\t"));
+			boost::split(tokenArray, line, boost::is_any_of(","));
 			if(!tokenArray.empty()){
-				mPatchLabelMap[tokenArray[0]]=tokenArray.back();
+				mIndexLabelMap[lineCounter++]=boost::lexical_cast<int>(tokenArray.back());
 			}
 		}
 		inStream.close();
 	}
 }
+
+float RandIndexComputer::compute(const std::vector<int>& labelArray){
+	int a = 0;
+	int b = 0;
+	int n = (int) mIndexLabelMap.size();
+	for (boost::unordered_map<int, int>::iterator iter =
+			mIndexLabelMap.begin(); iter != mIndexLabelMap.end(); ++iter) {
+		boost::unordered_map<int, int>::iterator iter2 = iter;
+		++iter2;
+		for (; iter2 != mIndexLabelMap.end(); ++iter2) {
+			if (iter->second == iter2->second && labelArray[iter->first]
+					== labelArray[iter2->first]) {
+				++a;
+			}
+			if (iter->second != iter2->second && labelArray[iter->first]
+					!= labelArray[iter2->first]) {
+				++b;
+			}
+		}
+	}
+	return (float) 2 * (a + b) / (n * (n - 1));
+}
+
 
 float RandIndexComputer::compute(const boost::unordered_map<std::string, std::string>& patchLabelMap){
 	int a = 0;

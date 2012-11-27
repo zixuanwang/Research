@@ -44,3 +44,7 @@ Sample Clusterer::sample(size_t index) const {
 std::vector<int> Clusterer::labelArray() const {
 	return mLabelArray;
 }
+
+std::vector<Sample> Clusterer::sampleArray() const{
+	return mSampleArray;
+}

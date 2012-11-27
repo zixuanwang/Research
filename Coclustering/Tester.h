@@ -37,6 +37,7 @@
 #include "PlanarObjectTracker.h"
 #include "Ticker.h"
 #include "Evaluation.h"
+#include "SemiSupervisedKernel.h"
 // this class is used for testing functions
 class Tester {
 public:
@@ -61,5 +62,8 @@ public:
 	static void testLocationFeature();
 	static void testVocabulary();
 	static void testMustLink();
+	static void testLocationBaseLine();
+	static void testFaceBaseLine();
+	static void testCoclustering();
 };
 

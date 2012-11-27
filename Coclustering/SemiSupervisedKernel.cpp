@@ -3,15 +3,15 @@
 const float SemiSupervisedKernel::mustLinkWeight = 1.0f;
 const float SemiSupervisedKernel::cannotLinkWeight = -1.0f;
 
-SemiSupervisedKernel::SemiSupervisedKernel(std::vector<Sample>* pSampleArray) :
-		mMustLinkGraph(pSampleArray->size()), mKernel(pSampleArray) {
+SemiSupervisedKernel::SemiSupervisedKernel(std::vector<Sample>* pSampleArray) : LinearKernel(pSampleArray),
+		mMustLinkGraph(pSampleArray->size()) {
 }
 
 SemiSupervisedKernel::~SemiSupervisedKernel(void) {
 }
 
 float SemiSupervisedKernel::operator()(int i, int j) const {
-	float similarity = mKernel(i, j);
+	float similarity = LinearKernel::operator()(i,j);
 	float penalty = 0.0f;
 	std::pair<int, int> p(i, j);
 	if (j < i) {
@@ -22,6 +22,9 @@ float SemiSupervisedKernel::operator()(int i, int j) const {
 	}
 	if (mCannotLinkSet.find(p) != mCannotLinkSet.end()) {
 		penalty += cannotLinkWeight;
+	}
+	if (mPossibleLinkMap.find(p) != mPossibleLinkMap.end()){
+		penalty += mPossibleLinkMap.at(p);
 	}
 	return similarity + penalty;
 }
@@ -38,6 +41,14 @@ void SemiSupervisedKernel::addCannotLink(int i, int j) {
 		p = std::make_pair(j, i);
 	}
 	mCannotLinkSet.insert(p);
+}
+
+void SemiSupervisedKernel::addPossibleLink(int i, int j, float weight){
+	std::pair<int, int> p(i, j);
+	if (j < i) {
+		p = std::make_pair(j, i);
+	}
+	mPossibleLinkMap[p] = weight;
 }
 
 void SemiSupervisedKernel::connectedComponent(
