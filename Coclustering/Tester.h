@@ -38,32 +38,32 @@
 #include "Ticker.h"
 #include "Evaluation.h"
 #include "SemiSupervisedKernel.h"
+#include "HeartRateComputer.h"
 // this class is used for testing functions
 class Tester {
 public:
 	Tester(void);
 	~Tester(void);
-	static void buildLocationBasedClassifier(const std::string& filepath);
-	static void testBaseline();
-	static void testAccuracy(const std::string& locationName);
-	static void testIllumination();
-	static void testLFWA();
-	static void testHalf();
-	static void testVelocity();
-	static void testCalibration();
-	static void testProjection();
-	static void testRemap();
-	static void testSolvePnP();
-	static void testCapture();
-	static void testFace();
-	static void testLocation();
-	static void testFaceFeature();
-	static void testLocationCluster();
-	static void testLocationFeature();
-	static void testVocabulary();
-	static void testMustLink();
-	static void testLocationBaseLine();
-	static void testFaceBaseLine();
-	static void testCoclustering();
+//	static void buildLocationBasedClassifier(const std::string& filepath);
+//	static void testBaseline();
+//	static void testAccuracy(const std::string& locationName);
+//	static void testIllumination();
+//	static void testLFWA();
+//	static void testHalf();
+//	static void testVelocity();
+//	static void testCalibration();
+//	static void testSolvePnP();
+//	static void testCapture();
+//	static void testFace();
+//	static void testLocation();
+//	static void testFaceFeature();
+//	static void testLocationCluster();
+//	static void testLocationFeature();
+//	static void testVocabulary();
+//	static void testMustLink();
+//	static void testLocationBaseLine();
+//	static void testFaceBaseLine();
+//	static void testCoclustering();
+	static void testVideo();
 };
 
