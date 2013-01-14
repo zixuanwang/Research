@@ -1341,16 +1341,16 @@ void Tester::testVideo() {
 		exit(1);
 	}
 	std::string cascadeName =
-			"/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml";
+			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
 	std::string nestedCascadeName =
-			"/usr/local/share/OpenCV/haarcascades/haarcascade_mcs_nose.xml";
+			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
 	// initialize detectors
 	CascadeDetector faceDetector;
 	CascadeDetector noseDetector;
 	faceDetector.init(cascadeName);
 	noseDetector.init(nestedCascadeName);
 	HeartRateComputer heartComputer;
-	heartComputer.setFaceDetector(&faceDetector);
+	heartComputer.setFaceDetector(&faceDetector, &noseDetector);
 	cv::Mat frame;
 	cv::namedWindow("edges", 1);
 	for (;;) {

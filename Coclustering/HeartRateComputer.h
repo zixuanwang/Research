@@ -16,16 +16,20 @@ class HeartRateComputer {
 public:
 	HeartRateComputer();
 	~HeartRateComputer();
-	void setFaceDetector(CascadeDetector* pFaceDetector);
+	void setFaceDetector(CascadeDetector* pFaceDetector, CascadeDetector* pNoseDetector);
 	void setFaceBoundingBox(const cv::Rect& faceBoundingBox);
 	cv::Rect getFaceBoundingBox();
 	void captureFrame(cv::Mat& frame);
 	// if the heart rate is computed, non zero value is returned.
 	float getHeartRate();
+	// if the face bounding box is found, returns true and the rect is stored in mFaceBoundingBox.
+	bool computeFaceBoundingBox(const cv::Mat& frame);
 private:
+	bool mFoundFace;
 	float mHeartRate;
 	cv::Rect mFaceBoundingBox;
 	CascadeDetector* mpFaceDetector;
+	CascadeDetector* mpNoseDetector;
 };
 
 #endif /* HEARTRATECOMPUTER_H_ */

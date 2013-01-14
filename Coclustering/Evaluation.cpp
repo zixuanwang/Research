@@ -41,7 +41,6 @@ std::vector<std::string> Evaluation::faceFilter(const std::string& directory,
 	faceDetector.init(cascadeName);
 	noseDetector.init(nestedCascadeName);
 	FaceLandmarkDetector::instance()->init(modelPath);
-
 	boost::filesystem::path bstDirectory = directory;
 	std::vector<std::string> nameArray;
 	Serializer::loadStringArray(nameArray, filePath);
