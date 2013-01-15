@@ -16,7 +16,8 @@ class HeartRateComputer {
 public:
 	HeartRateComputer();
 	~HeartRateComputer();
-	void setFaceDetector(CascadeDetector* pFaceDetector, CascadeDetector* pNoseDetector);
+	void setFaceDetector(CascadeDetector* pFaceDetector,
+			CascadeDetector* pNoseDetector);
 	void setFaceBoundingBox(const cv::Rect& faceBoundingBox);
 	cv::Rect getFaceBoundingBox();
 	void captureFrame(cv::Mat& frame);

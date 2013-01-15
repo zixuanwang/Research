@@ -1341,9 +1341,9 @@ void Tester::testVideo() {
 		exit(1);
 	}
 	std::string cascadeName =
-			"C:/opencv/data/haarcascades/haarcascade_frontalface_alt2.xml";
+			"/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml";
 	std::string nestedCascadeName =
-			"C:/opencv/data/haarcascades/haarcascade_mcs_nose.xml";
+			"/usr/local/share/OpenCV/haarcascades/haarcascade_mcs_nose.xml";
 	// initialize detectors
 	CascadeDetector faceDetector;
 	CascadeDetector noseDetector;
@@ -1354,7 +1354,7 @@ void Tester::testVideo() {
 	cv::Mat frame;
 	cv::namedWindow("edges", 1);
 	for (;;) {
-		cap >> frame; // get a new frame from camera
+		cap >> frame;
 		heartComputer.captureFrame(frame);
 		cv::imshow("edges", frame);
 		if (cv::waitKey(30) >= 0)
